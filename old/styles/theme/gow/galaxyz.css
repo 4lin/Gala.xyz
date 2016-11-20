@@ -1,0 +1,1011 @@
+#galaxy #message-wrapper {
+    display:none;
+}
+
+#galaxy #inhalt, #galaxy #eventboxContent {
+    top: -44px;
+}
+
+#galaxytable {
+    /* 	background: transparent url("/cdn/img/galaxy/bg.jpg") repeat-y; */
+    width:654px;
+}
+
+#galaxyscroll,#solarscroll {
+    float:left;
+    text-align:center;
+    height:50px;
+}
+
+#galaxyContent table.legende {
+    width:250px;
+    margin:0px auto;
+}
+
+#galaxy #legendTT dt {
+    clear: left;
+    float: left;
+    width: 20px;
+}
+#galaxy #legendTT dd {
+    float: left;
+}
+
+#galaxyContent table.legende td.abbreviation {
+    text-align:center;
+}
+
+#galaxyscroll span,#solarscroll span {
+    display:block; 
+    text-align:center
+}
+
+#solarscroll div {
+    text-align:center; 
+    margin:0px auto; 
+    width:80px;
+}	
+
+#galaxyscroll {
+    width:85px;
+}
+
+#expeditionbutton,#showbutton {
+    height:24px;
+    /*	float:left;
+	margin-left:0px;
+	margin-top:25px;*/
+    display:inline;	/* IE6 */
+}
+
+#extendedgalaxy { /*	float:left;*/
+    width: 200px;
+    /*	margin-left:58px;*/
+    padding-top: 2px;
+    display: inline; /* IE6 */
+    text-align: right;
+}
+
+#extendedgalaxy a {
+    color: #7c7c7c;
+    text-decoration: none;
+}
+
+#expeditionbutton span,#showbutton span {
+    float: left;
+}
+
+#expeditionbutton .bleft,#expeditionbutton .bright,#expeditionbutton .text,#showbutton .bleft,#showbutton .bright,#showbutton .text
+{
+    height: 24px;
+    line-height: 24px;
+}
+
+#expeditionbutton .bleft,#showbutton .bleft {
+    width: 2px;
+    background: transparent url("/cdn/img/galaxy/exp-bleft.gif") no-repeat 0px;
+}
+
+#expeditionbutton .bright,#showbutton .bright {
+    width: 14px;
+    background: transparent url("/cdn/img/galaxy/exp-bright-arrow.gif")
+        no-repeat 0px;
+}
+
+#expeditionbutton .text,#showbutton .text {
+    padding: 0px 10px;
+    background: transparent url("/cdn/img/galaxy/exp-bg.gif") repeat-x -1px 0px;
+}
+
+#expeditionbutton a:link,#expeditionbutton a:visited,.no-touch #expeditionbutton a:hover,#expeditionbutton a:active,#showbutton a:link,#showbutton a:visited,.no-touch .no-touch #showbutton a:hover,#showbutton a:active
+{
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+.no-touch #expeditionbutton a:hover,.no-touch .no-touch #extendedgalaxy a:hover,.no-touch .no-touch #showbutton a:hover {
+    color: #99CC00;
+}
+
+#galaxyscroll a,#solarscroll a {
+    float: left;
+    height: 24px;
+    width: 25px;
+}
+
+#solarscroll {
+    width: 150px;
+    height: 50px;
+}
+
+#galaxyheadbg {
+    width: 654px;
+    height: 64px;
+    background: transparent url("/cdn/img/galaxy/kopf1-bg.gif") no-repeat;
+    position: relative;
+}
+
+#galaxyheadbg td,#galaxyheadbg th,#galaxyheadbg2 td,#galaxyheadbg2 th {
+    background: none;
+}
+
+#galaxy tr#galaxyheadbg td {
+    padding: 5px 0px 0px 7px;
+    color: #ffffff;
+}
+
+#galaxy #galaxytable td.emptyspace {
+    height: 31px;
+}
+
+#galaxyheadbg2 {
+    width: 654px;
+    height: 25px;
+    background: transparent url("/cdn/img/galaxy/kopf2-bg.gif") no-repeat;
+    position: relative;
+    display: block;
+}
+#galaxyheadbg2 th {
+    padding-top: 5px;
+    text-align: center;
+}
+
+#galaxy #galaxytable { /*	width:654px;*/
+    margin: 0px auto;
+    color: #7c7c7c;
+    overflow: hidden;
+}
+
+#galaxy #galaxytable td.planetname a:link,
+#galaxy #galaxytable td.planetname a:visited,
+.no-touch #galaxy #galaxytable td.planetname a:hover,
+#galaxy #galaxytable td.planetname a:active,
+#galaxy #galaxytable td.planetname1 a:link,
+#galaxy #galaxytable td.planetname1 a:visited,
+.no-touch #galaxy #galaxytable td.planetname1 a:hover,
+#galaxy #galaxytable td.planetname1 a:active {
+    color: #1A1313;
+}
+
+#galaxy #galaxytable td.planetname a.phalanxlink:link,
+#galaxy #galaxytable td.planetname a.phalanxlink:visited,
+.no-touch #galaxy #galaxytable td.planetname a.phalanxlink:hover,
+#galaxy #galaxytable td.planetname a.phalanxlink:active {
+    color: #8cacdc;
+    text-decoration:none;
+}
+.no-touch #galaxy #galaxytable td.planetname a.phalanxlink:hover {
+    color:#9c0;
+    text-decoration:none;
+}
+
+.no-touch #galaxy #galaxytable td.planetname a:hover,
+.no-touch #galaxy #galaxytable td.planetname1 a:hover {
+    color: #99cc00;
+}
+
+#galaxyContent table th {
+    font-weight: 700;
+}
+
+#galaxy #galaxytable tr.row {
+    background: transparent url("/cdn/img/galaxy/row-bg.gif") no-repeat;
+    /*	height:28px; 	*/
+    position: relative;
+}
+
+#galaxy #galaxytable tr.row td {
+    vertical-align: middle;
+    font-size: 11px;
+    height: 30px;
+    overflow: hidden;
+}
+
+.no-touch #galaxy #galaxytable tr.row td.microplanet:hover,.no-touch .no-touch #galaxy #galaxytable tr.row td.microplanet1:hover,.no-touch .no-touch #galaxy #galaxytable tr.row td.moon img:hover,.no-touch .no-touch #galaxy #galaxytable tr.row td.debris img:hover,.no-touch .no-touch #galaxy #galaxytable tr.row td.playername:hover,.no-touch .no-touch #galaxy #galaxytable tr.row td.allytag span.allytagwrapper:hover
+{
+    color: #55ccdd;
+    cursor: pointer;
+}
+
+#galaxy #galaxytable tr.row td.playername a {
+    text-decoration: none;
+}
+
+#galaxy #galaxytable tr.row td span.status {
+    font-size: 10px;
+}
+
+#galaxy #galaxytable td.toppad {
+    padding-top: 3px;
+}
+
+
+#galaxy #galaxytable td.microplanet,#galaxy #galaxytable td.microplanet1
+{
+    width: 38px;
+    padding: 0px 0px 0px 0px;
+    text-align: left;
+    position: relative;
+}
+
+.no-touch #galaxy #galaxytable td.microplanet1:hover {
+    cursor: auto;
+}
+
+#galaxy #galaxytable tr.row td.planetname,#galaxy #galaxytable tr.row td.planetname1
+{
+    width: 161px;
+    vertical-align: middle;
+}
+
+.no-touch #galaxy #galaxytable td.planetname1:hover {
+    cursor: auto;
+}
+
+#galaxy #galaxytable td.moon {
+    width: 34px;
+    text-align: center;
+    position: relative;
+}
+
+#galaxy #galaxytable td.moon a, #galaxy #galaxytable td.debris a {
+    height: 32px;
+    display: block;
+}
+
+#galaxy #galaxytable td.spacer02 {
+    width: 14px;
+}
+
+#galaxy #galaxytable td.debris {
+    vertical-align:top;
+    width: 34px;
+    position: relative;
+}
+
+#galaxy #galaxytable td.debris a {
+}
+
+#galaxy #galaxytable td.debris img {
+}
+
+#galaxy #galaxytable td.playername {
+    width: 151px;
+    padding-top: 2px;
+}
+
+#galaxy #galaxytable td.spacer03 {
+    width: 5px;
+}
+
+#galaxy #galaxytable tr.row td.allytag {
+    width: 101px;
+    padding-top: 2px;
+    vertical-align: middle;
+}
+
+
+#galaxy #galaxytable td.end {
+    width: 4px;
+}
+
+#galaxy #galaxytable tr.footer {
+    background: transparent url("/cdn/img/galaxy/footer-bg.gif");
+    position: relative;
+}
+
+#galaxy #galaxytable tr.footer td {
+    height: 28px;
+    color: #ccd3cf;
+    font-size: 11px;
+}
+
+#galaxy #galaxytable tr.footer span {
+    padding: 0px 10px;
+}
+
+.no-touch #galaxy #galaxytable tr.footer span#probes :hover,#galaxy #galaxytable tr.footer span#recycler
+.no-touch :hover,.no-touch .no-touch #galaxy #galaxytable tr.footer span#rockets :hover,#galaxy #galaxytable tr.footer span#slots
+.no-touch :hover {
+    color: #5cd;
+    cursor: help;
+}
+
+#galaxy #galaxytable tr.footer span span {
+    padding: 0px;
+}
+
+/***************** rocketattack *********************/
+#extendedgalaxy,#expeditionbutton,#showbutton {
+    position: absolute;
+}
+
+#extendedgalaxy {
+    top: 0px;
+    left: 402px;
+}
+
+
+#extendedgalaxy {
+    /*	float:left;*/
+    width:200px;
+    /*	margin-left:58px;*/
+    padding-top:2px;
+    display:inline; /* IE6 */
+    text-align:right;
+}
+#extendedgalaxy a{
+    color:#7c7c7c;
+    text-decoration:none;
+}
+
+
+#expeditionbutton span,
+#showbutton span {
+    float:left;
+}
+
+#expeditionbutton .bleft,
+#expeditionbutton .bright,
+#expeditionbutton .text,
+#showbutton .bleft,
+#showbutton .bright,
+#showbutton .text {
+    height:24px;
+    line-height:24px;
+}
+
+#expeditionbutton .bleft,
+#showbutton .bleft {
+    width:2px;
+    background:transparent url("/cdn/img/galaxy/exp-bleft.gif") no-repeat 0px;
+}
+
+#expeditionbutton .bright,
+#showbutton .bright {
+    width:14px;
+    background:transparent url("/cdn/img/galaxy/exp-bright-arrow.gif") no-repeat 0px;
+}
+
+#expeditionbutton .text,
+#showbutton .text {
+    padding:0px 10px;
+    background:transparent url("/cdn/img/galaxy/exp-bg.gif") repeat-x -1px 0px;
+}
+
+#expeditionbutton a:link,
+#expeditionbutton a:visited,
+.no-touch #expeditionbutton a:hover,
+#expeditionbutton a:active,
+#showbutton a:link,
+#showbutton a:visited,
+.no-touch #showbutton a:hover,
+#showbutton a:active{
+    color:#ffffff;
+    text-decoration:none;
+    display:block;
+    cursor:pointer;
+}
+
+.no-touch #expeditionbutton a:hover,
+.no-touch #extendedgalaxy a:hover,
+.no-touch #showbutton a:hover {
+    color:#99CC00;
+}
+
+
+#galaxyscroll a,
+#solarscroll a {
+    float:left; 
+    height:24px; 
+    width:25px;
+}
+
+#galaxyscroll input,
+#solarscroll input {
+    background:#000000 none repeat scroll 0px 0px; 
+    border:0pt none; 
+    border-radius: 0;
+    box-shadow: none;
+    color:#ffffff; 
+    padding:0px; 
+    width:30px; 
+    height:24px; 
+    line-height:24px; 
+    text-align:center; 
+    font-size:12px; 
+    font-weight:700; 	
+    padding:0px 0px 0px 0px; 
+    float:left;
+}
+
+#solarscroll {
+    width:150px;
+    height:50px;
+}
+
+
+#galaxyheadbg {
+    width:654px;
+    height:64px;
+    background: transparent url("/cdn/img/galaxy/kopf1-bg.gif") no-repeat;
+    position:relative;
+}
+
+#galaxyheadbg td,
+#galaxyheadbg th,
+#galaxyheadbg2 td,
+#galaxyheadbg2 th {
+    background:none;
+}
+
+#galaxy tr#galaxyheadbg td {
+    padding:5px 0px 0px 7px;
+    color:#ffffff;	
+}
+
+#galaxy #galaxytable td.emptyspace {
+    height:31px;
+}
+
+
+#galaxy #galaxytable,
+#galaxy #galaxytableHead {
+    /*	width:654px;*/
+    /*	color:#7c7c7c;*/
+    color:#CFCBC2;
+    margin:0px auto;
+    overflow:hidden;
+}
+
+#galaxy #galaxytable td.planetname a:link,
+#galaxy #galaxytable td.planetname a:visited,
+.no-touch #galaxy #galaxytable td.planetname a:hover,
+#galaxy #galaxytable td.planetname a:active,
+#galaxy #galaxytable td.planetname1 a:link,
+#galaxy #galaxytable td.planetname1 a:visited,
+.no-touch #galaxy #galaxytable td.planetname1 a:hover,
+#galaxy #galaxytable td.planetname1 a:active {	color:#1A1313;}
+
+.no-touch #galaxy #galaxytable td.planetname a:hover,
+.no-touch #galaxy #galaxytable td.planetname1 a:hover {
+    color:#99cc00;
+    text-decoration:none;
+}
+
+#galaxyContent table td{
+    text-align:center;
+    padding:0px 0px;
+    /* 	line-height:25px; */
+    font-size:12px;
+}
+
+#galaxyContent table th {font-weight:700;}
+
+#galaxyContent table th.text_moon {text-align:left;}
+
+#galaxy #galaxytable tr.row {
+    background: transparent url("/cdn/img/galaxy/row-bg.gif") no-repeat;
+    /*	height:28px; 	*/
+    position:relative;
+    display: block;
+    width:654px;
+
+}
+
+#galaxy #galaxytable tr.row td {	
+    vertical-align:middle; 
+    font-size:11px;
+    height:32px;
+    overflow:hidden;
+    padding:0;
+}
+#galaxy #galaxytable tr.row td.action>span {
+    display: inline-block;
+    position: relative;
+    height: 16px;
+    width: 76px;
+}
+
+#galaxy #galaxytable tr.row td.moon img{
+    margin: 0 0 0 2px;
+}
+
+.no-touch #galaxy #galaxytable tr.row td.microplanet:hover,
+.no-touch #galaxy #galaxytable tr.row td.microplanet1:hover,
+.no-touch #galaxy #galaxytable tr.row td.moon img:hover,
+.no-touch #galaxy #galaxytable tr.row td.debris img:hover,
+.no-touch #galaxy #galaxytable tr.row td.playername:hover,
+.no-touch #galaxy #galaxytable tr.row td.allytag span.allytagwrapper:hover {
+    color:#55ccdd;
+    cursor:pointer;
+}
+#galaxy #galaxytable tr.row td.playername a{
+    text-decoration:none;
+}
+
+#galaxy #galaxytable tr.row td span.status { font-size:10px;}
+
+#galaxy #galaxytable td.toppad { padding-top:3px;}
+#galaxy #galaxytable td {
+    vertical-align:top;
+}
+
+#galaxy #galaxytable tr.none {
+    background:none;
+    position:relative;
+}
+
+#galaxy div.activity {
+    height:12px;
+    top: 0;
+    float: left;
+    position: absolute;
+    margin-left: 3px;
+    width:12px;
+}
+
+#galaxy div.activity.minute15 {
+    background: url("/cdn/img/icons/iconsprite16px.png") no-repeat 0 -656px;
+/*    background-image: url("/cdn/img/galaxy/activity15.gif");*/
+}
+#galaxy div.activity.minute60 {
+    background: url("/cdn/img/icons/iconsprite16px.png") no-repeat 0 -640px;
+/*    background-image: url("/cdn/img/galaxy/activity.gif");*/
+}
+#galaxy div.activity.showMinutes {
+    width: 15px;
+    background-color: #000000;
+    color: #ffa800;
+    padding: 0 1px 1px 0;
+    border: 1px solid #ffa800;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    -khtml-border-radius:3px;
+    border-radius:3px;
+}
+
+#galaxy #galaxytable td.spacer01 {width:6px;}
+
+
+#galaxy #galaxytable td.position {
+    width:29px; 
+    text-align:right;
+}
+
+#galaxy #galaxytable td.microplanet1 {
+    background-repeat: no-repeat;
+    background-position: 4px 0;
+    width:38px;
+    padding:0;
+    text-align:left;
+    position: relative;
+/*    margin-left: 10px;*/
+}
+
+.no-touch #galaxy #galaxytable td.microplanet1:hover { cursor:auto;}
+
+#galaxy #galaxytable tr.row td.planetname,
+#galaxy #galaxytable tr.row td.planetname1 {
+    width:161px; 
+    vertical-align:middle;
+}
+
+.no-touch #galaxy #galaxytable td.planetname1:hover { cursor:auto;}
+
+#galaxy #galaxytable td.moon {	
+    width:34px;	
+    text-align:center;
+}
+
+#galaxy #galaxytable td.spacer02 {	width:14px;}
+
+#galaxy #galaxytable td.playername {	
+    width:151px;
+    padding-top:2px;	
+}
+
+#galaxy #galaxytable td.spacer03 {	width:5px;}
+
+#galaxy #galaxytable tr.row td.allytag {	
+    width:101px;
+    padding-top:1px; 
+    vertical-align:middle;	
+}
+
+#galaxy #galaxytable td.spacer04 {	width: 5px;}
+
+#galaxy #galaxytable td.action {
+    text-align:left;
+    width:72px;
+    padding:0px; 
+    margin: 0 0 0 1px;
+    white-space:nowrap;
+    vertical-align:top;
+}
+
+#galaxy #galaxytable td.action a {
+    width:16px;
+    height: 16px;
+    display: inline-block; /*IE6 */
+    position: absolute;
+    top: 0;
+}
+#galaxy #galaxytable td.action a.espionage{
+    left: 0px;
+}
+#galaxy #galaxytable td.action a.writemessage{
+    left: 18px;
+}
+#galaxy #galaxytable td.action a.buddyrequest{
+    left: 36px;
+}
+#galaxy #galaxytable td.action a.missleattack {
+    left: 54px;
+}
+#galaxy #galaxytable td.action img {
+    padding:0px;
+    margin:0;
+    /*	margin:-1px 0 0 0;*/
+    border:none 0px;
+    width: 16px;
+    height: 16px;
+}
+
+#galaxy #galaxytable td.end { width:4px; }
+
+
+/* Tabellenende Footer/Info */
+
+
+
+#galaxy #galaxytable tr.footer {
+    background: transparent url("/cdn/img/galaxy/kopf2-bg.gif") repeat-y;
+    position:relative;
+}
+
+#galaxy #galaxytable tr.info,
+#galaxy #galaxytableHead tr.info {
+    background: transparent url("/cdn/img/galaxy/kopf2-bg.gif") no-repeat;
+    position:relative;
+}
+
+#galaxy #galaxytable tr.footer td,
+#galaxy #galaxytable tr.info td,
+#galaxy #galaxytableHead tr.footer td,
+#galaxy #galaxytableHead tr.info td {
+    color:#ccd3cf;
+    font-size:11px;
+    height:25px;
+    padding-top:5px;
+}
+
+#galaxy #inhalt td#fleetstatusrow { padding:0px;}
+
+td#fleetstatusrow div {
+    border: none;
+    font-weight:700;
+    padding:5px 5px 7px 5px;
+}
+
+
+#fleetstatusrow .success { color: #149B0D; }
+#fleetstatusrow .error { color: #D43635; }
+#fleetstatusrow .notice { color: #D43635; }
+#fleetstatusrow .vacation { color: #6f9fc8; }
+
+#galaxy #galaxytable tr.footer span,
+#galaxy #galaxytableHead tr.info span,
+#galaxy #galaxytable tr.info span  {
+    color:#6f9fc8;
+    padding:0px 10px;
+}
+
+#galaxy #galaxytable tr.info_header span {
+    color:#616161;
+    padding: 0px 10px;
+    display: inline-block;
+}
+
+.no-touch #galaxy #galaxytable tr.footer span#probes:hover,
+.no-touch #galaxy #galaxytable tr.footer span#recycler:hover,
+.no-touch #galaxy #galaxytable tr.footer span#rockets:hover,
+.no-touch #galaxy #galaxytable tr.footer span#slots:hover {
+    color:#6f9fc8;
+    cursor:help;
+}
+
+.no-touch #galaxy #galaxytable tr.footer span:hover {
+    color:#99cc00;
+    cursor:help;
+}
+
+#galaxy #galaxytable tr.footer span span,
+#galaxy #galaxytable tr.info span span {
+    padding:0px;
+}
+
+
+/***************** rocketattack *********************/
+
+
+
+#extendedgalaxy,
+#expeditionbutton,
+#showbutton {
+    position:absolute;
+}
+
+#showbutton {	top:23px; left:206px;	}
+#expeditionbutton { top:23px; left:307px;}
+#extendedgalaxy { top:0px; left:402px;	}
+
+
+
+/***************************************
+		Raketenangriff
+***************************************/
+
+
+#galaxyadv #rocketattack .textinput,
+#galaxy #rocketattack .textinput { width: 60px; }
+
+.fleetAction {
+    height:12px;
+    margin-left:20px;
+    overflow:hidden;
+    text-align:center;
+    width:12px;
+    bottom: 0px;
+    position: absolute;
+}
+
+.fleetNormal {	background: url("/cdn/img/layout/fleet_12x12.gif") no-repeat; }
+.fleetHostile {	background: url("/cdn/img/layout/fleet_12x12_hostile.gif") no-repeat; }
+.fleetNeutral {	background: url("/cdn/img/layout/fleet_12x12_neutral.gif") no-repeat; }
+
+
+.backGalaxy,
+.backGalaxyOff,
+.forwardGalaxy,
+.forwardGalaxyOff { background: transparent url("/cdn/img/galaxy/arrows-spriteset.gif") no-repeat; }
+
+.backGalaxy { background-position: 0px -24px}
+.no-touch .backGalaxy:hover { background-position: -50px -24px}
+.forwardGalaxy { background-position: 0px 0px}
+.no-touch .forwardGalaxy:hover { background-position: -50px 0px}
+.backGalaxyOff { background-position: -25px -24px }
+.forwardGalaxyOff { background-position: -25px 0px }
+
+
+#galaxy tr.info span#colonized {
+    float:left;
+}
+
+#galaxy #legend {
+    float: right;
+}
+#galaxy #legend a {
+    height: 16px;
+    width: 16px;
+    display: block;
+}
+
+.galaxyTooltip { min-width: 220px; }
+.galaxyTooltip h1 { margin: 0 16px 0 0; }
+
+.galaxyTooltip ul {
+    list-style: none;
+}
+.galaxyTooltip .ListImage {
+    display: block;
+    float: left;
+}
+
+.galaxyTooltip .ListLinks {
+    display: block;
+    float: left;
+    margin-left: 5px;
+    width: 140px
+}
+
+#rocketattack {
+    text-align: center;
+    width: 420px;
+}
+
+#rocketattack #target {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+#rocketattack #arrivalTime {
+    margin-bottom: 10px
+}
+
+#rocketattack .btn_blue {
+    margin-top: 15px;
+}
+#rocketattack #number {
+    color: white;
+}
+#rocketattack #priority {
+    margin-top: 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+#rocketattack #priority a {
+    background: none;
+}
+#rocketattack #priority a:hover,
+#rocketattack #priority a.active {
+    background:url("/cdn/img/navigation/rahmen-80x80.gif") no-repeat;
+}
+#rocketattack #priority ul {
+    margin-top: 5px;
+}
+#rocketattack #numberrockets {
+    height: 120px;
+}
+#rocketattack #numberrockets li {
+    float: none;
+    height: 80px;
+    width: 80px;
+    margin: 0 0 3px 0;
+    display: inline-block;
+}
+
+/* *********************** Galaxy Planet Images ************************************** */
+#galaxyContent td.microplanet.colonized,
+.ListImage img.planetTooltip { 
+    background-image: url("/cdn/img/content/planets_28.png");
+    background-repeat: no-repeat;
+}
+
+#galaxyContent td.microplanet.desert_1,
+.ListImage img.planetTooltip.desert_1 { background-position: 0px 0px; }
+#galaxyContent td.microplanet.desert_2,
+.ListImage img.planetTooltip.desert_2 { background-position: -38px 0px; }
+#galaxyContent td.microplanet.desert_3,
+.ListImage img.planetTooltip.desert_3 { background-position: -76px 0px; }
+#galaxyContent td.microplanet.desert_4,
+.ListImage img.planetTooltip.desert_4 { background-position: -114px 0px; }
+#galaxyContent td.microplanet.desert_5,
+.ListImage img.planetTooltip.desert_5 { background-position: -152px 0px; }
+#galaxyContent td.microplanet.desert_6,
+.ListImage img.planetTooltip.desert_6 { background-position: -190px 0px; }
+#galaxyContent td.microplanet.desert_7,
+.ListImage img.planetTooltip.desert_7 { background-position: -228px 0px; }
+#galaxyContent td.microplanet.desert_8,
+.ListImage img.planetTooltip.desert_8 { background-position: -266px 0px; }
+#galaxyContent td.microplanet.desert_9,
+.ListImage img.planetTooltip.desert_9 { background-position: -304px 0px; }
+#galaxyContent td.microplanet.desert_10,
+.ListImage img.planetTooltip.desert_10 { background-position: -342px 0px; }
+
+#galaxyContent td.microplanet.dry_1,
+.ListImage img.planetTooltip.dry_1 { background-position: 0px -33px; }
+#galaxyContent td.microplanet.dry_2,
+.ListImage img.planetTooltip.dry_2 { background-position: -38px -33px; }
+#galaxyContent td.microplanet.dry_3,
+.ListImage img.planetTooltip.dry_3 { background-position: -76px -33px; }
+#galaxyContent td.microplanet.dry_4,
+.ListImage img.planetTooltip.dry_4 { background-position: -114px -33px; }
+#galaxyContent td.microplanet.dry_5,
+.ListImage img.planetTooltip.dry_5 { background-position: -152px -33px; }
+#galaxyContent td.microplanet.dry_6,
+.ListImage img.planetTooltip.dry_6 { background-position: -190px -33px; }
+#galaxyContent td.microplanet.dry_7,
+.ListImage img.planetTooltip.dry_7 { background-position: -228px -33px; }
+#galaxyContent td.microplanet.dry_8,
+.ListImage img.planetTooltip.dry_8 { background-position: -266px -33px; }
+#galaxyContent td.microplanet.dry_9,
+.ListImage img.planetTooltip.dry_9 { background-position: -304px -33px; }
+#galaxyContent td.microplanet.dry_10,
+.ListImage img.planetTooltip.dry_10 { background-position: -342px -33px; }
+
+#galaxyContent td.microplanet.gas_1,
+.ListImage img.planetTooltip.gas_1 { background-position: 0px -66px; }
+#galaxyContent td.microplanet.gas_2,
+.ListImage img.planetTooltip.gas_2 { background-position: -38px -66px; }
+#galaxyContent td.microplanet.gas_3,
+.ListImage img.planetTooltip.gas_3 { background-position: -76px -66px; }
+#galaxyContent td.microplanet.gas_4,
+.ListImage img.planetTooltip.gas_4 { background-position: -114px -66px; }
+#galaxyContent td.microplanet.gas_5,
+.ListImage img.planetTooltip.gas_5 { background-position: -152px -66px; }
+#galaxyContent td.microplanet.gas_6,
+.ListImage img.planetTooltip.gas_6 { background-position: -190px -66px; }
+#galaxyContent td.microplanet.gas_7,
+.ListImage img.planetTooltip.gas_7 { background-position: -228px -66px; }
+#galaxyContent td.microplanet.gas_8,
+.ListImage img.planetTooltip.gas_8 { background-position: -266px -66px; }
+#galaxyContent td.microplanet.gas_9,
+.ListImage img.planetTooltip.gas_9 { background-position: -304px -66px; }
+#galaxyContent td.microplanet.gas_10,
+.ListImage img.planetTooltip.gas_10 { background-position: -342px -66px; }
+
+#galaxyContent td.microplanet.ice_1,
+.ListImage img.planetTooltip.ice_1 { background-position: 0px -99px; }
+#galaxyContent td.microplanet.ice_2,
+.ListImage img.planetTooltip.ice_2 { background-position: -38px -99px; }
+#galaxyContent td.microplanet.ice_3,
+.ListImage img.planetTooltip.ice_3 { background-position: -76px -99px; }
+#galaxyContent td.microplanet.ice_4,
+.ListImage img.planetTooltip.ice_4 { background-position: -114px -99px; }
+#galaxyContent td.microplanet.ice_5,
+.ListImage img.planetTooltip.ice_5 { background-position: -152px -99px; }
+#galaxyContent td.microplanet.ice_6,
+.ListImage img.planetTooltip.ice_6 { background-position: -190px -99px; }
+#galaxyContent td.microplanet.ice_7,
+.ListImage img.planetTooltip.ice_7 { background-position: -228px -99px; }
+#galaxyContent td.microplanet.ice_8,
+.ListImage img.planetTooltip.ice_8 { background-position: -266px -99px; }
+#galaxyContent td.microplanet.ice_9,
+.ListImage img.planetTooltip.ice_9 { background-position: -304px -99px; }
+#galaxyContent td.microplanet.ice_10,
+.ListImage img.planetTooltip.ice_10 { background-position: -342px -99px; }
+
+#galaxyContent td.microplanet.jungle_1,
+.ListImage img.planetTooltip.jungle_1 { background-position: 0px -132px; }
+#galaxyContent td.microplanet.jungle_2,
+.ListImage img.planetTooltip.jungle_2 { background-position: -38px -132px; }
+#galaxyContent td.microplanet.jungle_3,
+.ListImage img.planetTooltip.jungle_3 { background-position: -76px -132px; }
+#galaxyContent td.microplanet.jungle_4,
+.ListImage img.planetTooltip.jungle_4 { background-position: -114px -132px; }
+#galaxyContent td.microplanet.jungle_5,
+.ListImage img.planetTooltip.jungle_5 { background-position: -152px -132px; }
+#galaxyContent td.microplanet.jungle_6,
+.ListImage img.planetTooltip.jungle_6 { background-position: -190px -132px; }
+#galaxyContent td.microplanet.jungle_7,
+.ListImage img.planetTooltip.jungle_7 { background-position: -228px -132px; }
+#galaxyContent td.microplanet.jungle_8,
+.ListImage img.planetTooltip.jungle_8 { background-position: -266px -132px; }
+#galaxyContent td.microplanet.jungle_9,
+.ListImage img.planetTooltip.jungle_9 { background-position: -304px -132px; }
+#galaxyContent td.microplanet.jungle_10,
+.ListImage img.planetTooltip.jungle_10 { background-position: -342px -132px; }
+
+#galaxyContent td.microplanet.normal_1,
+.ListImage img.planetTooltip.normal_1 { background-position: 0px -165px; }
+#galaxyContent td.microplanet.normal_2,
+.ListImage img.planetTooltip.normal_2 { background-position: -38px -165px; }
+#galaxyContent td.microplanet.normal_3,
+.ListImage img.planetTooltip.normal_3 { background-position: -76px -165px; }
+#galaxyContent td.microplanet.normal_4,
+.ListImage img.planetTooltip.normal_4 { background-position: -114px -165px; }
+#galaxyContent td.microplanet.normal_5,
+.ListImage img.planetTooltip.normal_5 { background-position: -152px -165px; }
+#galaxyContent td.microplanet.normal_6,
+.ListImage img.planetTooltip.normal_6 { background-position: -190px -165px; }
+#galaxyContent td.microplanet.normal_7,
+.ListImage img.planetTooltip.normal_7 { background-position: -228px -165px; }
+#galaxyContent td.microplanet.normal_8,
+.ListImage img.planetTooltip.normal_8 { background-position: -266px -165px; }
+#galaxyContent td.microplanet.normal_9,
+.ListImage img.planetTooltip.normal_9 { background-position: -304px -165px; }
+#galaxyContent td.microplanet.normal_10,
+.ListImage img.planetTooltip.normal_10 { background-position: -342px -165px; }
+
+#galaxyContent td.microplanet.water_1,
+.ListImage img.planetTooltip.water_1 { background-position: 0px -198px; }
+#galaxyContent td.microplanet.water_2,
+.ListImage img.planetTooltip.water_2 { background-position: -38px -198px; }
+#galaxyContent td.microplanet.water_3,
+.ListImage img.planetTooltip.water_3 { background-position: -76px -198px; }
+#galaxyContent td.microplanet.water_4,
+.ListImage img.planetTooltip.water_4 { background-position: -114px -198px; }
+#galaxyContent td.microplanet.water_5,
+.ListImage img.planetTooltip.water_5 { background-position: -152px -198px; }
+#galaxyContent td.microplanet.water_6,
+.ListImage img.planetTooltip.water_6 { background-position: -190px -198px; }
+#galaxyContent td.microplanet.water_7,
+.ListImage img.planetTooltip.water_7 { background-position: -228px -198px; }
+#galaxyContent td.microplanet.water_8,
+.ListImage img.planetTooltip.water_8 { background-position: -266px -198px; }
+#galaxyContent td.microplanet.water_9,
+.ListImage img.planetTooltip.water_9 { background-position: -304px -198px; }
+#galaxyContent td.microplanet.water_10,
+.ListImage img.planetTooltip.water_10 { background-position: -342px -198px; }
