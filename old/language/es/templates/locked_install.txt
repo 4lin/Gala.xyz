@@ -1,0 +1,7 @@
+<h1>El instalador esta bloqueado</h1>
+<p>Para activarlo, crear ENABLE_INSTALL_TOOL.</p>
+<ul>
+    <li>En includes/ , crear un documento ENABLE_INSTALL_TOOL. El nombre del archivo es sensible a mayúsculas, pero el propio archivo puede ser simplemente un archivo vacío.</li>
+</ul>
+<p>Por razones de seguridad, se recomienda que sea el nombre o eliminar el archivo después de finalizar la operación.</p>
+<p>Como medida de seguridad adicional, si el archivo tiene más de una hora, 2Moons automáticamente eliminarlo.</p>

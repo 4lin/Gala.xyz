@@ -1,0 +1,12 @@
+<div class="left">
+<h2>Informacion para multiuniverso</h2>
+<p>2Moons soporta multiuniversos, tiene que configurara el servidor web con el requerido.</p>
+<p>Puedes encontrar lo que necesita tu servidor en el boton "Informaciones". Si no estas seguro, mejor, pregunta a tu compania de alojamiento web.</p>
+<h3>Apache</h3>
+<p>Si utilizas un Servidor Apache, tienes que quitar solo las lineas 48-51 en el archivo .htacces en los caracteres de envío (eliminar la ruta).<br>
+En modo adicional, se requede mod_rewrite.</p>
+<h3>nginx</h3>
+<p>Si esta servido en un Servidor nginx, la configuracion vhost es directo hacia la regla rewrite para expandir:</p>
+<p><code>{NGINX-CODE}</code></p>
+<p>Fácil de pegar el fragmento de código debajo de la línea en el "server_name".</p>
+</div>
