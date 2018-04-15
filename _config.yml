@@ -2,7 +2,7 @@ title: Galaxyz
 description: ogame, clone, galaxyz, skin, 2moons, adaptation
 google_analytics: 
 show_downloads: true
-theme: jekyll-theme-slate
+theme: jekyll-theme-minimal
 
 gems:
   - jekyll-mentions
