@@ -1,5 +1,5 @@
 ### Welcome to Gala.xyz
-# [![Gala.xyz #v0.2](https://github.com/4lin/Gala.xyz/releases)]
+# Pre-release of <a href="https://github.com/4lin/Gala.xyz/releases" target="_blank">Gala.xyz #v0.2</a> is out!
 
 ### Authors and Contributors
 # You can visit my profile <a href="https://github.com/4lin" target="_blank">@4lin</a> on GitHub.
