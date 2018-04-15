@@ -39,15 +39,15 @@
  * 
  * @option String cssHeader (optional) A string of the class name to be appended
  *         to sortable tr elements in the thead of the table. Default value:
- *         "theader"
+ *         "header"
  * 
  * @option String cssAsc (optional) A string of the class name to be appended to
  *         sortable tr elements in the thead on a ascending sort. Default value:
- *         "theaderSortUp"
+ *         "headerSortUp"
  * 
  * @option String cssDesc (optional) A string of the class name to be appended
  *         to sortable tr elements in the thead on a descending sort. Default
- *         value: "theaderSortDown"
+ *         value: "headerSortDown"
  * 
  * @option String sortInitialOrder (optional) A string of the inital sorting
  *         order can be asc or desc. Default value: "asc"
@@ -110,9 +110,9 @@
                 widgets = [];
 
             this.defaults = {
-                cssHeader: "theader",
-                cssAsc: "theaderSortUp",
-                cssDesc: "theaderSortDown",
+                cssHeader: "header",
+                cssAsc: "headerSortUp",
+                cssDesc: "headerSortDown",
                 cssChildRow: "expand-child",
                 sortInitialOrder: "asc",
                 sortMultiSortKey: "shiftKey",
