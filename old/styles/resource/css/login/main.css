@@ -1,6 +1,17 @@
-html, body{height:100%;width:100%;margin:0;padding:0}
-
-body{background: url('../../css/login/slide/bg.jpg') repeat scroll 0 0 #000;background-attachment:fixed;background-repeat:no-repeat;background-position:center 0;color:#FFF;margin:0;padding:0;font-family:Tahoma, verdana;font-size:12px;text-align:center;line-height:14px}
+html, body {
+	height:100%;
+	width:100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: 0 #000000;
+    color: #FFFFFF;
+    font-family: verdana;
+    font-size: 12px;
+    text-align: center;
+	line-height:14px;
+}
 
 input, textarea, select, option, button{
 	background-color:#171F2F;
@@ -41,29 +52,25 @@ img{
 
 h1 {
     color: red;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
 }
 
-footer{
-	background: url(../../images/login/header.png) repeat-x center bottom #47494b;
-	height: 19px;
-	text-align: center;
-	position: fixed;
-	bottom: 0px;
-	z-index: 2;
-	width: 100%;
-	clear: both;
+p, #desc_list {
+	color: white;
+	text-shadow: 1px 1px 8px black, 0 0 5px blue, 0 0 5px darkblue;
 }
+/** FOOTER **/
 
-footer .content{
-	margin:0px auto;
-	padding-top:0px;
-	width:720px;
-}
-.small{
-	font-size: 9px;
-	font-weight: 700;
-	display:block
-}
+footer {
+    background: url(//i.imgur.com/ySnjpZS.png) repeat-x center bottom #47494b;
+    height: 19px;
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    z-index: 2;
+    width: 100%;
+    clear: both;
+			}
 
 a {
 	cursor: pointer;
@@ -82,6 +89,19 @@ a:hover{
 #login + .fb_login{
 	margin:14px 0 0 0;
 	display:block;
+}
+
+#loadingImg {
+	background: url(//i.imgur.com/qLwpYiu.gif) no-repeat center transparent;
+	position: absolute;
+	text-align: center;
+    padding: 0px;
+	z-index: 9999;
+	width: 400px;
+	height: 250px;
+	margin: 0 auto;
+	left: 460px;
+	top: 200px;
 }
 
 .clear{
@@ -514,21 +534,15 @@ ul#rules {
 .pl {
 	background: url(../../images/login/flags/pl.png);
 }
-
-/** FOOTER **/
-
-
-footer {
-    color: rgb(132, 132, 132);
-    font: 10px/19px Verdana,Arial,Helvetica,Tahoma,sans-serif;
-    text-align: center;
+.tr {
+	background: url(../../images/login/flags/tr.png);
 }
 
 
 /** FORM **/
 
 .formRow {
-	width:410px;
+	width:420px;
 	margin:6px auto;
 	clear:both;
 }
@@ -565,9 +579,9 @@ footer {
 	padding:3px 0;
 }
 
-#lostPassword  #recaptcha_image {
-	margin-top:5px;
-	padding-left:110px;
+#lostPassword #universe {
+	float: left;
+	margin: 0 0 5px 0;
 }
 #lostPassword  .inputDesc {
 	font-size:10px;
@@ -577,47 +591,7 @@ footer {
 	text-align:left;
 }
 
-/* alin */
-
-div.background {
-	position:absolute;
-	left:0px;
-	top:0px;
-	height:100%;
-	width:100%;
-	z-index:-1;
-}
-div.background img {
-	position:fixed;
-	list-style: none;
-	left:0px;
-	top:0px;
-}
-div.background ul li.show {
-	z-index:500
-}
-
-.opacityWhite {
-background-color: #fff;
-opacity:0.7;
-filter:alpha(opacity=30);
-}
-
-.opacityRed {
-background-color: #ff0;
-opacity:0.7;
-filter:alpha(opacity=30);
-}
-
-.opacityBlack {
-background-color: #000;
-opacity:0.7;
-filter:alpha(opacity=30);
-}
-
-.opacityBlack9 {
-background-color: #000;
-opacity:0.7;
-filter:alpha(opacity=30);
-font-size: 9px;
+.g-recaptcha {
+	float: left;
+	padding: 10px 0;
 }
