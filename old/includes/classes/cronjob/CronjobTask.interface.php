@@ -1,5 +1,4 @@
 <?php
-
 /**
  *  2Moons 
  *   by Jan-Otto Kröpke 2009-2016
@@ -15,13 +14,6 @@
  * @link https://github.com/jkroepke/2Moons
  */
 
-require_once 'includes/classes/cronjob/CronjobTask.interface.php';
-
-class TeamSpeakCronjob implements CronjobTask
-{
-	function run()
-	{
-		Cache::get()->add('teamspeak', 'TeamspeakBuildCache');
-		Cache::get()->flush('teamspeak');
-	}
+interface CronjobTask {
+	function run();
 }
