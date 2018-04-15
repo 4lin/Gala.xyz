@@ -1,1 +1,1 @@
-# galaxyz skin can be downloaded from /old repository
+# updated v2 --prelease
