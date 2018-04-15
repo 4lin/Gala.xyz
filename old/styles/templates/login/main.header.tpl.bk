@@ -41,20 +41,9 @@
 	<script>
 		{if isset($code)}var loginError = {$code|json};{/if}
 	</script>
-
-	<script>
-	$(window).load(function() {      //Do the code in the {}s when the window has loaded 
-	$("#loadingImg").show("fast");
-  	$("#loadingImg").fadeOut(4000);  //Fade out the #loader div
-  	$("#page").hide();
-  	$("#page").fadeIn(2000);
-	});
-	</script>
-
 	{block name="script"}{/block}	
 </head>
 <body id="{$smarty.get.page|htmlspecialchars|default:'overview'}" class="{$bodyclass}">
-	<div id="loadingImg">Loading page please wait...</div>
 		<div id="page">
 			<div class="container">
 			<!-- end main.header -->

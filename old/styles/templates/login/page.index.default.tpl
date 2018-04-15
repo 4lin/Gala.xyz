@@ -1,32 +1,17 @@
 {block name="title" prepend}{$LNG.siteTitleIndex}{/block}
 {block name="content"}
+		<ul class="cb-slideshow">
+            <li><span>Image 01</span><div><h3>{$LNG.rand1} </h3></div></li>
+            <li><span>Image 02</span><div><h3>{$LNG.rand2} </h3></div></li>
+            <li><span>Image 03</span><div><h3>{$LNG.rand3} </h3></div></li>
+            <li><span>Image 04</span><div><h3>{$LNG.rand4} </h3></div></li>
+            <li><span>Image 05</span><div><h3>{$LNG.rand5} </h3></div></li>
+            <li><span>Image 06</span><div><h3>{$LNG.rand6} </h3></div></li>
+		</ul>
 <section>
-	<h1 class="opacityBlack"><span style="color:#0ff">&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;</span> <span style="color:rgb(255,215,0)">{$descHeader}</span> <span style="color:red">&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;</span></h1>
-	<h2 class="opacityBlack">
-		<table cellpadding='7' style='text-align:center;margin-left:auto;margin-right:auto'>
-		{foreach $LNG.gameInformations as $info}
-			<tr>
-				<td>{$info}</td>
-			</tr>
-		{/foreach}
-		</table>
-	</h2>
-	<h2 class="opacityBlack9">
-		<table cellpadding='7' style='text-align:center;margin-left:auto;margin-right:auto'>
-			<tr>
-				<td>
-				&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip; {$LNG.ov_admins_online} {foreach $AdminsOnline as $ID => $Name}{if !$Name@first}&nbsp;&bull;&nbsp;{/if}<span style="color:#f00">{$Name}</span>{foreachelse}<span style="color:#f00">0</span>{/foreach} &vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;&vellip;<br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-				<!--{$LNG.ov_player_online} {foreach $PlayerOnline as $ID => $Name}{if !$Name@first}&nbsp;&bull;&nbsp;{/if}<font style="color:#0fe">{$Name}</font>{foreachelse}<font style="color:#0fe">0</font>{/foreach}-->
-				<!--<p class="desc">{$descText}</p>-->
-				&vellip;&vellip;&vellip;&vellip;&vellip;&vellip; {$LNG.ov_player_online} <span style="color:#f00">{$user_info_online}</span> / <span style="color:#ffff00">{$user_info_all}</span> &vellip;&vellip;&vellip;&vellip;&vellip;&vellip;<br /> &vellip;&vellip;&vellip; {$LNG.ov_user_last_new}<span style="font-weight:bold;color:#0ff">{$user_info_new}</span> &vellip;&vellip;&vellip;
-				</td>
-			</tr>
-		</table>
-	</h2>
+	<h1>{$descHeader}</h1>
+	<p class="desc">{$descText}</p>
+	<p class="desc"><ul id="desc_list">{foreach $gameInformations as $info}<li>{$info}</li>{/foreach}</ul></p>
 </section>
 <section>
 	<table class="contentbox">
