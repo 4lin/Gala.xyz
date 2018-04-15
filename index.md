@@ -1,4 +1,4 @@
-### Welcome to Galaxyz rev0.01.
+### Welcome to Gala.xyz
 You can visit the online github project repo or you just download the project zip or tar
 Hope you like it and please dont complain alot its free project.
 
