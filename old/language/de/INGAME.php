@@ -1,29 +1,18 @@
 <?php
 
 /**
- *  2Moons
- *  Copyright (C) 2012 Jan Kröpke
+ *  2Moons 
+ *   by Jan-Otto Kröpke 2009-2016
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * For the full copyright and license information, please view the LICENSE
  *
  * @package 2Moons
- * @author Jan Kröpke <info@2moons.cc>
- * @copyright 2012 Jan Kröpke <info@2moons.cc>
- * @license http://www.gnu.org/licenses/gpl.html GNU GPLv3 License
- * @version 1.7.3 (2013-05-19)
- * @info $Id: INGAME.php 2636 2013-03-19 19:08:35Z slaver7 $
- * @link http://2moons.cc/
+ * @author Jan-Otto Kröpke <slaver7@gmail.com>
+ * @copyright 2009 Lucky
+ * @copyright 2016 Jan-Otto Kröpke <slaver7@gmail.com>
+ * @licence MIT
+ * @version 1.8.0
+ * @link https://github.com/jkroepke/2Moons
  */
 
 $LNG['Messages']							= 'Nachrichten';
@@ -36,29 +25,27 @@ $LNG['loading']								= 'Lade ...';
 
 $LNG['invalid_action']						= 'Ungültige Aktion!';
 
-$LNG['type_mission'][1]  					= 'Angreifen';
-$LNG['type_mission'][2]  					= 'Verbandsangriff';
-$LNG['type_mission'][3]  					= 'Transport';
-$LNG['type_mission'][4]  					= 'Stationieren';
-$LNG['type_mission'][5]  					= 'Halten';
-$LNG['type_mission'][6]  					= 'Spionieren';
-$LNG['type_mission'][7]  					= 'Kolonisieren';
-$LNG['type_mission'][8]  					= 'Abbauen';
-$LNG['type_mission'][9]  					= 'Zerstören';
-$LNG['type_mission'][10]  					= 'Raketenangriff';
-$LNG['type_mission'][11]  					= 'DM Untersuchung';
-$LNG['type_mission'][15] 					= 'Expeditionen';
+$LNG['type_mission_1']  					= 'Angreifen';
+$LNG['type_mission_2']  					= 'Verbandsangriff';
+$LNG['type_mission_3']  					= 'Transport';
+$LNG['type_mission_4']  					= 'Stationieren';
+$LNG['type_mission_5']  					= 'Halten';
+$LNG['type_mission_6']  					= 'Spionieren';
+$LNG['type_mission_7']  					= 'Kolonisieren';
+$LNG['type_mission_8']  					= 'Abbauen';
+$LNG['type_mission_9']  					= 'Zerstören';
+$LNG['type_mission_10']  					= 'Raketenangriff';
+$LNG['type_mission_11']  					= 'DM Untersuchung';
+$LNG['type_mission_15'] 					= 'Expedition';
 
-$LNG['type_planet'][1]  					= 'Planet';
-$LNG['type_planet'][2]  					= 'Trümmerfeld';
-$LNG['type_planet'][3]  					= 'Mond';
+$LNG['type_planet_1']  					= 'Planet';
+$LNG['type_planet_2']  					= 'Trümmerfeld';
+$LNG['type_planet_3']  					= 'Mond';
 
-$LNG['user_level'] = array (
-	'0' => 'Spieler',
-	'1' => 'Moderator',
-	'2' => 'Operator',
-	'3' => 'Administrator',
-);
+$LNG['user_level_0']                        = 'Spieler';
+$LNG['user_level_1']                        = 'Moderator';
+$LNG['user_level_2']                        = 'Operator';
+$LNG['user_level_3']                        = 'Administrator';
 
 // GAME.PHP
 $LNG['page_doesnt_exist']					= 'Die Aufgerufene Seite existiert nicht';
@@ -125,16 +112,12 @@ $LNG['ov_have_new_message']					= 'Du hast eine neue Nachricht';
 $LNG['ov_have_new_messages']				= 'Du hast %d neue Nachrichten';
 $LNG['ov_planetmenu']						= 'Name ändern/Löschen';
 $LNG['ov_free']								= 'Frei';
-$LNG['ov_buildings']						= 'Keine Warteschlange Gebäude';
-$LNG['ov_research']							= 'Es gibt keine laufenden Forschungsarbeiten zu diesem Zeitpunkt.';
-$LNG['ov_hangar']							= 'Nicht jedes Schiff oder Verteidigung zu dieser Zeit gebaut.';
 $LNG['ov_news']								= 'News';
 $LNG['ov_place']							= 'Platz';
 $LNG['ov_of']								= 'von';
 $LNG['ov_planet']							= 'Planet';
 $LNG['ov_server_time']						= 'Serverzeit ';
 $LNG['ov_events']							= 'Ereignisse';
-$LNG['ov_no_events']						= 'Keine schwebenden Bewegungen';
 $LNG['ov_diameter']							= 'Durchmesser';
 $LNG['ov_distance_unit']					= 'km';
 $LNG['ov_temperature']						= 'Temperatur';
@@ -154,10 +137,7 @@ $LNG['ov_developed_fields']					= 'bebaute Felder';
 $LNG['ov_max_developed_fields']				= 'max. bebaubare Felder';
 $LNG['ov_fleet']							= 'Flotten';
 $LNG['ov_admins_online']					= 'Admins(Online):';
-$LNG['ov_player_online']					= 'Spieler(Online) / Insgesamt:';
-$LNG['ov_no_admins_online']					= '0';
-$LNG['ov_no_player_online']					= '0';
-$LNG['ov_user_last_new']					= 'J&uuml;ngst registriert: ';
+$LNG['ov_no_admins_online']					= 'Zurzeit kein Admin online!';
 $LNG['ov_userbanner']						= 'Statistiken-Banner';
 $LNG['ov_userrank_info']					= '%s (%s <a href="game.php?page=statistics&amp;range=%d">%d</a> %s %s)';
 $LNG['ov_teamspeak_not_online']				= 'TeamspeakServer zurzeit nicht erreichbar. Wir bitten um Verständnis.';
@@ -174,7 +154,6 @@ $LNG['ov_chat_online']						= 'User im Chat:';
 
 $LNG['gl_no_deuterium_to_view_galaxy']		= 'Sie haben nicht genügend Deuterium!';
 $LNG['gl_legend']							= 'Legende';
-$LNG['gl_name']								= 'Nomen';
 $LNG['gl_strong_player']					= 'Starker Spieler';
 $LNG['gl_week_player']						= 'Schwacher Spieler';
 $LNG['gl_vacation']							= 'Urlaubsmodus';
@@ -191,7 +170,7 @@ $LNG['gl_short_enemy']						= '';
 $LNG['gl_short_friend']						= '';
 $LNG['gl_short_member']						= '';
 $LNG['gl_populed_planets']					= '%d Planeten besiedelt';
-$LNG['gl_out_space']						= 'Expeditionen';
+$LNG['gl_out_space']						= 'Die unendlichen Weiten des Universums';
 $LNG['gl_avaible_missiles']					= 'Interplanetarraketen';
 $LNG['gl_fleets']							= 'Flottenslots';
 $LNG['gl_avaible_grecyclers']				= 'Gigarecycler';
@@ -417,12 +396,12 @@ $LNG['bd_continue']							= 'Weiter';
 $LNG['bd_price_for_destroy']				= 'Kosten für Abriss:';
 $LNG['bd_ready']							= 'Fertig';
 $LNG['bd_finished']							= 'Fertig';
-$LNG['bd_maxlevel']							= 'Max. Stufe';
+$LNG['bd_maxlevel']							= 'Maximale Stufe erreicht';
 $LNG['bd_on']								= 'auf';
 $LNG['bd_max_builds']						= 'Sie können max. %d Aufträge versenden!';
 $LNG['bd_next_level']						= 'Next Level:';
-$LNG['bd_need_engine']						= '<span title=Verbraucht style=color:#FF0000>%s</span>';
-$LNG['bd_more_engine']						= '<span title=Produziert style=color:#00FF00>%s</span>';
+$LNG['bd_need_engine']						= 'Verbraucht <span style="color:#FF0000">%s</span> %s mehr';
+$LNG['bd_more_engine']						= 'Produziert <span style="color:#00FF00">%s</span> %s mehr';
 $LNG['bd_jump_gate_action']					= 'Springen';
 $LNG['bd_cancel_warning']					= 'Bei Abbruch werden nur 60% der Ressis wiederhergestellt!';
 $LNG['bd_cancel_send']						= 'Markierte - Löschen';
@@ -454,8 +433,7 @@ $LNG['of_recruit']							= 'Erwerben';
 $LNG['of_max_lvl']							= 'Max. Level';
 $LNG['of_offi']								= 'Offiziere';
 $LNG['of_lvl']								= 'Level';
-$LNG['of_shop']								= 'Geschäft';
-$LNG['of_dm_trade']							= 'Verbessern';
+$LNG['of_dm_trade']							= '%s - Bank';
 $LNG['of_still']							= 'Noch';
 $LNG['of_active']							= 'aktiv';
 
@@ -679,6 +657,7 @@ $LNG['al_inside_section']					= 'Interner Bereich';
 $LNG['al_make_alliance']					= 'Eine Allianz gründen';
 $LNG['al_make_ally_tag_required']			= 'Allianz Tag (3-8 Zeichen)';
 $LNG['al_make_ally_name_required']			= 'Allianz Name (3-30 Zeichen)';
+$LNG['al_make_ally_insufficient_points']	= 'Du hast nicht genug Punkte, um eine Allianz zu gründen.<br>Du benötigst mindestenst %s Punkte, dir fehlern %s Punkte.';
 $LNG['al_make_submit']						= 'Gründen';
 $LNG['al_find_alliances']					= 'Allianz suchen';
 $LNG['al_find_text']						= 'Suche nach';
@@ -765,7 +744,7 @@ $LNG['al_diplo_exists']						= 'Es existiert bereits eine gültige oder noch nic
 $LNG['al_diplo_info']						= '<p>Auf dieser Seite können die Bündnisse der Allianz verwaltet werden.</p><p>Hier findest du die Erklärung der einzelnen Bündnissarten. [TODO: Link zu FAQ]</p>';
 $LNG['al_leave_ally']						= 'Möchtest Du wirklich die Allianz verlassen?';
 $LNG['al_default_leader_name']				= 'Leader';
-$LNG['al_invalid_rank_name']				= 'Invalid Name';
+$LNG['al_rank_name']						= 'Name';
 $LNG['al_rank_desc']['MEMBERLIST']			= 'Mitgliederliste sehen';
 $LNG['al_rank_desc']['ONLINESTATE']			= 'Online-Status sehen';
 $LNG['al_rank_desc']['TRANSFER']			= 'Kann Leader werden';
@@ -777,7 +756,9 @@ $LNG['al_rank_desc']['KICK']				= 'Kann Mitglieder entfernen';
 $LNG['al_rank_desc']['DIPLOMATIC']			= 'Kann Diplomatie verwalten';
 $LNG['al_rank_desc']['RANKS']				= 'Rangverwaltung';
 $LNG['al_rank_desc']['MANAGEUSERS']			= 'Kann Mitglieder verwalten';
-$LNG['al_rank_desc']['EVENTS']				= 'Kann Ereignisse im internen Bereich sehen';$LNG['bu_request_exists']					= 'Spieler bereits in der Buddyliste!';
+$LNG['al_rank_desc']['EVENTS']				= 'Kann Ereignisse im internen Bereich sehen';
+$LNG['al_invalid_rank_name']				= 'Im Ranknamen sind nur Zahlen, Buchstaben, Leerzeichen, _, -, . erlaubt!';
+
 
 //----------------------------------------------------------------------------//
 //BUDDY
@@ -823,7 +804,6 @@ $LNG['nt_unimportant']						= 'Unwichtig';
 $LNG['nt_create_note']						= 'Erstellen';
 $LNG['nt_you_dont_have_notes']				= 'Kein Notizen vorhanden';
 $LNG['nt_notes']							= 'Notizen';
-$LNG['nt_version']							= 'Version';
 $LNG['nt_create_new_note']					= 'Erstelle eine neue Notiz';
 $LNG['nt_edit_note']						= 'Editiere Notiz';
 $LNG['nt_date_note']						= 'Datum';
@@ -1000,14 +980,15 @@ $LNG['fcm_info']							= 'Information';
 $LNG['fcp_colony']							= 'Kolonie';
 $LNG['fgp_require']							= 'Benötigt';
 $LNG['fgf_time']							= 'Bauzeit';
-$LNG['sys_back']							= 'Back';
-$LNG['sys_forward']							= 'Next';
 $LNG['sys_module_inactive']        	 		= 'Modul inaktiv';
 $LNG['sys_refferal_from']        	 		= 'System';
 $LNG['sys_refferal_title']        	 		= 'Bonus für Spieler %s';
 $LNG['sys_refferal_text']        	 		= 'Der von dir geworbene Spieler %s hat nun %s Punkte erreicht.<br><br>Als Dankeschön, dass du einen aktiven Spieler geworben hast, erhältst du %s %s';
 $LNG['sys_closed_game']        	 			= 'Das Universum ist zur Zeit nicht verfügbar:';
 $LNG['spec_mail_inactive_title']  			= '%s - Erinnerung';
+
+$LNG['sys_back']							= 'Zurück';
+$LNG['sys_forward']							= 'Weiter';
 
 //----------------------------------------------------------------------------//
 // CombatReport.php
@@ -1107,7 +1088,6 @@ $LNG['pl_etc']   							= 'Kontakt';
 //----------------------------------------------------------------------------//
 // Support
 
-$LNG['ti_error_no_subject']					= 'Error - No Subject';
 $LNG['ti_header'] 							= 'Support-System';
 $LNG['ti_overview'] 						= 'Zurück zur Übersicht';
 $LNG['ti_id'] 								= 'Ticket';
@@ -1125,7 +1105,6 @@ $LNG['ti_status_answer'] 					= 'Beantwortet';
 $LNG['ti_error_closed'] 					= 'Auf dieses Ticket kann keine Antwort erstellt werden, da es bereits geschlossen wurde!';
 $LNG['ti_admin_open'] 						= 'Ticket wurde geöffnet!';
 $LNG['ti_admin_close'] 						= 'Ticket wurde geschlossen!';
-
 $LNG['ti_create_info']						= '<p>Bitte vergeben Sie beim Erstellen einer neuen Anfrage einen möglichst aussagekräftigen Betreff und schildern Sie Ihr Anliegen so detailliert wie möglich.</p>
 <p>Eine genaue Beschreibung Ihrer Anfrage ermöglicht kurze Bearbeitungszeiten und vermeidet zeitaufwendige Rückfragen auf beiden Seiten.</p>
 <p>Bei accountbezogenen Fragen erleichtert die Angabe des entsprechenden Kundenaccounts die Zuordnung und verkürzt ebenfalls die Bearbeitungsdauer.</p>';
@@ -1189,111 +1168,6 @@ $LNG['lo_continue']							= 'Klicken Sie hier, um nicht zu warten';
 
 //----------------------------------------------------------------------------//
 
-// Tutorial 1.7
-$LNG['tut_tut']				                = 'Tutorial';
-$LNG['tut_welcome']                         = 'Willkommen im MyPlanets Beginner-Tutorial';
-$LNG['tut_welcom_desc']                     = 'Du bist neu bei MyPlanets und kennst dich nicht aus? Oder willst du dir einfach nur Credits verdienen? Hier wirst du in beiden Fällen fündig!';
-$LNG['tut_welcom_desc2']                    = 'Du bekommst während des Spiels Missionen für deren Erfüllung du eine Belohnung erhältst';
-$LNG['tut_welcom_desc3']                    = 'Du kannst die Reihenfolge der Abarbeitung frei wählen, jedoch empfiehlt es sich die Missionen der Reihenfolge nach zu erfüllen';
-$LNG['tut_welcom_desc4']                    = 'Am Ende einer Mission erhältst du weitere Informationen und die Belohnung.';
-$LNG['tut_welcom_desc5']                    = 'Für jede erledigte Mission erhältst du einen Bonus in Dunkler Materie, die sofort auf dein Spielerkonto gebucht wird.';
-$LNG['tut_objects']                         = 'Missionsziele';
-$LNG['tut_go']                              = 'Tutorial starten!';
-$LNG['tut_go_to']                           = 'Zur';
-$LNG['tut_m1']                              = 'Mission 1';
-$LNG['tut_m2']                              = 'Mission 2';
-$LNG['tut_m3']                              = 'Mission 3';
-$LNG['tut_m4']                              = 'Mission 4';
-$LNG['tut_m5']                              = 'Mission 5';
-$LNG['tut_m6']                              = 'Mission 6';
-$LNG['tut_m7']                              = 'Mission 7';
-$LNG['tut_m8']                              = 'Mission 8';
-$LNG['tut_m9']                              = 'Mission 9';
-$LNG['tut_ready']                           = '<span style="color:#00FF00">Abgeschlossen!</span>';
-$LNG['tut_not_ready']                       = '<span style="color:red">Noch offen!</span>';
-$LNG['tut_m1_name']                         = 'Mission 1 - Die primären Ressourcen';
-$LNG['tut_m1_desc']                         = 'Um deinen Planeten erfolgreich auszubauen musst du erst einmal für eine ausreichende Ressourcengrundlage sorgen. Optimiere nun die Produktion deiner primären Ressourcen. Baue die Metallmine und die Kristallmine aus. Aber beachte, die Produktion verschlingt einiges an Energie also vergiss das Solarkraftwerk nicht.<br><br>Bauen kannst du wenn du im linken Menü den Punkt: "Gebäude" wählst.';
-$LNG['tut_m1_quest']                        = 'Ausbau der Metallmine auf Stufe 4';
-$LNG['tut_m1_quest2']                       = 'Ausbau der Kristallmine auf Stufe 2';
-$LNG['tut_m1_quest3']                       = 'Ausbau des Solarkraftwerks auf Stufe 4';
-$LNG['tut_m1_quest4']                       = 'frei';
-$LNG['tut_m1_quest5']                       = 'frei';
-$LNG['tut_m1_gain']                         = '<span style="color:orange">Belohnung: 200 Dunkle Materie</span>';
-$LNG['tut_m1_ready']                        = 'Glückwunsch du hast Mission 1 des Tutorials abgeschlossen!<br>Du hast gerade 200 Dunkle Materie erhalten!';
-$LNG['tut_m2_name']                         = 'Mission 2 - Verteidigung des Planeten';
-$LNG['tut_m2_desc']                         = 'Um sicherzustellen, dass deine Ressourcen vor gegnerischen Angriffen geschützt sind, musst du Verteidigungsanlagen errichten. Um herauszufinden was du dazu benötigst musst du im linken Menü den Punkt: "Technologie" wählen. Du wirst schnell feststellen, dass du Deuterium benötigst um dein Vorhaben in die Tat umzusetzen. Beginne also mit einem Deuteriumsynthetisierer... ';
-$LNG['tut_m2_quest']                        = 'Ausbau des Deuteriumsynthetisierers auf Stufe 2';
-$LNG['tut_m2_quest2']                       = 'Ausbau der Roboterfabrik auf Stufe 2';
-$LNG['tut_m2_quest3']                       = 'Baue eine Raumschiffwerft';
-$LNG['tut_m2_quest4']                       = 'Baue 10 Raketenwerfer';
-$LNG['tut_m2_quest5']                       = 'frei';
-$LNG['tut_m2_gain']                         = '<span style="color:orange">Belohnung: 200 Dunkle Materie</span>';
-$LNG['tut_m2_ready']                        = 'Glückwunsch du hast Mission 2 des Tutorials abgeschlossen!<br>Du hast gerade 200 Dunkle Materie erhalten!';
-$LNG['tut_m3_name']                         = 'Mission 3 - Ressourcenproduktion optimieren';
-$LNG['tut_m3_desc']                         = 'Es ist an der Zeit deine Minen auszubauen um mehr der benötigten Ressourcen zu produzieren. Vergewissere dich immer ob du auch genug Energie zu Verfügung hast, sonst wird die Produktion eingeschränkt.';
-$LNG['tut_m3_quest']                        = 'Ausbau der Metallmine auf Stufe 10';
-$LNG['tut_m3_quest2']                       = 'Ausbau der Kristallmine auf Stufe 8';
-$LNG['tut_m3_quest3']                       = 'Ausbau des Deuteriumsynthetisierers auf Stufe 5';
-$LNG['tut_m3_quest4']                       = 'frei';
-$LNG['tut_m3_quest5']                       = 'frei';
-$LNG['tut_m3_gain']                         = '<span style="color:orange">Belohnung: 200 Dunkle Materie</span>';
-$LNG['tut_m3_ready']                        = 'Glückwunsch du hast Mission 3 des Tutorials abgeschlossen!<br>Du hast gerade 200 Dunkle Materie erhalten!';
-$LNG['tut_m4_name']                         = 'Mission 4 - Das erste Raumschiff';
-$LNG['tut_m4_desc']                         = 'Raumschiffe können dich wie Raketenwerfer vor Feinden schätzen. Sie haben aber einen enormen Vorteil: Du kannst sie natürlich auch zum Angreifen benutzen. Allerdings müssen bestimmte Forschungen vorhanden sein um Raumschiffe zu bauen. Beginne deine Mission also mit dem Bau eines Forschungslabors... ';
-$LNG['tut_m4_quest']                        = 'Baue ein Forschungslabor';
-$LNG['tut_m4_quest2']                       = 'Ausbau der Raumschiffwerft auf Stufe 4';
-$LNG['tut_m4_quest3']                       = 'Erforsche das Verbrennungstriebwerk bis Stufe 2';
-$LNG['tut_m4_quest4']                       = 'Baue fünf kleinen Transporter';
-$LNG['tut_m4_quest5']                       = 'frei';
-$LNG['tut_m4_gain']                         = '<span style="color:orange">Belohnung: 200 Dunkle Materie</span>';
-$LNG['tut_m4_ready']                        = 'Glückwunsch du hast Mission 4 des Tutorials abgeschlossen!<br>Du hast gerade 200 Dunkle Materie erhalten!';
-$LNG['tut_m5_name']                         = 'Mission 5 - Kommunikation im Universum';
-$LNG['tut_m5_desc']                         = 'Du bist nicht allein in den Untiefen des Universum! Es ist von erheblicher Bedeutung ein gutes Kommunikationsnetzwerk aufzubauen. Dadurch kannst du dich mit anderen Spielern verbünden und dir Handelspartner suchen. Viele Spieler organisieren sich gemeinsam in einer Allianz um sich gegenseitig zu unterstützen. Begib dich auf die Suche nach einer passenden Allianz in dem du im linken Menü auf Allianzen gehst. Um herauszufinden welche Allianzen es bereits gibt, bietet sich ein Blick in die Statistik an.';
-$LNG['tut_m5_quest']                        = 'Werde Mitglied einer Allianz';
-$LNG['tut_m5_quest2']                       = 'Stelle einem Freund bzw. Mitspieler eine Freundschaftsanfrage';
-$LNG['tut_m5_quest3']                       = 'frei';
-$LNG['tut_m5_quest4']                       = 'frei';
-$LNG['tut_m5_quest5']                       = 'frei';
-$LNG['tut_m5_gain']                         = '<span style="color:orange">Belohnung: 400 Dunkle Materie</span>';
-$LNG['tut_m5_ready']                        = 'Glückwunsch du hast Mission 5 des Tutorials abgeschlossen!<br>Du hast gerade 400 Dunkle Materie erhalten!';
-$LNG['tut_m6_name']                         = 'Mission 6 - Ressourcen und Verteidigung';
-$LNG['tut_m6_desc']                         = 'Jetzt ist es an der Zeit wertvolle Ressourcen einzulagen und sich um die Verteidigung zu kümmern. Um mehr Ressourcen ansparen zu können, solltest du Lager errichten. Für die Verteidigung empfiehlt es sich, Schildkuppeln zu bauen.';
-$LNG['tut_m6_quest']                        = 'Baue Lagerhäuser für Metall, Kristall und Deuterium';
-$LNG['tut_m6_quest2']                       = 'Baue eine kleine Schildkuppel';
-$LNG['tut_m6_quest3']                       = 'Baue eine große Schildkuppel';
-$LNG['tut_m6_quest4']                       = 'frei';
-$LNG['tut_m6_quest5']                       = 'frei';
-$LNG['tut_m6_gain']                         = '<span style="color:orange">Belohnung: 400 Dunkle Materie</span>';
-$LNG['tut_m6_ready']                        = 'Glückwunsch du hast Mission 6 des Tutorials abgeschlossen!<br>Du hast gerade 400 Dunkle Materie erhalten!';
-$LNG['tut_m7_name']                         = 'Misson 7 - Flottenbewegung';
-$LNG['tut_m7_desc']                         = 'Eine weitere Methode um an Ressourcen zu gelangen ist das sogenannte Raiden. Also der Angriff auf einen anderen Spieler. Das Risiko, dass die Verteidigung des Gegners stärker ist als die eigene Flotte, ist sehr hoch. Daher empfiehlt es sich seine Gegner vor einem Angriff auszuspionieren, um zu erfahren wie stark der Gegner wirklich ist. Sieh dir unter dem Punkt Technologie an was du zum Bau einer Spionagesonde benötigst. Hast du ersteinmal eine Sonde gebaut gibt es zwei Möglichkeiten jemanden auszuspionieren:<br><br><span style=color:orange>Im Menü Galaxie -> ganz rechts unter Aktionen das erste Symbol</span><br><br><span style=color:orange>Im Menü Flotte -> Neuer Auftrag: Spionagesonde wählen</span>';
-$LNG['tut_m7_quest']                        = 'Baue 2 Spionagesonden';
-$LNG['tut_m7_quest2']                       = 'Spioniere den Planeten eines Gegners aus';
-$LNG['tut_m7_quest3']                       = 'Erforsche die Spionagetechnik auf Stufe 2';
-$LNG['tut_m7_quest4']                       = 'frei';
-$LNG['tut_m7_quest5']                       = 'frei';
-$LNG['tut_m7_gain']                         = '<span style="color:orange">Belohnung: 400 Dunkle Materie</span>';
-$LNG['tut_m7_ready']                        = 'Glückwunsch du hast Mission 7 des Tutorials abgeschlossen!<br>Du hast gerade 400 Dunkle Materie erhalten!';
-$LNG['tut_m8_name']                         = 'Misson 8 - Vergrößere dein Imperium';
-$LNG['tut_m8_desc']                         = 'Als Imperator bist du natürlich immer daran interessiert deine Macht zu vergrößern. Du kannst mit Hilfe von Kolonieschiffen neue Planeten besiedeln und mit Transportschiffen Waren zwischen deinen Planeten transportieren.';
-$LNG['tut_m8_quest']                        = 'Baue 20 Kolonieschiffe';
-$LNG['tut_m8_quest2']                       = 'Gründe eine Kolonie';
-$LNG['tut_m8_quest3']                       = 'Baue 10 große Transporter';
-$LNG['tut_m8_quest4']                       = 'frei';
-$LNG['tut_m8_quest5']                       = 'frei';
-$LNG['tut_m8_gain']                         = '<span style="color:orange">Belohnung: 1000 Dunkle Materie</span>';
-$LNG['tut_m8_ready']                        = 'Glückwunsch du hast Mission 8 des Tutorials abgeschlossen!<br>Du hast gerade 1000 Dunkle Materie erhalten!';
-$LNG['tut_m9_name']                         = 'Mission 9 - Trümmerfelder, Verteidigung und Energie';
-$LNG['tut_m9_desc']                         = 'Nach einem Kampf bildet der Schutt der vernichteten Schiffe und Verteidigungsanlagen Trümmerfelder im Orbit des Planeten. Durch Recycler ist es möglich diese Trümmerfelder abzubauen und die Rohstoffe wieder zu verwenden.<br><br>Nun ist es an der Zeit deine Kriegsflotte aufzubauen, denn Reccouren ziehen Feinde an.<br><br>Du solltest aber auch immer dein Energieprodukten und den Verbrauch im Auge behalten, denn ohne genügend Energie, stellen deine Schiffswerften und die Minen die Produktionen ein.';
-$LNG['tut_m9_quest']                        = 'Baue 25 Recycler';
-$LNG['tut_m9_quest2']                       = 'Baue ein Trümmerfeld ab';
-$LNG['tut_m9_quest3']                       = 'Erweitere deine Flotte auf 100 Schlachtschiffe';
-$LNG['tut_m9_quest4']                       = 'Sorge für 2.000 verfügbare Energie';
-$LNG['tut_m9_quest5']                       = 'frei';
-$LNG['tut_m9_gain']                         = '<span style="color:orange">Belohnung: 2000 Dunkle Materie</span>';
-$LNG['tut_m9_ready']                        = 'Glückwunsch du hast Mission 9 des Tutorials abgeschlossen!<br>Du hast gerade 2000 Dunkle Materie erhalten!';
-$LNG['tut_compleat']                        = 'Du hast alle Mission erfolgreich abgeschlossen!';
 
-
-// Translated into German by Jan . All rights reversed (C) 2011 (Update adaption for ogame skin like by alin */10/2013)
+// Translated into German by Jan . All rights reversed (C) 2011
 

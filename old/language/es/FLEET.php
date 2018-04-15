@@ -1,5 +1,18 @@
 <?php
-
+/**
+ *  2Moons 
+ *   by Jan-Otto Kröpke 2009-2016
+ *
+ * For the full copyright and license information, please view the LICENSE
+ *
+ * @package 2Moons
+ * @author Jan-Otto Kröpke <slaver7@gmail.com>
+ * @copyright 2009 Lucky
+ * @copyright 2016 Jan-Otto Kröpke <slaver7@gmail.com>
+ * @licence MIT
+ * @version 1.8.0
+ * @link https://github.com/jkroepke/2Moons
+ */
 
 $LNG['and']									= 'y';
 
@@ -68,8 +81,8 @@ $LNG['sys_expe_report'] 					= "Reporte de expedición";
 $LNG['sys_recy_report'] 					= "Reporte de reciclaje";
 $LNG['sys_expe_blackholl_1'] 				= "La flota fue arrastrada hacia un agujero negro, y ésta fue parcialmente destruida.";
 $LNG['sys_expe_blackholl_2'] 				= "La flota fue arrastrada hacia un agujero negro, y fue completamente destruida!";
-$LNG['sys_expe_found_goods'] 				= "¡La flota ha descubierto una planeta rico en minerales! <br /> Su exploradores han recuperado %s %s, %s %s y %s %s de las minas abandonadas.";
-$LNG['sys_expe_found_ships'] 				= "Tus exploradores han encontrado un escuadrón abandonado pero en buen estado.<br />:";
+$LNG['sys_expe_found_goods'] 				= "¡La flota ha descubierto una planeta rico en minerales! <br> Su exploradores han recuperado %s %s, %s %s y %s %s de las minas abandonadas.";
+$LNG['sys_expe_found_ships'] 				= "Tus exploradores han encontrado un escuadrón abandonado pero en buen estado.<br>:";
 $LNG['sys_expe_back_home'] 				= "Tu expedición regresó al hangar.";
 $LNG['sys_expe_found_ress_1_1']			= 'Tu expedición ha descubierto un pequeño grupo de asteroides, de los que se han obtenidos algunos recursos.';
 $LNG['sys_expe_found_ress_1_2']			= 'En un planetoide remoto de fácil acceso se encontraron materias primas.';
@@ -142,9 +155,9 @@ $LNG['sys_expe_attack_2_3_2'] 				= 'Una asociación de gran cantidad de naves c
 $LNG['sys_expe_found_ships_nothing']		= '- No habían naves que se pudieran reparar.';
 $LNG['sys_expe_attackname_1']				= 'Piratas';
 $LNG['sys_expe_attackname_2'] 				= 'Aliens';
-$LNG['sys_expe_back_home'] 				= 'Tu expedición regresó al hangar de una expedición.<br />Han traído %s %s, %s %s, %s %s y %s %s .';
+$LNG['sys_expe_back_home'] 				= 'Tu expedición regresó al hangar de una expedición.<br>Han traído %s %s, %s %s, %s %s y %s %s .';
 $LNG['sys_expe_back_home_without_dm']		        = 'Tu expedición regresó al hangar de una expedición.';
-$LNG['sys_expe_back_home_with_dm']			= 'Tu expedición regresó al hangar.<br />Encontraron %s(%s) de naves desguazadas y deformadas <br />El %s se pudo recuperar.';
+$LNG['sys_expe_back_home_with_dm']			= 'Tu expedición regresó al hangar.<br>Encontraron %s(%s) de naves desguazadas y deformadas <br>El %s se pudo recuperar.';
 $LNG['sys_mess_transport'] 				= 'Informe de transporte';
 $LNG['sys_tran_mess_owner']		 		= 'Una de tus flotas ha llegado sin interrupciones al planeta %s %s y ha entregado %s %s, %s %s y %s %s.';
 $LNG['sys_tran_mess_user'] 		 		= 'Una flota pacífica de %s %s alcanzado %s %s y entrega %s %s, %s %s y %s %s.';
@@ -156,7 +169,7 @@ $LNG['sys_irak_subject'] 				  	= 'Impacto de misiles';
 $LNG['sys_irak_no_def'] 				  	= 'El planeta no tiene defensa';
 $LNG['sys_irak_no_att'] 				  	= 'Todos tus misiles fueron interceptados.';
 $LNG['sys_irak_def'] 					  	= '%d misiles de los misiles lanzados fueron interceptados.';
-$LNG['sys_irak_mess']						= 'Los misiles interplanetarios (%d) de %s están en el planeta %s <br /><br />';
+$LNG['sys_irak_mess']						= 'Los misiles interplanetarios (%d) de %s están en el planeta %s <br><br>';
 $LNG['sys_gain'] 				  			= 'Beneficios';
 $LNG['sys_fleet_won'] 						= 'Una de tus flotas regresa de atacar en el planeta %s %s. Has capturado %s %s, %s %s y  %s %s';
 $LNG['sys_lost'] 							= 'Pérdidas';
@@ -169,7 +182,7 @@ $LNG['sys_destruc_lune'] 					= "La probabilidad de destruir la luna es de: %d %
 $LNG['sys_destruc_rip'] 					= "La probabilidad de autodestrucción de la flota es de: %d %% ";
 $LNG['sys_destruc_stop'] 					= "El defensor ha conseguido detener la destrucción de la luna";
 $LNG['sys_destruc_mess1'] 					= "Las estrellas de la muerte disparan el graviton a la luna";
-$LNG['sys_destruc_echec'] 					= "Los temblores sacuden la luna. Pero algo sale mal, las estrellas de la muerte explotan y se desintengran en millones de pedazos. <br />La onda expansiva elimina toda la fola por completo.";
+$LNG['sys_destruc_echec'] 					= "Los temblores sacuden la luna. Pero algo sale mal, las estrellas de la muerte explotan y se desintengran en millones de pedazos. <br>La onda expansiva elimina toda la fola por completo.";
 $LNG['sys_destruc_reussi'] 					= "Los temblores empiezan a sacudir la superficie de la luna, despues de unos instantes la luna no soporta mas y vuela en mil pedazos, mision cumplida, la flota vuelve al planeta de origen.";
 $LNG['sys_destruc_null'] 					= "Las estrellas de la muerten no generan el poder necesario, la mision falla y las naves vuelven de regreso.";
 
@@ -177,22 +190,22 @@ $LNG['sys_destruc_null'] 					= "Las estrellas de la muerten no generan el poder
 $LNG['fcp_colony']							= 'Colonia';
 $LNG['fl_simulate']						= 'Simular';
 
-$LNG['type_mission'][1]  					= 'Atacar';
-$LNG['type_mission'][2]  					= 'Ataque grupal (SAC)';
-$LNG['type_mission'][3]  					= 'Transporte';
-$LNG['type_mission'][4]  					= 'Desplegar';
-$LNG['type_mission'][5]  					= 'Mantener';
-$LNG['type_mission'][6]  					= 'Espiar';
-$LNG['type_mission'][7]  					= 'Colonizar';
-$LNG['type_mission'][8]  					= 'Reciclar';
-$LNG['type_mission'][9]  					= 'Destruir';
-$LNG['type_mission'][11]  					= 'Investigación DM';
-$LNG['type_mission'][15] 					= 'Expedición';
+$LNG['type_mission_1']  					= 'Atacar';
+$LNG['type_mission_2']  					= 'Ataque grupal (SAC)';
+$LNG['type_mission_3']  					= 'Transporte';
+$LNG['type_mission_4']  					= 'Desplegar';
+$LNG['type_mission_5']  					= 'Mantener';
+$LNG['type_mission_6']  					= 'Espiar';
+$LNG['type_mission_7']  					= 'Colonizar';
+$LNG['type_mission_8']  					= 'Reciclar';
+$LNG['type_mission_9']  					= 'Destruir';
+$LNG['type_mission_11']  					= 'Investigación DM';
+$LNG['type_mission_15'] 					= 'Expedición';
 
-$LNG['type_planet_short'][1]  				= 'P';
-$LNG['type_planet_short'][2]  				= 'C.E';
-$LNG['type_planet_short'][3]  				= 'M';
+$LNG['type_planet_short_1']  				= 'P';
+$LNG['type_planet_short_2']  				= 'C.E';
+$LNG['type_planet_short_3']  				= 'M';
 
-$LNG['type_planet'][1]  					= 'Planeta';
-$LNG['type_planet'][2]  					= 'Campo de Escombros';
-$LNG['type_planet'][3]  					= 'Luna';
+$LNG['type_planet_1']  					= 'Planeta';
+$LNG['type_planet_2']  					= 'Campo de Escombros';
+$LNG['type_planet_3']  					= 'Luna';

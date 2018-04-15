@@ -1,37 +1,56 @@
 <?php
+/**
+ *  2Moons 
+ *   by Jan-Otto Kröpke 2009-2016
+ *
+ * For the full copyright and license information, please view the LICENSE
+ *
+ * @package 2Moons
+ * @author Jan-Otto Kröpke <slaver7@gmail.com>
+ * @copyright 2009 Lucky
+ * @copyright 2016 Jan-Otto Kröpke <slaver7@gmail.com>
+ * @licence MIT
+ * @version 1.8.0
+ * @link https://github.com/jkroepke/2Moons
+ */
 
 // Translated into English by QwataKayean . All rights reversed (C) 2012
 // 2Moons - Copyright (C) 2010-2012 Slaver
-// Updated by alin 2013/Sept/20
 
 
-$LNG['Messages']									= 'Messages';
-$LNG['PM']												= '[PM]';
-$LNG['write_message']							= 'Write message';
-$LNG['ready']											= 'Ready';
-$LNG['loading']										= 'Loading ...';
-$LNG['invalid_action']						= 'Invalid Action!';
-$LNG['type_mission'][1]  					= 'Attack';
-$LNG['type_mission'][2]  					= 'ACS - Attack on cooperation';
-$LNG['type_mission'][3]  					= 'Transport';
-$LNG['type_mission'][4]  					= 'Deploy';
-$LNG['type_mission'][5]  					= 'Transfer';
-$LNG['type_mission'][6]  					= 'Spying';
-$LNG['type_mission'][7]  					= 'Colonize';
-$LNG['type_mission'][8]  					= 'Recycle';
-$LNG['type_mission'][9]  					= 'Destroy';
-$LNG['type_mission'][10]  				= 'Missile attack';
-$LNG['type_mission'][11]  				= 'Research of Dark matter ';
-$LNG['type_mission'][15] 					= 'Expedition';
-$LNG['type_planet'][1]  					= 'Planet';
-$LNG['type_planet'][2]  					= 'Debris Field';
-$LNG['type_planet'][3]  					= 'Moon';
-$LNG['user_level'] = array (
-	'0' => 'Player',
-	'1' => 'Moderator',
-	'2' => 'Operator',
-	'3' => 'Administrator',
-);
+
+$LNG['Messages']							= 'Messages';
+
+$LNG['PM']									= '[PM]';
+$LNG['write_message']						= 'Write message';
+
+$LNG['ready']								= 'Ready';
+
+$LNG['loading']								= 'Loading ...';
+
+$LNG['invalid_action']						= 'Action Invalidated!!';
+
+$LNG['type_mission_1']  					= 'Attack';
+$LNG['type_mission_2']  					= 'ACS - Attack on cooperation';
+$LNG['type_mission_3']  					= 'Transport';
+$LNG['type_mission_4']  					= 'Deploy';
+$LNG['type_mission_5']  					= 'Transfer';
+$LNG['type_mission_6']  					= 'Spying';
+$LNG['type_mission_7']  					= 'Colonize';
+$LNG['type_mission_8']  					= 'Recycle';
+$LNG['type_mission_9']  					= 'Destroy';
+$LNG['type_mission_10']  					= 'Missile attack';
+$LNG['type_mission_11']  					= 'Research of Dark matter ';
+$LNG['type_mission_15'] 					= 'Expedition';
+
+$LNG['type_planet_1']  					= 'Planet';
+$LNG['type_planet_2']  					= 'Debris Field';
+$LNG['type_planet_3']  					= 'Moon';
+
+$LNG['user_level_0']                        = 'Player';
+$LNG['user_level_1']                        = 'Moderator';
+$LNG['user_level_2']                        = 'Operator';
+$LNG['user_level_3']                        = 'Administrator';
 
 
 $LNG['page_doesnt_exist']					= 'This page does not exist';
@@ -43,8 +62,8 @@ $LNG['admin_access_2']				    	= ", If you don't need any longer";
 
 //----------------------------------------------------------------------------//
 // Topnav
-$LNG['tn_vacation_mode']					= "Now you're in<br /> vacation mode";
-$LNG['tn_delete_mode']						= 'The account at %s<br /> will be automatically deleted!';
+$LNG['tn_vacation_mode']					= "Now you're in vacation mode";
+$LNG['tn_delete_mode']						= 'The account at %s will be automatically deleted!';
 
 //----------------------------------------------------------------------------//
 // Menu
@@ -86,7 +105,7 @@ $LNG['lm_info']                     		= 'Info';
 $LNG['lm_disclamer']						= 'Credits';
 	
 //----------------------------------------------------------------------------//
-// Overview
+// Vista Geral
 
 $LNG['ov_newname_specialchar']				= 'The names of the planet is allowed only numbers, letters, spaces, _,-,.';
 $LNG['ov_newname_done']						= 'The new name was entered!';
@@ -98,16 +117,12 @@ $LNG['ov_have_new_message']					= 'You have a new message';
 $LNG['ov_have_new_messages']				= 'You have %d new messages';
 $LNG['ov_planetmenu']						= 'Rename or delete';
 $LNG['ov_free']								= 'Free';
-$LNG['ov_buildings']						= 'No queue buildings';
-$LNG['ov_research']							= 'No queue research operations.';
-$LNG['ov_hangar']							= 'No queue ships or defense at the moment.';
 $LNG['ov_news']								= 'News';
 $LNG['ov_place']							= 'Position';
 $LNG['ov_of']								= 'of';
 $LNG['ov_planet']							= 'Planet';
 $LNG['ov_server_time']						= 'Server time';
 $LNG['ov_events']							= 'Activities';
-$LNG['ov_no_events']						= 'No fleet movements';
 $LNG['ov_diameter']							= 'Diameter';
 $LNG['ov_distance_unit']					= 'km';
 $LNG['ov_temperature']						= 'Temperature';
@@ -126,11 +141,8 @@ $LNG['ov_fields']							= 'Fields';
 $LNG['ov_developed_fields']					= 'Fields used';
 $LNG['ov_max_developed_fields']				= 'Max. Permitted fields';
 $LNG['ov_fleet']							= 'Fleets';
-$LNG['ov_admins_online']					= 'Admins(Online): ';
-$LNG['ov_player_online']					= 'Players(Online) / Total: ';
-$LNG['ov_no_admins_online']					= '0';
-$LNG['ov_no_player_online']					= '0';
-$LNG['ov_user_last_new']					= 'Last registered: ';
+$LNG['ov_admins_online']					= 'Active Admins';
+$LNG['ov_no_admins_online']					= 'Currently, there is no any online administrator';
 $LNG['ov_userbanner']						= "Player's Banner";
 $LNG['ov_userrank_info']					= '%s (%s <a href="game.php?page=statistics&amp;range=%d">%d</a> %s %s)';
 $LNG['ov_teamspeak_not_online']				= 'The Teamspeak server not active this';
@@ -143,11 +155,10 @@ $LNG['ov_noreflink']						= 'At the moment, you did not recruited any player.';
 $LNG['ov_chat_online']						= 'Players in chat:';
 
 //----------------------------------------------------------------------------//
-// Galaxy
+// Galáxia
 
 $LNG['gl_no_deuterium_to_view_galaxy']		= 'You dont have enough deuterium to view the galaxy';
 $LNG['gl_legend']							= 'Legend';
-$LNG['gl_name']								= 'Name';
 $LNG['gl_strong_player']					= 'Strong player';
 $LNG['gl_week_player']						= 'Weak player';
 $LNG['gl_vacation']							= 'Vacation mode';
@@ -164,7 +175,7 @@ $LNG['gl_short_ban']						= 'B';
 $LNG['gl_short_inactive']					= 'i';
 $LNG['gl_short_long_inactive']				= 'I';
 $LNG['gl_populed_planets']					= '%d Existing planets';
-$LNG['gl_out_space']						= 'Expedition';
+$LNG['gl_out_space']						= 'Deep area of galaxy';
 $LNG['gl_avaible_missiles']					= 'Available Missiles';
 $LNG['gl_fleets']							= 'Fleet Slots';
 $LNG['gl_avaible_grecyclers']				= 'Giga Recycler';
@@ -226,7 +237,7 @@ $LNG['px_no_fleet']							= 'There is no moving fleets.';
 $LNG['px_out_of_range']						= 'Out of reach';
 
 //----------------------------------------------------------------------------//
-// Imperio
+// Império
 $LNG['lv_imperium_title']					= 'Empire';
 $LNG['lv_planet']							= 'Planet';
 $LNG['lv_name']								= 'Name';
@@ -263,7 +274,7 @@ $LNG['fl_departure']						= 'Arrival(Destination)';
 $LNG['fl_destiny']							= 'Destination';
 $LNG['fl_objective']						= 'Objective';
 $LNG['fl_arrival']							= 'Arrival(Back)';
-$LNG['fl_info_detail']						= 'Fleet Details';
+$LNG['fl_info_detail']						= 'Details';
 $LNG['fl_order']							= 'Order';
 $LNG['fl_new_mission_title']				= 'New mission: Select fleet';
 $LNG['fl_ship_type']						= 'Type of Ship';
@@ -360,13 +371,13 @@ $LNG['fl_not_enough_space']					= 'You have not enough cargo space available.';
 $LNG['fl_hold_time_not_exists']				= 'Invalid retention time.';
 
 //----------------------------------------------------------------------------//
-// Buildings
+// Edificios
 $LNG['bd_dismantle']						= 'Demolish';
 $LNG['bd_interrupt']						= 'Cancel';
 $LNG['bd_cancel']							= 'Cancel';
 $LNG['bd_working']							= 'Busy';
 $LNG['bd_build']							= 'Build';
-$LNG['bd_build_next_level']					= 'Build next level ';
+$LNG['bd_build_next_level']					= 'Build to the next level ';
 $LNG['bd_research']							= 'Research';
 $LNG['bd_tech']								= 'Research';
 $LNG['bd_tech_next_level']					= 'Research to the next level ';
@@ -395,22 +406,22 @@ $LNG['bd_maxlevel']                         = 'Maximum level reached';
 $LNG['bd_on']                               = 'connected';
 $LNG['bd_max_builds']                       = 'You will have only max. %d queue building!';
 $LNG['bd_next_level']                       = 'Next level:';
-$LNG['bd_need_engine']                      = '<span title=Need style=color:#FF0000>%s</span>';
-$LNG['bd_more_engine']                      = '<span title=Produced style=color:#00FF00>%s</span>';
+$LNG['bd_need_engine']                      = 'Need more <font color="#FF0000">%s</font> of %s';
+$LNG['bd_more_engine']                      = 'Produced <font color="#00FF00">%s</font> %s more';
 $LNG['bd_jump_gate_action']                 = 'Jump';
 $LNG['bd_cancel_warning']                   = 'ATTENTION! <br> If you cancel only will receive 60% of your resources s invested.';
 $LNG['bd_cancel_send']                      = 'Cancel construction';
 $LNG['bd_destroy_time'] 					= 'Duration';
-$LNG['bd_max_ships']                                            = 'max';
-$LNG['bd_max_ships_long']                                       = 'Maximum possible units to build';
-$LNG['sys_notenough_money'] 				= 'You dont have avaliable resources in %s <a href="./game.php?page=buildings&amp;cp=%d&amp;re=0">[%d:%d:%d]</a> for building what you wanted to do. <br>Your ressources is %s %s , %s %s and %s %s. <br>The cost of construction  is %s %s , %s %s and %s %s.';
+$LNG['bd_max_ships']                        = 'max';
+$LNG['bd_max_ships_long']					= 'Maximum possible units to build';
+$LNG['sys_notenough_money'] 				= 'You dont have enough resources on %s <a href="./game.php?page=buildings&amp;cp=%d&amp;re=0">[%d:%d:%d]</a> to build %s. <br>Your ressources are: %s %s , %s %s and %s %s. <br>The cost of construction is %s %s , %s %s and %s %s.';
 $LNG['sys_nomore_level'] 					= "You're trying to destroy a building that no longer have ( %s ).";
 $LNG['sys_buildlist'] 						= "List of construction";
 $LNG['sys_techlist'] 						= 'Research list';
 $LNG['sys_buildlist_fail'] 				    = "Impossible to build";
 
 //----------------------------------------------------------------------------//
-// Resources
+// Recursos
 $LNG['rs_amount']							= 'Quantity';
 $LNG['rs_lvl']								= 'Level';
 $LNG['rs_production_on_planet']			    = 'Resources produced on the planet "%s"';
@@ -423,18 +434,17 @@ $LNG['rs_weekly']							= 'Weekly Production:';
 $LNG['rs_ress_bonus']                       = 'Bonus (Officers/Bonus):';
 
 //----------------------------------------------------------------------------//
-// Oficiers
+// Oficiais
 $LNG['of_recruit']							= 'Recruit';
 $LNG['of_max_lvl']							= 'Max Level';
 $LNG['of_offi']								= 'Official';
 $LNG['of_lvl']								= 'Level';
-$LNG['of_shop']								= 'Shop';
-$LNG['of_dm_trade']							= 'Upgrades';
-$LNG['of_still']							= 'Time left';
+$LNG['of_dm_trade']							= '%s - Shop';
+$LNG['of_still']							= 'Continua';
 $LNG['of_active']							= 'active';
 
 //----------------------------------------------------------------------------//
-// Market
+// Mercado
 
 $LNG['tr_cost_dm_trader']					= 'The value of the merchant is %s %s!';
 $LNG['tr_not_enought']						= "Don't own enough %s.";
@@ -451,14 +461,14 @@ $LNG['tr_quota_exchange']					= 'Fee';
 $LNG['tr_exchange']							= 'Trade';
 
 //----------------------------------------------------------------------------//
-// Technology
+// Tecnologia
 $LNG['tt_requirements']						= 'Requirements';
 $LNG['tt_lvl']								= 'Level ';
 
 //----------------------------------------------------------------------------//
-// Info
+// Infos
 $LNG['in_jump_gate_no_target']				= 'No target jump available.';
-$LNG['in_jump_gate_done']					='The jump portal was used, you can use it in:';
+$LNG['in_jump_gate_done']					= 'The jump portal was used, you can use it in:';
 $LNG['in_jump_gate_error_data']			    = 'Error, coordinates to jump are not correct!';
 $LNG['in_jump_gate_not_ready_target']		= 'The portal is not ready in destination Moon, will be ready in ';
 $LNG['in_jump_gate_doesnt_have_one']		= 'Dont you have another portal to make the jump!';
@@ -494,7 +504,7 @@ $LNG['in_engine'] 							= 'Engine';
 $LNG['in_bonus'] 							= 'Bonus:';
 
 //----------------------------------------------------------------------------//
-// Messages
+// Mensagens
 $LNG['mg_type'][0]                          = 'Spy messages';
 $LNG['mg_type'][1]                          = 'Player messages';
 $LNG['mg_type'][2]                          = 'Alliance messages';
@@ -544,7 +554,7 @@ $LNG['mg_receiver_block_pm']				= 'The receiver block private messages.';
 
 
 //----------------------------------------------------------------------------//
-// Alliance
+// Aliança
 
 $LNG['al_not_exists']					= 'The Alliance ceased to exist';
 $LNG['al_newname_specialchar']				= 'The alliance and the tag must be write with alphanumeric characters, word, _, -, .!';
@@ -753,6 +763,8 @@ $LNG['al_rank_desc']['DIPLOMATIC']			= 'Can manage the Diplomacy';
 $LNG['al_rank_desc']['RANKS']				= 'Can configure the Ranks';
 $LNG['al_rank_desc']['MANAGEUSERS']			= 'Can manage members';
 $LNG['al_rank_desc']['EVENTS']			= 'Can see events';
+$LNG['al_invalid_rank_name']				= 'In the Rank name are only numbers, letters, spaces, _, -. allowed!';
+$LNG['al_make_ally_insufficient_points']	= 'You have not enough points to create an Alliance.<br>It is required %s points, and you have %s points.';
 
 //----------------------------------------------------------------------------//
 // Lista de Amigos
@@ -791,14 +803,13 @@ $LNG['bu_rejected_request_title']			= 'Friend request Refused!';
 $LNG['bu_rejected_request_body']			= 'Hello %s,<br>%s refused your request for friendship!';
 
 //----------------------------------------------------------------------------//
-// Notes
+// Notas
 $LNG['nt_important']						= 'Important';
 $LNG['nt_normal']							= 'Normal';
 $LNG['nt_unimportant']						= 'Unimportant';
 $LNG['nt_create_note']						= 'Create note';
 $LNG['nt_you_dont_have_notes']				= 'No notes available';
 $LNG['nt_notes']							= 'Notes';
-$LNG['nt_version']							= 'Version';
 $LNG['nt_create_new_note']					= 'Create a new note';
 $LNG['nt_edit_note']						= 'Edit Note';
 $LNG['nt_date_note']						= 'Date';
@@ -815,7 +826,7 @@ $LNG['nt_no_title']							= 'No title';
 $LNG['nt_no_text']							= 'No Text';
 
 //----------------------------------------------------------------------------//
-// Statistics
+// Estatísticas
 $LNG['st_player']							= 'Player';
 $LNG['st_alliance']							= 'Alliance';
 $LNG['st_points']							= 'Points';
@@ -834,7 +845,7 @@ $LNG['st_in_the_positions']					= 'in ranks';
 $LNG['st_write_message']					= 'Private Message';
 
 //----------------------------------------------------------------------------//
-// Get
+// Procurar
 $LNG['sh_tag']							= 'Tag';
 $LNG['sh_name']							= 'Name';
 $LNG['sh_members']							= 'Member';
@@ -921,7 +932,7 @@ $LNG['op_timezone']							= 'Time zone';
 $LNG['op_block_pm']							= 'Block private messages';
 
 //----------------------------------------------------------------------------//
-// Banned Players List
+// Lista de Jogadores Banidos
 $LNG['bn_no_players_banned']				= 'No banned players';
 $LNG['bn_exists']							= 'Total ';
 $LNG['bn_players_banned']					= ' player`s banned';
@@ -934,16 +945,16 @@ $LNG['bn_by']								= 'By';
 $LNG['bn_writemail']						= 'Mail to %s';
 
 //----------------------------------------------------------------------------//
-// Game Session
+// Sessões do Jogo
 
-// Maintenance & Banned
+// Manutenção & Banido
 $LNG['css_account_banned_message']          = 'Your account has been banned!';
 $LNG['css_account_banned_expire']           = 'Your account is already unbanned %s!';
 $LNG['css_goto_homeside']                   = '<a href="./index.php">Go to the homepage</a>';
 $LNG['css_server_maintrace']                = 'Maintenance of the server<br><br>The game is closed.<br><br>Até: %s';
 
 //----------------------------------------------------------------------------//
-// Fleet activity
+// Actividades de Frota
 
 $LNG['cff_aproaching']						= 'The fleet is composed of ';
 $LNG['cff_ships']							= ' units';
@@ -967,7 +978,7 @@ $LNG['cff_mission_target_stay']				= 'A friendly %s from player %s from %s %s %s
 $LNG['cff_mission_target_mip']				= 'Missile attack (%d) from player %s from %s %s %s on the %s %s %s.';
 
 //----------------------------------------------------------------------------//
-// Extra Functions
+// Funções Extras
 $LNG['fcm_universe']						= 'Universe';
 $LNG['fcm_mainplanet']						= 'Main Planet';
 $LNG['fcm_planet']							= 'Planet';
@@ -982,8 +993,11 @@ $LNG['sys_refferal_title']        	 		= 'Player Bonus %s';
 $LNG['sys_refferal_text']        	 		= 'The player %s recruited by you reached %s points.<br><br>You invite a player active, will be rewarded %s %s';
 $LNG['sys_closed_game']        	 			= 'The game is currently not available:';
 $LNG['spec_mail_inactive_title']  			= '%s - Reminder';
+$LNG['sys_back']							= 'Back';
+$LNG['sys_forward']							= 'Next';
+
 //----------------------------------------------------------------------------//
-// Combat Info
+// Relatório de Combate
 $LNG['cr_lost_contact']                     = 'Lost touch with your fleet.';
 $LNG['cr_first_round']                      = '(The fleet was destroyed in the first round)';
 $LNG['cr_type']								= 'Type';
@@ -994,7 +1008,7 @@ $LNG['cr_armor']							= 'Armor';
 $LNG['cr_destroyed']						= 'Destroyed!';
 
 //----------------------------------------------------------------------------//
-// Fleet Errors
+// Erro de Frotas
 $LNG['fa_not_enough_probes']				= 'Sorry, no probes available';
 $LNG['fa_galaxy_not_exist']					= 'Fault, galaxy does not exist';
 $LNG['fa_system_not_exist']					= 'Fault, system does not exist';
@@ -1015,7 +1029,7 @@ $LNG['fa_vacation_mode_current']			= 'Fault, you are in vaction mode';
 $LNG['fa_sending']							= 'Send';
 
 //----------------------------------------------------------------------------//
-// Missions
+// Misseis
 $LNG['ma_silo_level']						= 'Silo Level 4 Required! ';
 $LNG['ma_impulse_drive_required']			= 'Impulse drive required';
 $LNG['ma_not_send_other_galaxy']			= 'You cannot send rockets into another galaxy. ';
@@ -1035,7 +1049,7 @@ $LNG['ma_all']								= 'All';
 $LNG['ma_missiles_sended']					= ' Missles Deployed. Targeted: ';
 
 //----------------------------------------------------------------------------//
-// Hall of Fame
+// Hall da Fama
 $LNG['tkb_top']								= 'Hall of Fame';
 $LNG['tkb_gratz']							= 'The whole team congratulates the top 100 ';
 $LNG['tkb_platz']							= 'Place';
@@ -1049,7 +1063,7 @@ $LNG['tkb_unentschieden']					= '<b>-Both Weisses, undecided- </b>';
 $LNG['tkb_missing']							= '<br>Missing in Action: The user account does not exist any more.';
 
 //----------------------------------------------------------------------------//
-// Player Profile
+// Perfil de Jogador
 $LNG['pl_overview']							= 'Player Profile';
 $LNG['pl_name']								= 'Username';
 $LNG['pl_homeplanet']						= 'Home planet';
@@ -1078,7 +1092,7 @@ $LNG['pl_dercrystal']						= 'Recycled Crystal';
 $LNG['pl_etc']								= 'Etc ';
 
 //----------------------------------------------------------------------------//
-// Support
+// Suporte
 
 $LNG['ti_header'] 							= 'Support system';
 $LNG['ti_overview'] 						= 'Back';
@@ -1116,7 +1130,7 @@ $LNG['ti_error_no_subject']					= 'You must enter a subject!';
 $LNG['ti_msgtime']							= 'Message posted at';
 
 //----------------------------------------------------------------------------//
-// Records 
+// Recordes 
 
 $LNG['rec_players']  						= 'Player';
 $LNG['rec_level']  							= 'Level';
@@ -1124,7 +1138,7 @@ $LNG['rec_count']   						= 'Quantity';
 $LNG['rec_last_update_on']		   			= 'Last update on ';
 
 //----------------------------------------------------------------------------//
-// Battle Sim
+// Simulador de Batalha
 
 $LNG['bs_derbis_raport']   					= "Needed for recycling the debris: %s %s or %s %s. ";
 $LNG['bs_steal_raport']   					= "Needed to capture the resources: %s %s or %s %s or %s %s.";
@@ -1140,7 +1154,7 @@ $LNG['bs_acs_slot']   						= 'ACS-Slot';
 $LNG['bs_add_acs_slot']   					= 'Add ACS-Slot';
 $LNG['bs_reset']							= 'Reset';
 //----------------------------------------------------------------------------//
-// Fleet Market
+// Mercador de Naves
 
 $LNG['ft_head']								= 'Merchant fleets';
 $LNG['ft_count']							= 'Number';
@@ -1160,106 +1174,3 @@ $LNG['lo_continue']							= 'Click here not to wait';
 
 //----------------------------------------------------------------------------//
 
-// Tutorial
-$LNG['tut_welcome']	 						= 'Welcome to GALAXYZ Tutorial';
-$LNG['tut_welcom_desc']						= 'Welcome to GALAXYZ! Are you new here? This tutorial will explain you the main functions of the game.';
-$LNG['tut_welcom_desc2']	 				= 'During the development of the game you will be given various tasks for which you will be rewarded when they successfully complete the';
-$LNG['tut_welcom_desc3']	 				= 'The sequence of these tasks is random. However, as the contents of several tutorials are complete with each other, we recommend that you follow a predetermined order.';
-$LNG['tut_welcom_desc4']	 				= 'To view this page you will appear to the right menu and clicking Tutorial';
-$LNG['tut_welcom_desc5']	 				= 'Once you have completed the task will receive more information and the reward for work.';
-$LNG['tut_objects']							= 'Tasks';
-$LNG['tut_go']	 							= 'Start!';
-$LNG['tut_go_to']	 						= 'Go';
-$LNG['tut_m1']	 							= 'Task 1';
-$LNG['tut_m2']	 							= 'Task 2';
-$LNG['tut_m3']	 							= 'Task 3';
-$LNG['tut_m4']	 							= 'Task 4';
-$LNG['tut_m5']	 							= 'Task 5';
-$LNG['tut_m6']	 							= 'Task 6';
-$LNG['tut_m7']	 							= 'Task 7';
-$LNG['tut_m8']	 							= 'Task 8';
-$LNG['tut_m9']	 							= 'Task 9';
-$LNG['tut_ready']	 						= '<span style=color:#00FF00>Complete</span>';
-$LNG['tut_not_ready']						= '<span style=color:red>Incomplete</span>';
-$LNG['tut_m1_name']	 						= 'Task 1 - Basic supply';
-$LNG['tut_m1_desc']	 						= 'To expand your home planet you first of all, will need enough resources. You can produce these via mines. Secure your basic supply by expanding your metal and crystal mines. Please note that the upkeep of supply buildings use up a lot of energy. You can produce this energy by, for example, using solar power plants.';
-$LNG['tut_m1_quest']	 					= 'Upgrade metal mine to level 4';
-$LNG['tut_m1_quest2']	 					= 'Upgrade crystal mine to level 2';
-$LNG['tut_m1_quest3']	 					= 'Upgrade solar power plant to level 4';
-$LNG['tut_m1_quest4']	 					= 'free';
-$LNG['tut_m1_quest5']	 					= 'free';
-$LNG['tut_m1_gain']	 						= '<span style=color:orange>Reward : 2000 of Dark Matter</span>';
-$LNG['tut_m1_ready']	 					= 'You succeeded in completing the mission! Reward: 2000 Dark Matter';
-$LNG['tut_m2_name']	 						= 'Task 2 - Planet defence';
-$LNG['tut_m2_desc']	 						= 'To protect your resources from enemy pillagers, you should think about the expansion of your defence facilities early on. You can, for example, read up about what you need to build a rocket launcher in the rocket launcher techtree. You need deuterium to expand your defence facilities. Hence you should establish a basic production of this resource first.';
-$LNG['tut_m2_quest']	 					= 'Upgrade the deuterium synthesizer to level 2';
-$LNG['tut_m2_quest2']						= 'Build a robotics factory of level 2';
-$LNG['tut_m2_quest3']	 					= 'Build a shipyard of level 1';
-$LNG['tut_m2_quest4']	 					= 'Build 10 rocket launcher';
-$LNG['tut_m2_quest5']	 					= 'free';
-$LNG['tut_m2_gain']	 						= '<span style=color:orange>Reward : 2000 of Dark Matter</span>';
-$LNG['tut_m2_ready']	 					= 'You succeeded in completing the mission! Reward: 2000 Dark Matter';
-$LNG['tut_m3_name']	 						= 'Task 3 - Planet supplies';
-$LNG['tut_m3_desc']	 						= 'After the foundations for supply have been laid, you should intensify them. Please always make sure there is enough energy available.';
-$LNG['tut_m3_quest']	 					= 'Upgrade your metal mine onto level 10';
-$LNG['tut_m3_quest2']	 					= 'Upgrade your crystal mine onto level 8';
-$LNG['tut_m3_quest3']	 					= 'Upgrade the deuterium synthesizer to level 5';
-$LNG['tut_m3_quest4']						= 'free';
-$LNG['tut_m3_quest5']						= 'free';
-$LNG['tut_m3_gain']	 						= '<span style=color:orange>Reward : 2000 of Dark Matter</span>';
-$LNG['tut_m3_ready']	 					= 'You succeeded in completing the mission! Reward: 2000 Dark Matter';
-$LNG['tut_m4_name']	 						= 'Task 4 - The first ship';
-$LNG['tut_m4_desc']	 						= 'Ships as well as rocket launchers can protect you from opponents. They have the advantage that they can additionally be used for offensive purposes. However, ships and modern defence facilities have to be researched first. You will need a research lab to do that.';
-$LNG['tut_m4_quest']	 					= 'Build a research laboratory with level 1';
-$LNG['tut_m4_quest2']	 					= 'Upgrade your Shipyard to level 4';
-$LNG['tut_m4_quest3']	 					= 'Research the combustion drive on level 2';
-$LNG['tut_m4_quest4']	 					= 'Build 5 small cargo';
-$LNG['tut_m4_quest5']	 					= 'free';
-$LNG['tut_m4_gain']	 						= '<span style=color:orange>Reward : 2000 of Dark Matter</span>';
-$LNG['tut_m4_ready']	 					= 'You succeeded in completing the mission! Reward: 2000 Dark Matter';
-$LNG['tut_m5_name']	 						= 'Task 5 - Information networks';
-$LNG['tut_m5_desc']	 						= 'You are not alone in the universe! Information- and contact networks are very important. Those who socialise can rely on help from other players and can find trading partners more easily. A lot of players organise themselves in alliances to reach their targets together.';
-$LNG['tut_m5_quest']	 					= 'Become a member of an alliance';
-$LNG['tut_m5_quest2']	 					= 'Create a buddy request';
-$LNG['tut_m5_quest3']	 					= 'free';
-$LNG['tut_m5_quest4']	 					= 'free';
-$LNG['tut_m5_quest5']	 					= 'free';
-$LNG['tut_m5_gain']							= '<span style=color:orange>Reward : 4000 of Dark Matter</span>';
-$LNG['tut_m5_ready']	 					= 'You succeeded in completing the mission! Reward: 4000 Dark Matter';
-$LNG['tut_m6_name']	 						= 'Task 6 - Resources and devense';
-$LNG['tut_m6_desc']	 						= 'The maximum possible prodiction of resources is restricted to the amount of your resources and the maximum load of your storage capacity. To defense your resources, you should build protection shields.';
-$LNG['tut_m6_quest']	 					= 'Build a resource storage of metal, cristal and deuterium.';
-$LNG['tut_m6_quest2']	 					= 'Build a small protection shield.';
-$LNG['tut_m6_quest3']	 					= 'Build a big protection shield.';
-$LNG['tut_m6_quest4']	 					= 'free';
-$LNG['tut_m6_quest5']	 					= 'free';
-$LNG['tut_m6_gain']	 						= '<span style=color:orange>Reward : 4000 of Dark Matter</span>';
-$LNG['tut_m6_ready']	 					= 'You succeeded in completing the mission! Reward: 4000 Dark Matter';
-$LNG['tut_m7_name']	 						= 'Task 7 - Fleet action';
-$LNG['tut_m7_desc']	 						= 'Another way to get hold of resources is to pillage foreign planets. However, beware that some planets are very well protected. To find out information about foreign planets, you can spy on them.';
-$LNG['tut_m7_quest']						= 'Build 2 spy sonds';
-$LNG['tut_m7_quest2']	 					= 'Spy on another player`s planets';
-$LNG['tut_m7_quest3']	 					= 'Research spytech to level 2';
-$LNG['tut_m7_quest4']	 					= 'free';
-$LNG['tut_m7_quest5']	 					= 'free';
-$LNG['tut_m7_gain']	 						= '<span style=color:orange>Reward : 4000 of Dark Matter</span>';
-$LNG['tut_m7_ready']	 					= 'You succeeded in completing the mission! Reward: 4000 Dark Matter';
-$LNG['tut_m8_name']	 						= 'Task 8 - Expanding your empire';
-$LNG['tut_m8_desc']	 						= 'An emperor is always anxious to expand his empire. You have already laid the foundations for this on your home planet, but at some point it will be completely expanded. Develop new planets early on, to get hold of resources more quickly and to get hold of new building spaces. Through flexible air traffic between the planets, you also have a powerful device to protect your resources from enemy attacks.';
-$LNG['tut_m8_quest']	 					= 'Build 20 Colonizer';
-$LNG['tut_m8_quest2']	 					= 'Creat a new Colony';
-$LNG['tut_m8_quest3']	 					= 'Build 10 big Cargoship';
-$LNG['tut_m8_quest4']	 					= 'free';
-$LNG['tut_m8_quest5']	 					= 'free';
-$LNG['tut_m8_gain']	 						= '<span style=color:orange>Reward : 4000 of Dark Matter</span>';
-$LNG['tut_m8_ready']	 					= 'You succeeded in completing the mission! Reward: 4000 Dark Matter';
-$LNG['tut_m9_name']	 						= 'Task 9 - Debris field, Defense and Energie';
-$LNG['tut_m9_desc']	 						= 'After fighting in the Orbit, debris fields are formed from metal- and crystal residues from fired ships. The decomposition of this debris offers you an important alternative method to win resources.';
-$LNG['tut_m9_quest']	 					= 'Build 25 Recycler';
-$LNG['tut_m9_quest2']	 					= 'Dismantle a debris field';
-$LNG['tut_m9_quest3']	 					= 'Build 100 Battleships';
-$LNG['tut_m9_quest4']	 					= 'Make 2.000 free Energie';
-$LNG['tut_m9_quest5']	 					= 'free';
-$LNG['tut_m9_gain']	 						= '<span style=color:orange>Reward : 10000 of Dark Matter</span>';
-$LNG['tut_m9_ready']	 					= 'You succeeded in completing the tutorial! Reward: 10000 Dark Matter';
-$LNG['tut_compleat']						= 'You succeeded in completing the tutorial!';

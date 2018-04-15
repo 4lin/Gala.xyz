@@ -4,6 +4,6 @@ Hola {USERNAME},
 Nos complace que haya elegido nuestra comunidad para jugar 
 esperamos que lo disfrute mucho.
 
-Saluda atentamente
+Saludos cordiales,
 
-El equipo de {GAMENAME}
+{GAMENAME}
