@@ -1,4 +1,18 @@
 <?php
+/**
+ *  2Moons 
+ *   by Jan-Otto Kröpke 2009-2016
+ *
+ * For the full copyright and license information, please view the LICENSE
+ *
+ * @package 2Moons
+ * @author Jan-Otto Kröpke <slaver7@gmail.com>
+ * @copyright 2009 Lucky
+ * @copyright 2016 Jan-Otto Kröpke <slaver7@gmail.com>
+ * @licence MIT
+ * @version 1.8.0
+ * @link https://github.com/jkroepke/2Moons
+ */
 
 // Nomes para Relatório de Combate
 
@@ -262,7 +276,7 @@ $LNG['shortDescription'] = array(
 	605 => 'O construtor tem o seu DNA alterado, apenas um destes homens seria capaz de construir uma cidade num curto periodo de tempo.',
 	606 => 'Os cientistas sao uma especie de clã concorrente aos tecnocratas. Especializam-se na evolução da tecnologia.',
 	607 => 'O armazenamento faz parte da irmandade do planeta Hsac. O seu lema era ganhar o maximo, o que implica aumentar a capacidade de armazenamento. Desde então a tecnica de armazenamento tem evoluido.',
-	608 => 'O ministro da defesa e um membro exercito imperial. Concentrado no seu trabalho é capaz de construir uma defesa formidável num curto periodo de tempo.<br /><span style=color:red>-%s%% no tempo de construção de defesas.',
+	608 => 'O ministro da defesa e um membro exercito imperial. Concentrado no seu trabalho é capaz de construir uma defesa formidável num curto periodo de tempo.<br><br><font color="red">-%s%% no tempo de construção de defesas.',
 	609 => 'O guardião é um membro do exército imperial e tem como objetivo fazer evoluir as defesas de um planeta.',
 	610 => 'O espião é uma personagem enigmática. Nunca ninguem viu a sua verdadeira face, a unica maneira de isso acontecer seria sendo morto.',
 	611 => 'O comandante faz parte do exército imperial e especializou-se na arte de coordenar as frotas. O seu cérebro e capaz de calcular um grande número de trajectorias.',
@@ -365,7 +379,7 @@ $LNG['longDescription'] = array(
 	605 => 'O construtor tem o seu DNA alterado, apenas um destes homens seria capaz de construir uma cidade num curto periodo de tempo.',
 	606 => 'Os cientistas sao uma especie de clã concorrente aos tecnocratas. Especializam-se na evolução da tecnologia.',
 	607 => 'O armazenamento faz parte da irmandade do planeta Hsac. O seu lema era ganhar o maximo, o que implica aumentar a capacidade de armazenamento. Desde então a tecnica de armazenamento tem evoluido.',
-	608 => 'O ministro da defesa e um membro exercito imperial. Concentrado no seu trabalho é capaz de construir uma defesa formidável num curto periodo de tempo.<br /><span style=color:red>-%s%% no tempo de construção de defesas.',
+	608 => 'O ministro da defesa e um membro exercito imperial. Concentrado no seu trabalho é capaz de construir uma defesa formidável num curto periodo de tempo.<br><br><font color="red">-%s%% no tempo de construção de defesas.',
 	609 => 'O guardião é um membro do exército imperial e tem como objetivo fazer evoluir as defesas de um planeta.',
 	610 => 'O espião é uma personagem enigmática. Nunca ninguem viu a sua verdadeira face, a unica maneira de isso acontecer seria sendo morto.',
 	611 => 'O comandante faz parte do exército imperial e especializou-se na arte de coordenar as frotas. O seu cérebro e capaz de calcular um grande número de trajectorias.',

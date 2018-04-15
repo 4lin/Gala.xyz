@@ -1,26 +1,16 @@
 <?php
-/**
- *  2Moons 
- *   by Jan-Otto Kröpke 2009-2016
- *
- * For the full copyright and license information, please view the LICENSE
- *
- * @package 2Moons
- * @author Jan-Otto Kröpke <slaver7@gmail.com>
- * @copyright 2009 Lucky
- * @copyright 2016 Jan-Otto Kröpke <slaver7@gmail.com>
- * @licence MIT
- * @version 1.8.0
- * @link https://github.com/jkroepke/2Moons
- */
+// Traduction Française by BigTwoProduction (KickXAss4Ever & Apocalypto2202) - All rights reserved (C) 2016
+// Web : http://www.big-two.tk
+// Version 1.0 - Initial release
+// Version 1.1 - Decode accent HTML to UTF-8 format & small spellchecking
 
-setlocale(LC_ALL, 'pl_PL', 'polish'); // http://msdn.microsoft.com/en-us/library/39cwe7zf%28vs.71%29.aspx
+setlocale(LC_ALL, 'fr_FR', 'french'); // http://msdn.microsoft.com/fr-fr/library/39cwe7zf%28vs.71%29.aspx
 setlocale(LC_NUMERIC, 'C');
 
 //SERVER GENERALS
 $LNG['dir']         	= 'ltr';
-$LNG['week_day']		= array('Nied', 'Pon', 'Wto', 'Śro', 'Czw', 'Pi', 'So'); # Start with So!
-$LNG['months']			= array('Sty', 'Lut', 'Mar', 'Kwi', 'Maj', 'Cze', 'Lip', 'Sie', 'Wrz', 'Paz', 'Lis', 'Gru');
+$LNG['week_day']		= array('Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam');
+$LNG['months']			= array('Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aout', 'Sep', 'Oct', 'Nov', 'Dec');
 $LNG['js_tdformat']		= '[M] [D] [d] [H]:[i]:[s]';
 $LNG['php_timeformat']	= 'H:i:s';
 $LNG['php_dateformat']	= 'd. M Y';
@@ -48,9 +38,9 @@ $LNG['timezones']		= array(
 	'-3'	=> '[UTC - 3] Amazon Standard Time, Central Greenland Time',
 	'-2'	=> '[UTC - 2] Fernando de Noronha Time, South Georgia &amp; the South Sandwich Islands Time',
 	'-1'	=> '[UTC - 1] Azores Standard Time, Cape Verde Time, Eastern Greenland Time',
-	'0'		=> '[UTC] Westeuropäische Zeit, Greenwich Mean Time',
-	'1'		=> '[UTC + 1] Mitteleuropäische Zeit, West African Time',
-	'2'		=> '[UTC + 2] Osteuropäische Zeit, Central African Time',
+	'0'		=> '[UTC] Western European Time, Greenwich Mean Time',
+	'1'		=> '[UTC + 1] Central European Time, West African Time',
+	'2'		=> '[UTC + 2] Eastern European Time, Central African Time',
 	'3'		=> '[UTC + 3] Moscow Standard Time, Eastern African Time',
 	'3.5'	=> '[UTC + 3:30] Iran Standard Time',
 	'4'		=> '[UTC + 4] Gulf Standard Time, Samara Standard Time',
@@ -74,3 +64,4 @@ $LNG['timezones']		= array(
 	'13'	=> '[UTC + 13] Tonga Time, Phoenix Islands Time',
 	'14'	=> '[UTC + 14] Line Island Time',
 );
+?>

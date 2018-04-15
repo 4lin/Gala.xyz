@@ -1,4 +1,18 @@
 <?php
+/**
+ *  2Moons 
+ *   by Jan-Otto Kröpke 2009-2016
+ *
+ * For the full copyright and license information, please view the LICENSE
+ *
+ * @package 2Moons
+ * @author Jan-Otto Kröpke <slaver7@gmail.com>
+ * @copyright 2009 Lucky
+ * @copyright 2016 Jan-Otto Kröpke <slaver7@gmail.com>
+ * @licence MIT
+ * @version 1.8.0
+ * @link https://github.com/jkroepke/2Moons
+ */
 
 // Traduzido por QwataKayean. Todos os Direitos Reservados © 2010-2012
 // Texto escrito conforme o Acordo Ortográfico a ser inserido em 2011 pelo Ministério da Educação de Portugal - convertido pelo Lince.         
@@ -15,30 +29,27 @@ $LNG['loading']								= 'A carregar ...';
 
 $LNG['invalid_action']						= 'Ação Invalida!!';
 
-$LNG['type_mission'][1]  					= 'Atacar';
-$LNG['type_mission'][2]  					= 'ACS - Ataque em Cooperação';
-$LNG['type_mission'][3]  					= 'Transportar';
-$LNG['type_mission'][4]  					= 'Estação';
-$LNG['type_mission'][5]  					= 'Transferir';
-$LNG['type_mission'][6]  					= 'Espiar';
-$LNG['type_mission'][7]  					= 'Colonizar';
-$LNG['type_mission'][8]  					= 'Reciclar';
-$LNG['type_mission'][9]  					= 'Destruir';
-$LNG['type_mission'][10]  					= 'Ataque de Misseis';
-$LNG['type_mission'][11]  					= 'Investigação de Matéria Negra ';
-$LNG['type_mission'][15] 					= 'Expedição';
+$LNG['type_mission_1']  					= 'Atacar';
+$LNG['type_mission_2']  					= 'ACS - Ataque em Cooperação';
+$LNG['type_mission_3']  					= 'Transportar';
+$LNG['type_mission_4']  					= 'Estação';
+$LNG['type_mission_5']  					= 'Transferir';
+$LNG['type_mission_6']  					= 'Espiar';
+$LNG['type_mission_7']  					= 'Colonizar';
+$LNG['type_mission_8']  					= 'Reciclar';
+$LNG['type_mission_9']  					= 'Destruir';
+$LNG['type_mission_10']  					= 'Ataque de Misseis';
+$LNG['type_mission_11']  					= 'Investigação de Matéria Negra ';
+$LNG['type_mission_15'] 					= 'Expedição';
 
-$LNG['type_planet'][1]  					= 'Planeta';
-$LNG['type_planet'][2]  					= 'Campo de Destroços';
-$LNG['type_planet'][3]  					= 'Lua';
+$LNG['type_planet_1']  					= 'Planeta';
+$LNG['type_planet_2']  					= 'Campo de Destroços';
+$LNG['type_planet_3']  					= 'Lua';
 
-$LNG['user_level'] = array (
-	'0' => 'Jogador',
-	'1' => 'Moderador',
-	'2' => 'Operador',
-	'3' => 'Administrador',
-);
-
+$LNG['user_level_0']                        = 'Jogador';
+$LNG['user_level_1']                        = 'Moderador';
+$LNG['user_level_2']                        = 'Operador';
+$LNG['user_level_3']                        = 'Administrador';
 
 $LNG['page_doesnt_exist']					= 'Esta página não existe';
 $LNG['bad_forum_url']				    	= 'O link de Forum é incorreto!';
@@ -104,16 +115,12 @@ $LNG['ov_have_new_message']					= 'Possuis uma nova mensagem';
 $LNG['ov_have_new_messages']				= 'Possuis %d novas mensagens';
 $LNG['ov_planetmenu']						= 'Alterar nome ou excluir';
 $LNG['ov_free']								= 'Livre';
-$LNG['ov_buildings']						= 'No prédio em construção';
-$LNG['ov_research']							= 'Não há nenhuma investigação em curso neste momento.';
-$LNG['ov_hangar']							= 'Nem todo navio ou de defesa construída neste momento.';
 $LNG['ov_news']								= 'Noticias';
 $LNG['ov_place']							= 'Posição';
 $LNG['ov_of']								= 'de';
 $LNG['ov_planet']							= 'Planeta';
 $LNG['ov_server_time']						= 'Tempo de Servidor ';
 $LNG['ov_events']							= 'Actividades';
-$LNG['ov_no_events']						= 'Não há movimentos flutuantes';
 $LNG['ov_diameter']							= 'Diâmetro';
 $LNG['ov_distance_unit']					= 'km';
 $LNG['ov_temperature']						= 'Temperatura';
@@ -132,11 +139,8 @@ $LNG['ov_fields']							= 'Campos';
 $LNG['ov_developed_fields']					= 'Campos usados';
 $LNG['ov_max_developed_fields']				= 'Max. Campos permitidos';
 $LNG['ov_fleet']							= 'Frotas';
-$LNG['ov_admins_online']					= 'Admins: ';
-$LNG['ov_player_online']					= 'Jogador / Total: ';
-$LNG['ov_no_admins_online']					= '0';
-$LNG['ov_no_player_online']					= '0';
-$LNG['ov_user_last_new']					= '&Uacute;ltimo registrado: ';
+$LNG['ov_admins_online']					= 'Administradores Activos';
+$LNG['ov_no_admins_online']					= 'De momento, não existe qualquer administrador online';
 $LNG['ov_userbanner']						= 'Banner do Jogador';
 $LNG['ov_userrank_info']					= '%s (%s <a href="game.php?page=statistics&amp;range=%d">%d</a> %s %s)';
 $LNG['ov_teamspeak_not_online']				= 'O servidor Teamspeak não esta ativo';
@@ -400,8 +404,8 @@ $LNG['bd_maxlevel']                         = 'Nível máximo atingido';
 $LNG['bd_on']                               = 'ligado';
 $LNG['bd_max_builds']                       = 'Só poderás ter max. %d de filas de construção!';
 $LNG['bd_next_level']                       = 'Nível Seguinte:';
-$LNG['bd_need_engine']                      = 'Precisas de mais <span style=color:#FF0000>%s</span> de %s';
-$LNG['bd_more_engine']                      = 'Produzidos <span style=color:#00FF00>%s</span> mais';
+$LNG['bd_need_engine']                      = 'Precisas de mais <font color="#FF0000">%s</font> de %s';
+$LNG['bd_more_engine']                      = 'Produzidos <font color="#00FF00">%s</font> %s mais';
 $LNG['bd_jump_gate_action']                 = 'Saltar';
 $LNG['bd_cancel_warning']                   = 'ATENÇÃO! <br> Se cancelares só receberás 60% dos teus recursos investidos.';
 $LNG['bd_cancel_send']                      = 'Cancelar Construção';
@@ -413,6 +417,8 @@ $LNG['sys_nomore_level'] 					= 'Estás a tentar destruir um edifício que já n
 $LNG['sys_buildlist'] 						= "Lista de construção";
 $LNG['sys_techlist'] 						= 'Lista de Pesquisa';
 $LNG['sys_buildlist_fail'] 				    = "Impossível construir";
+$LNG['sys_back']							= 'Atrás';
+$LNG['sys_forward']							= 'Próximo';
 
 //----------------------------------------------------------------------------//
 // Recursos
@@ -433,8 +439,7 @@ $LNG['of_recruit']							= 'Recrutar';
 $LNG['of_max_lvl']							= 'Nivel Max.';
 $LNG['of_offi']								= 'Oficial';
 $LNG['of_lvl']								= 'Nivel';
-$LNG['of_dm_trade']							= 'Loja';
-$LNG['of_shop']							= 'Compras';
+$LNG['of_dm_trade']							= '%s - Loja';
 $LNG['of_still']							= 'Continya';
 $LNG['of_active']							= 'ativo';
 
@@ -463,7 +468,7 @@ $LNG['tt_lvl']								= 'Nivel ';
 //----------------------------------------------------------------------------//
 // Infos
 $LNG['in_jump_gate_no_target']				= 'Sem alvo disponivel';
-$LNG['in_jump_gate_done']					='O portal de salto foi usado, poderás voltar a usá-lo em:';
+$LNG['in_jump_gate_done']					= 'O portal de salto foi usado, poderás voltar a usá-lo em:';
 $LNG['in_jump_gate_error_data']			    = 'Erro, coordenadas para salto não estão corretas!';
 $LNG['in_jump_gate_not_ready_target']		= 'O portal não está pronto na lua de destino, Estará pronto em ';
 $LNG['in_jump_gate_doesnt_have_one']		= 'Não tens outro portal para efetuar o salto!';
@@ -757,6 +762,8 @@ $LNG['al_rank_desc']['DIPLOMATIC']			= 'Pode gerenciar a Diplomacia';
 $LNG['al_rank_desc']['RANKS']				= 'Pode configurar os Ranks';
 $LNG['al_rank_desc']['MANAGEUSERS']			= 'Pode gerenciar os membros';
 $LNG['al_rank_desc']['EVENTS']			= 'Pode ver eventos';
+$LNG['al_invalid_rank_name']				= 'No nome de Rank, é apenas permitido números, letras, espaços, _, -.';
+$LNG['al_make_ally_insufficient_points']	= 'Não tens pontos suficientes para criar uma Aliança.<br>São requeridos %s pontos, mas possuis %s pontos.';
 
 //----------------------------------------------------------------------------//
 // Lista de Amigos
@@ -802,7 +809,6 @@ $LNG['nt_unimportant']						= 'Não importante';
 $LNG['nt_create_note']						= 'Criar nota';
 $LNG['nt_you_dont_have_notes']				= 'Sem notas guardadas';
 $LNG['nt_notes']							= 'Notas';
-$LNG['nt_version']							= 'Versión';
 $LNG['nt_create_new_note']					= 'Criar nova nota';
 $LNG['nt_edit_note']                        = 'Editar Nota';
 $LNG['nt_date_note']						= 'Data';
@@ -1059,7 +1065,6 @@ $LNG['tkb_missing']                         = '<br>Desaparecido em Combate: A co
 // Perfil de Jogador
 $LNG['pl_overview']                         = 'Perfil';
 $LNG['pl_name']                             = 'Usuário';
-$LNG['pl_name']                             = 'Nome';
 $LNG['pl_homeplanet']                       = 'Planeta Principal';
 $LNG['pl_ally']                             = 'Aliança';
 $LNG['pl_message']                          = 'Escrever Mensagem Privada';
@@ -1167,109 +1172,6 @@ $LNG['lo_notify']							= 'Serás redirecionado em <span id="seconds">5</span> s
 $LNG['lo_continue']							= 'Clica aqui para não esperar';
 
 //----------------------------------------------------------------------------//
-// Tutorial
-$LNG['tut_welcome']	 						= 'Welcome to GALAXYZ Tutorial';
-$LNG['tut_welcom_desc']						= 'Welcome to GALAXYZ! Eres nuevo? Eset tutorial te enseñará los primeros pasos que hacer.';
-$LNG['tut_welcom_desc2']	 				= 'Durante el desarrollo del juego se le dará varias tareas para las que serán recompensados ​​al completar con éxito la tarea.';
-$LNG['tut_welcom_desc3']	 				= 'La secuencia de estas tareas es al azar. Sin embargo, como el contenido de varios tutoriales están completos uno con el otro, le recomendamos que siga un orden predeterminado.';
-$LNG['tut_welcom_desc4']	 				= 'Para ver esta página usted parece el menú de la derecha y haga clic en Tutorial';
-$LNG['tut_welcom_desc5']	 				= 'Una vez que haya completado la tarea recibirá más información y la recompensa por el trabajo.';
-$LNG['tut_objects']							= 'Tareas';
-$LNG['tut_go']	 							= 'Inicie!';
-$LNG['tut_go_to']	 						= 'Ir';
-$LNG['tut_m1']	 							= 'Tarea 1';
-$LNG['tut_m2']	 							= 'Tarea 2';
-$LNG['tut_m3']	 							= 'Tarea 3';
-$LNG['tut_m4']	 							= 'Tarea 4';
-$LNG['tut_m5']	 							= 'Tarea 5';
-$LNG['tut_m6']	 							= 'Tarea 6';
-$LNG['tut_m7']	 							= 'Tarea 7';
-$LNG['tut_m8']	 							= 'Tarea 8';
-$LNG['tut_m9']	 							= 'Tarea 9';
-$LNG['tut_ready']	 						= '<span style=color:#00FF00>Completado</span>';
-$LNG['tut_not_ready']						= '<span style=color:red>Incompletado</span>';
-$LNG['tut_m1_name']	 						= 'Tarea 1 - Suministro básico';
-$LNG['tut_m1_desc']	 						= 'Para ampliar su planeta de origen que en primer lugar, tendrá los recursos suficientes. Usted puede producirlos a través de las minas. Asegure su suministro básico ampliando las minas de metal y cristal. Tenga en cuenta que el mantenimiento de los edificios de la red, usar una gran cantidad de energía. Se puede producir esta energía, por ejemplo, el uso de plantas de energía solar.';
-$LNG['tut_m1_quest']	 					= 'Actualiza mina de metal a nivel 4';
-$LNG['tut_m1_quest2']	 					= 'Actualiza mina de cristal a nivel 2';
-$LNG['tut_m1_quest3']	 					= 'Actualiza la planta de energía solar a nivel 4';
-$LNG['tut_m1_quest4']	 					= 'libre';
-$LNG['tut_m1_quest5']	 					= 'libre';
-$LNG['tut_m1_gain']	 						= '<span style=color:orange>Recompensa : 200 Materia Oscura</span>';
-$LNG['tut_m1_ready']	 					= 'Tuviste éxito en la realización de la misión! Recompensa: 200 Materia Oscura';
-$LNG['tut_m2_name']	 						= 'Tarea 2 - Planet defensa';
-$LNG['tut_m2_desc']	 						= 'Para proteger los recursos de los saqueos enemigos, usted debe pensar en la expansión de sus instalaciones de defensa desde el principio. Puede, por ejemplo, leer acerca de lo que necesita para construir un lanzador de cohetes en el cohete lanzador Árbol Tecnológico. Necesitas deuterio para ampliar sus instalaciones de defensa. Por lo tanto usted debe establecer una base de producción de este recurso en primer lugar.';
-$LNG['tut_m2_quest']	 					= 'Actualiza el sintetizador de deuterio a nivel 2';
-$LNG['tut_m2_quest2']						= 'Construir una fábrica de robótica de nivel 2';
-$LNG['tut_m2_quest3']	 					= 'Construir un astillero de nivel 1';
-$LNG['tut_m2_quest4']	 					= 'Construir 10 lanzacohetes';
-$LNG['tut_m2_quest5']	 					= 'libre';
-$LNG['tut_m2_gain']	 						= '<span style=color:orange>Recompensa : 200 of Materia Oscura</span>';
-$LNG['tut_m2_ready']	 					= 'Tuviste éxito en la realización de la misión! Recompensa: 200 Materia Oscura';
-$LNG['tut_m3_name']	 						= 'Tarea 3 - Suministros Planeta';
-$LNG['tut_m3_desc']	 						= 'Después de haber sentado las bases de la oferta, debe intensificar ellos. Por favor, asegúrese siempre de que hay suficiente energía disponible.';
-$LNG['tut_m3_quest']	 					= 'Actualice su mina de metal sobre el nivel 10';
-$LNG['tut_m3_quest2']	 					= 'Actualice su mina de cristal a nivel 8';
-$LNG['tut_m3_quest3']	 					= 'Actualiza el sintetizador de deuterio a nivel 5';
-$LNG['tut_m3_quest4']						= 'libre';
-$LNG['tut_m3_quest5']						= 'liber';
-$LNG['tut_m3_gain']	 						= '<span style=color:orange>Recompensa : 200 of Materia Oscura</span>';
-$LNG['tut_m3_ready']	 					= 'Tuviste éxito en la realización de la misión! Recompensa: 200 Materia Oscura';
-$LNG['tut_m4_name']	 						= 'Tarea 4 - El primer barco';
-$LNG['tut_m4_desc']	 						= 'Buques, así como lanzacohetes puede proteger de los oponentes. Tienen la ventaja de que, además, se pueden utilizar para los propósitos ofensivos. Sin embargo, los buques y las instalaciones de defensa modernos tienen que investigar primero. Usted necesitará un laboratorio de investigación para hacer eso.';
-$LNG['tut_m4_quest']	 					= 'Construir un laboratorio de investigación con el nivel 1';
-$LNG['tut_m4_quest2']	 					= 'Actualiza tu Hangar al nivel 4';
-$LNG['tut_m4_quest3']	 					= 'La investigación de la unidad de combustión en el nivel 2';
-$LNG['tut_m4_quest4']	 					= 'Construir 5 pequeñas naves de carga';
-$LNG['tut_m4_quest5']	 					= 'libre';
-$LNG['tut_m4_gain']	 						= '<span style=color:orange>Recompensa : 200 of Materia Oscura</span>';
-$LNG['tut_m4_ready']	 					= 'Tuviste éxito en la realización de la misión! Recompensa: 200 Materia Oscura';
-$LNG['tut_m5_name']	 						= 'Tarea 5 - Las redes de información';
-$LNG['tut_m5_desc']	 						= 'Usted no está solo en el universo! Las redes de información y de contacto son muy importantes. Los que socializan puede depender de la ayuda de otros jugadores y pueden encontrar socios comerciales con más facilidad. Una gran cantidad de jugadores se organizan en las alianzas para alcanzar sus metas juntos.';
-$LNG['tut_m5_quest']	 					= 'Conviértete en un miembro de una alianza';
-$LNG['tut_m5_quest2']	 					= 'Crear una solicitud de amistad';
-$LNG['tut_m5_quest3']	 					= 'libre';
-$LNG['tut_m5_quest4']	 					= 'libre';
-$LNG['tut_m5_quest5']	 					= 'libre';
-$LNG['tut_m5_gain']							= '<span style=color:orange>Recompensa : 400 of Materia Oscura</span>';
-$LNG['tut_m5_ready']	 					= 'Tuviste éxito en la realización de la misión! Recompensa: 400 Materia Oscura';
-$LNG['tut_m6_name']	 						= 'Tarea 6 - Recursos y defensa';
-$LNG['tut_m6_desc']	 						= 'El prodiction máximo posible de los recursos se limita a la cantidad de sus recursos y la carga máxima de la capacidad de almacenamiento. Para la defensa los recursos, se debe construir escudos de protección.';
-$LNG['tut_m6_quest']	 					= 'Construir un almacén de recursos de metal, cristal y deuterio.';
-$LNG['tut_m6_quest2']	 					= 'Construir un pequeño escudo de protección.';
-$LNG['tut_m6_quest3']	 					= 'Construir un gran escudo de protección.';
-$LNG['tut_m6_quest4']	 					= 'libre';
-$LNG['tut_m6_quest5']	 					= 'libre';
-$LNG['tut_m6_gain']	 						= '<span style=color:orange>Recompensa : 400 of Materia Oscura</span>';
-$LNG['tut_m6_ready']	 					= 'Tuviste éxito en la realización de la misión! Recompensa: 400 Materia Oscura';
-$LNG['tut_m7_name']	 						= 'Tarea 7 - Flota acción';
-$LNG['tut_m7_desc']	 						= 'Otra forma de controlar los recursos es para saquear planetas exteriores. Sin embargo, ten en cuenta que algunos planetas están muy bien protegidos. Para obtener información acerca de los planetas exteriores, puede espiarlos.';
-$LNG['tut_m7_quest']						= 'Construir 2 sondas de espíonaje';
-$LNG['tut_m7_quest2']	 					= 'Espiar en planetas de otros jugadores';
-$LNG['tut_m7_quest3']	 					= 'Subir Laboratorio de investigación al nivel 2';
-$LNG['tut_m7_quest4']	 					= 'libre';
-$LNG['tut_m7_quest5']	 					= 'libre';
-$LNG['tut_m7_gain']	 						= '<span style=color:orange>Recompensa : 400 of Materia Oscura</span>';
-$LNG['tut_m7_ready']	 					= 'Tuviste éxito en la realización de la misión! Recompensa: 400 Materia Oscura';
-$LNG['tut_m8_name']	 						= 'Tarea 8 - La expansión de su imperio';
-$LNG['tut_m8_desc']	 						= 'Un emperador está siempre ansioso por expandir su imperio. Usted ya ha sentado las bases para esto en su planeta de origen, pero en algún momento será completamente extendido. Desarrollar nuevos planetas desde el principio, para controlar los recursos con mayor rapidez y de hacerse con nuevos espacios de construcción. A través del tráfico aéreo flexible entre los planetas, también tiene un dispositivo de gran alcance para proteger los recursos de los ataques enemigos.';
-$LNG['tut_m8_quest']	 					= 'Construir 20 Colonizadores';
-$LNG['tut_m8_quest2']	 					= 'Crear una nueva colonia';
-$LNG['tut_m8_quest3']	 					= 'Construir 10 grandes buques de carga';
-$LNG['tut_m8_quest4']	 					= 'libre';
-$LNG['tut_m8_quest5']	 					= 'libre';
-$LNG['tut_m8_gain']	 						= '<span style=color:orange>Recompensa : 1000 of Materia Oscura</span>';
-$LNG['tut_m8_ready']	 					= 'Tuviste éxito en la realización de la misión! Recompensa: 1000 Materia Oscura';
-$LNG['tut_m9_name']	 						= 'Tarea 9 - Campo de Escombros, Defensa y Energía';
-$LNG['tut_m9_desc']	 						= 'Después de luchar en el Orbit, campos de escombros se forman a partir de metal y cristal de los residuos procedentes de los buques despedidos. La descomposición de estos desechos que ofrece un importante método alternativo para ganar recursos.';
-$LNG['tut_m9_quest']	 					= 'Construir 25 Recicladores';
-$LNG['tut_m9_quest2']	 					= 'Desmontar un campo de escombros';
-$LNG['tut_m9_quest3']	 					= 'Construir 100 Acorazados';
-$LNG['tut_m9_quest4']	 					= 'Hacer 2,000 Energie sin usar';
-$LNG['tut_m9_quest5']	 					= 'libre';
-$LNG['tut_m9_gain']	 						= '<span style=color:orange>Recompensa : 2000 of Materia Oscura</span>';
-$LNG['tut_m9_ready']	 					= 'Tuviste éxito en completar el tutorial! Recompensa: 2000 Materia Oscura';
-$LNG['tut_compleat']						= 'Tuviste éxito en completar el tutorial!';
 
 
-// Translated into Portuguese by QwataKayean . All rights reversed (C) 2012 Updated by alin 20/Sept/2013
+// Translated into Portuguese by QwataKayean . All rights reversed (C) 2012
