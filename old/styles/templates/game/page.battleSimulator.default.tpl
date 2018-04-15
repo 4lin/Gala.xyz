@@ -2,7 +2,7 @@
 {block name="content"}
 <form id="form" name="battlesim">
 	<input type="hidden" name="slots" id="slots" value="{$Slots + 1}">
-	<table style="width:100%">
+	<table style="width:80%">
 		<tr>
 			<th>{$LNG.lm_battlesim}</th>
 		</tr>
@@ -10,7 +10,7 @@
 			<td>{$LNG.bs_steal} {$LNG.tech.901}: <input type="text" size="10" value="{if isset($battleinput.0.1.901)}{$battleinput.0.1.901}{else}0{/if}" name="battleinput[0][1][901]"> {$LNG.tech.902}: <input type="text" size="10" value="{if isset($battleinput.0.1.902)}{$battleinput.0.1.902}{else}0{/if}" name="battleinput[0][1][902]"> {$LNG.tech.903}: <input type="text" size="10" value="{if isset($battleinput.0.1.903)}{$battleinput.0.1.903}{else}0{/if}" name="battleinput[0][1][903]"></td>
 		</tr>
 		<tr>
-			<td class="center"><input class="button small green" type="button" onClick="return add();" value="{$LNG.bs_add_acs_slot}"></td>
+			<td class="left"><input type="button" onClick="return add();" value="{$LNG.bs_add_acs_slot}"></td>
 		</tr>
 		<tr>
 			<td class="transparent" style="padding:0;">
@@ -28,8 +28,8 @@
 							</tr>
 							<tr>
 								<td></td>
-								<td><button class="button red small reset">{$LNG.bs_reset}</button></td>
-								<td><button class="button red small reset">{$LNG.bs_reset}</button></td>
+								<td><button class="reset">{$LNG.bs_reset}</button></td>
+								<td><button class="reset">{$LNG.bs_reset}</button></td>
 							</tr>
 							<tr>
 								<td>{$LNG.tech.109}:</td>
@@ -59,8 +59,8 @@
 										</tr>
 										<tr>
 											<td></td>
-											<td><button class="button red small reset">{$LNG.bs_reset}</button></td>
-											<td><button class="button red small reset">{$LNG.bs_reset}</button></td>
+											<td><button class="reset">{$LNG.bs_reset}</button></td>
+											<td><button class="reset">{$LNG.bs_reset}</button></td>
 										</tr>
 										{foreach $fleetList as $id}
 										<tr>
@@ -82,7 +82,7 @@
 											<tr>
 												<td></td>
 												<td></td>
-												<td><button class="button red small reset">{$LNG.bs_reset}</button></td>
+												<td><button class="reset">{$LNG.bs_reset}</button></td>
 											</tr>
 											{foreach $defensiveList as $id}
 											<tr>
@@ -102,7 +102,7 @@
 			</td>
 		</tr>
 		<tr id="submit">
-			<td><input class="button green small" type="button" onClick="return check();" value="{$LNG.bs_send}">&nbsp;<input class="button green small" type="reset" value="{$LNG.bs_cancel}"></td>
+			<td><input type="button" onClick="return check();" value="{$LNG.bs_send}">&nbsp;<input type="reset" value="{$LNG.bs_cancel}"></td>
 		</tr>
 		<tr id="wait" style="display:none;">
 			<td style="height:20px">{$LNG.bs_wait}</td>

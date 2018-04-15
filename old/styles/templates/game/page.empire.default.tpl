@@ -1,15 +1,15 @@
 {block name="title" prepend}{$LNG.lm_empire}{/block}
 {block name="content"}
-<table style="width:100%;">
+<table>
 	<tbody>
 		<tr>
 			<th colspan="{$colspan}">{$LNG.lv_imperium_title}</th>
 		</tr>
 		<tr>
-			<td style="width:100px">{$LNG.lv_planet}</td>
-			<td style="width:100px;font-size: 50px;">&Sigma;</td>
+			<td style="width:48px">{$LNG.lv_planet}</td>
+			<td style="width:48px;font-size: 50px;"></td>
 			{foreach $planetList.image as $planetID => $image}
-			<td style="width:100px"><a href="game.php?page=overview&amp;cp={$planetID}"><img width="38" height="38" border="0" src="{$dpath}planeten/small/s_{$image}.gif"></a></td>
+			<td style="width:100px"><a href="game.php?page=overview&amp;cp={$planetID}"><img width="48" height="48" border="0" src="{$dpath}planets/small/s_{$image}.gif"></a></td>
 			{/foreach}
 		</tr>
 		<tr>
@@ -34,9 +34,12 @@
 			{/foreach}
 		</tr>
 		<tr>
-			<th colspan="{$colspan}">{$LNG.lv_resources}</th>
+			<th colspan="{$colspan}">
+				<img src="http://i.imgur.com/araiTz7.gif" alt=""/>{$LNG.lv_resources}
+			</th>
 		</tr>
-		{foreach $planetList.resource as $elementID => $resourceArray}
+		
+		{foreach $planetList.resource as $elementID => $resourceArray name=trloop}
 		<tr>
 			<td>{$LNG.tech.$elementID}</td>
 			<td>{array_sum($resourceArray)|number}</td>
@@ -45,6 +48,7 @@
 			{/foreach}
 		</tr>
 		{/foreach}
+
 		<tr>
 			<th colspan="{$colspan}">{$LNG.lv_buildings}</th>
 		</tr>

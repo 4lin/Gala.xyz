@@ -1,7 +1,7 @@
 {block name="title" prepend}{$pageTitle}{/block}
 {block name="content"}
 {if isset($Info)}
-<table style="width:670px;text-align:center;padding:30px 10px 5px;position:absolute;left:0;right:0;margin-left:auto;margin-right:auto">
+<table style="width:100%">
 	<tr>
 		<td class="transparent" style="width:40%;font-size:22px;font-weight:bold;padding:10px 0 30px;color:{if $Raport.result == "a"}lime{elseif $Raport.result == "r"}red{else}white{/if}">{$Info.0}</td>
 		<td class="transparent" style="font-size:22px;font-weight:bold;padding:10px 0 30px;">VS</td>
@@ -9,7 +9,7 @@
 	</tr>
 </table>
 {/if}
-<div style="width:670px;text-align:center;padding:30px 10px 5px;position:absolute;left:0;right:0;margin-left:auto;margin-right:auto">
+<div style="width:100%;text-align:center">
 {if $Raport.mode == 1}{$LNG.sys_destruc_title}{else}{$LNG.sys_attack_title}{/if} 
 {$Raport.time}:<br><br>
 {foreach $Raport.rounds as $Round => $RoundInfo}
@@ -21,7 +21,7 @@
 			<table>
 				<tr>
 					<td>
-						{$LNG.sys_attack_attacker_pos} {$PlayerInfo.name} {if isset($Info)}([XX:XX:XX]){else}([{$PlayerInfo.koords[0]}:{$PlayerInfo.koords[1]}:{$PlayerInfo.koords[2]}]{if isset($PlayerInfo.koords[3])} ({$LNG.type_planet_short[$PlayerInfo.koords[3]]}){/if}){/if}<br>
+						{$LNG.sys_attack_attacker_pos} {$PlayerInfo.name} {if isset($Info)}([XX:XX:XX]){else}([{$PlayerInfo.koords[0]}:{$PlayerInfo.koords[1]}:{$PlayerInfo.koords[2]}]{if isset($PlayerInfo.koords[3])} ({$LNG["type_planet_short_{$PlayerInfo.koords[3]}"]}){/if}){/if}<br>
 						{$LNG.sys_ship_weapon} {$PlayerInfo.tech[0]}% - {$LNG.sys_ship_shield} {$PlayerInfo.tech[1]}% - {$LNG.sys_ship_armour} {$PlayerInfo.tech[2]}%
 						<table width="100%">
 						{if !empty($Player.ships)}

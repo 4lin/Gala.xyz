@@ -1,13 +1,11 @@
 {block name="title" prepend}{$LNG.lm_buddylist}{/block}
 {block name="content"}
-<!--<div id="planet" style="background:url(./styles/theme/gow/img/pagination/top100.jpg) no-repeat; height:300px; width:654px;">
-	<h2>{$LNG.bu_request_message} </h2>
-</div>
-<div class="c-left"></div>
-<div class="c-right"></div>-->
 <form name="buddy" id="buddy" action="game.php?page=buddyList&amp;mode=send&amp;ajax=1" method="post">
 <input type="hidden" name="id" value="{$id}">
-    <table style="width:670px">
+    <table style="width:95%">
+    <tr>
+        <th colspan="2">{$LNG.bu_request_message}</th>
+    </tr>
 	<tr style="height:20px;">
         <td>{$LNG.bu_player}</td>
         <td><input type="text" value="{$username} [{$galaxy}:{$system}:{$planet}]" size="40" readonly></td>

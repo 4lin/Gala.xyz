@@ -1,10 +1,5 @@
 {block name="title" prepend}{$LNG.lm_fleet}{/block}
 {block name="content"}
-<div id="fleet1" style="background:url({$dpath}img/pagination/fleet1.gif) no-repeat; height:250px; width:654px;">
-	<h2>{$LNG.fl_send_fleet}</h2>
-</div>
-<div class="cs-left"></div>
-<div class="cs-right"></div>
 <form action="game.php?page=fleetStep2" method="post" onsubmit="return CheckTarget()" id="form">
 	<input type="hidden" name="token" value="{$token}">
 	<input type="hidden" name="fleet_group" value="0">
@@ -61,7 +56,7 @@
 			<td id="storage">-</td>
 		</tr>
 	</table>
-	{if isModulAvalible($smarty.const.MODULE_SHORTCUTS)}
+	{if isModuleAvailable($smarty.const.MODULE_SHORTCUTS)}
 	<table class="table519 shortcut" style="table-layout: fixed;">
 		<tr style="height:20px;">
 			<th colspan="{$themeSettings.SHORTCUT_ROWS_ON_FLEET1}">{$LNG.fl_shortcut} (<a href="#" onclick="EditShortcuts();return false" class="shortcut-link-edit shortcut-link">{$LNG.fl_shortcut_edition}</a><a href="#" onclick="SaveShortcuts();return false" class="shortcut-edit">{$LNG.fl_shortcut_save}</a>)</th>
@@ -159,7 +154,7 @@
 	{/if}
 	<table class="table519" style="table-layout: fixed;">
 		<tr style="height:20px;">
-			<td><input class="button green small" type="submit" value="{$LNG.fl_continue}"></td>
+			<td><input type="submit" value="{$LNG.fl_continue}"></td>
 		</tr>
 	</table>
 </form>

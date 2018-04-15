@@ -1,10 +1,10 @@
 {block name="title" prepend}{$LNG.lm_support}{/block}
 {block name="content"}
-<table width="670">
+<table style="width:760px;">
 	<tr>
 		<th colspan="5">{$LNG.ti_header}</th>
 	</tr>
-	<tr height="20">
+	<tr style="height:20px;">
 		<td colspan="5"><a href="game.php?page=ticket&amp;mode=create">{$LNG.ti_new}</a></td>
 	</tr>
 	<tr>

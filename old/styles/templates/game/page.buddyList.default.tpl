@@ -1,11 +1,7 @@
 {block name="title" prepend}{$LNG.lm_buddylist}{/block}
 {block name="content"}
-<div id="planet" style="background:url(./styles/theme/gow/img/pagination/top100.jpg) no-repeat; height:300px; width:654px;">
-	<h2>{$LNG.bu_buddy_list} </h2>
-</div>
-<div class="c-left"></div>
-<div class="c-right"></div>
-<table style="width:670px;">
+<table class="table569">
+<tr><th colspan="5">{$LNG.bu_buddy_list}</th></tr>
 {if !empty($otherRequestList)}
 <tr><th colspan="5" style="text-align:center">{$LNG.bu_requests}</th></tr>
 <tr>

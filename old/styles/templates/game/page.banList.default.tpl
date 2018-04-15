@@ -1,11 +1,9 @@
 {block name="title" prepend}{$LNG.lm_banned}{/block}
 {block name="content"}
-<div id="planet" style="background:url(./styles/theme/gow/img/pagination/banned.jpg) no-repeat; height:300px; width:654px;">
-	<h2>{$LNG.bn_players_banned_list} </h2>
-</div>
-<div class="c-left"></div>
-<div class="c-right"></div>
-<table style="width:670px;">
+<table style="width:760px;">
+	<tr>
+		<th colspan="5">{$LNG.bn_players_banned_list}</th>
+	</tr>
 	<tr>
 		<td>{$LNG.bn_from}</td>
 		<td>{$LNG.bn_until}</td>

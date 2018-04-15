@@ -88,7 +88,7 @@
 	</tr>	
 	{/if}
 	<tr>
-		<th colspan="2"><a class="button black small" href="game.php?page=alliance&amp;mode=admin">{$LNG.al_back}</a></th>
+		<th colspan="2"><a href="game.php?page=alliance&amp;mode=admin">{$LNG.al_back}</a></th>
 	</tr>
 	</table>
 </p>

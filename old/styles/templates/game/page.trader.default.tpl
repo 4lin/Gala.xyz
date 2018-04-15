@@ -1,15 +1,24 @@
 {block name="title" prepend}{$LNG.lm_trader}{/block}
 {block name="content"}
-<div id="planet" style="background:url({$dpath}img/pagination/merchant.gif) no-repeat; height:250px; width:654px;">
-	<h2>{$LNG.tr_call_trader_who_buys}</h2>
-</div>
-<div class="cs-left"></div>
-<div class="cs-right"></div>
-{if $requiredDarkMatter}<table style="width:670px;"><tr><td><span style="color:red;">{$requiredDarkMatter}</span></td></tr></table>{else}
-
-<table style="width:670px;">
+{if $requiredDarkMatter}
+<table style="width:519px;">
+<tr>
+	<th>{$LNG.fcm_info}</th>
+</tr>
+<tr>
+	<td><span style="color:red;">{$requiredDarkMatter}</span></td>
+</tr>
+</table>
+<br>
+<br>
+{/if}
+<table style="width:519px;">
+<tr>
+	<th>{$LNG.tr_call_trader}</th>
+</tr>
 <tr>
 	<td>
+		<div>{$LNG.tr_call_trader_who_buys}</div>
 		<div id="traderContainer" class="centerContainer">
 			<div class="outer">
 				<div class="inner">
@@ -30,14 +39,10 @@
 		</div>
 		</div>
 		<div>
-<br />
-			<p><span style="color:red">{$tr_cost_dm_trader}</span></p>
-			<p>{$LNG.tr_exchange_quota}: <span style="color:green;font-weight:bold">{$charge.901.903}/{$charge.902.903}/{$charge.903.903}</span></p>
-<br />
+			<p>{$tr_cost_dm_trader}</p>
+			<p>{$LNG.tr_exchange_quota}: {$charge.901.903}/{$charge.902.903}/{$charge.903.903}</p>
 		</div>
 	</td>
 </tr>
 </table>
-
-{/if}
 {/block}

@@ -1,21 +1,10 @@
 {block name="title" prepend}{$LNG.lm_alliance}{/block}
 {block name="content"}
-<div id="planet" style="background: url({$dpath}img/pagination/alliance.jpg) no-repeat; height:300px; width:654px;">
-<h2>{$al_users_list}</h2>
-</div>
-<div class="c-left"></div>
-<div class="c-right"></div>
-
-<link rel="stylesheet" href="http://codeorigin.jquery.com/ui/1.10.3/themes/ui-darkness/jquery-ui.css" />
-<script>
-$(function() {
-$("#tabs").tabs();
-$(document).on('click','input[type=text]',function(){ this.select(); });
-});
-</script>
-
-<table id="memberList" style="width:670px" class="tablesorter">
+<table id="memberList" style="width:50%" class="tablesorter">
 	<thead>
+		<tr>
+			<th colspan="8">{$al_users_list}</th>
+		</tr>
 		<tr>
 			<th>{$LNG.al_num}</th>
 			<th>{$LNG.al_member}</th>
@@ -34,15 +23,15 @@ $(document).on('click','input[type=text]',function(){ this.select(); });
 		<td><a href="#" onclick="return Dialog.Playercard({$userID}, '{$memberListRow.username}');">{$memberListRow.username}</a></td>
 		<td><a href="#" onclick="return Dialog.PM({$userID});"><img src="{$dpath}img/m.gif" border="0" title="{$LNG.write_message}"></a></td>
 		<td>{$memberListRow.rankName}</td>
-		<td>{$memberListRow.points}</td>		
-		<td><a href="game.php?page=galaxy&amp;galaxy={$memberListRow.galaxy}&amp;system={$memberListRow.system}">[{$memberListRow.galaxy}:{$memberListRow.system}:{$memberListRow.planet}]</a></td>
+		<td data-points="{$memberListRow.points}">{$memberListRow.points|number}</td>
+		<td><a href="game.php?page=galaxy&amp;galaxy={$memberListRow.galaxy}&amp;system={$memberListRow.system}" data-postion="{$memberListRow.galaxy}:{$memberListRow.system}:{$memberListRow.planet}">[{$memberListRow.galaxy}:{$memberListRow.system}:{$memberListRow.planet}]</a></td>
 		<td>{$memberListRow.register_time}</td>
 		<td>{if $rights.ONLINESTATE}{if $memberListRow.onlinetime < 4}<span style="color:lime">{$LNG.al_memberlist_on}</span>{elseif $memberListRow.onlinetime <= 15}<span style="color:yellow">{$memberListRow.onlinetime} {$LNG.al_memberlist_min}</span>{else}<span style="color:red">{$LNG.al_memberlist_off}</span>{/if}{else}-{/if}</td>
 	</tr>
 	{/foreach}
 	</tbody>
 	<tr>
-		<th colspan="8" style="text-align:center"><a class="button black small" href="game.php?page=alliance">{$LNG.al_back}</a></th>
+		<th colspan="8"><a href="game.php?page=alliance">{$LNG.al_back}</a></th>
 	</tr>
 </table>
 {/block}
