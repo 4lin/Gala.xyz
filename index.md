@@ -5,5 +5,5 @@
 You can visit my profile @4lin on GitHub.
  
 ### Support or Contact
-#Buy me an Hotdog: https://www.paypal.me/SerbanAlin
+# Buy me an Hotdog: https://www.paypal.me/SerbanAlin
 # Contact via Email: serban4lin[at]gmail[dot]com
