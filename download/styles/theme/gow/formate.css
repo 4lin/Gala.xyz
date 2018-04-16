@@ -39,6 +39,10 @@ font-size: 12px;
 body,input,select,button,textarea,a,td,th,tr,table,a:visited{
 	/*!color: #DDD;*/
 	color: #6f9fc8;
+	max-width: 600px;
+	width: 98%;
+	margin: 0px auto;
+	text-align: left;
 }
 
 body.mceContentBody,input,button,select,option,textarea, .ui-widget-content{
