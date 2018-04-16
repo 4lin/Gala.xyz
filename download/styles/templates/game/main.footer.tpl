@@ -11,7 +11,7 @@
 			{if isModuleAvailable($smarty.const.MODULE_BANLIST)}
 			<a href="game.php?page=banList">{$LNG.lm_banned}</a>{/if} |
 			{if isModuleAvailable($smarty.const.MODULE_NOTICE)}<a href="javascript:OpenPopup('?page=notes', 'notes', 720, 300);">{$LNG.lm_notes}</a>{/if} | {if !empty($hasBoard)}<a href="game.php?page=board" target="forum">{$LNG.lm_forums}</a>{/if} | 
-			<a href="https://github.com/4lin/Galaxyz-rev0.01/releases" target="_blank" class="tooltip" title="Galaxyz GitHub Home Skin Project">Galaxyz.GitHub</a> 
+			<a href="https://github.com/4lin/Gala.xyz/releases" target="_blank" class="tooltip" title="Galaxyz GitHub Project">Gala.xyz GitHub</a> 
 		</div>
 
 		<div class="fright textRight">

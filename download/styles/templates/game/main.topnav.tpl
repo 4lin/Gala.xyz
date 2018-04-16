@@ -1,5 +1,5 @@
 <div id="netBar" style="display: block;">
-	<div id="netContent" class="netNewsOut tooltip" title="Galaxyz Rev 0.01"><a href="https://github.com/4lin/Galaxyz-rev0.01/releases" class="netLogo" target="_blank"></a></div>
+	<div id="netContent" class="netNewsOut tooltip" title="Gala.xyz"><a href="https://github.com/4lin/Gala.xyz/releases" class="netLogo" target="_blank"></a></div>
 </div>
 
 <div class="contentBoxBody">

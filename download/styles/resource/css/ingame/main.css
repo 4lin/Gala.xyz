@@ -471,7 +471,7 @@ ol, ul {
 }
 
 #netBar .netLogo {
-    background: transparent url(//i.imgur.com/wCaD1mo.png) 0 0 no-repeat;
+    background: transparent url(//i.imgur.com/OBxw4mn.png) 0 0 no-repeat;
     position: relative;
     cursor: pointer;
     float: left;
@@ -483,7 +483,7 @@ ol, ul {
 }
 
 #netBar .netLogo:hover {
-	background: transparent url(//i.imgur.com/wCaD1mo.png) 1px -32px no-repeat;
+	background: transparent url(//i.imgur.com/OBxw4mn.png) 1px -32px no-repeat;
 }
 
 #netBar a {
