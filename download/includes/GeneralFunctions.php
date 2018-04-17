@@ -472,6 +472,10 @@ function exceptionHandler($exception)
 		E_RECOVERABLE_ERROR	=> 'RECOVERABLE ERROR'
 	);
 	
+	if(!isset($errorType[$errno])){
+		$errorType[$errno] = $errno;
+	}
+	
 	if(file_exists(ROOT_PATH.'install/VERSION'))
 	{
 		$VERSION	= file_get_contents(ROOT_PATH.'install/VERSION').' (FILE)';

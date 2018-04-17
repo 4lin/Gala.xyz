@@ -1,28 +1,18 @@
 /**
  *  2Moons
- *  Copyright (C) 2012 Jan Kr�pke
+ *   by Jan-Otto Kröpke 2009-2016
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * For the full copyright and license information, please view the LICENSE
  *
  * @package 2Moons
- * @author Jan Kr�pke <info@2moons.cc>
- * @copyright 2012 Jan Kr�pke <info@2moons.cc>
- * @license http://www.gnu.org/licenses/gpl.html GNU GPLv3 License
- * @version 1.7.3 (2013-05-19)
- * @info $Id: install.sql 2676 2013-04-18 09:57:03Z lordmegger@googlemail.com $
- * @link http://2moons.cc/
+ * @author Jan-Otto Kröpke <slaver7@gmail.com>
+ * @copyright 2009 Lucky
+ * @copyright 2016 Jan-Otto Kröpke <slaver7@gmail.com>
+ * @licence MIT
+ * @version 1.8.0
+ * @link https://github.com/jkroepke/2Moons
  */
+
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -188,7 +178,7 @@ CREATE TABLE `%PREFIX%config` (
   `noobprotection` int(11) NOT NULL DEFAULT '0',
   `noobprotectiontime` int(11) NOT NULL DEFAULT '5000',
   `noobprotectionmulti` int(11) NOT NULL DEFAULT '5',
-  `forum_url` varchar(128) NOT NULL DEFAULT 'http://2moons.cc',
+  `forum_url` varchar(128) NOT NULL DEFAULT 'http://2moons.de',
   `adm_attack` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `debug` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `lang` varchar(2) NOT NULL DEFAULT '',
@@ -241,8 +231,8 @@ CREATE TABLE `%PREFIX%config` (
   `chat_allowdelmes` tinyint(1) NOT NULL DEFAULT '1',
   `chat_logmessage` tinyint(1) NOT NULL DEFAULT '1',
   `chat_nickchange` tinyint(1) NOT NULL DEFAULT '1',
-  `chat_botname` varchar(15) NOT NULL DEFAULT 'GXZBOT',
-  `chat_channelname` varchar(15) NOT NULL DEFAULT 'GALAXYZ',
+  `chat_botname` varchar(15) NOT NULL DEFAULT 'GZ',
+  `chat_channelname` varchar(15) NOT NULL DEFAULT 'Galaxyz',
   `chat_socket_active` tinyint(1) NOT NULL DEFAULT '0',
   `chat_socket_host` varchar(64) NOT NULL DEFAULT '',
   `chat_socket_ip` varchar(40) NOT NULL DEFAULT '',
@@ -307,11 +297,19 @@ CREATE TABLE `%PREFIX%cronjobs` (
   `month` varchar(32) NOT NULL,
   `dow` varchar(32) NOT NULL,
   `class` varchar(32) NOT NULL,
-  `nextTime` int(11) NOT NULL DEFAULT '0',
+  `nextTime` int(11) DEFAULT NULL,
   `lock` varchar(32) DEFAULT NULL,
   UNIQUE KEY `cronjobID` (`cronjobID`),
   KEY `isActive` (`isActive`,`nextTime`,`lock`,`cronjobID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE `%PREFIX%cronjobs_log` (
+ `cronjobId` int(11) unsigned NOT NULL,
+ `executionTime` datetime NOT NULL,
+ `lockToken` varchar(32) NOT NULL,
+ KEY `cronjobId` (`cronjobId`,`executionTime`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 
 CREATE TABLE `%PREFIX%diplo` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -643,6 +641,10 @@ CREATE TABLE `%PREFIX%statpoints` (
   KEY `stat_type` (`stat_type`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+CREATE TABLE `%PREFIX%system` (
+  `dbVersion` int(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 CREATE TABLE `%PREFIX%ticket` (
   `ticketID` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `universe` tinyint(3) unsigned NOT NULL,
@@ -780,19 +782,6 @@ CREATE TABLE `%PREFIX%users` (
   `ref_id` int(11) NOT NULL DEFAULT '0',
   `ref_bonus` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `inactive_mail` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `started_tut` enum('0','1') NOT NULL DEFAULT '0',
-  `tut_m1` enum('0','1') NOT NULL DEFAULT '0',
-  `tut_m2` enum('0','1') NOT NULL DEFAULT '0',
-  `tut_m3` enum('0','1') NOT NULL DEFAULT '0',
-  `tut_m4` enum('0','1') NOT NULL DEFAULT '0',
-  `tut_m5` enum('0','1') NOT NULL DEFAULT '0',
-  `tut_m6` enum('0','1') NOT NULL DEFAULT '0',
-  `tut_m6_2` enum('0','1') NOT NULL DEFAULT '0',
-  `tut_m7` enum('0','1') NOT NULL DEFAULT '0',
-  `tut_m7_2` enum('0','1') NOT NULL DEFAULT '0',
-  `tut_m8` enum('0','1') NOT NULL DEFAULT '0',
-  `tut_m9` enum('0','1') NOT NULL DEFAULT '0',
-  `tut_m9_2` enum('0','1') NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `authlevel` (`authlevel`),
   KEY `ref_bonus` (`ref_bonus`),
@@ -932,7 +921,7 @@ CREATE TABLE `%PREFIX%vars_requriements` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `%PREFIX%config` (`uni`, `VERSION`, `uni_name`, `game_name`, `close_reason`, `OverviewNewsText`, `moduls`, `disclamerAddress`, `disclamerPhone`, `disclamerMail`, `disclamerNotice`) VALUES
-(1, '%VERSION%', '', 'GALAXYZ', '', '', '', '', '', '', '');
+(1, '%VERSION%', '', 'Gala.xyz', '', '', '', '', '', '', '');
 
 INSERT INTO `%PREFIX%cronjobs` (`cronjobID`, `name`, `isActive`, `min`, `hours`, `dom`, `month`, `dow`, `class`, `nextTime`, `lock`) VALUES
 (NULL, 'referral', 1, '0,30', '*', '*', '*', '*', 'ReferralCronjob', 0, NULL),
@@ -943,6 +932,9 @@ INSERT INTO `%PREFIX%cronjobs` (`cronjobID`, `name`, `isActive`, `min`, `hours`,
 (NULL, 'teamspeak', 0, '*/3', '*', '*', '*', '*', 'TeamSpeakCronjob', 0, NULL),
 (NULL, 'databasedump', 1, '30', '1', '*', '*', '1', 'DumpCronjob', 0, NULL),
 (NULL, 'tracking', 1, FLOOR(RAND() * 60), FLOOR(RAND() * 24), '*', '*', '0', 'TrackingCronjob', 0, NULL);
+
+INSERT INTO `%PREFIX%system` (`dbVersion`) VALUES
+(2);
 
 INSERT INTO `%PREFIX%ticket_category` (`categoryID`, `name`) VALUES
 (1, 'Support');
