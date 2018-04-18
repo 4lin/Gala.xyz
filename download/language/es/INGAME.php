@@ -14,16 +14,14 @@
  * @link https://github.com/jkroepke/2Moons
  */
 
+// Revision by alindom  20.04.2018
+
 $LNG['Messages']							= 'Mensajes';
 $LNG['write_message']						= 'Escribir mensaje';
-
 $LNG['PM']									= '[MP]';
 $LNG['ready']								= 'Listo';
-
 $LNG['loading']								= 'Cargando ...';
-
 $LNG['invalid_action']						= 'Acción no valida!';
-
 $LNG['type_mission_1']  					= 'Atacar';
 $LNG['type_mission_2']  					= 'Ataque grupal';
 $LNG['type_mission_3']  					= 'Transportar';
@@ -36,31 +34,26 @@ $LNG['type_mission_9']  					= 'Destruir';
 $LNG['type_mission_10']  					= 'Ataque con Misiles';
 $LNG['type_mission_11']  					= 'Investigación DM';
 $LNG['type_mission_15'] 					= 'Expedición';
-
 $LNG['type_planet_1']  					= 'Planeta';
 $LNG['type_planet_2']  					= 'Escombros';
 $LNG['type_planet_3']  					= 'Luna';
-
 $LNG['user_level_0']                        = 'Jugador';
 $LNG['user_level_1']                        = 'Moderador';
 $LNG['user_level_2']                        = 'Operador';
 $LNG['user_level_3']                        = 'Administrador';
 
-// GAME.PHP
 $LNG['page_doesnt_exist']					= 'La página solicitada no existe.';
 $LNG['bad_forum_url']				    	= 'No hay URL de Foro definida!';
+
 $LNG['admin_access_1']				    	= 'Desde aquí cualquier persona tendría acceso temporal a las funciones administrativas.';
-$LNG['admin_access_link']				    = 'Pinche aquí para desactivar este acceso';
+$LNG['admin_access_link']					= 'Pinche aquí para desactivar este acceso';
 $LNG['admin_access_2']				    	= ', Si Usted no lo necesita más.';
 
-
-//----------------------------------------------------------------------------//
-//TOPNAV
+// Topnav
 $LNG['tn_vacation_mode']					= 'Estas en modo vacaciones ';
 $LNG['tn_delete_mode']						= 'Tu cuenta se encuentra en modo de eliminación. La misma será borrada el %s.';
-
-//----------------------------------------------------------------------------//
-//LEFT MENU
+// Left Menu
+$LNG['lm_changelog']						= 'Cambios';
 $LNG['lm_overview']						    = 'Visión general';
 $LNG['lm_galaxy']							= 'Galaxia';
 $LNG['lm_empire']							= 'Imperio';
@@ -90,7 +83,7 @@ $LNG['lm_topkb']							= 'Salon de la Fama';
 $LNG['lm_faq']								= 'Preg. Frecuentes';
 $LNG['lm_records']							= 'Records';
 $LNG['lm_chat']								= 'Chat';
-$LNG['lm_changelog']						= 'Cambios';
+
 $LNG['lm_support']							= 'Soporte';
 $LNG['lm_rules']							= 'Reglamento';
 $LNG['lm_battlesim']						= "Sim. de Batallas";
@@ -98,15 +91,13 @@ $LNG['lm_playercard']                       = 'Información del Jugador';
 $LNG['lm_info']                     		= 'Información';
 $LNG['lm_disclamer']						= 'Contacto';
 
-//----------------------------------------------------------------------------//
-//OVERVIEW
-
-$LNG['ov_newname_specialchar']				= 'Los nombres planeta sólo números, letras, espacios, son _, -,. permitidos!';
+// Overview
+$LNG['ov_newname_specialchar']				= 'Sólo números, letras, espacios.';
 $LNG['ov_newname_done']						= 'Planeta renombrado con éxito!';
 $LNG['ov_planet_abandoned']					= 'Planeta fue abandonado con éxito.';
 $LNG['ov_principal_planet_cant_abanone']	= 'El planeta principal no puede ser abandonado.';
 $LNG['ov_abandon_planet_not_possible']		= 'No se puede abandonar la colonia si hay flota desplegada.';
-$LNG['ov_wrong_pass']						= 'Contraseña incorrecta. Intentalo de nuevo.';
+$LNG['ov_wrong_pass']						= 'Contraseña incorrecta';
 $LNG['ov_have_new_message']					= 'Tienes 1 mensaje nuevo';
 $LNG['ov_have_new_messages']				= 'Tienes %d mensajes nuevos';
 $LNG['ov_planetmenu']						= 'Cambiar Nombre/Eliminar';
@@ -134,18 +125,18 @@ $LNG['ov_to']								= 'hasta';
 $LNG['ov_position']							= 'Posición';
 $LNG['ov_points']							= 'Puntos';
 $LNG['ov_security_request']					= 'Petición de seguridad';
-$LNG['ov_security_confirm']					= 'Por favor, Confirme que desea eliminar el Planeta<br><nobr>%s .</nobr>';
+$LNG['ov_security_confirm']					= 'Por favor, confirme si desea eliminar el Planeta %s .';
 $LNG['ov_password']							= 'Contraseña';
 $LNG['ov_delete_planet']					= 'Abandonar';
 $LNG['ov_planet_rename']					= 'Renombrar';
 $LNG['ov_rename_label']						= 'Nombre Nuevo';
 $LNG['ov_fields']							= 'Campos';
-$LNG['ov_developed_fields']                = 'Campos desarrollados';
+$LNG['ov_developed_fields']					= 'Campos desarrollados';
 $LNG['ov_max_developed_fields']				= 'max. de campos a construir';
 $LNG['ov_fleet']							= 'Flota';
 $LNG['ov_admins_online']					= 'Administradores Conectados:';
-$LNG['ov_no_admins_online']				= 'Actualmente ninguno en línea.';
-$LNG['ov_userbanner']						= 'Banner de estad&iacute;sticas de los jugadores';
+$LNG['ov_no_admins_online']					= 'Actualmente ninguno en línea.';
+$LNG['ov_userbanner']						= 'Mi banner de estad&iacute;sticas';
 $LNG['ov_userrank_info']					= '%s (%s <a href="game.php?page=statistics&amp;range=%d">%d</a> %s %s)';
 $LNG['ov_teamspeak_not_online']				= 'El servidor Teamspeak se encuentra inaccesible. Disculpe las molestias causadas.';
 $LNG['ov_teamspeak']						= 'Teamspeak';
@@ -156,9 +147,7 @@ $LNG['ov_reflink']							= 'Enlace Ref.';
 $LNG['ov_noreflink']						= 'No tiene Usuarios Referidos.';
 $LNG['ov_chat_online']						= 'Usuarios en el Chat:';
 
-//----------------------------------------------------------------------------//
-//GALAXY
-
+// Galaxy
 $LNG['gl_no_deuterium_to_view_galaxy']		= '¡No posees suficiente deuterio para ver la galaxia!';
 $LNG['gl_legend']							= 'Leyenda';
 $LNG['gl_strong_player']					= 'Jugador Fuerte';
@@ -172,7 +161,7 @@ $LNG['gl_short_newbie']							= 'D';
 $LNG['gl_short_vacation']						= 'V';
 $LNG['gl_short_ban']							= 'B';
 $LNG['gl_short_inactive']						= 'i';
-$LNG['gl_short_long_inactive']						= 'I';
+$LNG['gl_short_long_inactive']					= 'I';
 $LNG['gl_short_enemy']						= '';
 $LNG['gl_short_friend']						= '';
 $LNG['gl_short_member']						= '';
@@ -230,16 +219,14 @@ $LNG['gl_points'] 							= 'Puntos';
 $LNG['gl_player']							= 'Jugador';
 $LNG['gl_to']								= 'hacia';
 
-//----------------------------------------------------------------------------//
-//PHALANX
+// Phalanx
 $LNG['px_no_deuterium']						= '¡Usted no posee suficiente deuterio!';
 $LNG['px_scan_position']					= 'Escanear posición';
 $LNG['px_fleet_movement']					= 'Movimiento actual de flotas';
 $LNG['px_no_fleet']							= 'No hay movimientos de flota.';
 $LNG['px_out_of_range']						= 'Fuera de alcance';
 
-//----------------------------------------------------------------------------//
-//IMPERIUM
+// Imperium
 $LNG['lv_imperium_title']					= 'Visualización del Imperio';
 $LNG['lv_planet']							= 'Planeta';
 $LNG['lv_name']								= 'Nombre';
@@ -252,8 +239,7 @@ $LNG['lv_ships']							= 'Naves';
 $LNG['lv_defenses']							= 'Defensas';
 $LNG['lv_total']							= 'Total';
 
-//----------------------------------------------------------------------------//
-//FLEET - FLEET1 - FLEET2 - FLEET3 - FLEETACS - FLEETSHORTCUTS
+// Fleet
 $LNG['fl_returning']						= 'Regresando';
 $LNG['fl_onway']							= 'En camino';
 $LNG['fl_r']								= '(R)';
@@ -296,6 +282,7 @@ $LNG['fl_no_colony']						= 'No hay colonias';
 $LNG['fl_send_fleet']						= 'Enviar flota';
 $LNG['fl_fleet_speed']						= 'Velocidad';
 $LNG['fl_distance']							= 'Distancia';
+$LNG['fl_shortcut_name']					= 'Nombre';
 $LNG['fl_flying_time']						= 'Tiempo de vuelo (solo ida)';
 $LNG['fl_flying_arrival']					= 'Llagada a destino';
 $LNG['fl_flying_return']					= 'Llegada a Origen';
@@ -303,7 +290,6 @@ $LNG['fl_fuel_consumption']					= 'Consumo de combustible';
 $LNG['fl_max_speed']						= 'Velocidad máxima';
 $LNG['fl_cargo_capacity']					= 'Capacidad de carga';
 $LNG['fl_shortcut']							= 'Atajos';
-$LNG['fl_shortcut_name']					= 'Nombre';
 $LNG['fl_my_planets']						= 'Mis planetas';
 $LNG['fl_acs_title']						= 'Ataques grupales';
 $LNG['fl_hold_time']						= 'Tiempo de estacionamiento';
@@ -312,6 +298,7 @@ $LNG['fl_max']								= 'max';
 $LNG['fl_hours']							= 'Horas';
 $LNG['fl_resources_left']					= 'Restante';
 $LNG['fl_all_resources']					= 'Capacidad máxima de recursos';
+$LNG['fl_multi_alarm']						= 'Alarma-Multiple!';
 $LNG['fl_empty_target']						= 'No hay misiones disponibles (¿existe el planeta?)';
 $LNG['fl_expedition_alert_message']			= 'ATENCIÓN: ¡Las expediciones son misiones muy arriesgadas y puedes perder tus naves!';
 $LNG['fl_dm_alert_message']					= 'Ten cuidado, si en el %s %s es encontrado ¡tu flota será destruida!';
@@ -320,7 +307,6 @@ $LNG['fl_expedition_fleets_limit']			= 'Superado el limite de flotas de Expedici
 $LNG['fl_week_player']						= '&#161;¡El jugador es muy débil!';
 $LNG['fl_strong_player']					= '&#161;¡El jugador es muy fuerte!';
 $LNG['fl_in_vacation_player']				= 'El jugador está en modo vacaciones.';
-$LNG['fl_multi_alarm']						= 'Alarma-Multiple!';
 $LNG['fl_no_slots']							= 'No hay más slots de flotas disponibles.';
 $LNG['fl_planet_populed']					= '&#161;Este planeta está ocupado.';
 $LNG['fl_no_same_alliance']                 = '¡El jugador del planeta de destino debe ser un compañero de alianza o ser un amigo!';
@@ -353,7 +339,7 @@ $LNG['fl_acs_change_name']					= 'Enscribir un nuevo nombre';
 $LNG['fl_error_not_avalible']				= '¡No se puede hacer nada con este planeta!';
 $LNG['fl_error_empty_derbis']				= 'No hay escombros.';
 $LNG['fl_error_no_moon']					= 'No hay luna.';
-$LNG['fl_error_same_planet']					= 'Planeta objetivo y de lanzamiento son el mismo.';
+$LNG['fl_error_same_planet']				= 'Planeta objetivo y de lanzamiento son el mismo.';
 $LNG['fl_invalid_target']					= 'Objetivo no válido';
 $LNG['fl_no_noresource']					= 'No hay materia prima cargada!';
 $LNG['fl_no_target']						= 'Ningún planeta de destino encontrado';
@@ -372,14 +358,14 @@ $LNG['fl_not_enough_deuterium']				= 'No hay suficiente Deuterio.';
 $LNG['fl_not_enough_space']					= 'No tienes suficiente espacio de carga disponible.';
 $LNG['fl_hold_time_not_exists']				= 'El tiempo de espera no es válido.';
 
-//----------------------------------------------------------------------------//
-//BUILDINGS - RESEARCH - SHIPYARD - DEFENSES
+// Buildings
 $LNG['bd_dismantle']						= 'Desmontar';
 $LNG['bd_interrupt']						= 'Interrumpir';
 $LNG['bd_cancel']							= 'Cancelar';
 $LNG['bd_working']							= 'Trabajando';
 $LNG['bd_build']							= 'Construir';
-$LNG['bd_build_next_level']				= 'Ampliar al nivel ';
+$LNG['bd_build_next_level']					= 'Ampliar al nivel ';
+$LNG['bd_research']							= 'Investigar';
 $LNG['bd_tech']								= 'Investigar';
 $LNG['bd_tech_next_level']					= 'Investigar al Nivel ';
 $LNG['bd_add_to_list']						= 'Añadir a la cola de producción';
@@ -387,9 +373,8 @@ $LNG['bd_no_more_fields']					= 'No hay espacio en el planeta';
 $LNG['bd_remaining']						= 'Restantes';
 $LNG['bd_lab_required']						= '¡Es necesario construir primero un laboratorio de investigación en este planeta!';
 $LNG['bd_building_lab']						= 'No se puede investigar cuando se esta ampliando el laboratorio';
-$LNG['bd_max_lvl']							= '(Max. Nivel: %s)';
+$LNG['bd_max_lvl']							= 'Max. Nivel:';
 $LNG['bd_lvl']								= 'Nivel';
-$LNG['bd_research']							= 'Investigar';
 $LNG['bd_shipyard_required']				= '&#161;Debes construir un hangar en este planeta para continuar!';
 $LNG['bd_building_shipyard']				= 'No puedes fabricar durante la ampliación del hangar, fábrica de robots o nanobots';
 $LNG['bd_available']						= 'Disponible: ';
@@ -403,14 +388,14 @@ $LNG['bd_continue']							= 'Continuar';
 $LNG['bd_price_for_destroy']				= 'Coste de destrucción:';
 $LNG['bd_cost']								= 'Coste';
 $LNG['bd_ready']							= 'Listo';
-$LNG['bd_finished']						= 'Terminado';
-$LNG['bd_maxlevel']						= 'Nivel máximo alcanzado';
+$LNG['bd_finished']							= 'Terminado';
+$LNG['bd_maxlevel']							= 'Nivel máximo alcanzado';
 $LNG['bd_on']								= 'en';
 $LNG['bd_max_builds']						= 'Puede max. %d enviar ordenes!';
 $LNG['bd_next_level']						= 'Próximo nivel:';
 $LNG['bd_need_engine']						= "Consume  <span class='red'>%s</span> %s";
 $LNG['bd_more_engine']						= "Produce <span class='green'>%s</span> %s";
-$LNG['bd_jump_gate_action']					= 'Saltar a';
+$LNG['bd_jump_gate_action']					= 'Saltar';
 $LNG['bd_cancel_warning']					= 'Durante la demolición, sólo el 60% de los recursos se restaurará.';
 $LNG['bd_cancel_send']						= 'ELIMINAR';
 $LNG['bd_destroy_time'] 					= 'Duración';
@@ -422,8 +407,7 @@ $LNG['sys_buildlist'] 						= 'Lista de Construcción';
 $LNG['sys_techlist'] 						= 'Lista de Investigación';
 $LNG['sys_buildlist_fail'] 					= 'Fallo en la lista de construcción';
 
-//----------------------------------------------------------------------------//
-//RESOURCES
+// Resources
 $LNG['rs_amount']							= 'Cantidad';
 $LNG['rs_lvl']								= 'nivel';
 $LNG['rs_production_on_planet']				= 'Producción de recursos en el planeta "%s"';
@@ -435,8 +419,7 @@ $LNG['rs_daily']							= 'Por dia:';
 $LNG['rs_weekly']							= 'Por Semana:';
 $LNG['rs_ress_bonus']						= 'Bonus(Oficial/Bonus-MO):';
 
-//----------------------------------------------------------------------------//
-//OFFICIERS
+// Officiers
 $LNG['of_recruit']							= 'Reclutar';
 $LNG['of_max_lvl']							= 'Nivel máximo';
 $LNG['of_offi']								= 'Oficial';
@@ -445,9 +428,7 @@ $LNG['of_dm_trade']							= '%s - Tienda';
 $LNG['of_still']							= 'Duración';
 $LNG['of_active']							= 'Activo';
 
-//----------------------------------------------------------------------------//
-//TRADER
-
+// Trader
 $LNG['tr_cost_dm_trader']					= 'El importe de las tasas es de %s %s!';
 $LNG['tr_not_enought']					= 'No tienes suficiente %s, para realizar el intercambio';
 $LNG['tr_exchange_done']					= 'Intercambio realizado con &eacute;xito';
