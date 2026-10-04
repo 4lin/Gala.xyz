@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>jQuery migration regression</title>
+<link rel="stylesheet" href="../styles/resource/css/base/jquery.fancybox.css">
+<script src="../scripts/base/jquery.js?v=3.7.1"></script>
+<script src="../scripts/base/jquery.ui.js?v=1.13.3"></script>
+<script src="../scripts/base/jquery.fancybox.js"></script>
+<script src="../scripts/base/jquery.tablesorter.js"></script>
+<script src="../scripts/base/jquery.validationEngine.js"></script>
+<script src="../scripts/l18n/validationEngine/jquery.validationEngine-en.js"></script>
+<button id="run" type="button">Run isolated validation tests</button>
+<pre id="results">Not run</pre>
+<div id="fixture"></div>
+<script>
+$(function () {
+    $('#run').on('click', async function () {
+        var results = [];
+        function check(value, name) {
+            if (!value) throw new Error(name);
+            results.push('PASS ' + name);
+        }
+        try {
+            check($.fn.jquery === '3.7.1', 'jQuery 3.7.1 loaded');
+            var source = JSON.parse('{"__proto__":{"migrationPolluted":true}}');
+            $.extend(true, {}, source);
+            check(({}).migrationPolluted === undefined, 'prototype pollution blocked');
+            var progress = $('<div></div>').appendTo('#fixture').progressbar({value: 65});
+            check(progress.progressbar('value') === 65, 'jQuery UI progressbar');
+            progress.progressbar('destroy').remove();
+            var table = $('<table><thead><tr><th>Number</th></tr></thead><tbody><tr><td>2</td></tr><tr><td>1</td></tr></tbody></table>').appendTo('#fixture');
+            table.tablesorter({sortList: [[0,0]]});
+            check(table.find('tbody tr:first td').text() === '1', 'tablesorter ascending');
+            table.remove();
+            $.fancybox('<p id="migration-lightbox">Migration test</p>', {transitionIn:'none',transitionOut:'none'});
+            await new Promise(function(resolve) {setTimeout(resolve,100);});
+            check($('#migration-lightbox').length === 1, 'Fancybox opens');
+            $.fancybox.close();
+            var form = $('<form id="migration-form"></form>').appendTo('#fixture');
+            form.validationEngine('attach', {bindMethod: 'live', scroll: false, focusFirstField: false});
+            var field = $('<input id="migration-required" class="validate[required]">').appendTo(form);
+            field.trigger('blur');
+            await new Promise(function (resolve) { setTimeout(resolve, 30); });
+            check($('.formError').length === 1, 'dynamic required field validates');
+            form.validationEngine('detach');
+            $('.formError').remove();
+            field.trigger('blur');
+            await new Promise(function (resolve) { setTimeout(resolve, 30); });
+            check($('.formError').length === 0, 'detach removes delegated field validation');
+            form.validationEngine('attach', {bindMethod: 'live', scroll: false, focusFirstField: false});
+            field.trigger('blur');
+            await new Promise(function (resolve) { setTimeout(resolve, 30); });
+            check($('.formError').length === 1, 'reattach validates once');
+            field.val('valid');
+            check(form.validationEngine('validate') === true, 'filled required field passes');
+            form.validationEngine('detach');
+            form.remove();
+            $('#results').text(results.join('\n'));
+        } catch (error) {
+            $('#results').text(results.join('\n') + '\nFAIL ' + error.message);
+        }
+    });
+});
+</script>
+</html>

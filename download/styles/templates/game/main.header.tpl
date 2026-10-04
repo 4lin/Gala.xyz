@@ -66,8 +66,8 @@
 		serverTime.setSeconds(serverTime.getSeconds()+1);
 	}, 1000);
 	</script>
-	<script type="text/javascript" src="/scripts/base/jquery.js?v={$REV}"></script>
-	<script type="text/javascript" src="/scripts/base/jquery.ui.js?v={$REV}"></script>
+	<script type="text/javascript" src="/scripts/base/jquery.js?v=3.7.1"></script>
+	<script type="text/javascript" src="/scripts/base/jquery.ui.js?v=1.13.3"></script>
 	<script type="text/javascript" src="/scripts/base/jquery.cookie.js?v={$REV}"></script>
 	<script type="text/javascript" src="/scripts/base/jquery.fancybox.js?v={$REV}"></script>
 	<script type="text/javascript" src="/scripts/base/jquery.validationEngine.js?v={$REV}"></script>

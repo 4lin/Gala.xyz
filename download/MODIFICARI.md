@@ -596,3 +596,24 @@ Headerul admin incarca Tooltipster local si scripts/admin/ui-fixes.js, care init
 - Research: corectata intunecarea tuturor miniaturilor cand laboratorul/coada blocheaza temporar comenzile. Efectul fara culori se aplica numai indisponibilitatii individuale (cerinte, resurse, nivel maxim); butoanele pastreaza restrictiile reale ale cozii.
 
 - Research: distanta orizontala 20 px intre miniaturi; fiecare intrare rezerva 80 px inaltime, eliminand suprapunerea randurilor dupa afisarea tuturor tehnologiilor.
+
+
+## 2026-10-04 - Migrare jQuery, etapa 1: pregatirea compatibilitatii
+
+- Eliminata incarcarea duplicata scripts/login/bgjquery.js din headerul activ de login. Biblioteca activa ramane momentan jQuery 1.8.3; cele patru alerte Dependabot nu sunt inca remediate.
+- Validatorul foloseste evenimente delegate on/off pentru modul live, izolate pe formular cu namespace jqv; detach elimina corect handlerul submit. Numararea elementelor foloseste length.
+- Inchiderea mesajelor de validare foloseste un singur handler delegat; tooltip-ul foloseste addBack in loc de andSelf. Resetarea din simulator si stergerea shortcut-urilor flotei folosesc on in loc de live.
+- Verificare initiala si dupa schimbari pe localhost: Research afiseaza cele 19 miniaturi. Testele AJAX pentru Buildings, Research si Shipyard trec; sintaxa celor patru scripturi modificate este valida.
+- Test izolat tests/jquery-migration.html: PASS pentru camp obligatoriu adaugat dinamic, detach, reattach fara duplicare si valoare valida. Testul nu modifica baza de date.
+- Urmeaza adaptarea Fancybox/tablesorter si a celorlalte API-uri vechi, apoi trecerea la jQuery 3.7.1 si jQuery UI compatibil, cu teste pe login, admin, panouri, tooltips si AJAX inainte de publicare. Nu s-a publicat aceasta etapa pe GitHub.
+
+
+## 2026-10-04 - Migrare jQuery, etapa 2: jQuery 3.7.1 local
+
+- scripts/base/jquery.js este distributia oficiala completa 3.7.1; scripts/base/jquery.ui.js este distributia oficiala 1.13.3, compatibila cu noul core. Ambele sunt servite local.
+- Headerele active pentru joc, administrare, login si instalare folosesc versiuni explicite in URL pentru invalidarea cache-ului. Copia duplicata bgjquery.js este inlocuita cu un comentariu; loginul incarca o singura biblioteca.
+- Fancybox foloseste document.documentMode si detectia reala a proprietatii CSS opacity, in loc de $.browser si $.support.opacity; filtrele sunt eliminate prin CSS. Tablesorter si formatarea numerelor nu mai necesita $.browser. navigation.js foloseste length in loc de size pentru continut.
+- Testul izolat tests/jquery-migration.html verifica biblioteca efectiva 3.7.1, blocarea prototype pollution, progressbar, sortare, deschiderea/inchiderea Fancybox si cele patru teste de validare din etapa 1. Toate au trecut in browser pe localhost.
+- Verificare interactiva: panourile Research, Buildings si Defenses se deschid; pagina de login incarca doar jQuery 3.7.1. Formularul de autentificare admin incarca noua biblioteca; rubricile protejate nu au fost testate in aceasta etapa deoarece cer reautentificare. Nu s-au initiat constructii sau schimbari de configurare.
+- Testele izolate AJAX pentru Buildings, Research si Shipyard au trecut. Sintaxa scripturilor migrate este valida.
+- Cele patru vulnerabilitati raportate pentru core 1.8.3 sunt remediate prin versiunea locala 3.7.1. GitHub nu a primit aceasta etapa si alertele de acolo nu au fost inchise manual. Verificarea nu constituie audit complet al tuturor pluginurilor vechi.

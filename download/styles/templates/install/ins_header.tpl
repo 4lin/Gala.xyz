@@ -27,8 +27,8 @@
 	<link rel="stylesheet" type="text/css" href="../styles/resource/css/base/validationEngine.jquery.css">
 	<link rel="stylesheet" type="text/css" href="../styles/theme/gow/formate.css">
 	<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-	<script type="text/javascript" src="../scripts/base/jquery.js"></script>
-	<script type="text/javascript" src="../scripts/base/jquery.ui.js"></script>
+	<script type="text/javascript" src="../scripts/base/jquery.js?v=3.7.1"></script>
+	<script type="text/javascript" src="../scripts/base/jquery.ui.js?v=1.13.3"></script>
 	<script type="text/javascript" src="../scripts/base/jquery.cookie.js"></script>
 	<script type="text/javascript" src="../scripts/base/jquery.fancybox.js"></script>
 	<script type="text/javascript" src="../scripts/base/jquery.validationEngine.js"></script>

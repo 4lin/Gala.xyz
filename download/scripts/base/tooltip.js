@@ -82,7 +82,7 @@ var stickytooltip={
 				}
 			})
 			$(this).bind("contextmenu", function(e){
-				if (stickytooltip.rightclickstick && $(e.target).parents().andSelf().filter(targetselector).length==1){ //if oncontextmenu over a target element
+				if (stickytooltip.rightclickstick && $(e.target).parents().addBack().filter(targetselector).length==1){ //if oncontextmenu over a target element
 					stickytooltip.docktooltip($, $tooltip, e)
 					return false
 				}

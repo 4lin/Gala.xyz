@@ -23,7 +23,7 @@
             if (!form.data('jqv') || form.data('jqv') == null ) {		
                 options = methods._saveOptions(form, options);                  				
 				// bind all formError elements to close on click
-				$(".formError").live("click", function() {
+				$(document).off("click.jqvPrompt", ".formError").on("click.jqvPrompt", ".formError", function() {
                   
 					$(this).fadeOut(150, function() {
 					 // remove prompt once invisible
@@ -63,13 +63,11 @@
                     // bind form.submit
                     form.bind("submit", methods._onSubmitEvent);
 				} else if (options.bindMethod == "live") {
-                    // bind fields with LIVE (for persistant state)
-                    form.find("[class*=validate]").not("[type=checkbox]").not(".datepicker").live(options.validationEventTrigger, methods._onFieldEvent);
-                    form.find("[class*=validate][type=checkbox]").live("click", methods._onFieldEvent);
-					form.find("[class*=validate][class*=datepicker]").live(options.validationEventTrigger,{"delay": 300}, methods._onFieldEvent);
-
-                    // bind form.submit
-                    form.live("submit", methods._onSubmitEvent);
+                    // Delegate inside this form, including dynamically inserted fields.
+                    form.on(options.validationEventTrigger + ".jqv", "[class*=validate]:not([type=checkbox]):not(.datepicker)", methods._onFieldEvent);
+                    form.on("click.jqv", "[class*=validate][type=checkbox]", methods._onFieldEvent);
+                    form.on(options.validationEventTrigger + ".jqv", "[class*=validate][class*=datepicker]", {delay: 300}, methods._onFieldEvent);
+                    form.on("submit.jqv", methods._onSubmitEvent);
 				}
 
                	options.binded = true;
@@ -97,15 +95,11 @@
                 form.find("[class*=validate][type=checkbox],[class*=validate][type=radio]").unbind("click", methods._onFieldEvent);
 
                 // unbind form.submit
-                form.unbind("submit", methods.onAjaxFormComplete);
+                form.unbind("submit", methods._onSubmitEvent);
                 
-                // unbind live fields (kill)
-                form.find("[class*=validate]").not("[type=checkbox]").die(options.validationEventTrigger, methods._onFieldEvent);
-                form.find("[class*=validate][type=checkbox]").die("click", methods._onFieldEvent);
-                
-				// unbind form.submit
-                form.die("submit", methods.onAjaxFormComplete);
-                
+                // Remove only this validator's delegated handlers.
+                form.off(".jqv");
+
                 form.removeData('jqv');
 		
 				if (options.autoPositionUpdate) {
@@ -595,12 +589,12 @@
             // first radio/checkbox of the group
             var fieldType = field.prop("type");
 
-            if ((fieldType == "radio" || fieldType == "checkbox") && form.find("input[name='" + fieldName + "']").size() > 1) {
+            if ((fieldType == "radio" || fieldType == "checkbox") && form.find("input[name='" + fieldName + "']").length > 1) {
                 field = $(form.find("input[name='" + fieldName + "'][type!=hidden]:first"));
                 options.showArrow = false;
             }
 			
-            if (fieldType == "text" && form.find("input[name='" + fieldName + "']").size() > 1) {
+            if (fieldType == "text" && form.find("input[name='" + fieldName + "']").length > 1) {
                 field = $(form.find("input[name='" + fieldName + "'][type!=hidden]:first"));
                 options.showArrow = false;
             }
@@ -650,8 +644,8 @@
                 case "checkbox":
 					var form = field.closest("form");
                     var name = field.attr("name");
-                    if (form.find("input[name='" + name + "']:checked").size() == 0) {
-                        if (form.find("input[name='" + name + "']").size() == 1)
+                    if (form.find("input[name='" + name + "']:checked").length == 0) {
+                        if (form.find("input[name='" + name + "']").length == 1)
                             return options.allrules[rules[i]].alertTextCheckboxe;
                         else
                             return options.allrules[rules[i]].alertTextCheckboxMultiple;
@@ -968,7 +962,7 @@
 
             var nbCheck = rules[i + 1];
             var groupname = field.attr("name");
-            var groupSize = form.find("input[name='" + groupname + "']:checked").size();
+            var groupSize = form.find("input[name='" + groupname + "']:checked").length;
             if (groupSize > nbCheck) {
                 options.showArrow = false;
                 if (options.allrules.maxCheckbox.alertText2) return options.allrules.maxCheckbox.alertText + " " + nbCheck + " " + options.allrules.maxCheckbox.alertText2;
@@ -989,7 +983,7 @@
 
             var nbCheck = rules[i + 1];
             var groupname = field.attr("name");
-            var groupSize = form.find("input[name='" + groupname + "']:checked").size();
+            var groupSize = form.find("input[name='" + groupname + "']:checked").length;
             if (groupSize < nbCheck) {
                 options.showArrow = false;
                 return options.allrules.minCheckbox.alertText + " " + nbCheck + " " + options.allrules.minCheckbox.alertText2;

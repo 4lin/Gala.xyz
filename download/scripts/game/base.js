@@ -60,7 +60,7 @@ function removeE(Number) {
 	var e = parseInt(Number.replace(/\S+.?e\+/g, ''));
 	if (isNaN(e) || e == 0) 
 		return Number;
-	else if ($.browser.webkit || $.browser.msie) 
+	else if (/AppleWebKit|MSIE|Trident/.test(navigator.userAgent)) 
 		return parseFloat(Number).toPrecision(Math.min(e + 1, 21));
 	else 
 		return parseFloat(Number).toPrecision(e + 1);
