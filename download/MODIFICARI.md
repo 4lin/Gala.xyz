@@ -617,3 +617,72 @@ Headerul admin incarca Tooltipster local si scripts/admin/ui-fixes.js, care init
 - Verificare interactiva: panourile Research, Buildings si Defenses se deschid; pagina de login incarca doar jQuery 3.7.1. Formularul de autentificare admin incarca noua biblioteca; rubricile protejate nu au fost testate in aceasta etapa deoarece cer reautentificare. Nu s-au initiat constructii sau schimbari de configurare.
 - Testele izolate AJAX pentru Buildings, Research si Shipyard au trecut. Sintaxa scripturilor migrate este valida.
 - Cele patru vulnerabilitati raportate pentru core 1.8.3 sunt remediate prin versiunea locala 3.7.1. GitHub nu a primit aceasta etapa si alertele de acolo nu au fost inchise manual. Verificarea nu constituie audit complet al tuturor pluginurilor vechi.
+
+
+## 2026-10-04 - Navigare AJAX intre paginile de constructie
+
+- Clickurile din meniu intre Buildings, Research, Hangar si Defenses incarca numai continutul paginii prin GET, pastrand cadrul, meniul si contoarele resurselor. URL-ul, titlul si Back/Forward sunt actualizate. Intrarea din alte pagini ramane navigare normala.
+- Panourile si stilurile celor trei controllere sunt incarcate o singura data. Nu se executa scripturile HTML-ului primit; datele provin din DOM si din metadatele resurselor. Tooltip-urile vechi sunt distruse si cele noi reinitializate.
+- construction-ajax.js are un ciclu de montare/demontare: opreste intervalul si elimina handlerul submit al paginii vechi. Navigarea AJAX este blocata cat timp exista o comanda in curs; POST-urile nu sunt repetate automat.
+- Linkurile cu actiuni, parametri necunoscuti, catre alte domenii sau ferestre noi, precum si clickurile modificate, pastreaza comportamentul normal. Raspunsurile invalide sau erorile GET folosesc navigarea normala de rezerva; timeout 15 secunde.
+- Verificat in browser pe localhost: Research -> Buildings -> Research -> Hangar -> Defenses, panouri functionale, Back/Forward cu fleet/defense corect si marcaj data-navigation=ajax. Cantitatea zero este respinsa local si campul primeste focus, fara comanda de productie.
+- Teste: tests/page-navigation.js si tests/buildings-ajax.js pentru toate cele trei controllere trec, inclusiv excluderea comenzilor din navigare, blocarea clickurilor duplicate, fallback si demontarea handlerului vechi. Sintaxa scripturilor este valida.
+- Limita: celelalte pagini nu au inca lifecycle pentru scripturile proprii si continua sa se incarce normal. Nu s-au pornit sau anulat productii pentru aceasta verificare; nu s-a publicat pe GitHub.
+
+
+## 2026-10-04 - Stabilizarea sloturilor Energy si Dark Matter
+
+- Ultimele doua resurse din bara sunt Energy si Dark Matter. Tabelul avea layout automat si o regula responsive care schimba min-width de la 101 la 100 px sub 1165 px, deplasand cumulativ ultimele coloane fata de fundalul fix.
+- layout-fixes.css fixeaza tabelul la 505 px si cele cinci coloane la 101 px, fara schimbarea imaginilor sau dimensiunilor lor. Selectoarele vizeaza doar celulele directe, nu tabelele din tooltip-uri. Pozitiile celorlalte resurse la latimea initiala verificata raman identice. URL-ul CSS include o versiune noua pentru invalidarea cache-ului.
+- Verificat vizual in Overview si prin masuratori DOM: Energy la offset 303 px, Dark Matter la offset 404 px fata de tabel. Aceleasi pozitii la viewport normal si la 1100 px, sub pragul responsive, precum si la o verificare ulterioara cu contoarele active.
+- Nu s-au schimbat resursele, configurarea contului sau comportamentul tickerului. Nu s-a publicat pe GitHub.
+
+
+## 2026-10-04 - Tooltip-uri numai cu nume si cantitate/nivel
+
+- Miniaturile Hangar si Defenses afiseaza in mouse-over doar denumirea localizata si cantitatea disponibila, inclusiv zero. Au fost eliminate descrierea, costurile si timpul numai din tooltip-ul de hover.
+- Tooltip-ul echivalent Research afiseaza doar denumirea localizata si nivelul actual, inclusiv zero; textul butonului rapid de hover foloseste aceleasi informatii.
+- Panourile glisante, comenzile, imaginile si stilurile nu sunt modificate.
+- Verificat vizual in browser dupa navigare AJAX Research -> Hangar -> Defenses: Spy Technology / Level 3, Light Cargo / 0 si Missile Launcher / 0. Hover-ul a fost activat fara deschiderea panoului; panoul Defenses deschis si inchis in timpul verificarii isi pastreaza functionarea.
+- Nu s-a publicat pe GitHub.
+
+## Overview construction tooltips
+- Buildings hover shows the localized construction name and target level from the active queue.
+- Research uses the same localized name and level format; removed the hardcoded Spanish tooltip text.
+- Hangar hover shows the localized unit name and production quantity from the active batch, not a technology level.
+- Verified actual mouse-over on localhost: Crystal Storage - Level 7 and Atmospheric Shield - Quantity 1. Existing layout, timers and actions are unchanged. No GitHub publication for this change.
+
+
+## Plain single-line thumbnail tooltips
+- Buildings and Research display only the localized name and current level, with zero included unconditionally. Hangar and Defense display only the localized name and available quantity.
+- Removed hover content tables and summaries; applied a plain, single-line tooltip theme without decorative arrows. Click panels and Overview construction tooltips are unchanged.
+- Verified actual browser hover: Metal Mine - Level 5, Shield Technology - Level 0, Light Cargo - 0, Missile Launcher - 0. All measured tooltips use nowrap and a 30 px total content height, without images or tables.
+- Verified AJAX navigation Buildings to Research to Hangar to Defense, and Defense after a full reload. Page-navigation regression tests passed. This account has no displayed level-zero building; the Buildings template uses the current level without a zero-hiding condition.
+- No GitHub publication or release for this change.
+
+
+## Active shipyard production tooltip
+- The active production image had neither a tooltip class nor a title, unlike Overview. Added a plain single-line localized name and active batch quantity tooltip to the shared Hangar/Defense production image.
+- The construction AJAX refresh initializer preserves the plain tooltip theme when replacing queue content. Catalog tooltip content, Overview, layout and queue actions are unchanged.
+- Verified actual Atmospheric Shield - Quantity 1 hover in Defense, then Hangar through AJAX navigation, and Defense again through AJAX navigation. The existing batch was not modified. Construction AJAX regression tests passed. No GitHub publication.
+
+
+## Construction timing and queue regressions
+- Explicit Buildings/Research levels are interpreted as resulting levels; their price exponent is target minus one. Demolition stores the removed level and uses that level directly. Implicit first-upgrade prices and ship quantity pricing remain unchanged.
+- Research removal now deletes only the selected position, preserves the active deadline, and recalculates subsequent target levels, durations and chained deadlines. Active cancellation retains repeated research and recalculates it from the current completed levels. Each queued planet supplies its own laboratory data.
+- Replaced the incorrectly ordered Research timing calls with a shared recalculation method. Buildings cancellation also retains repeated orders and recalculates remaining levels, durations and deadlines.
+- Demolition uses the destruction flag consistently in panel duration, initial start and queue promotion. Queue promotion uses the explicit queued level when pricing an order.
+- Added GalaClock, anchored to server timestamps and monotonic elapsed time. Overview countdowns use absolute deadlines rather than callback counts. Buildings/Research expose absolute deadlines; shipyard preserves its next-unit countdown and derives its deadline from the server snapshot.
+- Construction updates and page navigation synchronize the server clock using the request start anchor, so the request/response delay is not added to the remaining time. Existing resource tickers retain their baseline while the legacy display clock advances by actual elapsed time. Timestamp precision remains one second; unknown outbound network latency can still introduce a small synchronization error.
+- Added tests/construction-time.php using real calculation/controllers with isolated in-memory state; it covers target levels, repeated Research removal/cancellation, remote laboratories, Buildings removal/cancellation, demolition start/promotion and deadline chains.
+- Added tests/construction-clock.js exercising the real clock, countdown and AJAX navigation scripts against an in-memory DOM, plus tests/construction-clock.html for browser verification. Delayed callbacks, three-second response latency, one active timer after navigation and the shipyard next-unit deadline passed.
+- Existing Buildings level/removal tests, all three construction AJAX modes and page-navigation tests passed. Modified PHP/JavaScript syntax checks and the five changed Smarty templates passed. Browser fixture reported four passing checks.
+- No live database, queues or production were edited for testing. Existing active orders were not migrated. Configuration validation and next-unit versus full-batch semantics remain outside this correction. No GitHub publication or release.
+
+
+
+### Server clock and timestamp corrections
+- Buildings and Research now expose raw Unix deadlines; timezone conversion remains limited to displayed text.
+- The visible top navigation clock now uses the existing updater and retains the existing account timezone and format.
+- Initial navigation and AJAX synchronization use fractional request-receipt and render timestamps, subtract server processing from client RTT, and estimate inbound transport as half the remainder. Asymmetric transport produces an error of half the directional latency difference; rendering after the sampled timestamp adds uncertainty.
+- Regression checks cover Madrid, UTC and New York at DST transitions, symmetric/asymmetric transport, fractional epochs, initial navigation, visible clock advancement and delayed callbacks. No live database, production orders, timezone configuration or GitHub releases were changed.

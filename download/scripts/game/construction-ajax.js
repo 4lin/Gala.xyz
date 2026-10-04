@@ -1,5 +1,6 @@
 /* Update construction pages through the existing command controller, without navigation. */
-$(function () {
+function mountConstructionPage() {
+    if (!document.body) return;
     var page = document.body.id;
     if (['buildings', 'research', 'shipyard'].indexOf(page) < 0) return;
     var isShipyard = page === 'shipyard';
@@ -10,12 +11,17 @@ $(function () {
     var itemAttribute = page === 'buildings' ? 'data-building' : page === 'research' ? 'data-research' : 'data-element';
     var url = 'game.php?page=' + page + (isShipyard ? '&mode=' + (document.querySelector(rootSelector).getAttribute('data-mode') || 'fleet') : '');
     var queueData;
-    var busy = false, timer, deadline = 0, duration = 0, retryAfter = 0;
+    var busy = false, pendingRequest, disposed = false, timer, deadline = 0, duration = 0, retryAfter = 0;
     function initTips(scope) {
         if (!$.fn.tooltipster) return;
         $(scope).find('.tooltip:not(.tooltipstered)').tooltipster({
             functionBefore: function (instance, helper) {
                 var content = $(helper.origin).attr('data-tooltip-content');
+                if ($(helper.origin).is('.thumbnail-tip')) {
+                    instance.option('theme', 'thumbnail-tooltip');
+                    instance.option('maxWidth', null);
+                    instance.option('arrow', false);
+                }
                 instance.option('contentAsHTML', typeof content !== 'undefined');
                 if (typeof content !== 'undefined') instance.content(content);
             }, animation: 'fade', theme: 'tooltipster-punk', contentCloning: true
@@ -24,13 +30,15 @@ $(function () {
     function destroyTips(scope) {
         if ($.fn.tooltipster) $(scope).find('.tooltipstered').each(function () { $(this).tooltipster('destroy'); });
     }
+    function clockNow() { return window.GalaClock ? window.GalaClock.now() : Date.now(); }
     function startTimer() {
         clearInterval(timer);
         if (isShipyard) { startShipyardTimer(); return; }
         var progress = $(rootSelector + ' #progressbar'), time = $(rootSelector + ' #time');
         if (!progress.length || !time.length) return;
         duration = Number(time.attr('data-time'));
-        deadline = Date.now() + Number(progress.attr('data-time')) * 1000;
+        var end = Number(progress.attr('data-endtime'));
+        deadline = end > 0 ? end * 1000 : clockNow() + Number(progress.attr('data-time')) * 1000;
         progress.progressbar({value: 0});
         tick();
         timer = setInterval(tick, 1000);
@@ -41,11 +49,12 @@ $(function () {
         var select = document.getElementById('auftr');
         if (select) { select.options.length = 0; queueData.Queue.forEach(function (entry, index) { select.options[index] = new Option(entry[1] + ' ' + entry[0], index); }); }
         duration = Math.max(1, Number(queueData.Queue[0][2]));
-        deadline = Date.now() + Math.max(0, duration - Number(queueData.b_hangar_id_plus || 0)) * 1000;
+        var snapshot = Number(document.querySelector(rootSelector).getAttribute('data-server-time'));
+        deadline = (snapshot > 0 ? snapshot * 1000 : clockNow()) + Math.max(0, duration - Number(queueData.b_hangar_id_plus || 0)) * 1000;
         tick(); timer = setInterval(tick, 1000);
     }
     function shipyardTick() {
-        var remaining = Math.max(0, (deadline - Date.now()) / 1000);
+        var remaining = Math.max(0, (deadline - clockNow()) / 1000);
         var card = $(rootSelector + ' .production-current-build');
         card.find('.defense-current-time').text(GetRestTimeFormat(remaining));
         card.find('.defense-current-progress').css('height', Math.min(100, Math.max(0, 100 * (1 - remaining / duration))) + '%');
@@ -53,7 +62,7 @@ $(function () {
     }
     function tick() {
         if (isShipyard) { shipyardTick(); return; }
-        var remaining = Math.max(0, (deadline - Date.now()) / 1000);
+        var remaining = Math.max(0, (deadline - clockNow()) / 1000);
         var progress = duration > 0 ? Math.min(100, Math.max(0, 100 * (1 - remaining / duration))) : 100;
         $(rootSelector + ' #time').text(GetRestTimeFormat(remaining));
         $(rootSelector + ' #progressbar').progressbar('value', progress);
@@ -62,10 +71,12 @@ $(function () {
         if (element) element.style.setProperty('--construction-progress', progress + '%');
         if (remaining <= 0 && !busy && Date.now() >= retryAfter) request();
     }
-    function update(html) {
+    function update(html, requestStarted) {
         var parsed = new DOMParser().parseFromString(html, 'text/html');
         var incoming = parsed.querySelector(rootSelector);
         if (!incoming || !incoming.querySelector('#buttonz')) throw new Error('Invalid Buildings response');
+        if (window.GalaClock) window.GalaClock.sync(incoming.getAttribute('data-server-time'), requestStarted, incoming.getAttribute('data-server-received'), incoming.getAttribute('data-server-sent'));
+        document.querySelector(rootSelector).setAttribute('data-server-time', incoming.getAttribute('data-server-time') || '');
         if (isShipyard) document.querySelector(rootSelector).setAttribute('data-build-list', incoming.getAttribute('data-build-list') || '{}');
         var selected = document.querySelector(thumbSelector + ' a.' + selectedClass);
         var selectedId = selected && selected.getAttribute('ref');
@@ -126,9 +137,11 @@ $(function () {
         $(rootSelector + ' .construction-request-error').prop('hidden', true);
         $(rootSelector).attr('aria-busy', 'true');
         // Never automatically retry a POST: its command may already have been saved.
-        $.ajax({url: url, type: form ? 'POST' : 'GET', data: data, dataType: 'html'})
+        var requestStarted = window.GalaClock ? window.GalaClock.requestTime() : Date.now();
+        pendingRequest = $.ajax({url: url, type: form ? 'POST' : 'GET', data: data, dataType: 'html'})
             .done(function (html) {
-                try { update(html); } catch (error) { failed(); }
+                if (disposed) return;
+                try { update(html, requestStarted); } catch (error) { failed(); }
             }).fail(failed).always(function () {
                 busy = false;
                 buttons.prop('disabled', false);
@@ -136,14 +149,26 @@ $(function () {
             });
     }
     function failed() {
+        if (disposed) return;
         retryAfter = Date.now() + 5000;
         $(rootSelector + ' .construction-request-error').prop('hidden', false);
     }
     $(function () {
-        $(document).on('submit', rootSelector + ' form', function (event) {
+        $(document).on('submit.galaConstruction', rootSelector + ' form', function (event) {
             if (event.isDefaultPrevented()) return;
             event.preventDefault(); request(this);
         });
         startTimer();
     });
-});
+    window.GalaConstruction = {
+        canLeave: function () { return !busy; },
+        dispose: function () {
+            disposed = true;
+            clearInterval(timer);
+            $(document).off('.galaConstruction');
+            if (pendingRequest && pendingRequest.abort) pendingRequest.abort();
+        }
+    };
+}
+$(mountConstructionPage);
+$(document).on('gala:page-ready', mountConstructionPage);

@@ -1,6 +1,6 @@
 {block name="title" prepend}{$LNG.lm_buildings}{/block}
 {block name="content"}
-		<div id="buildingsOv">
+		<div id="buildingsOv" data-server-time="{$serverTimestamp}" data-server-received="{$serverRequestTimestamp}" data-server-sent="{$serverRenderTimestamp}">
         <div id="building-request-error" class="construction-request-error" role="alert" hidden>{$LNG.op_error}. <a href="game.php?page=buildings">{$LNG.al_applyform_reload}</a></div>
     		<div id="planetImg" style="background:url(styles/resource/images/game/external/MQxMmqn.jpg) no-repeat; height:300px; width:654px;">
 				<div id="header_text">
@@ -57,7 +57,7 @@
 				<div class="content"> 
 					<ul id="building">
 									{foreach $BuildInfoList as $ID => $Element}
-									<li id="button{$ID}" class="{if $Element.maxLevel == $Element.levelToBuild}disabled{elseif ($isBusy.research && ($ID == 6 || $ID == 31)) || ($isBusy.shipyard && ($ID == 15 || $ID == 21))}off{else}{if $RoomIsOk}{if $CanBuildElement && $Element.buyable}on{else}off{/if}{/if}{/if} tooltip" data-tooltip-content="{capture name=gameTooltip5}{* Start Destruction Popup *}<table style='width:300px'><tr><td>{$LNG.shortDescription.{$ID}}</td></tr><tr><td colspan='2'>{$LNG.bd_cost} {$LNG.bd_next_level}</td></tr>{foreach $Element.costResources as $RessID => $RessAmount}<tr><td> {$LNG.tech.{$RessID}}: <span style='color:{if $Element.costOverflow[$RessID] == 0}lime{else}red{/if};'>{$RessAmount|number}</span></td></tr>{/foreach}</table>{* End Destruction Popup *}{/capture}{$smarty.capture.gameTooltip5|escape:'html'}">
+									<li id="button{$ID}" class="{if $Element.maxLevel == $Element.levelToBuild}disabled{elseif ($isBusy.research && ($ID == 6 || $ID == 31)) || ($isBusy.shipyard && ($ID == 15 || $ID == 21))}off{else}{if $RoomIsOk}{if $CanBuildElement && $Element.buyable}on{else}off{/if}{/if}{/if} tooltip thumbnail-tip" title="{$LNG.tech.{$ID}|escape:'html'} - {$LNG.bd_lvl|escape:'html'} {$Element.level|number}">
 
 										<div class="supply{$ID}">
 											<div class="buildingimg">
@@ -105,7 +105,7 @@
 									{if $List@first}
 									<div class="construction-image">
 									<img src="{$dpath}buildings/{$ID}.png" width="65" height="65" id="blinkIN" class="tooltip" title="{$LNG.tech.{$ID}} {$List.level}" alt="">
-									<div id="progressbar" data-time="{$List.resttime}"></div>
+									<div id="progressbar" data-time="{$List.resttime}" data-endtime="{$List.endtime}"></div>
 
 											<div id="time" data-time="{$List.time}"></div>
 									</div>
@@ -203,9 +203,4 @@ a.fastBuild:hover{
 }
 </style>
 </div><!--END buildingsOv-->
-{/block}
-
-{block name="script" append}
-<script src="scripts/game/buildings-panel.js?v=4"></script>
-<script src="scripts/game/construction-ajax.js?v=2"></script>
 {/block}

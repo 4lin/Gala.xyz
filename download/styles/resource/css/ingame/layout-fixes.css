@@ -560,3 +560,21 @@ body.full { background: #000 url(../../images/game/galaxy-background.jpg) fixed 
 #buildingsOv .buildingimg { width: 96px; height: 96px; border-radius: 4px; }
 
 #buildingsOv .buildingimg a.detail_button .ecke { left: auto; right: 8px; top: auto; bottom: 1px; width: auto; height: 16px; text-align: right; white-space: nowrap; }
+/* Keep resource slots aligned with the existing header artwork as values change. */
+#resourceTable {
+    width: 505px;
+    table-layout: fixed;
+}
+#resourceTable > tbody > tr > td {
+    box-sizing: border-box;
+    width: 101px !important;
+    min-width: 101px;
+    max-width: 101px;
+    padding-left: 0;
+    padding-right: 0;
+    white-space: nowrap;
+}
+
+/* Keep thumbnail summaries plain and on one line. */
+.thumbnail-tooltip .tooltipster-box { background: #18212a; border: 1px solid #546879; border-radius: 3px; }
+.thumbnail-tooltip .tooltipster-content { color: #fff; padding: 6px 9px; white-space: nowrap; overflow-wrap: normal; }

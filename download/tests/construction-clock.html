@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Construction clock regression</title>
+<style>body{font:16px sans-serif;background:#18212a;color:#fff;padding:30px}li{margin:12px 0}.pass{color:#8ce49c}.fail{color:#ff7777}</style>
+<script src="../scripts/base/jquery.js?v=3.7.1"></script><script src="../scripts/game/clock.js?v=2"></script>
+</head><body id="research"><h1>Isolated construction clock regression</h1>
+<p>No database, sessions, purchases or live production are used.</p>
+<div id="researchOv" data-server-time="1000"><div id="progressbar" data-time="10" data-endtime="1010"></div><div id="time" data-time="20"></div></div>
+<ul id="results"></ul>
+<script>
+GalaClock.initialize(1000);
+var requestStarted=GalaClock.requestTime()-3000;
+GalaClock.sync(1000,requestStarted,1000,1003);
+function GetRestTimeFormat(seconds){return Math.ceil(seconds);}
+$.fn.progressbar=function(){return this;};
+$.ajax=function(){throw new Error('Unexpected network request in isolated fixture');};
+function check(condition,text){var row=document.createElement('li');row.className=condition?'pass':'fail';row.textContent=(condition?'PASS: ':'FAIL: ')+text;document.getElementById('results').appendChild(row);}
+</script>
+<script src="../scripts/game/construction-ajax.js?v=6"></script>
+<script>
+$(function(){setTimeout(function(){
+ check(Number($('#time').text())===7,'Three-second response latency leaves seven seconds, not ten.');
+ check(GalaClock.now()>=1003000&&GalaClock.now()<1004000,'Server time advances from elapsed time.');
+ GalaConstruction.dispose();
+ GalaClock.sync(1000,GalaClock.requestTime()-60000,1000,1060);
+ check(GalaClock.now()>=1060000,'A delayed callback does not lose sixty elapsed seconds.');
+ check($('#progressbar').attr('data-endtime')==='1010','The absolute construction deadline remains unchanged.');
+},0);});
+</script></body></html>

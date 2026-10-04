@@ -55,7 +55,12 @@ var ShipyardPanel = (function () {
                 input.focus();
             }
         });
-        $('#shipyard-details-panel').on('keydown', function (e) { if (e.key === 'Escape') close(); });
+        $(document).on('keydown', '#shipyard-details-panel', function (e) { if (e.key === 'Escape') close(); });
+    });
+    $(document).on('gala:page-dispose', function () {
+        clearTimeout(closeTimer);
+        if (openingFrame) cancelAnimationFrame(openingFrame);
+        lastTrigger = null;
     });
     return { open: open, close: close };
 }());

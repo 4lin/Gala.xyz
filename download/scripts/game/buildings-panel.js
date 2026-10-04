@@ -33,7 +33,12 @@ var BuildingsPanel = (function () {
     }
     $(function () {
         $(document).on('click', '#building-details-panel .building-panel-close', close);
-        $('#building-details-panel').on('keydown', function (e) { if (e.key === 'Escape') close(); });
+        $(document).on('keydown', '#building-details-panel', function (e) { if (e.key === 'Escape') close(); });
+    });
+    $(document).on('gala:page-dispose', function () {
+        clearTimeout(closeTimer);
+        if (openingFrame) cancelAnimationFrame(openingFrame);
+        lastTrigger = null;
     });
     return { open: open, close: close };
 }());

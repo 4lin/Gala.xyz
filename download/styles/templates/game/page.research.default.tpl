@@ -1,6 +1,6 @@
 {block name="title" prepend}{$LNG.lm_research}{/block}
 {block name="content"}
-<div id="researchOv">
+<div id="researchOv" data-server-time="{$serverTimestamp}" data-server-received="{$serverRequestTimestamp}" data-server-sent="{$serverRenderTimestamp}">
 <div class="construction-request-error" role="alert" hidden>{$LNG.op_error}. <a href="game.php?page=research">{$LNG.al_applyform_reload}</a></div>
 	<div id="planetImg" style="background:url(styles/resource/images/game/external/5hfOacu.png) no-repeat; height:250px; width:654px;">
 		<h2>{$LNG.lm_research} - {$planetname}</h2>
@@ -57,29 +57,10 @@
 								<form action="game.php?page=research" method="post" class="build_form">
 									<input type="hidden" name="cmd" value="insert">
 									<input type="hidden" name="tech" value="{$ID}">
-									<button type="submit" class="RResearch build_submit tooltip" title="{$LNG.tech.{$ID}}: {if $Element.level != 0} {$LNG.bd_build_next_level} {$Element.level + 1}{if $Element.maxLevel != 255}/{$Element.maxLevel}{/if}{/if}"></button>
+									<button type="submit" class="RResearch build_submit tooltip thumbnail-tip" title="{$LNG.tech.{$ID}}: {$LNG.bd_lvl} {$Element.level|number}"></button>
 								</form>
 							{/if}
-						<div class="research{$ID} tooltip" data-tooltip-content="{capture name=gameTooltip16}
-						<table class='research-tooltip-table'>
-							<tr>
-								<th colspan='1'>{$LNG.tech.{$ID}} {if $Element.level != 0} {$LNG.bd_lvl} {$Element.level}{if $Element.maxLevel != 255}/{$Element.maxLevel}{/if}{/if}</th>
-							</tr>
-							<tr>
-								<td>	
-									{$LNG.shortDescription.{$ID}}
-								</td>
-							</tr>
-
-							<tr>
-								<th colspan='1'>{if $Element.level == 0}{$LNG.bd_tech}{else}{$LNG.bd_tech_next_level}{$Element.levelToBuild + 1}{/if}</th>
-							</tr>
-							<tr>
-								<td style='font-weight:Bold;color:Green;'>
-									{$LNG.fgf_time} {$Element.elementTime|time}
-								</td>
-							</tr>
-						</table>{/capture}{$smarty.capture.gameTooltip16|escape:'html'}">
+						<div class="research{$ID} tooltip thumbnail-tip" title="{$LNG.tech.{$ID}|escape:'html'} - {$LNG.bd_lvl|escape:'html'} {$Element.level|number}">
 							<div class="researchimg">
 								<a ref="{$ID}" id="details" href="#" class="detail_button js_hideTipOnMobile" onclick="return ResearchPanel.open({$ID}, this)" aria-controls="research-details-panel" aria-expanded="false">
 									<span class="ecke">
@@ -123,7 +104,7 @@
 <div class="research-construction-image {if !$List@first}queued{/if}">
 <img src="{$dpath}buildings/{$ID}.png" width="{if $List@first}50{else}35{/if}" height="{if $List@first}50{else}35{/if}" class="tooltip" title="{$LNG.tech.{$ID}} {$List.level}" alt="">
 {if $List@first}
-<div id="progressbar" data-time="{$List.resttime}"></div>
+<div id="progressbar" data-time="{$List.resttime}" data-endtime="{$List.endtime}"></div>
 <div id="time" data-time="{$List.time}"></div>
 {/if}
 <form action="game.php?page=research" method="post" class="build_form research-queue-cancel">
@@ -209,10 +190,4 @@ a.fastResearch:hover{
 }
 </style>
 </div><!-- END researchOv -->
-{/block}
-
-{block name="script" append}
-<link rel="stylesheet" href="styles/resource/css/ingame/research-panel.css?v=5">
-<script src="scripts/game/research-panel.js?v=4"></script>
-<script src="scripts/game/construction-ajax.js?v=2"></script>
 {/block}

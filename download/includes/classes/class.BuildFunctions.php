@@ -84,6 +84,9 @@ class BuildFunctions
 
         if (in_array($Element, $reslist['fleet']) || in_array($Element, $reslist['defense']) || in_array($Element, $reslist['missile'])) {
             $elementLevel = $forLevel;
+        } elseif (isset($forLevel) && (in_array($Element, $reslist['build']) || in_array($Element, $reslist['tech']))) {
+            // Build/research store the resulting level; destroy stores the level removed.
+            $elementLevel = $forDestroy ? $forLevel : max(0, $forLevel - 1);
         } elseif (isset($PLANET[$resource[$Element]])) {
             $elementLevel = $PLANET[$resource[$Element]];
         } elseif (isset($USER[$resource[$Element]])) {

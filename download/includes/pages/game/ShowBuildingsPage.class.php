@@ -51,11 +51,11 @@ class ShowBuildingsPage extends AbstractGamePage
 		} else {
 			$BuildEndTime	= TIMESTAMP;
 			$NewQueueArray	= array();
+			$CurrentQueue = BuildFunctions::normalizeBuildingQueueLevels($CurrentQueue, $PLANET);
 			foreach($CurrentQueue as $ListIDArray) {
-				if($Element == $ListIDArray[0])
-					continue;
 					
-				$BuildEndTime       += BuildFunctions::getBuildingTime($USER, $PLANET, $ListIDArray[0], NULL, $ListIDArray[4] == 'destroy');
+				$ListIDArray[2] = BuildFunctions::getBuildingTime($USER, $PLANET, $ListIDArray[0], NULL, $ListIDArray[4] == 'destroy', $ListIDArray[1]);
+                $BuildEndTime += $ListIDArray[2];
 				$ListIDArray[3]		= $BuildEndTime;
 				$NewQueueArray[]	= $ListIDArray;					
 			}
@@ -154,7 +154,7 @@ class ShowBuildingsPage extends AbstractGamePage
 			if(isset($costResources[903])) { $PLANET[$resource[903]]	-= $costResources[903]; }
 			if(isset($costResources[921])) { $USER[$resource[921]]		-= $costResources[921]; }
 			
-			$elementTime    			= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, $costResources);
+			$elementTime    			= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, $costResources, !$AddMode);
 			$BuildEndTime				= TIMESTAMP + $elementTime;
 			
 			$PLANET['b_building_id']	= serialize(array(array($Element, $BuildLevel, $elementTime, $BuildEndTime, $BuildMode)));
@@ -213,7 +213,7 @@ class ShowBuildingsPage extends AbstractGamePage
 				'time' 		=> $BuildArray[2], 
 				'resttime' 	=> ($BuildArray[3] - TIMESTAMP), 
 				'destroy' 	=> ($BuildArray[4] == 'destroy'), 
-				'endtime' 	=> _date('U', $BuildArray[3], $USER['timezone']),
+				'endtime' 	=> (int) $BuildArray[3],
 				'display' 	=> _date($LNG['php_tdformat'], $BuildArray[3], $USER['timezone']),
 			);
 		}
@@ -327,7 +327,7 @@ class ShowBuildingsPage extends AbstractGamePage
 			$costOverflow		= BuildFunctions::getRestPrice($USER, $PLANET, $Element, $costResources);
 			$elementTime    	= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, $costResources);
 			$destroyResources	= BuildFunctions::getElementPrice($USER, $PLANET, $Element, true);
-			$destroyTime		= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, $destroyResources);
+			$destroyTime		= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, $destroyResources, true);
 			$destroyOverflow	= BuildFunctions::getRestPrice($USER, $PLANET, $Element, $destroyResources);
 			$buyable			= $QueueCount != 0 || BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources);
 

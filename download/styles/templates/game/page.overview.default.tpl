@@ -192,11 +192,11 @@ data-tooltip-content="{capture name=gameTooltip15}<table>
                             <tr class="data">
                                <td class="first" colspan="1">
                                 <div class="overview-construction-image" data-duration="{$buildInfo.buildings['duration']}">
-                                    <a class="js_hideTipOnMobile tooltip" title="{$LNG.tech[$buildInfo.buildings['id']]} ({$buildInfo.buildings['level']})" href="game.php?page=buildings">
+                                    <a class="js_hideTipOnMobile tooltip" title="{$LNG.tech[$buildInfo.buildings['id']]|escape:'html'} - {$LNG.bd_lvl|escape:'html'} {$buildInfo.buildings['level']}" href="game.php?page=buildings">
                                         <img src="{$dpath}buildings/{$buildInfo.buildings['id']}.png" width="50" height="50" alt="">
                                     </a>
                                     <div class="overview-construction-fill" aria-hidden="true"></div>
-                                    <div class="timer" data-time="{$buildInfo.buildings['timeleft']}">{$buildInfo.buildings['starttime']}</div>
+                                    <div class="timer" data-time="{$buildInfo.buildings['timeleft']}" data-endtime="{$buildInfo.buildings['time']}">{$buildInfo.buildings['starttime']}</div>
                                 </div>
                                 </td>
                                 <td class="desc ausbau">{$LNG.bd_build_next_level} {$buildInfo.buildings['level']}</td>
@@ -232,11 +232,11 @@ data-tooltip-content="{capture name=gameTooltip15}<table>
                                     <td class="first" colspan="3">
                                         <div class="overview-research-row">
 <div class="overview-construction-image" data-duration="{$buildInfo.tech['duration']}">
-                                        <a class="js_hideTipOnMobile tooltip" title="Subiendo {$LNG.tech[$buildInfo.tech['id']]} al nivel {$buildInfo.tech['level']}" href="game.php?page=research">
+                                        <a class="js_hideTipOnMobile tooltip" title="{$LNG.tech[$buildInfo.tech['id']]|escape:'html'} - {$LNG.bd_lvl|escape:'html'} {$buildInfo.tech['level']}" href="game.php?page=research">
                                             <img src="{$dpath}buildings/{$buildInfo.tech['id']}.png" width="50" height="50" alt="">
                                         </a>
                                             <div class="overview-construction-fill" aria-hidden="true"></div>
-                                            <div class="timer" data-time="{$buildInfo.tech['timeleft']}">{$buildInfo.tech['starttime']}</div>
+                                            <div class="timer" data-time="{$buildInfo.tech['timeleft']}" data-endtime="{$buildInfo.tech['time']}">{$buildInfo.tech['starttime']}</div>
                                         </div>
 <span class="overview-construction-description">{$LNG.bd_tech_next_level} {$buildInfo.tech['level']}</span>
                                         </div>
@@ -273,11 +273,11 @@ data-tooltip-content="{capture name=gameTooltip15}<table>
                                     <td class="first">
                                         <div class="overview-research-row overview-hangar-row">
                                             <div class="overview-construction-image" data-duration="{$buildInfo.fleet['time']}">
-                                                <a class="js_hideTipOnMobile tooltip" title="{$LNG.tech[$buildInfo.fleet['id']]|escape:'html'} ({$buildInfo.fleet['level']})" href="game.php?page=shipyard">
+                                                <a class="js_hideTipOnMobile tooltip" title="{$LNG.tech[$buildInfo.fleet['id']]|escape:'html'} - {$LNG.rs_amount|escape:'html'} {$buildInfo.fleet['level']}" href="game.php?page=shipyard">
                                                     <img src="{$dpath}buildings/{$buildInfo.fleet['id']}.png" width="50" height="50" alt="">
                                                 </a>
                                                 <div class="overview-construction-fill" aria-hidden="true"></div>
-                                                <div class="timer" data-time="{$buildInfo.fleet['timeleft']}">{$buildInfo.fleet['starttime']}</div>
+                                                <div class="timer" data-time="{$buildInfo.fleet['timeleft']}" data-endtime="{$serverTimestamp + $buildInfo.fleet['timeleft']}">{$buildInfo.fleet['starttime']}</div>
                                             </div>
                                             <span class="overview-construction-description">{$LNG.rs_amount} {$buildInfo.fleet['level']}</span>
                                         </div>

@@ -50,7 +50,8 @@ date_default_timezone_set(@date_default_timezone_get());
 
 ini_set('display_errors', 1);
 header('Content-Type: text/html; charset=UTF-8');
-define('TIMESTAMP',	time());
+define('REQUEST_TIMESTAMP', microtime(true));
+define('TIMESTAMP', (int) REQUEST_TIMESTAMP);
 	
 require 'includes/constants.php' ;
 

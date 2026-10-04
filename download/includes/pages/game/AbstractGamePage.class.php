@@ -192,6 +192,7 @@ abstract class AbstractGamePage
 			'ga_key'			=> $config->ga_key,
 			'debug'				=> $config->debug,
 			'VERSION'			=> $config->VERSION,
+            'serverTimestamp' => TIMESTAMP,
 			'date'				=> explode("|", date('Y\|n\|j\|G\|i\|s\|Z', TIMESTAMP)),
 			'isPlayerCardActive' => isModuleAvailable(MODULE_PLAYERCARD),
 			'REV'				=> substr($config->VERSION, -4),
@@ -247,6 +248,8 @@ abstract class AbstractGamePage
 
 		$this->assign(array(
 			'LNG'			=> $LNG,
+			'serverRequestTimestamp' => defined('REQUEST_TIMESTAMP') ? REQUEST_TIMESTAMP : TIMESTAMP,
+            'serverRenderTimestamp' => microtime(true),
 			'servertime'	=> _date("M D d H:i:s", TIMESTAMP, $USER['timezone']),
 			'username'		=> $USER['username'],
 		), false);

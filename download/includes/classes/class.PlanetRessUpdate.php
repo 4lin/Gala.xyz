@@ -442,8 +442,8 @@ class ResourceUpdate
 			$Level				= $ListIDArray[1];
 			$BuildMode			= $ListIDArray[4];
 			$ForDestroy			= ($BuildMode == 'destroy') ? true : false;
-			$costResources		= BuildFunctions::getElementPrice($this->USER, $this->PLANET, $Element, $ForDestroy);
-			$BuildTime			= BuildFunctions::getBuildingTime($this->USER, $this->PLANET, $Element, $costResources);
+			$costResources		= BuildFunctions::getElementPrice($this->USER, $this->PLANET, $Element, $ForDestroy, $Level);
+			$BuildTime			= BuildFunctions::getBuildingTime($this->USER, $this->PLANET, $Element, $costResources, $ForDestroy);
 			$HaveResources		= BuildFunctions::isElementBuyable($this->USER, $this->PLANET, $Element, $costResources);
 			$BuildEndTime		= $this->PLANET['b_building'] + $BuildTime;
 			$CurrentQueue[0]	= array($Element, $Level, $BuildTime, $BuildEndTime, $BuildMode);
@@ -488,7 +488,7 @@ class ResourceUpdate
 					$NewQueue			= array();
 					foreach($CurrentQueue as $ListIDArray)
 					{
-						$ListIDArray[2]		= BuildFunctions::getBuildingTime($this->USER, $this->PLANET, $ListIDArray[0], NULL, $ListIDArray[4] == 'destroy');
+						$ListIDArray[2]		= BuildFunctions::getBuildingTime($this->USER, $this->PLANET, $ListIDArray[0], NULL, $ListIDArray[4] == 'destroy', $ListIDArray[1]);
 						$BaseTime			+= $ListIDArray[2];
 						$ListIDArray[3]		= $BaseTime;
 						$NewQueue[]			= $ListIDArray;
@@ -577,7 +577,7 @@ class ResourceUpdate
 			
 			$Element            = $ListIDArray[0];
 			$Level              = $ListIDArray[1];
-			$costResources		= BuildFunctions::getElementPrice($this->USER, $PLANET, $Element);
+			$costResources		= BuildFunctions::getElementPrice($this->USER, $PLANET, $Element, false, $Level);
 			$BuildTime			= BuildFunctions::getBuildingTime($this->USER, $PLANET, $Element, $costResources);
 			$HaveResources		= BuildFunctions::isElementBuyable($this->USER, $PLANET, $Element, $costResources);
 			$BuildEndTime       = $this->USER['b_tech'] + $BuildTime;
@@ -618,7 +618,7 @@ class ResourceUpdate
 					$NewQueue						= array();
 					foreach($CurrentQueue as $ListIDArray)
 					{
-						$ListIDArray[2]				= BuildFunctions::getBuildingTime($this->USER, $PLANET, $ListIDArray[0]);
+						$ListIDArray[2]				= BuildFunctions::getBuildingTime($this->USER, $PLANET, $ListIDArray[0], NULL, false, $ListIDArray[1]);
 						$BaseTime					+= $ListIDArray[2];
 						$ListIDArray[3]				= $BaseTime;
 						$NewQueue[]					= $ListIDArray;

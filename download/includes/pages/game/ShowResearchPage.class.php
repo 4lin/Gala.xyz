@@ -103,29 +103,8 @@ class ShowResearchPage extends AbstractGamePage
 			$USER['b_tech_id']		= 0;
 			$USER['b_tech']			= 0;
 		} else {
-			$BuildEndTime		= TIMESTAMP;
-			$NewCurrentQueue	= array();
-			foreach($CurrentQueue as $ListIDArray)
-			{
-				if($elementId == $ListIDArray[0] || empty($ListIDArray[0]))
-					continue;
-					
-				if($ListIDArray[4] != $PLANET['id']) {
-					$sql = "SELECT :resource6, :resource31, id FROM %%PLANETS%% WHERE id = :id;";
-					$CPLANET = $db->selectSingle($sql, array(
-						':resource6'	=> $resource[6],
-						':resource31'	=> $resource[31],
-						':id'			=> $ListIDArray[4]
-					));
-				} else
-					$CPLANET		= $PLANET;
-				
-				$CPLANET[$resource[31].'_inter']	= $this->ecoObj->getNetworkLevel($USER, $CPLANET);
-				$BuildEndTime       				+= BuildFunctions::getBuildingTime($USER, $CPLANET, NULL, $ListIDArray[0]);
-				$ListIDArray[3]						= $BuildEndTime;
-				$NewCurrentQueue[]					= $ListIDArray;				
-			}
-			
+			$NewCurrentQueue = $this->recalculateResearchQueue($CurrentQueue, TIMESTAMP);
+
 			if(!empty($NewCurrentQueue)) {
 				$USER['b_tech']    			= TIMESTAMP;
 				$USER['b_tech_queue'] 		= serialize($NewCurrentQueue);
@@ -141,66 +120,44 @@ class ShowResearchPage extends AbstractGamePage
 		return true;
 	}
 
-	private function RemoveBuildingFromQueue($QueueID)
-	{
-		global $USER, $PLANET, $resource;
-		
-		$CurrentQueue  = unserialize($USER['b_tech_queue']);
-		if ($QueueID <= 1 || empty($CurrentQueue))
-		{
-			return false;
-		}
+    private function recalculateResearchQueue($queue, $baseTime, $preserveCount = 0)
+    {
+        global $USER, $PLANET, $resource;
+        $levels = array();
+        $planets = array($PLANET['id'] => $PLANET);
+        foreach ($queue as $index => &$entry) {
+            $id = $entry[0];
+            if (!isset($levels[$id])) $levels[$id] = (int) $USER[$resource[$id]];
+            $levels[$id]++;
+            if ($index < $preserveCount) continue;
+            $entry[1] = $levels[$id];
+            $planetId = $entry[4];
+            if (!isset($planets[$planetId])) {
+                $planets[$planetId] = Database::get()->selectSingle(
+                    'SELECT * FROM %%PLANETS%% WHERE id = :id;', array(':id' => $planetId));
+            }
+            $researchPlanet = $planets[$planetId];
+            $researchPlanet[$resource[31].'_inter'] = $this->ecoObj->getNetworkLevel($USER, $researchPlanet);
+            $entry[2] = BuildFunctions::getBuildingTime($USER, $researchPlanet, $id, NULL, false, $entry[1]);
+            $baseTime += $entry[2];
+            $entry[3] = $baseTime;
+        }
+        unset($entry);
+        return $queue;
+    }
 
-		$ActualCount   = count($CurrentQueue);
-		if ($ActualCount <= 1)
-		{
-			return $this->CancelBuildingFromQueue();
-		}
-
-		if(!isset($CurrentQueue[$QueueID - 2]))
-		{
-			return false;
-		}
-			
-		$elementId 		= $CurrentQueue[$QueueID - 2][0];
-		$BuildEndTime	= $CurrentQueue[$QueueID - 2][3];
-		unset($CurrentQueue[$QueueID - 1]);
-		$NewCurrentQueue	= array();
-		foreach($CurrentQueue as $ID => $ListIDArray)
-		{				
-			if ($ID < $QueueID - 1) {
-				$NewCurrentQueue[]	= $ListIDArray;
-			} else {
-				if($elementId == $ListIDArray[0])
-					continue;
-
-				if($ListIDArray[4] != $PLANET['id']) {
-					$db = Database::get();
-
-					$sql = "SELECT :resource6, :resource31 FROM %%PLANETS%% WHERE id = :id;";
-					$CPLANET = $db->selectSingle($sql, array(
-						':resource6'	=> $resource[6],
-						':resource31'	=> $resource[31],
-						':id'			=> $ListIDArray[4]
-					));
-				} else
-					$CPLANET				= $PLANET;
-				
-				$CPLANET[$resource[31].'_inter']	= $this->ecoObj->getNetworkLevel($USER, $CPLANET);
-				
-				$BuildEndTime       += BuildFunctions::getBuildingTime($USER, $CPLANET, NULL, $ListIDArray[0]);
-				$ListIDArray[3]		= $BuildEndTime;
-				$NewCurrentQueue[]	= $ListIDArray;				
-			}
-		}
-		
-		if(!empty($NewCurrentQueue))
-			$USER['b_tech_queue'] = serialize($NewCurrentQueue);
-		else
-			$USER['b_tech_queue'] = "";
-
-		return true;
-	}
+    private function RemoveBuildingFromQueue($QueueID)
+    {
+        global $USER;
+        $queue = unserialize($USER['b_tech_queue']);
+        if ($QueueID <= 1 || !is_array($queue) || !isset($queue[$QueueID - 1])) return false;
+        $baseTime = $queue[$QueueID - 2][3];
+        // Remove only the selected order and preserve the active deadline.
+        array_splice($queue, $QueueID - 1, 1);
+        $queue = $this->recalculateResearchQueue($queue, $baseTime, $QueueID - 1);
+        $USER['b_tech_queue'] = serialize($queue);
+        return true;
+    }
 
 	private function AddBuildingToQueue($elementId, $AddMode = true)
 	{
@@ -310,7 +267,7 @@ class ShowResearchPage extends AbstractGamePage
 				'time' 			=> $BuildArray[2], 
 				'resttime' 		=> ($BuildArray[3] - TIMESTAMP), 
 				'destroy' 		=> ($BuildArray[4] == 'destroy'), 
-				'endtime' 		=> _date('U', $BuildArray[3], $USER['timezone']),
+				'endtime' 		=> (int) $BuildArray[3],
 				'display' 		=> _date($LNG['php_tdformat'], $BuildArray[3], $USER['timezone']),
 				'planet'		=> $PlanetName,
 			);

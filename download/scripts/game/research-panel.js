@@ -42,7 +42,12 @@ var ResearchPanel = (function () {
     }
     $(function () {
         $(document).on('click', '#research-details-panel .building-panel-close', close);
-        $('#research-details-panel').on('keydown', function (e) { if (e.key === 'Escape') close(); });
+        $(document).on('keydown', '#research-details-panel', function (e) { if (e.key === 'Escape') close(); });
+    });
+    $(document).on('gala:page-dispose', function () {
+        clearTimeout(closeTimer);
+        if (openingFrame) cancelAnimationFrame(openingFrame);
+        lastTrigger = null;
     });
     return { open: open, close: close };
 }());

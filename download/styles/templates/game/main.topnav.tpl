@@ -40,7 +40,7 @@
 						
 						<li><a href="game.php?page=logout">{$LNG.lm_logout}</a></li>
 						
-						<li>{$LNG.ov_server_time}: {$servertime}</li>
+						<li>{$LNG.ov_server_time}: <span class="servertime">{$servertime}</span></li>
 					</ul>
 				</div>
       	

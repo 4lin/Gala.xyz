@@ -1,6 +1,6 @@
 {block name="title" prepend}{if $mode == "defense"}{$LNG.lm_defenses}{else}{$LNG.lm_shipshard}{/if}{/block}
 {block name="content"}
-<div id="shipyardOv" data-mode="{$mode}" data-build-list="{$BuildList|json|escape:'html'}"{if $mode == 'defense'} class="defense-view"{/if}>
+<div id="shipyardOv" data-server-time="{$serverTimestamp}" data-server-received="{$serverRequestTimestamp}" data-server-sent="{$serverRenderTimestamp}" data-mode="{$mode}" data-build-list="{$BuildList|json|escape:'html'}"{if $mode == 'defense'} class="defense-view"{/if}>
 <div class="construction-request-error" role="alert" hidden>{$LNG.op_error}. <a href="game.php?page=shipyard&amp;mode={$mode}">{$LNG.al_applyform_reload}</a></div>
 	{if $mode == "fleet"}
 	<div id="planetImg" style="background:url(styles/resource/images/game/external/k4BHWnE.png) no-repeat; height:250px; width:654px;">
@@ -55,14 +55,7 @@
 			<ul id="shipyard">
 				{foreach $elementList as $ID => $Element}
 				<li id="shipyard" class="{if $Element.AlreadyBuild}off{elseif $NotBuilding && $Element.buyable}on{else}off{/if}">
-					<div class="tech{$ID} interacTip" data-tooltip-content="{capture name=gameTooltip17}
-                        <table class='shipyard-hover-summary'>
-                            <tr><th>{$LNG.tech.{$ID}}</th></tr>
-                            <tr><td>{$LNG.shortDescription.{$ID}}</td></tr>
-                            <tr><td>{$LNG.bd_panel_unit_cost}: {foreach $Element.costResources as $RessID => $RessAmount}{$LNG.tech.{$RessID}}: <strong style='color:{if $Element.costOverflow[$RessID] == 0}lime{else}red{/if};'>{$RessAmount|number}</strong> {/foreach}</td></tr>
-                            <tr><td>{$LNG.fgf_time} {$Element.elementTime|time}</td></tr>
-                        </table>
-                        {/capture}{$smarty.capture.gameTooltip17|escape:'html'}">
+					<div class="tech{$ID} tooltip thumbnail-tip" title="{$LNG.tech.{$ID}|escape:'html'} - {$Element.available|number}">
 						<div class="shipyardimg">
 							<a ref="{$ID}" id="details" class="detail_button js_hideTipOnMobile {if $mode == 'defense'}defense-detail{/if}" href="#" onclick="return ShipyardPanel.open({$ID}, this)" aria-controls="shipyard-details-panel" aria-expanded="false">
 									<span class="ecke">
@@ -94,7 +87,7 @@
 								<td class="idle transparent">
 									{if !empty($BuildList)}
 									<div id="defense-current-build" class="production-current-build" data-image-root="{$dpath}buildings/">
-                                        <div class="defense-current-image"><img src="{$dpath}buildings/{$BuildList.Queue[0][3]}.png" alt="{$BuildList.Queue[0][0]|escape:'html'}"><div class="defense-current-progress"></div><span class="defense-current-time"></span>
+                                        <div class="defense-current-image tooltip thumbnail-tip" title="{$BuildList.Queue[0][0]|escape:'html'} - {$LNG.rs_amount|escape:'html'} {$BuildList.Queue[0][1]|number}"><img src="{$dpath}buildings/{$BuildList.Queue[0][3]}.png" alt="{$BuildList.Queue[0][0]|escape:'html'}"><div class="defense-current-progress"></div><span class="defense-current-time"></span>
 <form id="fleet-current-cancel" class="fleet-current-cancel" action="game.php?page=shipyard&amp;mode={$mode}" method="post">
 <input type="hidden" name="action" value="delete"><input type="hidden" name="auftr[]" value="0">
 <button type="button" aria-label="{$LNG.bd_cancel}" title="{$LNG.bd_cancel}" onclick="document.getElementById('fleet-cancel-confirm').showModal()"></button>
@@ -121,15 +114,4 @@
 <div><button type="button" onclick="document.getElementById('fleet-cancel-confirm').close()">{$LNG.gl_no}</button><button type="submit" form="fleet-current-cancel" onclick="document.getElementById('fleet-cancel-confirm').close()">{$LNG.gl_yes}</button></div>
 </dialog>
 
-{/block}
-
-{block name="script" append}
-<link rel="stylesheet" href="styles/resource/css/ingame/shipyard-panel.css?v=17">
-<script src="scripts/game/shipyard-panel.js?v=9"></script>
-<script type="text/javascript">
-data			= {$BuildList|json};
-bd_operating	= '';
-bd_available	= '';
-</script>
-<script src="scripts/game/construction-ajax.js?v=2"></script>
 {/block}

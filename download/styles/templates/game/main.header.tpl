@@ -41,15 +41,17 @@
 	<link rel="stylesheet" type="text/css" href="/styles/resource/css/ingame/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-punk.min.css" />
 	<link rel="stylesheet" type="text/css" href="/styles/resource/css/base/validationEngine.jquery.css?v={$REV}">
 	<link rel="stylesheet" type="text/css" href="{$dpath}formate.css?v={$REV}">
-	<link rel="stylesheet" type="text/css" href="styles/resource/css/ingame/layout-fixes.css?v={$REV}">
+	<link rel="stylesheet" type="text/css" href="styles/resource/css/ingame/layout-fixes.css?v={$REV}-thumbnail-tips1">
 	<link rel="stylesheet" type="text/css" href="styles/resource/css/ingame/technology-atlas.css?v={$REV}">
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+	<script src="scripts/game/clock.js?v=2"></script>
 	<script type="text/javascript">
 	var ServerTimezoneOffset = {$Offset};
 	var serverTime 	= new Date({$date.0}, {$date.1 - 1}, {$date.2}, {$date.3}, {$date.4}, {$date.5});
 	var startTime	= serverTime.getTime();
 	var localTime 	= serverTime;
 	var localTS 	= startTime;
+    GalaClock.initialize({$serverTimestamp}, {$serverRequestTimestamp}, {$serverRenderTimestamp});
 	var Gamename	= document.title;
 	var Ready		= "{$LNG.ready}";
 	var Skin		= "{$dpath}";
@@ -63,7 +65,7 @@
 	var isPlayerCardActive	= "{$isPlayerCardActive|json}";
 
 	setInterval(function() {
-		serverTime.setSeconds(serverTime.getSeconds()+1);
+		serverTime.setTime(startTime + GalaClock.elapsed());
 	}, 1000);
 	</script>
 	<script type="text/javascript" src="/scripts/base/jquery.js?v=3.7.1"></script>
@@ -72,7 +74,7 @@
 	<script type="text/javascript" src="/scripts/base/jquery.fancybox.js?v={$REV}"></script>
 	<script type="text/javascript" src="/scripts/base/jquery.validationEngine.js?v={$REV}"></script>
 	<script type="text/javascript" src="/scripts/l18n/validationEngine/jquery.validationEngine-{$lang}.js?v={$REV}"></script>
-	<script type="text/javascript" src="/scripts/game/base.js?v={$REV}-info-nav1"></script>
+	<script type="text/javascript" src="/scripts/game/base.js?v={$REV}-clock1"></script>
 	<script type="text/javascript" src="/scripts/game/test.js?v={$REV}"></script>
 	<script type="text/javascript" src="/styles/resource/js/tooltipster.bundle.min.js"></script>
 
@@ -81,7 +83,11 @@
             $('.tooltip').tooltipster({
 				functionBefore: function(instance, helper) {
 					var content = $(helper.origin).attr('data-tooltip-content');
-					if ($(helper.origin).closest('#researchOv, #officer-page').length) {
+					if ($(helper.origin).is('.thumbnail-tip')) {
+                        instance.option('theme', 'thumbnail-tooltip');
+                        instance.option('maxWidth', null);
+                        instance.option('arrow', false);
+                    } else if ($(helper.origin).closest('#researchOv, #officer-page').length) {
 						instance.option('maxWidth', 320);
 						instance.option('theme', ['tooltipster-punk', 'research-tooltip']);
 					}
@@ -126,8 +132,17 @@
     </script>
 
 	{foreach item=scriptname from=$scripts}
-	<script type="text/javascript" src="./scripts/game/{$scriptname}.js?v={$REV}"></script>
+	<script type="text/javascript" src="./scripts/game/{$scriptname}.js?v={$REV}-clock1"></script>
 	{/foreach}
+    {if in_array($smarty.get.page|default:'overview', array('buildings', 'research', 'shipyard'))}
+    <link rel="stylesheet" href="styles/resource/css/ingame/research-panel.css?v=5">
+    <link rel="stylesheet" href="styles/resource/css/ingame/shipyard-panel.css?v=17">
+    <script src="scripts/game/buildings-panel.js?v=5"></script>
+    <script src="scripts/game/research-panel.js?v=5"></script>
+    <script src="scripts/game/shipyard-panel.js?v=10"></script>
+    <script src="scripts/game/construction-ajax.js?v=6"></script>
+    <script src="scripts/game/page-navigation.js?v=4"></script>
+    {/if}
 	{block name="script"}{/block}
 	<script type="text/javascript">
 	$(function() {
