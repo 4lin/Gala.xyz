@@ -216,6 +216,7 @@ class ShowResourcesPage extends AbstractGamePage
 			'planetname'		=> $PLANET['name'],
 			'prodSelector'		=> $prodSelector,
 			'productionList'	=> $productionList,
+            'productionFactor' => $prodLevel,
 			'basicProduction'	=> $basicProduction,
 			'totalProduction'	=> $totalProduction,
 			'bonusProduction'	=> $bonusProduction,

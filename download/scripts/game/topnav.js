@@ -8,6 +8,7 @@ function resourceTicker(config, init) {
 		window.setInterval(function(){resourceTicker(config)}, 1000);
 		
 	var element	= $('#'+config.valueElem);
+    if (init === true) element.data('resourceTicker', config);
 
 	if(element.hasClass('res_current_max'))
 	{

@@ -227,6 +227,6 @@ elseif(MODE === 'CHAT')
 
 	if(!$session->isValidSession())
 	{
-		HTTP::redirectTo('index.php?code=3');
+		HTTP::redirectTo('../index.php?code=3');
 	}
 }

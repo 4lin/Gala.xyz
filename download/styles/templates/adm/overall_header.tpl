@@ -54,6 +54,10 @@
 	<script type="text/javascript" src="./scripts/base/jquery.validationEngine.js?v={$REV}"></script>
 	<script type="text/javascript" src="./scripts/l18n/validationEngine/jquery.validationEngine-{$lang}.js?v={$REV}"></script>
 	<script type="text/javascript" src="./scripts/base/tooltip.js?v={$REV}"></script>
+    <link rel="stylesheet" href="./styles/resource/css/ingame/tooltipster.bundle.min.css">
+    <link rel="stylesheet" href="./styles/resource/css/admin/ui-fixes.css?v={$REV}">
+    <script src="./styles/resource/js/tooltipster.bundle.min.js"></script>
+    <script src="./scripts/admin/ui-fixes.js?v={$REV}"></script>
 	<script type="text/javascript" src="./scripts/game/base.js?v={$REV}"></script>
 	{foreach item=scriptname from=$scripts}
 	<script type="text/javascript" src="./scripts/game/{$scriptname}.js?v={$REV}"></script>

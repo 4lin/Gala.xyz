@@ -1,7 +1,7 @@
 {block name="title" prepend}{$LNG.lm_resources}{/block}
 {block name="content"}
 <div id="resourcesOv">
-	<div id="planetImg" style="background:url(http://i.imgur.com/qRY8lIK.jpg) no-repeat; height:40px; width:654px;">
+	<div id="planetImg" style="background:url(styles/resource/images/game/external/qRY8lIK.jpg) no-repeat; height:40px; width:654px;">
 		<h2>{$header}</h2>
 	</div>
 	<div class="contentRS">
@@ -9,16 +9,16 @@
 			<a class="close_details close_resources" href="game.php?page=buildings"></a>
 		</div>
 		<div class="mainRS">
-		<form action="?page=resources" method="POST" type="hidden" style="width:100%">
+		<form action="?page=resources" method="POST" style="width:100%">
 		<input type="hidden" name="mode" value="send">
 			<table class="list listOfResourceSettingsPerPlanet" style="margin-top:0px;" cellspacing="0" cellpadding="0">
 			<tbody>
 				<tr>
-					<td colspan="7" id="factor">
+					<td colspan="6" id="factor">
 						<div class="secondcol">
 							<div style="width:376px; margin: 0px auto;">
 								<span class="factorkey">
-								{$LNG.lm_resources}	100% 
+								{$LNG.lm_resources} {($productionFactor * 100)|round}% 
 								</span>
 								<span class="factorbuton">
 									<input class="btn_blue" value="{$LNG.rs_calculate}" type="submit">
@@ -78,12 +78,9 @@
 						</span>
 					</td>
 					<td>
-						{html_options name="prod[{$productionID}]" options=$prodSelector style="display: none;" selected=$productionRow.prodLevel}
-						<span class="dropdown currentlySelected" style="width: 67px;">
-							<a class="undermark" options=$prodSelector selected=$productionRow.prodLevel name="prod[{$productionID}]" href="javascript:void(0);">
-								{html_options selected=$productionRow.prodLevel}
-							</a>
-						</span>
+                        <label class="resource-production-label" for="production-{$productionID}">{$LNG.tech.$productionID|escape:'html'}</label>
+                        {html_options id="production-{$productionID}" name="prod[{$productionID}]" options=$prodSelector selected=$productionRow.prodLevel}
+
 					</td>
 				</tr>
 				{/foreach}

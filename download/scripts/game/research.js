@@ -6,6 +6,12 @@ var buildname	= "";
 
 function Buildlist() {
 	var rest	= resttime - (serverTime.getTime() - startTime) / 1000;
+	if (time > 0) {
+		var progress = Math.min(100, Math.max(0, 100 - Math.max(rest, 0) / time * 100));
+		$('#progressbar').progressbar('value', progress);
+		$('#progressbar .ui-progressbar-value').css('height', progress + '%');
+		$('#progressbar')[0].style.setProperty('--construction-progress', progress + '%');
+	}
 	if (rest <= 0) {
 		window.clearInterval(interval);
 		$('#time').text(Ready);
@@ -21,21 +27,12 @@ function Buildlist() {
 	$('#time').text(GetRestTimeFormat(rest));
 }
 
-function CreateProcessbar() {
-	if(time != 0) {
-		$('#progressbar').progressbar({
-			value: Math.max(100 - (resttime / time) * 100, 0.01)
-		});
-		$('.ui-progressbar-value').addClass('ui-corner-right').animate({width: "100%"}, resttime * 1000, "linear");
-	}
-}
-
 $(document).ready(function() {
 	time		= $('#time').data('time');
 	resttime	= $('#progressbar').data('time');
 	endtime		= $('.timer:first').data('time');
 	buildname	= $('.onlist:first').text();
 	interval	= window.setInterval(Buildlist, 1000);
-	window.setTimeout(CreateProcessbar, 5);
+	if (time > 0) $('#progressbar').progressbar({value: 0});
 	Buildlist();
 });

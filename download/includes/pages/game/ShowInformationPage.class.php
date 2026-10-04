@@ -347,8 +347,17 @@ class ShowInformationPage extends AbstractGamePage
 			);
 		}
 
+        $buildDestination = null;
+        foreach (array('build' => array('buildings', 'lm_buildings'), 'tech' => array('research', 'lm_research'), 'fleet' => array('shipyard&mode=fleet', 'lm_shipshard'), 'defense' => array('shipyard&mode=defense', 'lm_defenses'), 'missile' => array('shipyard&mode=defense', 'lm_defenses'), 'officier' => array('officier', 'lm_officiers')) as $type => $destination) {
+            if (in_array($elementID, $reslist[$type])) {
+                $buildDestination = array('url' => 'game.php?page='.$destination[0].'&focus='.$elementID, 'label' => $destination[1]);
+                break;
+            }
+        }
 		$this->assign(array(
 			'elementID'			=> $elementID,
+            'buildDestination' => $buildDestination,
+            'OfficerLevel' => in_array($elementID, $reslist['officier']) ? (int) $USER[$resource[$elementID]] : null,
 			'productionTable'	=> $productionTable,
 			'CurrentLevel'		=> $CurrentLevel,
 			'MissileList'		=> $MissileList,

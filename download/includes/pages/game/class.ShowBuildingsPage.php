@@ -91,39 +91,30 @@ class ShowBuildingsPage extends AbstractPage
 	{
 		global $USER, $PLANET;
 		if ($QueueID <= 1 || empty($PLANET['b_building_id'])) {
-            return false;
-        }
-
-		$CurrentQueue  = unserialize($PLANET['b_building_id']);
-		$ActualCount   = count($CurrentQueue);
-		if($ActualCount <= 1) {
-			return $this->CancelBuildingFromQueue();
-        }
-
-		$Element		= $CurrentQueue[$QueueID - 2][0];
-		$BuildEndTime	= $CurrentQueue[$QueueID - 2][3];
-		unset($CurrentQueue[$QueueID - 1]);
-		$NewQueueArray	= array();
-		foreach($CurrentQueue as $ID => $ListIDArray)
-		{				
-			if ($ID < $QueueID - 1) {
-				$NewQueueArray[]	= $ListIDArray;
-			} else {
-				if($Element == $ListIDArray[0] || empty($ListIDArray[0]))
-					continue;
-
-				$BuildEndTime       += BuildFunctions::getBuildingTime($USER, $PLANET, $ListIDArray[0]);
-				$ListIDArray[3]		= $BuildEndTime;
-				$NewQueueArray[]	= $ListIDArray;				
-			}
+			return false;
 		}
-
-		if(!empty($NewQueueArray))
-			$PLANET['b_building_id'] = serialize($NewQueueArray);
-		else
-			$PLANET['b_building_id'] = "";
-
-        return true;
+		$CurrentQueue = unserialize($PLANET['b_building_id']);
+		if (!is_array($CurrentQueue) || !isset($CurrentQueue[$QueueID - 1])) {
+			return false;
+		}
+		$Removed = $CurrentQueue[$QueueID - 1];
+		$BuildEndTime = $CurrentQueue[$QueueID - 2][3];
+		unset($CurrentQueue[$QueueID - 1]);
+		$NewQueueArray = array();
+		foreach ($CurrentQueue as $ID => $Entry) {
+			if ($ID > $QueueID - 1) {
+				// Removing one order must not remove later orders of the same type.
+				if ($Entry[0] == $Removed[0]) {
+					$Entry[1] += $Removed[4] == 'destroy' ? 1 : -1;
+				}
+				$Entry[2] = BuildFunctions::getBuildingTime($USER, $PLANET, $Entry[0], NULL, $Entry[4] == 'destroy', $Entry[1]);
+				$BuildEndTime += $Entry[2];
+				$Entry[3] = $BuildEndTime;
+			}
+			$NewQueueArray[] = $Entry;
+		}
+		$PLANET['b_building_id'] = serialize($NewQueueArray);
+		return true;
 	}
 
 	private function AddBuildingToQueue($Element, $AddMode = true)
@@ -242,6 +233,22 @@ class ShowBuildingsPage extends AbstractPage
 	{
 		global $ProdGrid, $LNG, $resource, $reslist, $CONF, $PLANET, $USER, $pricelist;
 		
+        if (!empty($PLANET['b_building_id'])) {
+            $oldQueue = unserialize($PLANET['b_building_id']);
+            if (is_array($oldQueue)) {
+                $queue = BuildFunctions::normalizeBuildingQueueLevels($oldQueue, $PLANET);
+                if ($queue !== $oldQueue) {
+                    $end = $queue[0][3];
+                    for ($i = 1; $i < count($queue); $i++) {
+                        $queue[$i][2] = BuildFunctions::getBuildingTime($USER, $PLANET, $queue[$i][0], NULL, $queue[$i][4] == 'destroy', $queue[$i][1]);
+                        $end += $queue[$i][2];
+                        $queue[$i][3] = $end;
+                    }
+                    $PLANET['b_building_id'] = serialize($queue);
+                }
+            }
+        }
+
 		$TheCommand		= HTTP::_GP('cmd', '');
 
 		// wellformed buildURLs

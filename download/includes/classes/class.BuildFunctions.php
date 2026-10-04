@@ -18,6 +18,23 @@
 class BuildFunctions
 {
 
+    public static function normalizeBuildingQueueLevels($queue, $planet)
+    {
+        global $resource;
+        $levels = array();
+        foreach ($queue as &$entry) {
+            $id = $entry[0];
+            if (!isset($levels[$id])) {
+                $levels[$id] = (int) $planet[$resource[$id]];
+            }
+            // Build stores the resulting level; destroy stores the level removed.
+            $entry[1] = $entry[4] == 'destroy' ? $levels[$id] : $levels[$id] + 1;
+            $levels[$id] += $entry[4] == 'destroy' ? -1 : 1;
+        }
+        unset($entry);
+        return $queue;
+    }
+
     static $bonusList   = array(
         'Attack',
         'Defensive',

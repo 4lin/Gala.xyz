@@ -45,6 +45,7 @@ class ShowTechtreePage extends AbstractGamePage
         );
 
         $techTreeList = array();
+        $techLevels = array();
 
         foreach($elementIDs as $elementId)
         {
@@ -55,6 +56,7 @@ class ShowTechtreePage extends AbstractGamePage
             else
             {
                 $requirementsList	= array();
+                $techLevels[$elementId] = isset($PLANET[$resource[$elementId]]) ? $PLANET[$resource[$elementId]] : (isset($USER[$resource[$elementId]]) ? $USER[$resource[$elementId]] : 0);
                 if(isset($requeriments[$elementId]))
                 {
                     foreach($requeriments[$elementId] as $requireID => $RedCount)
@@ -72,6 +74,7 @@ class ShowTechtreePage extends AbstractGamePage
 
         $this->assign(array(
             'TechTreeList'		=> $techTreeList,
+            'TechLevels' => $techLevels,
         ));
 
         $this->display('page.techTree.default.tpl');

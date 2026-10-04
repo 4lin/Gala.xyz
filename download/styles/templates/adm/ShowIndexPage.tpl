@@ -13,7 +13,7 @@ if (top.location != self.location) top.location = self.location;
 <frame src="admin.php?page=menu" name="rightFrame" id="rightFrame" noresize="noresize">
 	<frameset rows="84,*" frameborder="0">
 		<frame src="admin.php?page=topnav" name="topFrame" scrolling="no" noresize="noresize" id="topFrame">
-		<frame src="admin.php?page=overview" name="Hauptframe" scrolling="auto" noresize="noresize" id="mainFrame">
+		<frame src="admin.php?page={$initialPage}" name="Hauptframe" scrolling="auto" noresize="noresize" id="mainFrame">
 	</frameset>
 </frameset>
 </html>

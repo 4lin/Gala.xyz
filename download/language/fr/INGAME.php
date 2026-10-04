@@ -361,6 +361,10 @@ $LNG['bd_interrupt']						= 'Pause';
 $LNG['bd_cancel']							= 'Annuler';
 $LNG['bd_working']							= 'En progrès';
 $LNG['bd_build']							= 'Construire';
+$LNG['bd_improve'] = 'Améliorer';
+$LNG['bd_panel_number'] = 'Quantité';
+$LNG['bd_defense_cancel_warning'] = 'Vous recupererez 60% des ressources.';
+$LNG['bd_panel_unit_cost'] = 'Coût par unité';
 $LNG['bd_build_next_level']					= 'Elever au niveau ';
 $LNG['bd_research']							= 'Recherche';
 $LNG['bd_tech']                             = 'Recherche';
@@ -419,7 +423,12 @@ $LNG['rs_ress_bonus']						= 'Bonus(Officiers/Bonus-MN):';
 
 //----------------------------------------------------------------------------//
 //OFFICIERS
+$LNG['of_view'] = 'Affichage des officiers';
+$LNG['of_view_compact'] = 'Compact';
+$LNG['of_view_detailed'] = 'Détaillé';
+$LNG['of_details'] = 'Détails';
 $LNG['of_recruit']							= 'Recruter';
+$LNG['of_maximum_level'] = 'Niveau maximum';
 $LNG['of_max_lvl']							= 'Niveau Max.';
 $LNG['of_offi']								= 'Officiers';
 $LNG['of_lvl']								= 'Niveau';

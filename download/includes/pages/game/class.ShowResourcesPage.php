@@ -208,6 +208,7 @@ class ShowResourcesPage extends AbstractPage
 			'header'			=> sprintf($LNG['rs_production_on_planet'], $PLANET['name']),
 			'prodSelector'		=> $prodSelector,
 			'productionList'	=> $productionList,
+            'productionFactor' => $prodLevel,
 			'basicProduction'	=> $basicProduction,
 			'totalProduction'	=> $totalProduction,
 			'bonusProduction'	=> $bonusProduction,

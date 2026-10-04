@@ -5,7 +5,7 @@ html, body {
     padding: 0;
 }
 body {
-    background: 0 #000000;
+    background: #000000 url(../../images/login/background.jpg) center center / cover fixed no-repeat;
     color: #FFFFFF;
     font-family: verdana;
     font-size: 12px;
@@ -62,7 +62,7 @@ p, #desc_list {
 /** FOOTER **/
 
 footer {
-    background: url(//i.imgur.com/ySnjpZS.png) repeat-x center bottom #47494b;
+    background: url(../../images/login/external/ySnjpZS.png) repeat-x center bottom #47494b;
     height: 19px;
     text-align: center;
     position: fixed;
@@ -92,7 +92,7 @@ a:hover{
 }
 
 #loadingImg {
-	background: url(//i.imgur.com/qLwpYiu.gif) no-repeat center transparent;
+	background: url(../../images/login/external/qLwpYiu.gif) no-repeat center transparent;
 	position: absolute;
 	text-align: center;
     padding: 0px;

@@ -17,7 +17,7 @@
 .cb-slideshow:after {
     content: '';
     position: fixed;
-    background: transparent url(http://i.imgur.com/scRxaUk.png) repeat top left;
+    background: transparent url(../../images/login/external/scRxaUk.png) repeat top left;
     z-index: 0;
 }
 .cb-slideshow li span {
@@ -29,7 +29,7 @@
     color: transparent;
     background-size: cover;
     background-position: 50% 50%;
-    background-repeat: none;
+    background-repeat: no-repeat;
     opacity: 0;
     z-index: 0;
 	-webkit-backface-visibility: hidden;
@@ -57,16 +57,16 @@
 
 @font-face {
     font-family: SpaceAge; /*a name to be used later*/
-    src: url(http://2m.hol.es/styles/resource/css/login/fonts/space_age.ttf); /*URL to font*/
+    src: url(fonts/space_age.ttf); /*URL to font*/
 }
 
 @font-face {
     font-family: BeyondSpace; /*a name to be used later*/
-    src: url(http://2m.hol.es/styles/resource/css/login/fonts/BeyondSpace.ttf); /*URL to font*/
+    src: url(fonts/BeyondSpace.ttf); /*URL to font*/
 }
 @font-face {
     font-family: dotted; /*a name to be used later*/
-    src: url(http://2m.hol.es/styles/resource/css/login/fonts/dotted.ttf); /*URL to font*/
+    src: url(fonts/dotted.ttf); /*URL to font*/
 }
 .cb-slideshow li div h3 {
     font-family: SpaceAge, BeyondSpace, Arial, sans-serif;
@@ -77,9 +77,9 @@
     line-height: 120px;
     color: rgba(169,3,41, 0.8);
 }
-.cb-slideshow li:nth-child(1) span { background-image: url(http://i.imgur.com/B5aL6fM.jpg) }
+.cb-slideshow li:nth-child(1) span { background-image: url(../../images/login/external/B5aL6fM.jpg) }
 .cb-slideshow li:nth-child(2) span { 
-	background-image: url(http://i.imgur.com/DdmCYe9.jpg);
+	background-image: url(../../images/login/external/DdmCYe9.jpg);
     -webkit-animation-delay: 6s;
     -moz-animation-delay: 6s;
     -o-animation-delay: 6s;
@@ -87,7 +87,7 @@
     animation-delay: 6s;
 }
 .cb-slideshow li:nth-child(3) span {
-    background-image: url(http://i.imgur.com/LDJZCEL.jpg);
+    background-image: url(../../images/login/external/LDJZCEL.jpg);
     -webkit-animation-delay: 12s;
     -moz-animation-delay: 12s;
     -o-animation-delay: 12s;
@@ -95,7 +95,7 @@
     animation-delay: 12s;
 }
 .cb-slideshow li:nth-child(4) span {
-    background-image: url(http://i.imgur.com/mvhAKrL.jpg);
+    background-image: url(../../images/login/external/mvhAKrL.jpg);
     -webkit-animation-delay: 18s;
     -moz-animation-delay: 18s;
     -o-animation-delay: 18s;
@@ -103,7 +103,7 @@
     animation-delay: 18s;
 }
 .cb-slideshow li:nth-child(5) span {
-    background-image: url(http://i.imgur.com/ebaB6NO.jpg);
+    background-image: url(../../images/login/external/ebaB6NO.jpg);
     -webkit-animation-delay: 24s;
     -moz-animation-delay: 24s;
     -o-animation-delay: 24s;
@@ -111,7 +111,7 @@
     animation-delay: 24s;
 }
 .cb-slideshow li:nth-child(6) span {
-    background-image: url(http://i.imgur.com/OI6wXdV.jpg);
+    background-image: url(../../images/login/external/OI6wXdV.jpg);
     -webkit-animation-delay: 30s;
     -moz-animation-delay: 30s;
     -o-animation-delay: 30s;

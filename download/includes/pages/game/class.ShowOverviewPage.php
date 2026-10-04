@@ -161,6 +161,7 @@ class ShowOverviewPage extends AbstractPage
 				'id'		=> $Queue[0][0],
 				'level'		=> $Queue[0][1],
 				'timeleft'	=> $PLANET['b_building'] - TIMESTAMP,
+				'duration'	=> $Queue[0][2],
 				'time'		=> $PLANET['b_building'],
 				'starttime'	=> pretty_time($PLANET['b_building'] - TIMESTAMP),
 			);
@@ -192,6 +193,7 @@ class ShowOverviewPage extends AbstractPage
 				'id'		=> $Queue[0][0],
 				'level'		=> $Queue[0][1],
 				'timeleft'	=> $USER['b_tech'] - TIMESTAMP,
+				'duration'	=> $Queue[0][2],
 				'time'		=> $USER['b_tech'],
 				'starttime'	=> pretty_time($USER['b_tech'] - TIMESTAMP),
 			);

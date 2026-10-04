@@ -58,9 +58,9 @@ class Database_BC extends mysqli
 	 *
 	 * @return resource	Results of the query
 	 */
-	public function query($resource)
+	public function query($resource, $resultmode = MYSQLI_STORE_RESULT)
 	{
-		if($result = parent::query($resource))
+		if($result = parent::query($resource, $resultmode))
 		{
 			$this->queryCount++;
 			return $result;

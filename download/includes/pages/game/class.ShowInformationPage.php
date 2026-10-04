@@ -321,6 +321,7 @@ class ShowInformationPage extends AbstractPage
 
 		$this->tplObj->assign_vars(array(		
 			'elementID'			=> $elementID,
+            'OfficerLevel' => in_array($elementID, $reslist['officier']) ? (int) $USER[$resource[$elementID]] : null,
 			'productionTable'	=> $productionTable,
 			'CurrentLevel'		=> $CurrentLevel,
 			'MissileList'		=> $MissileList,

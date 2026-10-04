@@ -1,0 +1,66 @@
+/* Buildings details expand in the page above the thumbnails. */
+#researchOv { position: relative; }
+.research-panel-viewport { position: absolute; top: 0; left: 8px; width: 654px; height: 300px; overflow: hidden; pointer-events: none; z-index: 10; }
+#research-details-panel { position: absolute; top: 0; left: 0; pointer-events: auto; transform: translateY(100%); transition: transform .35s ease-in-out; z-index: 10; height: 300px; overflow-y: auto; box-sizing: border-box; width: 654px; max-width: 100%; padding: 1px 0 0 3px; border: 0; background: #0d141c url(../../images/game/buildings-panel-background.gif) no-repeat 0 0; }
+#research-details-panel[hidden], #research-details-panel .building-panel-item[hidden] { display: none; }
+#research-details-panel .building-panel-item { display: flex; gap: 16px; }
+#research-details-panel .building-panel-image { width: 200px; height: 200px; flex: 0 0 200px; object-fit: cover; border-radius: 0; }
+#research-details-panel .building-panel-body { flex: 1; min-width: 0; padding: 5px 16px 8px 0; text-align: left; color: #c6d6e1; line-height: 1.5; }
+#research-details-panel h3 { margin: 0 24px 8px 0; color: #e5edf3; font-size: 15px; }
+#research-details-panel h3 small { color: #99b7cd; font-size: 11px; margin-left: 8px; }
+#research-details-panel p { margin: 7px 0; }
+#research-details-panel .building-panel-costs { display: flex; flex-wrap: wrap; gap: 5px 14px; }
+#research-details-panel .affordable { color: #83df91; }
+#research-details-panel .unaffordable { color: #ff7979; }
+#research-details-panel .building-panel-close { position: absolute; top: 5px; right: 6px; border: 0; background: transparent; color: #dbe7ef; font-size: 24px; cursor: pointer; }
+#research-details-panel .building-panel-build button { padding: 8px 14px; border: 1px solid #528569; border-radius: 3px; background: #1b3828; color: #a3efb2; cursor: pointer; }
+#research-details-panel .building-panel-build button:hover { background: #2b563b; }
+#researchOv a.research-panel-selected { outline: 2px solid #a4b45c; outline-offset: -2px; }
+#research-details-panel.is-open { transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { #research-details-panel { transition: none; } }
+
+/* Match the supplied detail-screen reference and original action sprite. */
+#research-details-panel .building-panel-item { display: block; position: relative; min-height: 297px; }
+#research-details-panel .building-panel-image { position: absolute; top: 0; left: 0; width: 200px; height: 200px; }
+#research-details-panel .building-panel-body { position: relative; margin-left: 204px; height: 198px; padding: 0 10px 0 8px; font-size: 11px; color: #879aaa; }
+#research-details-panel h3 { height: 23px; line-height: 23px; font-size: 13px; margin: 0 20px 4px 0; color: #ffa600; }
+#research-details-panel h3 small { float: right; color: #ffa600; line-height: 23px; }
+#research-details-panel .building-panel-production { line-height: 19px; }
+#research-details-panel .building-panel-production strong { color: #f0f4f7; }
+#research-details-panel .building-panel-production .affordable { color: #b4e800; }
+#research-details-panel .building-panel-production .unaffordable { color: #ff5555; }
+#research-details-panel .building-panel-requirements { position: absolute; bottom: 3px; left: 8px; right: 160px; }
+#research-details-panel .building-panel-costs { display: flex; gap: 10px; margin-top: 5px; }
+#research-details-panel .building-panel-costs > span { display: flex; flex-direction: column; align-items: center; min-width: 48px; }
+#research-details-panel .building-panel-costs img { width: 48px; height: 32px; object-fit: cover; }
+#research-details-panel .building-panel-costs strong { font-weight: normal; line-height: 16px; }
+#research-details-panel .building-panel-build { position: absolute; right: 8px; bottom: 7px; margin: 0; }
+#research-details-panel .building-panel-build button { width: 142px; height: 54px; padding: 0; border: 0; border-radius: 0; background: url(../../images/game/buildings-panel-actions.png) no-repeat 0 0; font-size: 16px; font-weight: bold; color: white; }
+#research-details-panel .building-panel-build button:hover { background: url(../../images/game/buildings-panel-actions.png) no-repeat 0 -54px; }
+#research-details-panel .building-panel-build button:disabled { background-position: 0 -108px; color: #a7a7a7; cursor: default; }
+#research-details-panel .building-panel-demolish { position: absolute; right: 10px; top: 38px; margin: 0; }
+#research-details-panel .building-panel-demolish button { display: flex; flex-direction: column; align-items: center; border: 0; background: none; padding: 0; color: #9ca9b3; font-size: 11px; cursor: pointer; }
+#research-details-panel .building-panel-demolish button span { width: 64px; height: 32px; background: url(../../images/game/buildings-panel-actions.png) no-repeat -310px -220px; }
+#research-details-panel .building-panel-demolish button:hover span { background-position: -310px -252px; }
+#research-details-panel .building-panel-techtree { position: absolute; top: 158px; left: 4px; display: flex; flex-direction: column; font-size: 10px; color: #8596a4; }
+#research-details-panel .building-panel-techtree span { width: 32px; height: 32px; background: url(../../images/game/buildings-panel-actions.png) no-repeat -143px -64px; }
+#research-details-panel .building-panel-description { position: absolute; top: 207px; left: 8px; right: 10px; color: #829db3; font-size: 11px; line-height: 16px; }
+#research-details-panel .building-panel-description > span { display: inline-block; width: 16px; text-align: center; color: #fff; background: #486181; border-radius: 2px; }
+#research-details-panel .building-panel-close { top: 3px; right: 4px; font-size: 18px; z-index: 2; }
+
+/* Original 16px close icon aligned with the detail-screen title bar. */
+#research-details-panel .building-panel-close { top: 4px; right: 4px; width: 16px; height: 16px; min-width: 0; min-height: 0; margin: 0; padding: 0; border: 0; border-radius: 0; background: url(../../images/game/buildings-panel-actions.png) no-repeat -207px 0; font-size: 0; line-height: 0; cursor: pointer; }
+#research-details-panel .building-panel-close:hover { background-position: -207px -16px; }
+#research-details-panel .building-panel-close:focus-visible { outline: 1px solid #d5e8fa; outline-offset: 1px; }
+
+.research-panel-viewport { height: 250px; }
+#research-details-panel { height: 250px; overflow: hidden; }
+#research-details-panel .building-panel-item { min-height: 247px; }
+#research-details-panel .building-panel-description { max-height: 39px; overflow-y: auto; line-height: 13px; }
+
+/* Unavailable technologies remain clickable for their detail panel. */
+#researchOv ul#research li.research-unavailable .researchimg { filter: grayscale(1) brightness(.5); }
+
+/* Reserve the full thumbnail height and separate technology columns. */
+#researchOv ul#research { column-gap: 20px; row-gap: 16px; }
+#researchOv ul#research > li { width: 80px; height: 80px; flex: 0 0 80px; }

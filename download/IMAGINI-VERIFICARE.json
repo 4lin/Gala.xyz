@@ -1,0 +1,177 @@
+[
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=messages"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=statistics"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=buddyList"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=search"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=records"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=battleHall"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=settings"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=ticket"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=officier"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=imperium"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=overview"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=resources"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=buildings"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=trader"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=fleetDealer"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=fleetTable"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=techtree"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=research"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=battleSimulator"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=shipyard&mode=fleet"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=shipyard&mode=defense"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=galaxy"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=alliance"
+  },
+  {
+    "broken": [],
+    "error": false,
+    "externalBackgrounds": [],
+    "externalImages": [],
+    "url": "http://127.0.0.1:8766/game.php?page=chat"
+  }
+]

@@ -4,6 +4,7 @@
 	<input type="hidden" name="mode" value="send">
 	<input type="hidden" name="resource" value="{$tradeResourceID}">
 	<table class="table569">
+    <colgroup><col style="width:26%"><col style="width:40%"><col style="width:14%"><col style="width:20%"></colgroup>
 	<tr>
 		<th colspan="4">{$LNG.tr_sell} {$LNG.tech.$tradeResourceID}</th>
 	</tr>

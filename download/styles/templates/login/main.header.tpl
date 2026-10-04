@@ -43,7 +43,7 @@
 	</script>
 
 	<script>
-	$(window).load(function() {      //Do the code in the {}s when the window has loaded 
+	$(function() {
 	$("#loadingImg").show("fast");
   	$("#loadingImg").fadeOut(4000);  //Fade out the #loader div
   	$("#page").hide();

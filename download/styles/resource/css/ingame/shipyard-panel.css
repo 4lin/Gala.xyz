@@ -1,0 +1,136 @@
+/* Shipyard and Defense details slide over the existing banner. */
+#shipyardOv { position: relative; }
+.shipyard-panel-viewport { position: absolute; top: 0; left: 8px; width: 654px; height: 300px; overflow: hidden; pointer-events: none; z-index: 10; }
+#shipyard-details-panel { position: absolute; top: 0; left: 0; pointer-events: auto; transform: translateY(100%); transition: transform .35s ease-in-out; z-index: 10; height: 300px; overflow-y: auto; box-sizing: border-box; width: 654px; max-width: 100%; padding: 1px 0 0 3px; border: 0; background: #0d141c url(../../images/game/buildings-panel-background.gif) no-repeat 0 0; }
+#shipyard-details-panel[hidden], #shipyard-details-panel .building-panel-item[hidden] { display: none; }
+#shipyard-details-panel .building-panel-item { display: flex; gap: 16px; }
+#shipyard-details-panel .building-panel-image { width: 200px; height: 200px; flex: 0 0 200px; object-fit: cover; border-radius: 0; }
+#shipyard-details-panel .building-panel-body { flex: 1; min-width: 0; padding: 5px 16px 8px 0; text-align: left; color: #c6d6e1; line-height: 1.5; }
+#shipyard-details-panel h3 { margin: 0 24px 8px 0; color: #e5edf3; font-size: 15px; }
+#shipyard-details-panel h3 small { color: #99b7cd; font-size: 11px; margin-left: 8px; }
+#shipyard-details-panel p { margin: 7px 0; }
+#shipyard-details-panel .building-panel-costs { display: flex; flex-wrap: wrap; gap: 5px 14px; }
+#shipyard-details-panel .affordable { color: #83df91; }
+#shipyard-details-panel .unaffordable { color: #ff7979; }
+#shipyard-details-panel .building-panel-close { position: absolute; top: 5px; right: 6px; border: 0; background: transparent; color: #dbe7ef; font-size: 24px; cursor: pointer; }
+#shipyard-details-panel .building-panel-build button { padding: 8px 14px; border: 1px solid #528569; border-radius: 3px; background: #1b3828; color: #a3efb2; cursor: pointer; }
+#shipyard-details-panel .building-panel-build button:hover { background: #2b563b; }
+#shipyardOv a.shipyard-panel-selected { outline: 2px solid #a4b45c; outline-offset: -2px; }
+#shipyard-details-panel.is-open { transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { #shipyard-details-panel { transition: none; } }
+
+/* Match the supplied detail-screen reference and original action sprite. */
+#shipyard-details-panel .building-panel-item { display: block; position: relative; min-height: 297px; }
+#shipyard-details-panel .building-panel-image { position: absolute; top: 0; left: 0; width: 200px; height: 200px; }
+#shipyard-details-panel .building-panel-body { position: relative; margin-left: 204px; height: 198px; padding: 0 10px 0 8px; font-size: 11px; color: #879aaa; }
+#shipyard-details-panel h3 { height: 23px; line-height: 23px; font-size: 13px; margin: 0 20px 4px 0; color: #ffa600; }
+#shipyard-details-panel h3 small { float: right; color: #ffa600; line-height: 23px; }
+#shipyard-details-panel .building-panel-production { line-height: 19px; }
+#shipyard-details-panel .building-panel-production strong { color: #f0f4f7; }
+#shipyard-details-panel .building-panel-production .affordable { color: #b4e800; }
+#shipyard-details-panel .building-panel-production .unaffordable { color: #ff5555; }
+#shipyard-details-panel .building-panel-requirements { position: absolute; bottom: 3px; left: 8px; right: 160px; }
+#shipyard-details-panel .building-panel-costs { display: flex; gap: 10px; margin-top: 5px; }
+#shipyard-details-panel .building-panel-costs > span { display: flex; flex-direction: column; align-items: center; min-width: 48px; }
+#shipyard-details-panel .building-panel-costs img { width: 48px; height: 32px; object-fit: cover; }
+#shipyard-details-panel .building-panel-costs strong { font-weight: normal; line-height: 16px; }
+#shipyard-details-panel .building-panel-build { position: absolute; right: 8px; bottom: 7px; margin: 0; }
+#shipyard-details-panel .building-panel-build button { width: 142px; height: 54px; padding: 0; border: 0; border-radius: 0; background: url(../../images/game/buildings-panel-actions.png) no-repeat 0 0; font-size: 16px; font-weight: bold; color: white; }
+#shipyard-details-panel .building-panel-build button:hover { background: url(../../images/game/buildings-panel-actions.png) no-repeat 0 -54px; }
+#shipyard-details-panel .building-panel-build button:disabled { background-position: 0 -108px; color: #a7a7a7; cursor: default; }
+#shipyard-details-panel .building-panel-demolish { position: absolute; right: 10px; top: 38px; margin: 0; }
+#shipyard-details-panel .building-panel-demolish button { display: flex; flex-direction: column; align-items: center; border: 0; background: none; padding: 0; color: #9ca9b3; font-size: 11px; cursor: pointer; }
+#shipyard-details-panel .building-panel-demolish button span { width: 64px; height: 32px; background: url(../../images/game/buildings-panel-actions.png) no-repeat -310px -220px; }
+#shipyard-details-panel .building-panel-demolish button:hover span { background-position: -310px -252px; }
+#shipyard-details-panel .building-panel-techtree { position: absolute; top: 158px; left: 4px; display: flex; flex-direction: column; font-size: 10px; color: #8596a4; }
+#shipyard-details-panel .building-panel-techtree span { width: 32px; height: 32px; background: url(../../images/game/buildings-panel-actions.png) no-repeat -143px -64px; }
+#shipyard-details-panel .building-panel-description { position: absolute; top: 207px; left: 8px; right: 10px; color: #829db3; font-size: 11px; line-height: 16px; }
+#shipyard-details-panel .building-panel-description > span { display: inline-block; width: 16px; text-align: center; color: #fff; background: #486181; border-radius: 2px; }
+#shipyard-details-panel .building-panel-close { top: 3px; right: 4px; font-size: 18px; z-index: 2; }
+
+/* Original 16px close icon aligned with the detail-screen title bar. */
+#shipyard-details-panel .building-panel-close { top: 4px; right: 4px; width: 16px; height: 16px; min-width: 0; min-height: 0; margin: 0; padding: 0; border: 0; border-radius: 0; background: url(../../images/game/buildings-panel-actions.png) no-repeat -207px 0; font-size: 0; line-height: 0; cursor: pointer; }
+#shipyard-details-panel .building-panel-close:hover { background-position: -207px -16px; }
+#shipyard-details-panel .building-panel-close:focus-visible { outline: 1px solid #d5e8fa; outline-offset: 1px; }
+
+/* Fit the existing 250px Shipyard/Defense banner without moving its list. */
+.shipyard-panel-viewport { height: 250px; }
+#shipyard-details-panel { height: 250px; overflow: hidden; }
+#shipyard-details-panel .building-panel-item { min-height: 247px; }
+#shipyard-details-panel .building-panel-description { top: 207px; line-height: 13px; font-size: 11px; max-height: 39px; overflow-y: auto; padding-right: 4px; }
+#shipyard-details-panel .shipyard-panel-quantity { position: absolute; right: 10px; top: 32px; width: 208px; }
+#shipyard-details-panel .shipyard-panel-quantity label { display: block; margin-bottom: 8px; }
+#shipyard-details-panel .shipyard-panel-quantity-controls { display: flex; align-items: center; gap: 5px; padding: 5px; background: rgba(6,17,27,.35); }
+#shipyard-details-panel .shipyard-panel-quantity input { width: 94px; height: 34px; min-width: 0; margin: 0; padding: 4px 6px; box-sizing: border-box; border: 2px solid #92a5b1; border-radius: 3px; background: #fff; color: #111; font-size: 16px; text-align: center; }
+#shipyard-details-panel .shipyard-panel-max { flex: 1; height: 34px; min-width: 0; padding: 0 6px; border: 0; background: #263745; color: #fff; font-size: 11px; cursor: pointer; }
+#shipyard-details-panel .shipyard-panel-max:hover { background: #37566c; }
+#shipyard-details-panel .shipyard-panel-max:disabled, #shipyard-details-panel .shipyard-panel-quantity input:disabled { opacity: .55; cursor: default; }
+#shipyard-details-panel .shipyard-panel-limit { position: absolute; right: 8px; top: 100px; max-width: 220px; color: #ff7979; }
+#shipyard-details-panel .building-panel-build button:focus-visible, #shipyard-details-panel .shipyard-panel-max:focus-visible { outline: 2px solid #b2d9f0; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { #shipyard-details-panel { transition: none; } }
+
+/* Defense queue: compact active card while preserving the cancellation select. */
+#shipyardOv .defense-construction-box .content { padding: 7px 10px 10px; box-sizing: border-box; }
+#shipyardOv .defense-construction-box table { width: 100%; background: transparent; border: 0; }
+#shipyardOv .defense-construction-box td { padding: 0; background: transparent; border: 0; }
+#defense-current-build { display: flex; align-items: center; gap: 9px; padding: 6px; margin-bottom: 9px; background: #101e2b; border: 1px solid #30475b; border-radius: 4px; text-align: left; }
+#defense-current-build .defense-current-image { position: relative; flex: 0 0 55px; width: 55px; height: 55px; overflow: hidden; border-radius: 3px; background: #000; }
+#defense-current-build img { width: 55px; height: 55px; display: block; opacity: .65; }
+#defense-current-build .defense-current-progress { position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(48,185,73,.38); pointer-events: none; }
+#defense-current-build .defense-current-time { position: absolute; top: 50%; left: 0; width: 100%; transform: translateY(-50%); background: rgba(0,0,0,.55); color: #fff; font-size: 10px; text-align: center; line-height: 18px; }
+#defense-current-build .defense-current-caption { min-width: 0; flex: 1; color: #a9bfd0; font-size: 10px; line-height: 17px; }
+#defense-current-build .defense-current-name { display: block; color: #e0ecf5; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; }
+#defense-current-build .defense-current-caption > span { display: block; }
+#shipyardOv .defense-construction-box .select { width: 100%; height: auto; padding: 0; }
+#shipyardOv .defense-construction-box #auftr { width: 100%; max-width: 100%; height: auto; min-height: 38px; margin: 0 0 7px; border: 1px solid #30475b; background: #0c1721; color: #c4d8e8; font-size: 11px; box-sizing: border-box; }
+#shipyardOv .defense-construction-box #auftr option { padding: 4px; }
+#shipyardOv .defense-cancel-note { margin: 3px 0 8px; color: #b8a184; line-height: 15px; font-size: 10px; }
+#shipyardOv .defense-cancel-note summary { cursor: pointer; color: #9bb9d0; }
+#shipyardOv .defense-construction-box input[type=submit] { min-height: 28px; width: 100%; margin: 0 0 7px; padding: 4px; border: 1px solid #75434a; border-radius: 3px; background: #43232b; color: #f1d7dc; cursor: pointer; font-size: 11px; }
+#shipyardOv .defense-construction-box input[type=submit]:hover { background: #63313c; }
+#shipyardOv .defense-construction-box #timeleft { display: block; color: #8097aa; font-size: 10px; }
+
+#shipyardOv .defense-construction-box #bx[hidden] { display: none; }
+
+#shipyardOv .defense-construction-box #auftr[hidden], #shipyardOv .defense-construction-box #timeleft[hidden] { display: none; }
+#defense-current-build { justify-content: center; padding: 0; background: transparent; border: 0; margin-bottom: 10px; }
+
+#defense-cancel-confirm { width: 360px; max-width: calc(100vw - 40px); padding: 18px; border: 1px solid #55748b; border-radius: 5px; background: #152535; color: #dce8f2; box-shadow: 0 8px 30px #000; }
+#defense-cancel-confirm::backdrop { background: rgba(0,0,0,.65); }
+#defense-cancel-confirm h3 { margin: 0 0 12px; color: #ffa600; }
+#defense-cancel-confirm p { font-size: 12px; line-height: 1.6; }
+#defense-cancel-confirm > div { display: flex; justify-content: flex-end; gap: 8px; }
+#defense-cancel-confirm button { min-width: 70px; padding: 7px 12px; border: 1px solid #52748e; border-radius: 3px; background: #23425a; color: #fff; cursor: pointer; }
+#defense-cancel-confirm #defense-cancel-yes { background: #65303a; border-color: #9d535e; }
+
+#defense-current-build { justify-content: flex-start; gap: 9px; }
+#defense-current-build > .defense-current-name { min-width: 0; flex: 1; text-align: left; }
+#shipyardOv .defense-cancel-form[hidden] { display: none; }
+
+/* Defense thumbnails: rounded image and quantity overlay flush with the right edge. */
+#shipyardOv.defense-view .shipyardimg { border-radius: 5px; overflow: hidden; }
+#shipyardOv.defense-view ul#shipyard a.defense-detail .ecke { right: 2px; }
+#shipyardOv.defense-view ul#shipyard a.defense-detail .level { color: #f4f7fb; font-weight: bold; text-shadow: 0 1px 2px #000; }
+
+#shipyardOv.defense-view ul#shipyard a.defense-detail, #shipyardOv.defense-view ul#shipyard a.defense-detail:hover { background-position: center center; }
+
+/* Inset the image within the original 80px overlay, preserving its hit target. */
+#shipyardOv.defense-view .shipyardimg { width: 76px; height: 76px; margin: 2px; overflow: visible; }
+#shipyardOv.defense-view ul#shipyard a.defense-detail, #shipyardOv.defense-view ul#shipyard a.defense-detail:hover { top: -2px; left: -2px; width: 80px; height: 80px; }
+
+
+
+#shipyardOv .fleet-queue-controls { margin-top: 8px; font-size: 10px; text-align: left; }
+#shipyardOv .fleet-queue-controls summary { cursor: pointer; color: #9bb9d0; }
+
+#shipyardOv .fleet-current-cancel { position: absolute; top: auto; bottom: -2px; right: -2px; margin: 0; padding: 0; border: 0; width: 17px; height: 17px; z-index: 3; }
+#shipyardOv .defense-current-image { overflow: visible; }
+#shipyardOv .fleet-current-cancel button { display: block; width: 17px; height: 17px; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent url(../../images/game/external/qvplA7d.png) -208px -71px no-repeat; cursor: pointer; }
+#shipyardOv .fleet-current-cancel button:hover { background-position: -208px -88px; }
+#shipyardOv .fleet-current-cancel button:active { background-position: -208px -88px; }
+.fleet-cancel-confirm { width: 360px; max-width: calc(100vw - 40px); padding: 16px; border: 1px solid #45627b; border-radius: 5px; background: #101e2b; color: #d5e2ed; }
+.fleet-cancel-confirm::backdrop { background: rgba(0,0,0,.6); }
+.fleet-cancel-confirm h3 { margin: 0 0 12px; color: #ffa600; }
+.fleet-cancel-confirm p { line-height: 1.5; }
+.fleet-cancel-confirm > div { display: flex; justify-content: flex-end; gap: 10px; }
+.fleet-cancel-confirm button { min-width: 65px; min-height: 30px; cursor: pointer; }

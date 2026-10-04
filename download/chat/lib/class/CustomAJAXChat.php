@@ -30,14 +30,14 @@ class CustomAJAXChat extends AJAXChat {
 
 	function initCustomConfig() {
 		$this->setConfig('dbConnection', 'link', $GLOBALS['DATABASE']);
-		$this->setConfig('chatBotName', false, Config::get('chat_botname'));
-		$this->setConfig('allowUserMessageDelete', false, (bool) Config::get('chat_allowdelmes'));
-		$this->setConfig('allowNickChange', false, (bool) Config::get('chat_nickchange'));
-		$this->setConfig('chatClosed', false, (bool) Config::get('chat_closed'));
-		$this->setConfig('allowPrivateChannels', false, (bool) Config::get('chat_allowchan'));
-		$this->setConfig('allowPrivateMessages', false, (bool) Config::get('chat_allowmes'));
-		$this->setConfig('defaultChannelName', false, Config::get('chat_channelname'));
-		$this->setConfig('showChannelMessages', false, (bool) Config::get('chat_logmessage'));
+		$this->setConfig('chatBotName', false, Config::get()->chat_botname);
+		$this->setConfig('allowUserMessageDelete', false, (bool) Config::get()->chat_allowdelmes);
+		$this->setConfig('allowNickChange', false, (bool) Config::get()->chat_nickchange);
+		$this->setConfig('chatClosed', false, (bool) Config::get()->chat_closed);
+		$this->setConfig('allowPrivateChannels', false, (bool) Config::get()->chat_allowchan);
+		$this->setConfig('allowPrivateMessages', false, (bool) Config::get()->chat_allowmes);
+		$this->setConfig('defaultChannelName', false, Config::get()->chat_channelname);
+		$this->setConfig('showChannelMessages', false, (bool) Config::get()->chat_logmessage);
 		$this->setConfig('langAvailable', false, Language::getAllowedLangs());
 		$this->setConfig('langNames', false, Language::getAllowedLangs(false));
 		$this->setConfig('forceAutoLogin', false, true);
@@ -95,7 +95,7 @@ class CustomAJAXChat extends AJAXChat {
 
 	// Store all existing channels
 	// Make sure channel names don't contain any whitespace
-	function getAllChannels() {
+	function &getAllChannels() {
 		if($this->_allChannels === null) {
 			$this->_allChannels = array(
 				$this->trimChannelName($this->getConfig('defaultChannelName')) => $this->getConfig('defaultChannelID')

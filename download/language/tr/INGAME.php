@@ -382,6 +382,10 @@ $LNG['bd_interrupt']						= 'Durdur';
 $LNG['bd_cancel']							= 'Iptal Et';
 $LNG['bd_working']							= 'Calisiyor';
 $LNG['bd_build']							= 'Binayi Insa Et';
+$LNG['bd_improve'] = 'Geliştir';
+$LNG['bd_panel_number'] = 'Adet';
+$LNG['bd_defense_cancel_warning'] = 'Kaynaklarin %60 geri verilir.';
+$LNG['bd_panel_unit_cost'] = 'Birim maliyeti';
 $LNG['bd_build_next_level']					= 'Kademe Yukselt ';
 $LNG['bd_research']							= 'Arastirma';
 $LNG['bd_tech']								= 'Arastirma';
@@ -440,7 +444,12 @@ $LNG['rs_ress_bonus']                       = 'Bonus (Subaylar dahil):';
 
 //----------------------------------------------------------------------------//
 // Subaylar
+$LNG['of_view'] = 'Subay görünümü';
+$LNG['of_view_compact'] = 'Kompakt';
+$LNG['of_view_detailed'] = 'Ayrıntılı';
+$LNG['of_details'] = 'Ayrıntılar';
 $LNG['of_recruit']							= 'Satin Al';
+$LNG['of_maximum_level'] = 'Maksimum seviye';
 $LNG['of_max_lvl']							= 'Max Seviye';
 $LNG['of_offi']								= 'Subaylar';
 $LNG['of_lvl']								= 'Kademe';

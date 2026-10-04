@@ -161,3 +161,55 @@ select[name="timezone"] {
 	color: #009900;
 	padding:7px 10px 7px 45px
 }
+/* Top navigation only. The frame grows when actions wrap. */
+body#topnav {
+    margin: 0;
+    padding: 6px 12px;
+    box-sizing: border-box;
+    background: #0b1522;
+}
+#topnav .admin-toolbar-title {
+    margin: 0 0 6px;
+    color: #e5efff;
+    font: bold 15px/20px Verdana, sans-serif;
+    text-align: left;
+}
+#topnav .admin-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 5px;
+    white-space: nowrap;
+}
+#topnav .admin-toolbar a,
+#topnav .admin-toolbar select {
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    min-height: 34px;
+    margin: 0;
+    padding: 8px 12px;
+    border: 1px solid #365675;
+    border-radius: 5px;
+    background: #152a40;
+    color: #e5efff;
+    font: 12px/16px Verdana, sans-serif;
+    text-decoration: none;
+}
+#topnav .admin-toolbar a:hover {
+    background: #234766;
+    border-color: #71b8e6;
+}
+#topnav .admin-toolbar a:focus-visible,
+#topnav .admin-toolbar select:focus-visible {
+    outline: 2px solid #8dd4ff;
+    outline-offset: -3px;
+}
+#topnav .admin-toolbar a[href*="page=reset"] {
+    border-color: #a06060;
+    background: #47272d;
+}
+#topnav .admin-toolbar a.out {
+    border-color: #418487;
+    background: #193d42;
+}

@@ -19,15 +19,17 @@ if (!allowedTo(str_replace(array(dirname(__FILE__), '\\', '/', '.php'), '', __FI
 
 function ShowNewsPage(){
 	global $LNG, $USER;
+	$NewsList = array();
+	$action = HTTP::_GP('action', '');
 
-	if($_GET['action'] == 'send') {
+	if($action == 'send') {
 		$edit_id 	= HTTP::_GP('id', 0);
 		$title 		= $GLOBALS['DATABASE']->sql_escape(HTTP::_GP('title', '', true));
 		$text 		= $GLOBALS['DATABASE']->sql_escape(HTTP::_GP('text', '', true));
-		$query		= ($_GET['mode'] == 2) ? "INSERT INTO ".NEWS." (`id` ,`user` ,`date` ,`title` ,`text`) VALUES ( NULL , '".$USER['username']."', '".TIMESTAMP."', '".$title."', '".$text."');" : "UPDATE ".NEWS." SET `title` = '".$title."', `text` = '".$text."', `date` = '".TIMESTAMP."' WHERE `id` = '".$edit_id."' LIMIT 1;";
+		$query		= (HTTP::_GP('mode', 0) == 2) ? "INSERT INTO ".NEWS." (`id` ,`user` ,`date` ,`title` ,`text`) VALUES ( NULL , '".$USER['username']."', '".TIMESTAMP."', '".$title."', '".$text."');" : "UPDATE ".NEWS." SET `title` = '".$title."', `text` = '".$text."', `date` = '".TIMESTAMP."' WHERE `id` = '".$edit_id."' LIMIT 1;";
 		
 		$GLOBALS['DATABASE']->query($query);
-	} elseif($_GET['action'] == 'delete' && isset($_GET['id'])) {
+	} elseif($action == 'delete' && isset($_GET['id'])) {
 		$GLOBALS['DATABASE']->query("DELETE FROM ".NEWS." WHERE `id` = '".HTTP::_GP('id', 0)."';");
 	}
 
@@ -46,7 +48,7 @@ function ShowNewsPage(){
 	$template	= new template();
 
 
-	if($_GET['action'] == 'edit' && isset($_GET['id'])) {
+	if($action == 'edit' && isset($_GET['id'])) {
 		$News = $GLOBALS['DATABASE']->getFirstRow("SELECT id, title, text FROM ".NEWS." WHERE id = '".$GLOBALS['DATABASE']->sql_escape($_GET['id'])."';");
 		$template->assign_vars(array(	
 			'mode'			=> 1,
@@ -55,7 +57,7 @@ function ShowNewsPage(){
 			'news_title'	=> $News['title'],
 			'news_text'		=> $News['text'],
 		));
-	} elseif($_GET['action'] == 'create') {
+	} elseif($action == 'create') {
 		$template->assign_vars(array(	
 			'mode'			=> 2,
 			'nws_head'		=> $LNG['nws_head_create'],
@@ -64,6 +66,9 @@ function ShowNewsPage(){
 	
 	$template->assign_vars(array(	
 		'NewsList'		=> $NewsList,
+        'news_id' => isset($News) ? $News['id'] : 0,
+        'news_title' => isset($News) ? $News['title'] : '',
+        'news_text' => isset($News) ? $News['text'] : '',
 		'button_submit'	=> $LNG['button_submit'],
 		'nws_total'		=> sprintf($LNG['nws_total'], count($NewsList)),
 		'nws_news'		=> $LNG['nws_news'],

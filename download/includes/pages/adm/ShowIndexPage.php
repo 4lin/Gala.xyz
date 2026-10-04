@@ -22,6 +22,7 @@ function ShowIndexPage()
 
 	$template->assign_vars(array(	
 		'game_name'		=> Config::get()->game_name,
+        'initialPage' => in_array(HTTP::_GP('view', ''), array('config', 'configuni')) ? HTTP::_GP('view', '') : 'overview',
 		'adm_cp_title'	=> $LNG['adm_cp_title'],
 	));
 	

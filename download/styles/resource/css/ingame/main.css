@@ -253,7 +253,7 @@ textarea.tinymce{
 }
 
 .c-left, .c-leftM {
-    background: url(//i.imgur.com/jDvTrnK.gif) no-repeat;
+    background: url(../../images/game/external/jDvTrnK.gif) no-repeat;
     left: 0px;
 }
 
@@ -274,7 +274,7 @@ textarea.tinymce{
 }
 
 .c-right, .c-rightM {
-    background: url(//i.imgur.com/axUZ8JC.gif) no-repeat;
+    background: url(../../images/game/external/axUZ8JC.gif) no-repeat;
     left: 642px;
 }
 
@@ -301,47 +301,47 @@ textarea.tinymce{
 }
 
 .img_commander {
-    background: 0px 0px url(//i.imgur.com/PoHej8v.jpg) no-repeat;
+    background: 0px 0px url(../../images/game/external/PoHej8v.jpg) no-repeat;
 }
 
 .img_commander_inactive {
-    background: 0px -32px url(//i.imgur.com/PoHej8v.jpg) no-repeat;
+    background: 0px -32px url(../../images/game/external/PoHej8v.jpg) no-repeat;
 }
 
 .img_admiral {
-    background: -32px 0px url(//i.imgur.com/PoHej8v.jpg) no-repeat;
+    background: -32px 0px url(../../images/game/external/PoHej8v.jpg) no-repeat;
 }
 
 .img_admiral_inactive {
-    background: -32px -32px url(//i.imgur.com/PoHej8v.jpg) no-repeat;
+    background: -32px -32px url(../../images/game/external/PoHej8v.jpg) no-repeat;
 }
 
 .img_engineer {
-    background: -64px 0px url(//i.imgur.com/PoHej8v.jpg) no-repeat;
+    background: -64px 0px url(../../images/game/external/PoHej8v.jpg) no-repeat;
 }
 
 .img_engineer_inactive {
-    background: -64px -32px url(//i.imgur.com/PoHej8v.jpg) no-repeat;
+    background: -64px -32px url(../../images/game/external/PoHej8v.jpg) no-repeat;
 }
 
 .img_geologist {
-    background: -96px 0px url(//i.imgur.com/PoHej8v.jpg) no-repeat;
+    background: -96px 0px url(../../images/game/external/PoHej8v.jpg) no-repeat;
 }
 
 .img_geologist_inactive {
-    background: -96px -32px url(//i.imgur.com/PoHej8v.jpg) no-repeat;
+    background: -96px -32px url(../../images/game/external/PoHej8v.jpg) no-repeat;
 }
 .img_technocrat {
-    background: -128px 0px url(//i.imgur.com/PoHej8v.jpg) no-repeat;
+    background: -128px 0px url(../../images/game/external/PoHej8v.jpg) no-repeat;
 }
 
 .img_technocrat_inactive {
-    background: -128px -32px url(//i.imgur.com/PoHej8v.jpg) no-repeat;
+    background: -128px -32px url(../../images/game/external/PoHej8v.jpg) no-repeat;
 }
 
 /*!
 .officer32, #officers a {
-    background: url("//i.imgur.com/PoHej8v.jpg") no-repeat;
+    background: url("../../images/game/external/PoHej8v.jpg") no-repeat;
 }
 */
 
@@ -393,7 +393,7 @@ a:link, a:visited, .no-touch a:hover, a:active {
 }
 
 a.menubutton:link, a.menubutton:visited, a.menubutton:hover, a.menubutton:active {
-    background: url("//i.imgur.com/qvplA7d.png") -374px -258px no-repeat;
+    background: url("../../images/game/external/qvplA7d.png") -374px -258px no-repeat;
     height: 29px;
     text-align: center;
     line-height: 25px;
@@ -407,7 +407,7 @@ a.menubutton:link, a.menubutton:visited, a.menubutton:hover, a.menubutton:active
 }
 
 #links .leftmenu li a.selected:link, #links .leftmenu li a.selected:visited, .no-touch #links .leftmenu li a.selected:hover, #links .leftmenu li a.selected:active {
-    background: url(//i.imgur.com/qvplA7d.png) -374px -287px no-repeat;
+    background: url(../../images/game/external/qvplA7d.png) -374px -287px no-repeat;
     color: #fff;
 }
 
@@ -471,7 +471,7 @@ ol, ul {
 }
 
 #netBar .netLogo {
-    background: transparent url(//i.imgur.com/OBxw4mn.png) 0 0 no-repeat;
+    background: transparent url(../../images/game/external/OBxw4mn.png) 0 0 no-repeat;
     position: relative;
     cursor: pointer;
     float: left;
@@ -483,7 +483,7 @@ ol, ul {
 }
 
 #netBar .netLogo:hover {
-	background: transparent url(//i.imgur.com/OBxw4mn.png) 1px -32px no-repeat;
+	background: transparent url(../../images/game/external/OBxw4mn.png) 1px -32px no-repeat;
 }
 
 #netBar a {
@@ -495,7 +495,7 @@ ol, ul {
 }
 
 #netBar {
-    background: transparent url(//i.imgur.com/UgOjgDM.png) repeat-x;
+    background: transparent url(../../images/game/external/UgOjgDM.png) repeat-x;
     font: normal 11px Tahoma, Arial, Helvetica, sans-serif;
     height: 32px;
     left: 0;
@@ -524,7 +524,7 @@ ol, ul {
 }
 
 #boxBG {
-    background: transparent url(//i.imgur.com/fGMBJ7P.gif) repeat-x 0 0;
+    background: transparent url(../../images/game/external/fGMBJ7P.gif) repeat-x 0 0;
 }
 
 #box {
@@ -723,7 +723,7 @@ ol, ul {
 	width:16px;
 	height:16px;
 	cursor:pointer;
-	background:url(../images/false.png) scroll no-repeat 0 0 transparent;
+	background:url(../../images/false.png) scroll no-repeat 0 0 transparent;
 }
 
 .shortcut-colum:hover .shortcut-delete{
@@ -802,7 +802,7 @@ table.tablesorter thead tr .headerSortDown {
 }
 
 #siteFooter {
-    background: transparent url(//i.imgur.com/7eikvIs.gif) repeat-x 0 0;
+    background: transparent url(../../images/game/external/7eikvIs.gif) repeat-x 0 0;
     color: #848484;
     font: normal 10px Verdana,Arial,Helvetica,sans-serif;
     height: 19px;
@@ -886,8 +886,8 @@ table.tablesorter thead tr .headerSortDown {
     text-decoration: none;
     background-color: transparent;
     position: relative;
-    background-image: url(//i.imgur.com/ONp10Tc.png);
-    /*!background-image: url(//i.imgur.com/PDyCn3c.jpg);*/
+    background-image: url(../../images/game/external/ONp10Tc.png);
+    /*!background-image: url(../../images/game/external/PDyCn3c.jpg);*/
     background-repeat: no-repeat;
     background-position: 0px 1px;
 }

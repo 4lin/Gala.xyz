@@ -18,6 +18,7 @@
 	<meta http-equiv="refresh" content="{$gotoinsec};URL={$goto}">
 	{/if}
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="../styles/resource/css/base/boilerplate.css">
 	<link rel="stylesheet" type="text/css" href="../styles/resource/css/ingame/main.css">
 	<link rel="stylesheet" type="text/css" href="../styles/resource/css/install/main.css">
@@ -44,7 +45,7 @@
 	});
 	</script>
 </head>
-<body id="step{$smarty.get.step|htmlspecialchars|default:'intro'}">
+<body class="installer" id="step{$smarty.get.step|htmlspecialchars|default:'intro'}">
 <div id="tooltip" class="tip"></div>
 <div><p>&nbsp;</p></div>
 <table width="960">

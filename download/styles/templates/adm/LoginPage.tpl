@@ -1,7 +1,30 @@
 {include file="overall_header.tpl"}
-<div id="content">
+<style>
+#content.admin-login {
+    float: none;
+    width: calc(100% - 32px);
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 12vh 0 24px;
+    box-sizing: border-box;
+}
+#content.admin-login table { width: 100%; margin: 0; }
+.admin-login td { padding: 22px 16px; text-align: center; }
+.admin-login td > div { margin: 12px 0; }
+.admin-login input[type="submit"] {
+    min-width: 110px;
+    min-height: 38px;
+    padding: 8px 22px;
+    font-size: 14px;
+    cursor: pointer;
+}
+@media (max-width: 440px) {
+    .admin-login label { display: block !important; width: auto !important; margin-bottom: 6px; }
+}
+</style>
+<div id="content" class="admin-login">
 	<form action="" method="POST">
-    <table style="width:569px;margin-top:30px;">
+    <table>
 		<tr>
             <th>{$LNG.adm_login}</th>
         </tr>

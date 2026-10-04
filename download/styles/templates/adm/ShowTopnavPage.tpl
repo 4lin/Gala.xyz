@@ -1,6 +1,6 @@
 {include file="overall_header.tpl"}
-<br><div style="font-size:22px;font-weight:bolder;font-variant:small-caps;text-align:center;width:100%;">{$adm_cp_title}</div><br>
-<div align="right">
+<div class="admin-toolbar-title">{$adm_cp_title}</div>
+<div class="admin-toolbar" role="navigation" aria-label="{$adm_cp_title|escape}">
 {if $authlevel == $smarty.const.AUTH_ADM}
 <select id="universe">
 {html_options options=$AvailableUnis selected=$UNI}
@@ -19,6 +19,14 @@
 </div>
 <script>
 $(function() {
+	function resizeToolbar() {
+		if (window.frameElement) {
+			var toolbar = document.querySelector('.admin-toolbar');
+			window.frameElement.parentNode.setAttribute('rows', Math.ceil(toolbar.getBoundingClientRect().bottom + 12) + ',*');
+		}
+	}
+	resizeToolbar();
+	$(window).on('resize', resizeToolbar);
 	$('#universe').on('change', function(e) {
 		parent.frames['Hauptframe'].location.href = parent.frames['Hauptframe'].location.href+'&uni='+$(this).val();
 		parent.frames['rightFrame'].location.reload();

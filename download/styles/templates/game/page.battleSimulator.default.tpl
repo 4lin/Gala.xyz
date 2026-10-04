@@ -75,7 +75,7 @@
 									<td style="width:50%" class="transparent">
 										<table>
 											<tr>
-												<th>{$LNG.bs_names}</td>
+												<th>{$LNG.bs_names}</th>
 												<th>{$LNG.bs_atter}</th>
 												<th>{$LNG.bs_deffer}</th>
 											</tr>

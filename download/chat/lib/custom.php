@@ -12,18 +12,17 @@
 
 define('MODE', 'CHAT');
 define('ROOT_PATH', str_replace('\\', '/',dirname(AJAX_CHAT_PATH)).'/');
+chdir(ROOT_PATH);
 set_include_path(ROOT_PATH);
+define('DATABASE_VERSION', 'OLD');
 
-require 'includes/pages/game/class.AbstractPage.php';
-require 'includes/pages/game/class.ShowErrorPage.php';
 require 'includes/common.php';
 
-if(!$SESSION->IsUserLogin() || (Config::get('game_disable') == 0 && $USER['authlevel'] == AUTH_USR))
-{
-	HTTP::redirectTo('index.php?code=3');
+$USER = Database::get()->selectSingle('SELECT * FROM %%USERS%% WHERE id = :id', array(':id' => $session->userId));
+if (empty($USER) || (Config::get()->game_disable == 0 && $USER['authlevel'] == AUTH_USR)) {
+    HTTP::redirectTo('../index.php?code=3');
 }
-	
-if(!isModulAvalible(MODULE_CHAT))
-{
-	ShowErrorPage::printError($LNG['sys_module_inactive']);
+$_SESSION['id'] = (int) $USER['id'];
+if (!isModuleAvailable(MODULE_CHAT)) {
+    die('Chat module is disabled.');
 }

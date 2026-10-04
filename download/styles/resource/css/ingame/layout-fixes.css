@@ -1,0 +1,562 @@
+/* Preserve sprite dimensions and the hooks used by game updates. */
+body.full #box::after { content: ""; display: block; clear: both; }
+body.full #box > #content { display: flow-root; }
+#buttonz ul#building,
+#researchOv ul#research,
+#shipyardOv ul#shipyard,
+#defensesOv ul#shipyard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    box-sizing: border-box;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 16px;
+}
+#buttonz ul#building > li,
+#researchOv ul#research > li,
+#shipyardOv ul#shipyard > li,
+#defensesOv ul#shipyard > li {
+    float: none;
+    flex: 0 0 auto;
+    left: 0;
+    top: 0;
+    margin: 0;
+}
+#buttonz .content { display: flow-root; }
+#buttonz .header h2 { padding: 8px 16px; line-height: 1.4; }
+.tooltipster-content { line-height: 1.5; overflow-wrap: break-word; }
+.tooltipster-content table { max-width: 100%; margin: 0; }
+.tooltipster-content td, .tooltipster-content th { padding: 5px 8px; }
+#overviewOv #planetImg table { background: rgba(4, 14, 24, .9); }
+#content input:not([type="hidden"]), #content select, #content textarea {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+/* Buildings: construction fills upwards; the timer stays centered on the image. */
+#buildingsOv .construction-image {
+    position: relative;
+    width: 65px;
+    height: 65px;
+}
+#buildingsOv .construction-image > img { display: block; }
+#buildingsOv .construction-image #progressbar {
+    inset: 0;
+    width: 65px;
+    height: 65px;
+    overflow: hidden;
+    pointer-events: none;
+}
+#buildingsOv .construction-image .ui-progressbar-value {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100% !important;
+    height: 0;
+    margin: 0;
+    border: 0;
+    background: #00c936;
+    opacity: .35;
+}
+#buildingsOv .construction-image #time {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    line-height: 20px;
+    color: #fff;
+    background: rgba(0, 0, 0, .7);
+    text-shadow: 0 1px 2px #000;
+    pointer-events: none;
+}
+
+/* Compact translated names beside each Buildings queue icon. */
+#buildingsOv .construction-entry { position: relative; }
+#buildingsOv .construction-entry.queued { width: auto !important; }
+#buildingsOv .construction-name {
+    position: absolute;
+    top: 50%;
+    left: 82px;
+    transform: translateY(-50%);
+    width: 95px;
+    text-align: left;
+    font-size: 11px;
+    line-height: 1.35;
+    color: #ccd9e5;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+#buildingsOv .queued .construction-name { left: 52px; }
+
+/* Overview: the active building uses the same vertical fill and centered timer. */
+#overviewOv .overview-construction-image { position: relative; width: 50px; height: 50px; }
+#overviewOv .overview-construction-image img { display: block; }
+#overviewOv .overview-construction-fill {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 0;
+    background: #00c936; opacity: .35; pointer-events: none;
+}
+#overviewOv .overview-construction-image .timer {
+    font-size: 10px;
+    position: absolute; top: 50%; left: 0; transform: translateY(-50%);
+    width: 100%; text-align: center; line-height: 20px; color: #fff;
+    background: rgba(0, 0, 0, .7); text-shadow: 0 1px 2px #000;
+    pointer-events: none;
+}
+
+/* Buildings: steady active icon; shade only the unfinished area. */
+#buildingsOv .construction-image > img {
+    animation: none;
+    -webkit-animation: none;
+}
+#buildingsOv .construction-image #progressbar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - var(--construction-progress, 0%));
+    background: rgba(0, 0, 0, .28);
+    pointer-events: none;
+}
+
+/* Research tooltip contents wrap within the available popup width. */
+.research-tooltip .tooltipster-content { box-sizing: border-box; white-space: normal; overflow-wrap: anywhere; }
+.research-tooltip .research-tooltip-table { width: 100%; table-layout: fixed; margin: 0; border-collapse: collapse; }
+.research-tooltip .research-tooltip-table td,
+.research-tooltip .research-tooltip-table th { white-space: normal; overflow-wrap: anywhere; box-sizing: border-box; }
+
+/* Research queue matches the vertical construction indicator. */
+#researchOv .research-queue-row { display: flex; align-items: center; gap: 12px; }
+#researchOv .research-construction-image { position: relative; flex: 0 0 50px; width: 50px; height: 50px; }
+#researchOv .research-construction-image.queued { flex-basis: 35px; width: 35px; height: 35px; }
+#researchOv .research-construction-image > img { display: block; animation: none; }
+#researchOv .research-construction-name { width: 95px; min-width: 0; font-size: 11px; line-height: 1.35; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#researchOv .research-construction-image #progressbar { inset: 0; width: 50px; height: 50px !important; overflow: hidden; pointer-events: none; }
+#researchOv .research-construction-image #progressbar::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: calc(100% - var(--construction-progress, 0%)); background: rgba(0,0,0,.28); }
+#researchOv .research-construction-image .ui-progressbar-value { position: absolute; bottom: 0; left: 0; width: 100% !important; height: 0; margin: 0; border: 0; background: #00c936; opacity: .35; }
+#researchOv .research-construction-image #time { position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; text-align: center; line-height: 20px; font-size: 10px; color: #fff; background: rgba(0,0,0,.7); pointer-events: none; }
+#researchOv .research-queue-cancel { position: absolute; bottom: 0; right: 0; }
+#researchOv .research-queue-cancel button { position: static; display: block; }
+
+#overviewOv .overview-research-row { display: flex; align-items: center; gap: 10px; }
+#overviewOv .overview-research-row .overview-construction-image { flex: 0 0 50px; }
+#overviewOv .overview-research-name { width: 95px; min-width: 0; text-align: left; font-size: 11px; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Officers: compact and detailed views share the same recruitment forms. */
+#officer-page { max-width: 760px; width: 100%; box-sizing: border-box; }
+#officer-page .officer-view-switch { display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 10px; }
+#officer-page .officer-view-switch button { padding: 6px 12px; cursor: pointer; border: 1px solid #36526c; background: #101f30; color: #cadbea; }
+#officer-page .officer-view-switch button[aria-pressed="true"] { background: #28445c; border-color: #78a7c7; }
+#officer-page h2 { font-size: 13px; padding: 8px; margin: 10px 0; background: #101f30; text-align: center; }
+#officer-page .officer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+#officer-page .officer-card { display: flex; gap: 10px; padding: 10px; border: 1px solid #263c50; background: rgba(8, 18, 28, .92); min-width: 0; }
+#officer-page .officer-portrait-column { flex: 0 0 72px; text-align: center; }
+#officer-page .officer-portrait { position: relative; width: 72px; height: 72px; }
+#officer-page .officer-portrait img { display: block; width: 72px; height: 72px; }
+#officer-page .officer-image-time { position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; background: rgba(0,0,0,.75); color: white; font-size: 11px; line-height: 22px; pointer-events: none; }
+#officer-page .build_form { margin: 6px 0 0; }
+#officer-page .build_submit { min-height: 28px; width: 72px; padding: 4px 2px; background: #1b3828; border: 1px solid #426b4e; border-radius: 3px; color: #9af3a6; cursor: pointer; }
+#officer-page .officer-card-content { min-width: 0; flex: 1; text-align: left; font-size: 11px; line-height: 1.5; overflow-wrap: anywhere; }
+#officer-page h3 { font-size: 12px; margin: 0 0 4px; }
+#officer-page .officer-bonuses { color: #adc8dc; margin: 4px 0; }
+#officer-page .officer-affordable { color: lime; }
+#officer-page .officer-unavailable { color: #ff7777; }
+#officer-page .officer-duration { color: #8cabbf; font-size: 10px; margin-top: 4px; }
+#officer-page .officer-description { margin-top: 5px; }
+#officer-page .officer-description summary { cursor: pointer; color: #68b3df; }
+#officer-page .officer-description p { margin: 5px 0 0; }
+#officer-page.officer-detailed .officer-grid { grid-template-columns: 1fr; }
+#officer-page.officer-detailed .officer-description summary { display: none; }
+@media (max-width: 650px) { #officer-page .officer-grid { grid-template-columns: 1fr; } }
+#officer-page .build_form { position: static; width: 72px; padding: 0; float: none; }
+#officer-page .build_submit { display: block; box-sizing: border-box; margin: 0; }
+
+/* Selector below the top officer portraits, without button backgrounds. */
+#officers #officer-view-switch { position: absolute; top: 34px; left: 0; width: 170px; display: flex; justify-content: space-between; gap: 8px; margin: 0; }
+#officer-view-switch button { border: 0; background: transparent; color: #8fa9bd; font-size: 10px; line-height: 16px; padding: 0 2px; cursor: pointer; }
+#officer-view-switch button[aria-pressed="true"] { background: transparent; color: #e0edf7; text-decoration: underline; }
+#officer-view-switch button:hover { color: white; }
+#officer-view-switch button:focus-visible { outline: 1px solid #78a7c7; }
+#officer-page .officer-portrait-link { display: block; position: relative; width: 72px; height: 72px; }
+#officer-page .officer-level-overlay { position: absolute; inset: 0; background: url(../../images/game/external/h0KeE3G.gif) no-repeat center / 72px 72px; pointer-events: none; }
+#officer-page .officer-level-number { position: absolute; right: 4px; bottom: 2px; color: #ff9600; font-size: 11px; line-height: 14px; text-shadow: 0 1px 2px black; }
+
+/* Match leveled portraits to the native 100px Buildings overlay. */
+#officer-page .officer-with-level .officer-portrait-column { flex-basis: 100px; }
+#officer-page .officer-with-level .officer-portrait,
+#officer-page .officer-with-level .officer-portrait-link,
+#officer-page .officer-with-level .officer-portrait img { width: 100px; height: 100px; }
+#officer-page .officer-with-level .officer-level-overlay { background-size: 100px 100px; }
+#officer-page .officer-with-level .build_form,
+#officer-page .officer-with-level .build_submit { width: 100px; }
+
+/* Keep the last officer card clear of the fixed bottom navigation. */
+#officer-page { padding-bottom: 60px; }
+
+/* Research-style portrait grid in the compact officer view. */
+#officer-page.officer-compact .officer-grid { grid-template-columns: repeat(auto-fill, minmax(116px, 1fr)); gap: 10px; }
+#officer-page.officer-compact .officer-card { justify-content: center; padding: 8px; gap: 0; }
+#officer-page.officer-compact .officer-card-content { display: none; }
+#officer-page.officer-compact .officer-portrait-column { flex: 0 0 100px; }
+#officer-page.officer-compact .officer-portrait,
+#officer-page.officer-compact .officer-portrait-link,
+#officer-page.officer-compact .officer-portrait img { width: 100px; height: 100px; }
+#officer-page.officer-compact .build_form,
+#officer-page.officer-compact .build_submit { width: 100px; }
+#officer-page .officer-level-number { left: 32px; right: auto; bottom: 2px; }
+
+/* Fit the portrait inside the one-pixel rim of the Buildings overlay. */
+#officer-page .officer-card.officer-with-level .officer-portrait img { position: absolute; left: 1px; top: 1px; width: 98px; height: 98px; object-fit: cover; border-radius: 7px; }
+#officer-page .officer-card.officer-with-level .officer-level-overlay { background-position: 1px top; }
+
+#officer-page .officer-maximum-overlay { position: absolute; top: 22px; left: 1px; width: 98px; box-sizing: border-box; padding: 4px 3px; background: rgba(0,0,0,.40); color: rgba(255,255,255,.82); font-size: 10px; line-height: 13px; text-align: center; overflow-wrap: anywhere; pointer-events: none; }
+
+#officer-page .officer-card.officer-with-level .officer-portrait-link { border-radius: 7px; overflow: hidden; }
+#officer-page .officer-name-overlay { position: absolute; top: 1px; left: 1px; width: 98px; box-sizing: border-box; padding: 4px 3px; background: rgba(0,0,0,.40); color: rgba(255,255,255,.82); font-size: 10px; line-height: 13px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; pointer-events: none; border-radius: 6px 6px 0 0; }
+
+#officer-page .officer-level-number.officer-level-max { color: #ff5555; }
+
+/* Technology requirements: readable columns and category navigation. */
+#tech-tree-page { width: 760px; max-width: 100%; padding-bottom: 60px; box-sizing: border-box; }
+#tech-tree-page .tech-tree-categories { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; }
+#tech-tree-page .tech-tree-categories a { padding: 7px 12px; border: 1px solid #33495c; border-radius: 4px; background: rgba(12,25,37,.85); color: #dce9f5; }
+#tech-tree-page .tech-tree-table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+#tech-tree-page .tech-tree-icon-column { width: 54px; }
+#tech-tree-page .tech-tree-name-column { width: 29%; }
+#tech-tree-page .tech-tree-table td { padding: 8px; vertical-align: middle; border-bottom: 1px solid #26394b; background: rgba(10,20,31,.86); overflow-wrap: anywhere; }
+#tech-tree-page .tech-tree-entry:nth-child(even) td { background: rgba(23,37,51,.86); }
+#tech-tree-page .tech-tree-category { scroll-margin-top: 12px; }
+#tech-tree-page .tech-tree-category th { padding: 12px 8px; text-align: left; color: #e7f1fa; background: #243e54; font-size: 13px; }
+#tech-tree-page .tech-tree-icon img { display: block; width: 36px; height: 36px; border-radius: 4px; object-fit: cover; }
+#tech-tree-page .tech-tree-name a { color: #e3edf6; font-weight: bold; line-height: 1.5; }
+#tech-tree-page .tech-tree-requirement { display: inline-block; max-width: 100%; box-sizing: border-box; padding: 4px 7px; margin: 2px 4px 2px 0; border: 1px solid; border-radius: 4px; line-height: 1.45; text-align: left; }
+#tech-tree-page .tech-tree-requirement span { white-space: nowrap; }
+#tech-tree-page .requirement-met { color: #78e69a; border-color: #365c47; background: rgba(36,88,51,.22); }
+#tech-tree-page .requirement-missing { color: #ff8585; border-color: #693e46; background: rgba(103,39,45,.22); }
+#tech-tree-page a:hover, #tech-tree-page a:focus-visible { text-decoration: underline; filter: brightness(1.2); }
+
+/* Match these pages to the 654px Overview planet image. */
+body:is(#techtree, #alliance, #fleetTable, #fleetDealer, #officier, #chat).full #box #content { width: 654px; max-width: 654px; flex: 0 0 654px; margin-left: 8px; box-sizing: border-box; }
+body:is(#techtree, #alliance, #fleetTable, #fleetDealer, #officier, #chat) #content > table,
+body:is(#alliance, #fleetTable, #fleetDealer) #content form > table { width: 100% !important; min-width: 0 !important; max-width: 654px; box-sizing: border-box; }
+body:is(#alliance, #fleetTable, #fleetDealer) #content td,
+body:is(#alliance, #fleetTable, #fleetDealer) #content th { overflow-wrap: anywhere; }
+#tech-tree-page, #officer-page { width: 100%; max-width: 654px; }
+body#chat #content > iframe { display: block; width: 100% !important; max-width: 654px; }
+body#overview #box #content { position: relative; }
+#overview .overview-sidebar { position: absolute; left: 678px; top: 0; width: 137px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+#overview .overview-sidebar #rechts { position: static; float: none; margin: 0 !important; width: 137px; }
+#overview .overview-sidebar #banner_skyscraper { position: static; margin: 0; width: 120px; }
+#overview .overview-sidebar #banner_skyscraper img { display: block; width: 120px; max-width: 100%; height: auto; }
+
+/* Galaxy, resource Trader and Imperium use the same Overview width. */
+body:is(#galaxy, #trader, #imperium).full #box #content { width: 654px; max-width: 654px; flex: 0 0 654px; margin-left: 8px; box-sizing: border-box; padding-bottom: 60px; }
+body:is(#galaxy, #trader, #imperium) #content > table,
+body:is(#galaxy, #trader, #imperium) #content > form > table { width: 100% !important; min-width: 0 !important; max-width: 654px; box-sizing: border-box; table-layout: fixed; }
+body:is(#galaxy, #trader, #imperium) #content > table td,
+body:is(#galaxy, #trader, #imperium) #content > table th { white-space: normal !important; overflow-wrap: anywhere; }
+body#imperium #content > table td, body#imperium #content > table th { padding: 6px 8px; }
+body#imperium #content > table td:first-child { width: 34%; text-align: left; }
+body#galaxy #galaxy_form > table { margin-bottom: 10px; }
+
+#overviewOv .overview-construction-description { width: 95px; min-width: 0; text-align: left; font-size: 11px; line-height: 1.35; white-space: normal; overflow-wrap: break-word; }
+
+/* Trader: resource cards and a readable exchange form. */
+body#trader #content > table, body#trader #trader > table { border-collapse: collapse; background: rgba(10,20,31,.9); border: 1px solid #2c4156; }
+body#trader #content > table th, body#trader #trader th { padding: 12px; background: #243e54; color: #e7f1fa; font-size: 13px; }
+body#trader #content > table td, body#trader #trader td { padding: 12px; line-height: 1.5; border-bottom: 1px solid #26394b; }
+body#trader #traderContainer { margin: 16px 0; }
+body#trader #traderContainer > .outer, body#trader #traderContainer > .outer > .inner { float: none; position: static; left: auto; right: auto; }
+body#trader #traderContainer .inner { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+body#trader .trader_col { float: none; margin: 0; width: 140px; padding: 14px 8px; box-sizing: border-box; text-align: center; background: #122638; border: 1px solid #35536b; border-radius: 5px; }
+body#trader .trader_col form { margin: 0; }
+body#trader .trader_col label { display: inline-block; margin-top: 6px; color: #deebf5; cursor: pointer; font-weight: bold; }
+body#trader .trader_col:hover { border-color: #78a7c7; background: #1b3449; }
+body#trader #trader .trade_input { width: 100%; min-height: 34px; padding: 6px 8px; font-size: 13px; text-align: right; }
+body#trader #trader input[type=submit] { display: block; min-width: 140px; min-height: 40px; margin: 4px auto; padding: 10px 24px; font-size: 13px; font-weight: bold; color: #e2f7e8; background: #28583d; border: 1px solid #619774; border-radius: 4px; cursor: pointer; }
+body#trader #trader input[type=submit]:hover { background: #34734f; }
+
+#resourcesOv .resource-production-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+#resourcesOv select[name^="prod["] { display: inline-block; width: 70px; min-height: 28px; }
+
+/* Shared table-page frame, aligned with the Overview planet image. */
+body.full #box #content.game-table-layout { width: 654px; max-width: 654px; flex: 0 0 654px; margin-left: 8px; box-sizing: border-box; padding-bottom: 60px; }
+body.full #content.game-table-layout > table,
+body.full #content.game-table-layout > form > table { width: 100% !important; min-width: 0 !important; max-width: 654px; box-sizing: border-box; table-layout: fixed; border-collapse: collapse; }
+#content.game-table-layout > table > tbody > tr > td,
+#content.game-table-layout > table > tbody > tr > th,
+#content.game-table-layout > form > table > tbody > tr > td,
+#content.game-table-layout > form > table > tbody > tr > th { padding: 7px 8px; line-height: 1.45; overflow-wrap: anywhere; white-space: normal; }
+#content.game-table-layout > table > tbody > tr > th,
+#content.game-table-layout > form > table > tbody > tr > th { background-color: #243e54; color: #e7f1fa; }
+#content.game-table-layout table input[type=submit],
+#content.game-table-layout table input[type=button],
+#content.game-table-layout table button:not(.reset) { min-height: 32px; padding: 6px 12px; font-size: 12px; cursor: pointer; }
+#content.game-table-layout table select { min-height: 28px; max-width: 100%; }
+#content.game-table-layout table input[type=text],
+#content.game-table-layout table input[type=password],
+#content.game-table-layout table textarea { max-width: 100%; min-width: 0; box-sizing: border-box; }
+#content.game-table-layout > table > tbody > tr > td a:not(:has(img)),
+#content.game-table-layout > form > table > tbody > tr > td a:not(:has(img)) { line-height: 1.6; }
+/* Keep the Galaxy coordinate arrows compact and its icon actions intact. */
+body#galaxy #content.game-table-layout #galaxy_form input[type=button] { padding: 4px 6px; min-height: 28px; }
+
+/* Simulator matrices stay within the common frame and align at the top. */
+body#battleSimulator #tabs table { width: 100%; min-width: 0; max-width: 100%; table-layout: fixed; }
+body#battleSimulator #tabs td { vertical-align: top; padding: 4px; overflow-wrap: anywhere; }
+body#battleSimulator #tabs input[type=text] { width: 100%; min-height: 28px; }
+body#battleSimulator #tabs button.reset { min-height: 28px; padding: 4px 8px; cursor: pointer; }
+#content.game-table-layout table input[type=reset] { min-height: 32px; padding: 6px 12px; cursor: pointer; }
+
+/* Overview planet details enter from opposite sides once per page load. */
+#overviewOv #planetDetails { overflow: hidden; }
+#overviewOv #planetDetails td:first-child > span { display: inline-block; animation: overview-label-enter .25s ease-out both; }
+#overviewOv #planetDetails td:nth-child(2) > span { display: inline-block; animation: overview-value-enter .25s ease-out both; }
+@keyframes overview-label-enter { from { opacity: 0; transform: translateX(-35px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes overview-value-enter { from { opacity: 0; transform: translateX(35px); } to { opacity: 1; transform: translateX(0); } }
+@media (prefers-reduced-motion: reduce) { #overviewOv #planetDetails td > span { animation: none; } }
+
+/* Each label finishes before its value enters; then continue to the next row. */
+#overviewOv #planetDetails tr:nth-child(1) td:nth-child(1) > span { animation-delay: 0.0s; }
+#overviewOv #planetDetails tr:nth-child(1) td:nth-child(2) > span { animation-delay: 0.25s; }
+#overviewOv #planetDetails tr:nth-child(2) td:nth-child(1) > span { animation-delay: 0.5s; }
+#overviewOv #planetDetails tr:nth-child(2) td:nth-child(2) > span { animation-delay: 0.75s; }
+#overviewOv #planetDetails tr:nth-child(3) td:nth-child(1) > span { animation-delay: 1.0s; }
+#overviewOv #planetDetails tr:nth-child(3) td:nth-child(2) > span { animation-delay: 1.25s; }
+#overviewOv #planetDetails tr:nth-child(4) td:nth-child(1) > span { animation-delay: 1.5s; }
+#overviewOv #planetDetails tr:nth-child(4) td:nth-child(2) > span { animation-delay: 1.75s; }
+#overviewOv #planetDetails tr:nth-child(5) td:nth-child(1) > span { animation-delay: 2.0s; }
+#overviewOv #planetDetails tr:nth-child(5) td:nth-child(2) > span { animation-delay: 2.25s; }
+#overviewOv #planetDetails tr:nth-child(6) td:nth-child(1) > span { animation-delay: 2.5s; }
+#overviewOv #planetDetails tr:nth-child(6) td:nth-child(2) > span { animation-delay: 2.75s; }
+#overviewOv #planetDetails tr:nth-child(7) td:nth-child(1) > span { animation-delay: 3.0s; }
+#overviewOv #planetDetails tr:nth-child(7) td:nth-child(2) > span { animation-delay: 3.25s; }
+#overviewOv #planetDetails tr:nth-child(8) td:nth-child(1) > span { animation-delay: 3.5s; }
+#overviewOv #planetDetails tr:nth-child(8) td:nth-child(2) > span { animation-delay: 3.75s; }
+
+/* Give Overview labels room at the left edge. */
+#overviewOv #planetDetails td:first-child { padding-left: 5px; }
+
+/* A single grid/list toggle at the right of the Officers section title. */
+#officer-page h2 { position: relative; }
+#officer-page h2 .officer-view-switch { position: absolute; top: 50%; right: 6px; transform: translateY(-50%); margin: 0; display: block; }
+#officer-page .officer-view-toggle { display: flex; align-items: center; justify-content: center; width: 28px; height: 26px; padding: 4px; background: transparent; border: 0; color: #c5d8e7; cursor: pointer; }
+#officer-page .officer-view-toggle:hover { color: white; }
+#officer-page .officer-view-toggle:focus-visible { outline: 1px solid #78a7c7; }
+#officer-page .officer-view-icon { width: 16px; height: 16px; }
+#officer-page .officer-icon-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 3px; }
+#officer-page .officer-icon-grid i { background: currentColor; border-radius: 1px; }
+#officer-page .officer-icon-list { display: flex; flex-direction: column; justify-content: space-between; }
+#officer-page .officer-icon-list i { height: 2px; width: 16px; background: linear-gradient(to right,currentColor 0 3px,transparent 3px 5px,currentColor 5px 16px); }
+#officer-page.officer-compact .officer-icon-grid,
+#officer-page.officer-detailed .officer-icon-list { display: none; }
+
+/* Imperium: one matrix at a time beneath a horizontal category bar. */
+#imperium-tabs { display: flex; gap: 4px; margin-bottom: 10px; width: 100%; }
+#imperium-tabs button { flex: 1 1 0; min-width: 0; padding: 9px 4px; border: 1px solid #35536b; border-radius: 4px; background: #122638; color: #c5d8e7; cursor: pointer; font-size: 11px; overflow-wrap: break-word; }
+#imperium-tabs button[aria-selected="true"] { color: white; background: #2b4e68; border-color: #78a7c7; }
+#imperium-tabs button:focus-visible { outline: 2px solid #78a7c7; }
+#imperium-table tbody[hidden] { display: none; }
+#imperium-table .imperium-column-headings th { background: #122638; font-weight: normal; }
+
+#shipyardOv .defense-build-actions { display: flex; justify-content: flex-start; align-items: center; gap: 4px; margin-top: 4px; }
+#shipyardOv .defense-build-actions input { width: auto; min-width: 0; margin: 0; padding: 3px 6px; box-sizing: border-box; }
+
+#shipyardOv .defense-build-actions { gap: 2px; }
+#shipyardOv .defense-build-actions input { width: 42px; height: 25px; padding: 3px 2px; font-size: 10px; line-height: 17px; cursor: pointer; border: 1px solid #42617a; border-radius: 3px; background: #1b354b; color: #dbeaf4; transition: background-color .15s, border-color .15s; }
+#shipyardOv .defense-build-actions input:hover { background: #2c526f; border-color: #83b3d5; color: #fff; }
+#shipyardOv .defense-build-actions input:active { background: #142a3c; border-color: #b0d7f0; }
+#shipyardOv .defense-build-actions input:focus-visible { outline: 2px solid #83b3d5; outline-offset: 1px; }
+
+#shipyardOv input.defense-build-quantity { width: 76px; max-width: 100%; box-sizing: border-box; }
+
+#shipyardOv ul#shipyard a.defense-detail,
+#shipyardOv ul#shipyard a.defense-detail:hover { top: 0; left: 0; background-size: 80px 80px; background-position: center center; }
+#shipyardOv ul#shipyard a.defense-detail .ecke { top: 62px; left: auto; right: 2px; width: 56px; }
+#shipyardOv ul#shipyard a.defense-detail .level { font-size: 10px; }
+
+#shipyardOv ul#shipyard > li > form input.defense-build-quantity { transform: translateX(-3px); }
+.defense-tooltip-form input[type=button], .defense-tooltip-form input[type=submit] { min-height: 32px; padding: 6px 12px; font-size: 12px; cursor: pointer; box-sizing: border-box; }
+.defense-tooltip-form input[type=button] { min-width: 65px; }
+.defense-tooltip-form input[type=submit] { min-width: 110px; }
+
+#contentPopUp .defense-information { width: 100%; padding: 10px; box-sizing: border-box; }
+#contentPopUp .defense-information table { width: 100%; margin: 0 auto 12px; table-layout: fixed; border-collapse: collapse; }
+#contentPopUp .defense-information th { padding: 10px; text-align: center; }
+#contentPopUp .defense-information td { padding: 8px 10px; vertical-align: top; overflow-wrap: break-word; line-height: 1.5; }
+#contentPopUp .defense-information table table { margin-bottom: 0; }
+#contentPopUp .defense-information table table td:first-child { width: 100px !important; padding: 8px 0; text-align: center; }
+#contentPopUp .defense-information table table td:nth-child(2) { padding-left: 16px; text-align: left; }
+#contentPopUp .defense-information img { display: block; width: 100px; height: 100px; margin: 0 auto; object-fit: contain; }
+#contentPopUp .defense-information p { margin: 0 0 10px; }
+#contentPopUp .defense-information > table:not(:first-child) td:first-child { text-align: left; }
+#contentPopUp .defense-information > table:not(:first-child) td:nth-child(2) { text-align: right; }
+
+#overviewOv #planetDetails tr:nth-child(odd) td { background: rgba(31, 60, 81, .58); }
+#overviewOv #planetDetails tr:nth-child(even) td { background: rgba(18, 40, 58, .58); }
+#overviewOv #planetDetails .overview-news-row td { padding: 8px 10px; text-align: left; }
+#overviewOv #planetDetails .overview-news-title { display: block; margin-bottom: 4px; color: #d5e8f5; }
+#overviewOv #planetDetails .overview-news-text { line-height: 1.4; overflow-wrap: anywhere; }
+
+#overviewOv #planetDetails { height: auto; max-height: 145px; overflow-y: auto; }
+#overviewOv #planetdata .overlay { position: relative; height: auto; }
+
+#overviewOv #planetDetails .overview-news-ticker { overflow: hidden; width: 100%; }
+#overviewOv #planetDetails .overview-news-line { display: inline-block; min-width: 100%; white-space: nowrap; animation: overview-news-right 18s linear infinite; }
+#overviewOv #planetDetails .overview-news-line strong { color: #d5e8f5; }
+#overviewOv #planetDetails .overview-news-line br { display: none; }
+#overviewOv #planetDetails .overview-news-line p, #overviewOv #planetDetails .overview-news-line div { display: inline; margin: 0; }
+@keyframes overview-news-right { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+@media (prefers-reduced-motion: reduce) { #overviewOv #planetDetails .overview-news-line { animation: none; min-width: 0; white-space: normal; } }
+
+#overviewOv #planetdata { position: absolute; right: 2px; bottom: 4px; height: auto; margin: 0; float: none; }
+#overviewOv #planetdata .overlay { border-radius: 8px 0 0 0; overflow: hidden; }
+
+#tech-tree-page .tech-tree-categories a[aria-selected=true] { background: #315773; border-color: #86aecb; color: white; }
+#tech-tree-page .tech-tree-table td { padding: 7px 8px; }
+
+#contentPopUp .information-content { width: 100%; padding: 10px; box-sizing: border-box; }
+#contentPopUp .information-content table { width: 100%; max-width: 100%; margin: 0 auto 12px; table-layout: fixed; border-collapse: collapse; }
+#contentPopUp .information-content th { padding: 8px; text-align: center; overflow-wrap: break-word; }
+#contentPopUp .information-content td { padding: 6px 8px; line-height: 1.5; vertical-align: top; overflow-wrap: anywhere; }
+#contentPopUp .information-content table table { margin-bottom: 0; }
+#contentPopUp .information-content table table td:first-child { width: 100px !important; text-align: center; }
+#contentPopUp .information-content table table td:nth-child(2) { padding-left: 16px; text-align: left; }
+#contentPopUp .information-content img { max-width: 100%; height: auto; }
+#contentPopUp .information-content p { margin: 0 0 10px; }
+
+#tech-tree-page .tech-map-panel { display: grid; gap: 10px; }
+#tech-tree-page .tech-map-network { position: relative; display: grid; grid-template-columns: minmax(0,1fr) 64px minmax(0,1fr); align-items: center; gap: 0; padding: 12px; border: 1px solid #2e465b; border-radius: 6px; background: rgba(11,24,36,.92); }
+#tech-tree-page .tech-map-dependencies { grid-column: 1; display: flex; flex-direction: column; gap: 8px; }
+#tech-tree-page .tech-map-target { grid-column: 3; }
+#tech-tree-page .tech-map-node { position: relative; z-index: 1; display: flex; align-items: center; gap: 10px; padding: 8px; border: 1px solid; border-radius: 5px; text-decoration: none; min-width: 0; }
+#tech-tree-page .tech-map-node img { flex: 0 0 auto; border-radius: 4px; }
+#tech-tree-page .tech-map-node strong { display: block; font-size: 11px; line-height: 1.4; overflow-wrap: anywhere; }
+#tech-tree-page .tech-map-node small { display: block; margin-top: 4px; font-size: 11px; }
+#tech-tree-page .tech-map-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+#tech-tree-page .tech-map-lines path { fill: none; stroke-width: 2; stroke-linejoin: round; }
+
+.information-navigation { text-align: center; padding: 8px 0; }
+.information-build-link { display: inline-block; padding: 9px 14px; border: 1px solid #628daf; border-radius: 4px; background: #24455f; color: #e2eef8; }
+.information-build-link:hover { background: #315d7e; }
+.construction-navigation-focus { outline: 2px solid #8ec9ec; outline-offset: 2px; }
+
+/* Match the 35px Buildings queue thumbnails and their 17px cancel icon. */
+#researchOv .research-construction-image.queued .research-queue-cancel { right: -2px; bottom: -3px; }
+
+/* Equal green Build/Max controls in Fleet and Defenses, including hover tooltips. */
+#shipyardOv .shipyard-build-actions { display: flex; justify-content: flex-start; align-items: center; gap: 2px; margin-top: 4px; }
+#shipyardOv .shipyard-build-actions input,
+.shipyard-tooltip-form input[type=button], .shipyard-tooltip-form input[type=submit] {
+    box-sizing: border-box; margin: 0; border: 1px solid #426b4e; border-radius: 3px;
+    background: #1b3828; color: #9af3a6; cursor: pointer; text-transform: uppercase;
+    transition: background-color .15s, border-color .15s;
+}
+#shipyardOv .shipyard-build-actions input { width: 42px; min-width: 42px; height: 25px; padding: 3px 2px; font-size: 10px; line-height: 17px; }
+.shipyard-tooltip-form input[type=button], .shipyard-tooltip-form input[type=submit] { width: 110px; min-width: 110px; height: 32px; padding: 6px 12px; font-size: 12px; }
+#shipyardOv .shipyard-build-actions input:hover,
+.shipyard-tooltip-form input[type=button]:hover, .shipyard-tooltip-form input[type=submit]:hover { background: #285338; border-color: #7fbd8c; color: #c2ffca; }
+#shipyardOv .shipyard-build-actions input:active,
+.shipyard-tooltip-form input[type=button]:active, .shipyard-tooltip-form input[type=submit]:active { background: #132a1c; border-color: #a3dbaf; }
+#shipyardOv .shipyard-build-actions input:focus-visible,
+.shipyard-tooltip-form input[type=button]:focus-visible, .shipyard-tooltip-form input[type=submit]:focus-visible { outline: 2px solid #7fbd8c; outline-offset: 1px; }
+
+/* Galaxy: compact OGame-inspired presentation, scoped to the system view. */
+#galaxy-view { width: 100%; box-sizing: border-box; padding: 6px; border: 1px solid #314a60; border-radius: 10px 10px 4px 4px; background: linear-gradient(110deg,#233c50,#101c29); box-shadow: 0 3px 12px #0008; }
+#galaxy-view .galaxy-navigation { display: flex; align-items: flex-end; gap: 14px; padding: 4px 8px 10px; margin: 0; }
+#galaxy-view .galaxy-coordinate-group label { display: block; margin: 0 0 5px; color: #d0d9df; font-size: 11px; text-align: left; }
+#galaxy-view .galaxy-coordinate-controls { display: flex; gap: 3px; align-items: center; }
+#galaxy-view .galaxy-coordinate-controls input { width: 48px; height: 28px; margin: 0; padding: 3px; border: 1px solid #365267; background: #070d13; color: #ddd; text-align: center; }
+#galaxy-view .galaxy-navigation button { height: 28px; min-width: 26px; margin: 0; padding: 3px 6px; border: 1px solid #39566b; border-radius: 3px; background: linear-gradient(#263b4a,#0c141c); color: #70c564; cursor: pointer; }
+#galaxy-view .galaxy-navigation button:hover { background: #304f64; border-color: #71a0bb; }
+#galaxy-view .galaxy-view-button { min-width: 85px !important; color: #d3dbe1 !important; }
+#galaxy-view .galaxy-view-button span { color: #70c564; margin-left: 8px; }
+#galaxy-view .galaxy-system-table { width: 100% !important; min-width: 0; empty-cells: show; table-layout: fixed; border-collapse: separate; border-spacing: 3px 3px; background: transparent; margin: 0; }
+#galaxy-view .galaxy-system-table th { background: linear-gradient(#2a4357,#101c28); border: 0; padding: 5px 2px; color: #d4dde3; font-size: 10px; text-align: center; }
+#galaxy-view .galaxy-system-table td { border: 0; padding: 3px; color: #aebfce; background: rgba(0,0,0,.66); border-radius: 3px; font-size: 11px; text-align: center; vertical-align: middle; overflow-wrap: anywhere; }
+#galaxy-view .galaxy-position-row { height: 28px; }
+#galaxy-view .galaxy-position-row:hover td { background-color: #152f43; }
+#galaxy-view .galaxy-position-row td:nth-child(2), #galaxy-view .galaxy-position-row td:nth-child(4), #galaxy-view .galaxy-position-row td:nth-child(5) { background: transparent; padding: 0; }
+#galaxy-view .galaxy-position-row img { width: 24px; height: 24px; object-fit: contain; vertical-align: middle; }
+#galaxy-view .galaxy-position-row td:last-child a { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; min-height: 24px; }
+#galaxy-view .galaxy-position-row td:last-child img { width: 16px; height: 16px; }
+#galaxy-view .galaxy-system-table > tbody > tr:not(.galaxy-position-row) td { padding: 5px 3px; font-size: 10px; }
+
+/* Native Galaxy/System icons from the supplied local OGame sprite. */
+#galaxy-view .galaxy-coordinate-group { display: flex; align-items: center; gap: 5px; }
+#galaxy-view .galaxy-coordinate-group .galaxy-coordinate-icon { flex: 0 0 18px; width: 18px; height: 17px; margin: 0; background-image: url(/addon/top/cdn/cdnee/e81e8e6d5e6a45e1ad45505ef3dc52.png); background-repeat: no-repeat; }
+#galaxy-view .galaxy-coordinate-icon.galaxy-icon { background-position: 0 -65px; }
+#galaxy-view .galaxy-coordinate-icon.system-icon { background-position: 0 -82px; }
+#galaxy-view .galaxy-accessible-label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+/* Shared in-game background, served entirely from the local project. */
+body.full { background: #000 url(../../images/game/galaxy-background.jpg) fixed 50% 0; }
+
+/* Overview typography follows the supplied video reference. */
+#overviewOv #planetDetails td:first-child > span { color: #a9cce3; font-size: 12px; font-weight: bold; text-shadow: 0 1px 2px #000; }
+#overviewOv #planetDetails td:nth-child(2) > span { color: #f3f6f9; font-size: 12px; font-weight: bold; text-shadow: 0 1px 2px #000; }
+#overviewOv #planetDetails td:nth-child(2) > span a { color: #f3f6f9; }
+
+/* Buildings details expand in the page above the thumbnails. */
+#buildingsOv { position: relative; }
+.building-panel-viewport { position: absolute; top: 0; left: 8px; width: 654px; height: 300px; overflow: hidden; pointer-events: none; z-index: 10; }
+#building-details-panel { position: absolute; top: 0; left: 0; pointer-events: auto; transform: translateY(100%); transition: transform .35s ease-in-out; z-index: 10; height: 300px; overflow-y: auto; box-sizing: border-box; width: 654px; max-width: 100%; padding: 1px 0 0 3px; border: 0; background: #0d141c url(../../images/game/buildings-panel-background.gif) no-repeat 0 0; }
+#building-details-panel[hidden], #building-details-panel .building-panel-item[hidden] { display: none; }
+#building-details-panel .building-panel-item { display: flex; gap: 16px; }
+#building-details-panel .building-panel-image { width: 200px; height: 200px; flex: 0 0 200px; object-fit: cover; border-radius: 0; }
+#building-details-panel .building-panel-body { flex: 1; min-width: 0; padding: 5px 16px 8px 0; text-align: left; color: #c6d6e1; line-height: 1.5; }
+#building-details-panel h3 { margin: 0 24px 8px 0; color: #e5edf3; font-size: 15px; }
+#building-details-panel h3 small { color: #99b7cd; font-size: 11px; margin-left: 8px; }
+#building-details-panel p { margin: 7px 0; }
+#building-details-panel .building-panel-costs { display: flex; flex-wrap: wrap; gap: 5px 14px; }
+#building-details-panel .affordable { color: #83df91; }
+#building-details-panel .unaffordable { color: #ff7979; }
+#building-details-panel .building-panel-close { position: absolute; top: 5px; right: 6px; border: 0; background: transparent; color: #dbe7ef; font-size: 24px; cursor: pointer; }
+#building-details-panel .building-panel-build button { padding: 8px 14px; border: 1px solid #528569; border-radius: 3px; background: #1b3828; color: #a3efb2; cursor: pointer; }
+#building-details-panel .building-panel-build button:hover { background: #2b563b; }
+#building a.building-panel-selected { outline: 2px solid #a4b45c; outline-offset: -2px; }
+#building-details-panel.is-open { transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { #building-details-panel { transition: none; } }
+
+/* Match the supplied detail-screen reference and original action sprite. */
+#building-details-panel .building-panel-item { display: block; position: relative; min-height: 297px; }
+#building-details-panel .building-panel-image { position: absolute; top: 0; left: 0; width: 200px; height: 200px; }
+#building-details-panel .building-panel-body { position: relative; margin-left: 204px; height: 198px; padding: 0 10px 0 8px; font-size: 11px; color: #879aaa; }
+#building-details-panel h3 { height: 23px; line-height: 23px; font-size: 13px; margin: 0 20px 4px 0; color: #ffa600; }
+#building-details-panel h3 small { float: right; color: #ffa600; line-height: 23px; }
+#building-details-panel .building-panel-production { line-height: 19px; }
+#building-details-panel .building-panel-production strong { color: #f0f4f7; }
+#building-details-panel .building-panel-production .affordable { color: #b4e800; }
+#building-details-panel .building-panel-production .unaffordable { color: #ff5555; }
+#building-details-panel .building-panel-requirements { position: absolute; bottom: 3px; left: 8px; right: 160px; }
+#building-details-panel .building-panel-costs { display: flex; gap: 10px; margin-top: 5px; }
+#building-details-panel .building-panel-costs > span { display: flex; flex-direction: column; align-items: center; min-width: 48px; }
+#building-details-panel .building-panel-costs img { width: 48px; height: 32px; object-fit: cover; }
+#building-details-panel .building-panel-costs strong { font-weight: normal; line-height: 16px; }
+#building-details-panel .building-panel-build { position: absolute; right: 8px; bottom: 7px; margin: 0; }
+#building-details-panel .building-panel-build button { width: 142px; height: 54px; padding: 0; border: 0; border-radius: 0; background: url(../../images/game/buildings-panel-actions.png) no-repeat 0 0; font-size: 16px; font-weight: bold; color: white; }
+#building-details-panel .building-panel-build button:hover { background: url(../../images/game/buildings-panel-actions.png) no-repeat 0 -54px; }
+#building-details-panel .building-panel-build button:disabled { background-position: 0 -108px; color: #a7a7a7; cursor: default; }
+#building-details-panel .building-panel-demolish { position: absolute; right: 10px; top: 38px; margin: 0; }
+#building-details-panel .building-panel-demolish button { display: flex; flex-direction: column; align-items: center; border: 0; background: none; padding: 0; color: #9ca9b3; font-size: 11px; cursor: pointer; }
+#building-details-panel .building-panel-demolish button span { width: 64px; height: 32px; background: url(../../images/game/buildings-panel-actions.png) no-repeat -310px -220px; }
+#building-details-panel .building-panel-demolish button:hover span { background-position: -310px -252px; }
+#building-details-panel .building-panel-techtree { position: absolute; top: 158px; left: 4px; display: flex; flex-direction: column; font-size: 10px; color: #8596a4; }
+#building-details-panel .building-panel-techtree span { width: 32px; height: 32px; background: url(../../images/game/buildings-panel-actions.png) no-repeat -143px -64px; }
+#building-details-panel .building-panel-description { position: absolute; top: 207px; left: 8px; right: 10px; color: #829db3; font-size: 11px; line-height: 16px; }
+#building-details-panel .building-panel-description > span { display: inline-block; width: 16px; text-align: center; color: #fff; background: #486181; border-radius: 2px; }
+#building-details-panel .building-panel-close { top: 3px; right: 4px; font-size: 18px; z-index: 2; }
+
+/* Original 16px close icon aligned with the detail-screen title bar. */
+#building-details-panel .building-panel-close { top: 4px; right: 4px; width: 16px; height: 16px; min-width: 0; min-height: 0; margin: 0; padding: 0; border: 0; border-radius: 0; background: url(../../images/game/buildings-panel-actions.png) no-repeat -207px 0; font-size: 0; line-height: 0; cursor: pointer; }
+#building-details-panel .building-panel-close:hover { background-position: -207px -16px; }
+#building-details-panel .building-panel-close:focus-visible { outline: 1px solid #d5e8fa; outline-offset: 1px; }
+
+/* Buildings thumbnails fit inside the existing 100px level overlay. */
+#buildingsOv .buildingimg { width: 96px; height: 96px; border-radius: 4px; }
+
+#buildingsOv .buildingimg a.detail_button .ecke { left: auto; right: 8px; top: auto; bottom: 1px; width: auto; height: 16px; text-align: right; white-space: nowrap; }

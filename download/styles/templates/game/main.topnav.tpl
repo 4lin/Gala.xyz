@@ -13,7 +13,7 @@
                 </div>
             </noscript>
             <div id="ie_message">
-                <p><img src="http://i.imgur.com/YRenhXr.gif" height="16" width="16" />El navegador usado actualmente es antiguo y puede causar errores en la pantalla de esta página web. Por favor, actualiza tu navegador a la versión más nueva: <a href="http://www.microsoft.com/upgrade/">Internet Explorer</a> o <a href="http://www.mozilla-europe.org/de/firefox/">Mozilla Firefox</a></p>
+                <p><img src="styles/resource/images/game/external/YRenhXr.gif" height="16" width="16" />El navegador usado actualmente es antiguo y puede causar errores en la pantalla de esta página web. Por favor, actualiza tu navegador a la versión más nueva: <a href="http://www.microsoft.com/upgrade/">Internet Explorer</a> o <a href="http://www.mozilla-europe.org/de/firefox/">Mozilla Firefox</a></p>
             </div>
             <script type="text/javascript">isIE = false;</script>
             <!--[IF IE]>
@@ -46,23 +46,23 @@
       	
       			<div id="officers">
       	        	<a href="game.php?page=officier" class="{if isModuleAvailable(MODULE_OFFICIER)}img_commander{else}img_commander_inactive{/if} js_hideTipOnMobile tooltip" title="commander">
-                  		<img src="http://i.imgur.com/pLBcsdw.png" width="30" height="30">
+                  		<img src="styles/resource/images/game/external/pLBcsdw.png" width="30" height="30">
                 	</a>
       				 
 					<a href="game.php?page=officier" class="{if isModuleAvailable(MODULE_OFFICIER)}img_admiral{else}img_admiral_inactive{/if} js_hideTipOnMobile tooltip" title="admiral">
-						<img src="http://i.imgur.com/pLBcsdw.png" width="30" height="30">
+						<img src="styles/resource/images/game/external/pLBcsdw.png" width="30" height="30">
                 	</a>
 
 					<a href="game.php?page=officier" class="{if isModuleAvailable(MODULE_OFFICIER)}img_engineer{else}img_engineer_inactive{/if} js_hideTipOnMobile tooltip" title="engineer">
-						<img src="http://i.imgur.com/pLBcsdw.png" width="30" height="30">
+						<img src="styles/resource/images/game/external/pLBcsdw.png" width="30" height="30">
                		</a>
 
 					<a href="game.php?page=officier" class="{if isModuleAvailable(MODULE_OFFICIER)}img_geologist{else}img_geologist_inactive{/if} js_hideTipOnMobile tooltip" title="geologist">
-						<img src="http://i.imgur.com/pLBcsdw.png" width="30" height="30">
+						<img src="styles/resource/images/game/external/pLBcsdw.png" width="30" height="30">
 					</a>
 
 					<a href="game.php?page=officier" class="{if isModuleAvailable(MODULE_OFFICIER)}img_technocrat{else}img_technocrat_inactive{/if} js_hideTipOnMobile tooltip" title="technocrat">
-						<img src="http://i.imgur.com/pLBcsdw.png" width="30" height="30">
+						<img src="styles/resource/images/game/external/pLBcsdw.png" width="30" height="30">
 					</a>
 
 				</div>
@@ -74,7 +74,7 @@
 							<tr>
 								<!--
 								<td id="planetImage">
-                       			<img src="{$dpath}planeten/small/s_{$image}.jpg" alt="">
+                       			<img src="{$dpath}planets/small/s_{$image}.gif" alt="">
 								</td>
 								<td id="planetSelectorWrapper">
                         		<label for="planetSelector"></label>
@@ -84,12 +84,12 @@
 								</td>
 								-->
 								<td id="resourceWrapper">
-									<table id="resourceTable">
+									<table id="resourceTable"{if in_array($smarty.get.page|default:'overview', array('buildings', 'research', 'shipyard'))} data-construction-resources="{$resourceTable|json|escape:'html'}"{/if}>
 										<tbody>
 											<tr>
 												{foreach $resourceTable as $resourceID => $resourceData}
 												<td style="width:48px;height:32px;">
-													<img src="{$dpath}images/{$resourceData.name}.gif" class="tooltip" data-tooltip-content="
+													<img src="{$dpath}images/{$resourceData.name}.gif" class="tooltip" data-tooltip-content="{capture name=gameTooltip1}
 													<table>
 													<tr><th>{$LNG.tech.$resourceID}</th></tr>
 													<tr>
@@ -108,7 +108,7 @@
 													{/if}
 													</tr>
 													</table>
-													" alt="">
+													{/capture}{$smarty.capture.gameTooltip1|escape:'html'}" alt="">
 												</td>
 												{/foreach}
 											</tr>
@@ -118,9 +118,9 @@
 												{foreach $resourceTable as $resourceID => $resourceData}
 												{if !isset($resourceData.current)}
 												{$resourceData.current = $resourceData.max + $resourceData.used}
-												<td class="res_current tooltip" data-tooltip-content="{$resourceData.current|number}&nbsp;/&nbsp;{$resourceData.max|number}"><span{if $resourceData.current < 0} style="color:red"{/if}>{shortly_number($resourceData.current)}&nbsp;/&nbsp;{shortly_number($resourceData.max)}</span></td>
+												<td class="res_current tooltip" data-tooltip-content="{capture name=gameTooltip2}{$resourceData.current|number}&nbsp;/&nbsp;{$resourceData.max|number}{/capture}{$smarty.capture.gameTooltip2|escape:'html'}"><span{if $resourceData.current < 0} style="color:red"{/if}>{shortly_number($resourceData.current)}&nbsp;/&nbsp;{shortly_number($resourceData.max)}</span></td>
 												{else}
-												<td class="res_current tooltip" id="current_{$resourceData.name}" data-real="{$resourceData.current}" data-tooltip-content="{$resourceData.current|number}">{shortly_number($resourceData.current)}</td>
+												<td class="res_current tooltip" id="current_{$resourceData.name}" data-real="{$resourceData.current}" data-tooltip-content="{capture name=gameTooltip3}{$resourceData.current|number}{/capture}{$smarty.capture.gameTooltip3|escape:'html'}">{shortly_number($resourceData.current)}</td>
 												{/if}
 												{/foreach}
 											</tr>
@@ -130,7 +130,7 @@
 												{if !isset($resourceData.current) || !isset($resourceData.max)}
 												<td>&nbsp;</td>
 												{else}
-												<td class="res_max tooltip" id="max_{$resourceData.name}" data-real="{$resourceData.max}" data-tooltip-content="{$resourceData.max|number}">{shortly_number($resourceData.max)}</td>
+												<td class="res_max tooltip" id="max_{$resourceData.name}" data-real="{$resourceData.max}" data-tooltip-content="{capture name=gameTooltip4}{$resourceData.max|number}{/capture}{$smarty.capture.gameTooltip4|escape:'html'}">{shortly_number($resourceData.max)}</td>
 												{/if}
 												{/foreach}
 											</tr>
@@ -174,7 +174,7 @@
         						});
 							</script>
         
-        					<script src="scripts/game/topnav.js"></script>
+        					<script src="scripts/game/topnav.js?v=2"></script>
         						{if $hasGate}<script src="scripts/game/gate.js"></script>{/if}
 						{/if}
 					</div><!-- header-->

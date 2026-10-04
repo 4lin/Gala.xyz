@@ -41,6 +41,8 @@
 	<link rel="stylesheet" type="text/css" href="/styles/resource/css/ingame/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-punk.min.css" />
 	<link rel="stylesheet" type="text/css" href="/styles/resource/css/base/validationEngine.jquery.css?v={$REV}">
 	<link rel="stylesheet" type="text/css" href="{$dpath}formate.css?v={$REV}">
+	<link rel="stylesheet" type="text/css" href="styles/resource/css/ingame/layout-fixes.css?v={$REV}">
+	<link rel="stylesheet" type="text/css" href="styles/resource/css/ingame/technology-atlas.css?v={$REV}">
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 	<script type="text/javascript">
 	var ServerTimezoneOffset = {$Offset};
@@ -70,19 +72,32 @@
 	<script type="text/javascript" src="/scripts/base/jquery.fancybox.js?v={$REV}"></script>
 	<script type="text/javascript" src="/scripts/base/jquery.validationEngine.js?v={$REV}"></script>
 	<script type="text/javascript" src="/scripts/l18n/validationEngine/jquery.validationEngine-{$lang}.js?v={$REV}"></script>
-	<script type="text/javascript" src="/scripts/game/base.js?v={$REV}"></script>
+	<script type="text/javascript" src="/scripts/game/base.js?v={$REV}-info-nav1"></script>
 	<script type="text/javascript" src="/scripts/game/test.js?v={$REV}"></script>
 	<script type="text/javascript" src="/styles/resource/js/tooltipster.bundle.min.js"></script>
 
 	<script>
         $(document).ready(function() {
             $('.tooltip').tooltipster({
+				functionBefore: function(instance, helper) {
+					var content = $(helper.origin).attr('data-tooltip-content');
+					if ($(helper.origin).closest('#researchOv, #officer-page').length) {
+						instance.option('maxWidth', 320);
+						instance.option('theme', ['tooltipster-punk', 'research-tooltip']);
+					}
+					instance.option('contentAsHTML', typeof content !== 'undefined');
+					if (typeof content !== 'undefined') instance.content(content);
+				},
 				animation: 'fade',
 				theme: 'tooltipster-punk',
             	contentCloning: true
             });
 
 			$('.destrucTip').tooltipster({
+				functionBefore: function(instance, helper) {
+					var content = $(helper.origin).attr('data-tooltip-content');
+					if (typeof content !== 'undefined') instance.content(content);
+				},
 				contentAsHTML: true,
 				interactive: true,
 				contentCloning: true,
@@ -99,6 +114,10 @@
 			});
 
 			$('.interacTip').tooltipster({
+				functionBefore: function(instance, helper) {
+					var content = $(helper.origin).attr('data-tooltip-content');
+					if (typeof content !== 'undefined') instance.content(content);
+				},
 				contentAsHTML: true,
 				interactive: true,
 				contentCloning: true

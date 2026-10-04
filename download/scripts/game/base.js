@@ -149,7 +149,7 @@ function handleErr(errMessage, url, line)
 
 var Dialog	= {	
 	info: function(ID){
-		return Dialog.open('game.php?page=information&id='+ID, 590, (ID > 600 && ID < 800) ? 210 : ((ID > 100 && ID < 200) ? 300 : 620));
+		return Dialog.open('game.php?page=information&id='+ID, 590, (ID > 600 && ID < 800) ? 210 : ((ID > 100 && ID < 200) ? 300 : 620), (ID >= 400 && ID < 600) || $('#tech-tree-page').length > 0);
 	},
 	
 	alert: function(msg, callback){
@@ -182,13 +182,29 @@ var Dialog	= {
 	    return OpenPopup('game.php?page=chat&action=alliance', "alliance_chat", 960, 900);
 	},
 	
-	open: function(url, width, height) {
+	open: function(url, width, height, fitContent) {
 		$.fancybox({
 			width: width,
 			padding: 0,
 			height: height,
 			type: 'iframe',
-			href: url
+			href: url,
+            onComplete: function () {
+                if (!fitContent) return;
+                var frame = $('#fancybox-content iframe');
+                function resizeContent() {
+                    var content = frame.contents().find('.information-content');
+                    if (!content.length) return;
+                    var fittedHeight = Math.min(Math.ceil(content.outerHeight(true) + 20), $(window).height() - 80);
+                    frame.height(fittedHeight);
+                    $('#fancybox-content').height(fittedHeight);
+                    $('#fancybox-wrap').css('height', 'auto');
+                    $.fancybox.center();
+                }
+                frame.on('load', resizeContent);
+                frame.on('load', function () { frame.contents().find('img').on('load', resizeContent); });
+                resizeContent();
+            }
 		});
 		
 		return false;
@@ -265,4 +281,11 @@ $(function() {
 
 		return false;
 	});
+});
+$(function () {
+ var focusID = new URLSearchParams(location.search).get('focus');
+ if (!focusID || !/^\d+$/.test(focusID)) return;
+ var item = $('#content a[ref="' + focusID + '"]').first();
+ if (!item.length) item = $('#officer-page a').filter(function () { return ($(this).attr('onclick') || '').indexOf('Dialog.info(' + focusID + ')') >= 0; }).first();
+ if (item.length) { item[0].scrollIntoView({block: 'center'}); item.addClass('construction-navigation-focus'); }
 });

@@ -24,7 +24,7 @@
 <table width="100%">
 	<tr>
 		<td class="k" colspan="3">
-			<img src="{$dpath}gebaeude/124.png" class="pic" alt="">
+			<img src="{$dpath}buildings/124.png" class="pic" alt="">
 		</td>
 		<td class="k" colspan="7">
 			<p>{$LNG.tut_m5_desc}</p>

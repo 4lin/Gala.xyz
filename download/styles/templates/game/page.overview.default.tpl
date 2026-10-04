@@ -20,25 +20,13 @@
                             <div id="moon" style="position: absolute;left: 30px;">
                                 {if $Moon}
                                     <a href="game.php?page=overview&amp;cp={$Moon.id}&amp;re=0" class="tooltip" title="{$Moon.name}">
-                                        <img class="fade" src="http://i.imgur.com/lMgUNke.png" height="80" width="80" alt="{$Moon.name} ({$LNG.fcm_moon})">
+                                        <img class="fade" src="styles/resource/images/game/external/lMgUNke.png" height="80" width="80" alt="{$Moon.name} ({$LNG.fcm_moon})">
                                     </a><br />
                                     {else}&nbsp;
                                 {/if}
                             </div>
                                 
-                                <!--{if $is_news}
-                                <div id="marqueeDiv">
-                                    <div class="marquee">
-                                        <p>
-                                            <a href="#">{$news}</a>
-                                        </p>
-                                        
-                                        <p>
-                                            <a href="#">Skin adaptation by alindom</a>
-                                        </p>
-                                    </div>
-                                </div>
-                                {/if}-->
+
                         </div>
                             <div id="detail" class="detail_screen">
                                 <div id="techDetailLoading"></div>
@@ -116,7 +104,7 @@
                                             <td class="data">
                                                 <span id="adminContentField">
                                                     {foreach $AdminsOnline as $ID => $Name}{if !$Name@first}&nbsp;&bull;&nbsp;{/if}
-                                                    <a href="#" class="tooltip" data-tooltip-content="{$LNG.mg_send_new}" onclick="return Dialog.PM({$ID})">{$Name}</a>
+                                                    <a href="#" class="tooltip" data-tooltip-content="{capture name=gameTooltip14}{$LNG.mg_send_new}{/capture}{$smarty.capture.gameTooltip14|escape:'html'}" onclick="return Dialog.PM({$ID})">{$Name}</a>
                                                     {foreachelse}None{$LNG.ov_no_admins_online}
                                                     {/foreach}
                                                 </span>
@@ -140,6 +128,13 @@
                                             </td>
                                         </tr>
                                         {/if}
+                                        {if $is_news && !empty($news)}
+                                        <tr class="overview-news-row"><td colspan="2">
+                                            <div class="overview-news-ticker"><div class="overview-news-line">
+                                                {if !empty($newsTitle)}<strong>{$newsTitle|escape}:</strong> {/if}<span>{$news}</span>
+                                            </div></div>
+                                        </td></tr>
+                                        {/if}
                                     </table>
                                 </div>
                             </div>
@@ -158,7 +153,7 @@
         <tr>
             <th colspan="3">
                 <label for="referral">{$LNG.ov_reflink} <a href="#" class="ref_info tooltip" 
-data-tooltip-content="<table>
+data-tooltip-content="{capture name=gameTooltip15}<table>
         {foreach $RefLinks as $RefID => $RefLink}
         <tr>
             <td colspan='2'>
@@ -173,7 +168,7 @@ data-tooltip-content="<table>
             </td>
         </tr>
         {/foreach}
-                </table>"></a></label>
+                </table>{/capture}{$smarty.capture.gameTooltip15|escape:'html'}"></a></label>
             </th>
         </tr>
         <tr>
@@ -193,27 +188,18 @@ data-tooltip-content="<table>
                          <table cellpadding="0" cellspacing="0" class="construction active">
                          <tbody>   
                             {if $buildInfo.buildings}
-                            <tr><th colspan="4">{$LNG.tech[$buildInfo.buildings['id']]}</th></tr>
+                            <tr><th colspan="4">{$LNG.tech[$buildInfo.buildings['id']]} ({$buildInfo.buildings['level']})</th></tr>
                             <tr class="data">
                                <td class="first" colspan="1">
-                                <div>
+                                <div class="overview-construction-image" data-duration="{$buildInfo.buildings['duration']}">
                                     <a class="js_hideTipOnMobile tooltip" title="{$LNG.tech[$buildInfo.buildings['id']]} ({$buildInfo.buildings['level']})" href="game.php?page=buildings">
-                                        <img src="{$dpath}buildings/{$buildInfo.buildings['id']}.png" width="65" height="65" alt="">
+                                        <img src="{$dpath}buildings/{$buildInfo.buildings['id']}.png" width="50" height="50" alt="">
                                     </a>
+                                    <div class="overview-construction-fill" aria-hidden="true"></div>
+                                    <div class="timer" data-time="{$buildInfo.buildings['timeleft']}">{$buildInfo.buildings['starttime']}</div>
                                 </div>
                                 </td>
                                 <td class="desc ausbau">{$LNG.bd_build_next_level} {$buildInfo.buildings['level']}</td>
-                            </tr>
-                            <tr class="data">
-                                <td class="desc">
-                                    <div id="btime">
-                                        <div id="bitime">
-                                            <div class="timer" data-time="{$buildInfo.buildings['timeleft']}">
-                                            {$buildInfo.buildings['starttime']}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
                             </tr>
                                 {else}
                             <tr>
@@ -244,16 +230,15 @@ data-tooltip-content="<table>
                                 <tr><th>{$LNG.tech[$buildInfo.tech['id']]} ({$buildInfo.tech['level']})</th></tr>
                                 <tr class="data">
                                     <td class="first" colspan="3">
+                                        <div class="overview-research-row">
+<div class="overview-construction-image" data-duration="{$buildInfo.tech['duration']}">
                                         <a class="js_hideTipOnMobile tooltip" title="Subiendo {$LNG.tech[$buildInfo.tech['id']]} al nivel {$buildInfo.tech['level']}" href="game.php?page=research">
                                             <img src="{$dpath}buildings/{$buildInfo.tech['id']}.png" width="50" height="50" alt="">
                                         </a>
-                                        <br />
-                                        <div id="rtime">
-                                            <div id="retime">
-                                                <div class="timer" data-time="{$buildInfo.tech['timeleft']}">
-                                                {$buildInfo.tech['starttime']}
-                                                </div>
-                                            </div>
+                                            <div class="overview-construction-fill" aria-hidden="true"></div>
+                                            <div class="timer" data-time="{$buildInfo.tech['timeleft']}">{$buildInfo.tech['starttime']}</div>
+                                        </div>
+<span class="overview-construction-description">{$LNG.bd_tech_next_level} {$buildInfo.tech['level']}</span>
                                         </div>
                                     </td>
                                 </tr>
@@ -283,19 +268,19 @@ data-tooltip-content="<table>
                             <table cellspacing="0" cellpadding="0" class="construction active">
                              <tbody>
                                 {if $buildInfo.fleet}
+                                <tr><th>{$LNG.tech[$buildInfo.fleet['id']]} ({$buildInfo.fleet['level']})</th></tr>
                                 <tr class="data">
-                                    <td class="first" colspan="3">
-                                        <a class="js_hideTipOnMobile tooltip" title="{$buildInfo.fleet['level']}" href="game.php?page=shipyard">
-                                            <img src="{$dpath}buildings/{$buildInfo.fleet['id']}.png" width="50" height="50" alt=""><br />
-                                            {$LNG.tech[$buildInfo.fleet['id']]} ({$buildInfo.fleet['level']})<br />
-                                            <div id="stime">
-                                                <div id="shtime">
-                                                    <div class="timer" data-time="{$buildInfo.fleet['timeleft']}">
-                                                    {$buildInfo.fleet['starttime']}
-                                                    </div>
-                                                </div>
+                                    <td class="first">
+                                        <div class="overview-research-row overview-hangar-row">
+                                            <div class="overview-construction-image" data-duration="{$buildInfo.fleet['time']}">
+                                                <a class="js_hideTipOnMobile tooltip" title="{$LNG.tech[$buildInfo.fleet['id']]|escape:'html'} ({$buildInfo.fleet['level']})" href="game.php?page=shipyard">
+                                                    <img src="{$dpath}buildings/{$buildInfo.fleet['id']}.png" width="50" height="50" alt="">
+                                                </a>
+                                                <div class="overview-construction-fill" aria-hidden="true"></div>
+                                                <div class="timer" data-time="{$buildInfo.fleet['timeleft']}">{$buildInfo.fleet['starttime']}</div>
                                             </div>
-                                        </a>
+                                            <span class="overview-construction-description">{$LNG.rs_amount} {$buildInfo.fleet['level']}</span>
+                                        </div>
                                     </td>
                                 </tr>
                                     {else}
@@ -319,6 +304,7 @@ data-tooltip-content="<table>
 
 </div><!--END overviewOv-->
         <!-- RIGHTMENU -->
+        <div class="overview-sidebar">
         <div id="rechts">
             <div id="norm">
                 <div id="myWorlds">
@@ -362,9 +348,10 @@ data-tooltip-content="<table>
         
         <div id="banner_skyscraper">
             <a class="tooltip" title="Oficial" href="game.php?page=officier" >
-                <img src="http://i.imgur.com/sETgKTg.jpg" alt=""/>
+                <img src="styles/resource/images/game/external/sETgKTg.jpg" alt=""/>
             </a>
         </div><!-- END Banner -->
+        </div><!-- overview-sidebar -->
         <!-- END RIGHTMENU -->
 
 {/block}

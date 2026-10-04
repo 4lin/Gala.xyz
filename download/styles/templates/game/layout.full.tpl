@@ -14,6 +14,6 @@ $("#globalWarning a").click(function(e) {
 {/if}
 {include file="main.topnav.tpl"}
 {include file="main.navigation.tpl"}
-<div id="content">{block name="content"}{/block}</div>
+<div id="content"{if !in_array($smarty.get.page|default:'overview', array('overview', 'buildings', 'research', 'shipyard', 'resources'))} class="game-table-layout"{/if}>{block name="content"}{/block}</div>
 {foreach $cronjobs as $cronjob}<img src="cronjob.php?cronjobID={$cronjob}" alt="">{/foreach}
 {include file="main.footer.tpl" nocache}

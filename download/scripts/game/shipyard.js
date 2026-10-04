@@ -40,6 +40,19 @@ function BuildlistShipyard() {
 		s = 0;
 	}
 	$("#bx").html(Shipyard[0][0]+" "+GetRestTimeFormat(s));
+    var card = $('#defense-current-build');
+    if (card.length) {
+        var image = card.find('img');
+        var source = card.attr('data-image-root') + Shipyard[0][3] + '.png';
+        if (image.attr('src') !== source) image.attr('src', source);
+        image.attr('alt', Shipyard[0][0]);
+        card.find('.defense-current-name').text(Shipyard[0][0]);
+        card.find('.defense-current-amount').text(NumberGetHumanReadable(Amount.toString()));
+        card.find('.defense-current-time').text(GetRestTimeFormat(Math.max(0, s)));
+        var duration = Math.max(1, Number(Shipyard[0][2]));
+        card.find('.defense-current-progress').css('height', Math.max(0, Math.min(100, (duration - s) / duration * 100)) + '%');
+        $('#auftr').prop('size', Math.max(2, Math.min(4, Shipyard.length)));
+    }
 }
 
 function ShipyardList() {

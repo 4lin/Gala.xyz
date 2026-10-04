@@ -1,31 +1,36 @@
 {block name="title" prepend}{$LNG.lm_technology}{/block}
 {block name="content"}
-<table>
+<div id="tech-tree-page">
+<nav class="tech-tree-categories" role="tablist">
+{foreach $TechTreeList as $elementID => $requireList}
+{if !is_array($requireList)}<a role="tab" href="#tech-category-{$elementID}">{$LNG.tech.$requireList}</a>{/if}
+{/foreach}
+</nav>
 {foreach $TechTreeList as $elementID => $requireList}
 {if !is_array($requireList)}
-<thead>
-<tr>
-	<th colspan="2">{$LNG.tech.$requireList}</th>
-	<th>{$LNG.tt_requirements}</th>
-</tr>
-</thead>
+{if $elementID != 0}</div>{/if}
+<div class="tech-map-panel" id="tech-category-{$elementID}" role="tabpanel">
 {else}
-<tbody>
-<tr>
-	<td><a href="#" onclick="return Dialog.info({$elementID})"><img src="{$dpath}buildings/techtree/{$elementID}.{if $elementID >=600 && $elementID <= 699}jpg{else}png{/if}" width="25" height="25"></a></td>
-	<td><a href="#" onclick="return Dialog.info({$elementID})">{$LNG.tech.$elementID}</a></td>
-	<td>
-	{if $requireList}
-		{foreach $requireList as $requireID => $NeedLevel}
-			<a href="#" onclick="return Dialog.info({$elementID})"><span style="color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};">{$LNG.tech.$requireID} ({$LNG.tt_lvl} {min($NeedLevel.count, $NeedLevel.own)}/{$NeedLevel.count})</span></a>{if !$NeedLevel@last}<br>{/if}
-		{/foreach}
-	{/if}
-	</td>
-</tr>
-</tbody>
+{assign var=ready value=true}
+{foreach $requireList as $requireID => $NeedLevel}{if $NeedLevel.own < $NeedLevel.count}{assign var=ready value=false}{/if}{/foreach}
+<article class="tech-map-network">
+<svg class="tech-map-lines" aria-hidden="true"></svg>
+<div class="tech-map-dependencies">
+{foreach $requireList as $requireID => $NeedLevel}
+<a class="tech-map-node tech-map-dependency {if $NeedLevel.own < $NeedLevel.count}requirement-missing{else}requirement-met{/if}" href="#" onclick="return Dialog.info({$requireID})">
+<img src="{$dpath}buildings/{$requireID}.{if $requireID >=600 && $requireID <=699}jpg{else}png{/if}" alt="" width="40" height="40">
+<span><strong>{$LNG.tech.$requireID}</strong><small>{$LNG.tt_lvl} {$NeedLevel.own|number} / {$NeedLevel.count|number}</small></span>
+</a>
+{/foreach}
+</div>
+<a class="tech-map-node tech-map-target {if $ready}requirement-met{else}requirement-missing{/if}" href="#" onclick="return Dialog.info({$elementID})">
+<img src="{$dpath}buildings/{$elementID}.{if $elementID >=600 && $elementID <=699}jpg{else}png{/if}" alt="" width="48" height="48">
+<span><strong>{$LNG.tech.$elementID}</strong><small>{$LNG.tt_lvl} {$TechLevels[$elementID]|number}</small></span>
+</a>
+</article>
 {/if}
 {/foreach}
-<tfoot>
-</tfoot>
-</table>
+</div>
+</div>
 {/block}
+{block name="script" append}<script src="scripts/game/techtree-tabs.js?v=map-2"></script>{/block}

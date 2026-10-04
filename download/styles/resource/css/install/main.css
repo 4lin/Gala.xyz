@@ -102,3 +102,76 @@ span > a{
 	color: #009900;
 	padding:7px 10px 7px 45px
 }
+
+body.installer > table {
+	width: calc(100% - 32px);
+	max-width: 960px;
+	margin: 16px auto;
+}
+
+body.installer > table > tbody > tr > td {
+	padding: 16px;
+}
+
+body.installer h2 {
+	margin-bottom: 12px;
+	line-height: 1.5;
+}
+
+body.installer p {
+	line-height: 1.5;
+}
+
+body.installer .req {
+	width: 100%;
+	margin: 16px auto 0;
+}
+
+body.installer .req > tbody > tr > td {
+	padding: 8px;
+}
+
+body.installer .desc {
+	margin-top: 4px;
+}
+
+body.installer .req input {
+	box-sizing: border-box;
+	max-width: 100%;
+}
+
+body.installer input[type="submit"], body.installer input[type="button"], body.installer button {
+	font-size: 13px;
+	padding: 8px 18px;
+	min-height: 34px;
+}
+
+body.installer h1, body.installer h3 {
+	line-height: 1.5;
+	margin: 12px 0;
+}
+
+body.installer p + p, body.installer p + h2 {
+	margin-top: 12px;
+}
+
+body.installer .req p + p.desc {
+	margin-top: 4px;
+}
+
+body.installer #main, body.installer td {
+	overflow-wrap: break-word;
+}
+
+body.installer #licence {
+	box-sizing: border-box;
+	max-width: 100%;
+	text-align: left;
+}
+
+@media (max-width: 600px) {
+	body.installer .req > tbody > tr > td {
+		display: block;
+		width: auto;
+	}
+}

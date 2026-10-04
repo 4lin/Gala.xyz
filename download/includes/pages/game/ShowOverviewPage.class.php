@@ -173,6 +173,7 @@ class ShowOverviewPage extends AbstractGamePage
 				'id'		=> $Queue[0][0],
 				'level'		=> $Queue[0][1],
 				'timeleft'	=> $PLANET['b_building'] - TIMESTAMP,
+				'duration'	=> $Queue[0][2],
 				'time'		=> $PLANET['b_building'],
 				'starttime'	=> pretty_time($PLANET['b_building'] - TIMESTAMP),
 			);
@@ -202,6 +203,7 @@ class ShowOverviewPage extends AbstractGamePage
 				'id'		=> $Queue[0][0],
 				'level'		=> $Queue[0][1],
 				'timeleft'	=> $USER['b_tech'] - TIMESTAMP,
+				'duration'	=> $Queue[0][2],
 				'time'		=> $USER['b_tech'],
 				'starttime'	=> pretty_time($USER['b_tech'] - TIMESTAMP),
 			);
@@ -266,10 +268,12 @@ class ShowOverviewPage extends AbstractGamePage
 				$statData['total_rank'], $statData['total_rank'], $LNG['ov_of'], $config->users_amount);
 		}
 		
-		$this->assign(array(
+		$latestNews = $config->OverviewNewsFrame ? $db->selectSingle('SELECT title, text FROM %%NEWS%% ORDER BY date DESC, id DESC LIMIT 1;') : false;
+        $this->assign(array(
 			'rankInfo'					=> $rankInfo,
 			'is_news'					=> $config->OverviewNewsFrame,
-			'news'						=> makebr($config->OverviewNewsText),
+			'news' => makebr($latestNews ? $latestNews['text'] : $config->OverviewNewsText),
+            'newsTitle' => $latestNews ? $latestNews['title'] : '',
 			'planetname'				=> $PLANET['name'],
 			'planetimage'				=> $PLANET['image'],
 			'galaxy'					=> $PLANET['galaxy'],

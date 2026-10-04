@@ -1,9 +1,41 @@
 {block name="title" prepend}{$LNG.lm_research}{/block}
 {block name="content"}
 <div id="researchOv">
-	<div id="planetImg" style="background:url(http://i.imgur.com/5hfOacu.png) no-repeat; height:250px; width:654px;">
+<div class="construction-request-error" role="alert" hidden>{$LNG.op_error}. <a href="game.php?page=research">{$LNG.al_applyform_reload}</a></div>
+	<div id="planetImg" style="background:url(styles/resource/images/game/external/5hfOacu.png) no-repeat; height:250px; width:654px;">
 		<h2>{$LNG.lm_research} - {$planetname}</h2>
 	</div>
+        <div class="research-panel-viewport">
+        <section id="research-details-panel" hidden aria-live="polite">
+            <button type="button" class="building-panel-close" aria-label="{$LNG.bd_cancel}" title="{$LNG.bd_cancel}"></button>
+            {foreach $ResearchList as $ID => $Element}
+            <article class="building-panel-item" data-research="{$ID}" hidden>
+                <img class="building-panel-image" src="{$dpath}buildings/{$ID}.png" alt="{$LNG.tech.{$ID}|escape:'html'}">
+                <a class="building-panel-techtree" href="game.php?page=techtree" title="{$LNG.lm_technology}"><span aria-hidden="true"></span>{$LNG.lm_technology}</a>
+                <div class="building-panel-body">
+                    <h3>{$LNG.tech.{$ID}|escape:'html'} <small>{$LNG.bd_lvl} {$Element.level}</small></h3>
+                    <div class="building-panel-production">
+                        <div>{$LNG.fgf_time} <strong>{$Element.elementTime|time}</strong></div>
+
+                    </div>
+                    <div class="building-panel-requirements">
+                        <div>{$LNG.bd_cost} {$LNG.bd_next_level} {$Element.levelToBuild + 1}</div>
+                        <div class="building-panel-costs">
+                        {foreach $Element.costResources as $RessID => $RessAmount}
+                            <span title="{$LNG.tech.{$RessID}|escape:'html'}"><img src="{$dpath}images/{if $RessID == 901}metal{elseif $RessID == 902}crystal{elseif $RessID == 903}deuterium{else}darkmatter{/if}.gif" alt="{$LNG.tech.{$RessID}|escape:'html'}"><strong class="{if $Element.costOverflow[$RessID] == 0}affordable{else}unaffordable{/if}">{$RessAmount|number}</strong></span>
+                        {/foreach}
+                        </div>
+                    </div>
+                    <form action="game.php?page=research" method="post" class="building-panel-build">
+                        <input type="hidden" name="cmd" value="insert"><input type="hidden" name="tech" value="{$ID}">
+                        <button type="submit" {if $IsLabinBuild || $IsFullQueue || !$Element.buyable || $Element.levelToBuild >= $Element.maxLevel}disabled{/if}>{$LNG.bd_tech}</button>
+                    </form>
+                </div>
+                <div class="building-panel-description"><span aria-hidden="true">?</span> {$LNG.shortDescription.{$ID}}</div>
+            </article>
+            {/foreach}
+        </section>
+        </div>
 	<div class="c-leftM"></div>
 	<div class="c-rightM"></div>
 
@@ -16,7 +48,7 @@
 		<div class="content"> 
 			<ul id="research">
 				{foreach $ResearchList as $ID => $Element}
-				<li id="research" class="{if $Element.maxLevel == $Element.levelToBuild}off{elseif $IsLabinBuild || $IsFullQueue || !$Element.buyable}off{else}on{/if}">
+				<li id="research" class="{if $Element.maxLevel == $Element.levelToBuild}off{elseif $IsLabinBuild || $IsFullQueue || !$Element.buyable}off{else}on{/if}{if !$Element.accessible || !$Element.buyable || $Element.levelToBuild >= $Element.maxLevel} research-unavailable{/if}">
 							{if $Element.maxLevel == $Element.levelToBuild}
 							<!--<span style="color:red;">{$LNG.bd_maxlevel}</span>-->
 							{elseif $IsLabinBuild || $IsFullQueue || !$Element.buyable}
@@ -28,10 +60,10 @@
 									<button type="submit" class="RResearch build_submit tooltip" title="{$LNG.tech.{$ID}}: {if $Element.level != 0} {$LNG.bd_build_next_level} {$Element.level + 1}{if $Element.maxLevel != 255}/{$Element.maxLevel}{/if}{/if}"></button>
 								</form>
 							{/if}
-						<div class="research{$ID} tooltip" data-tooltip-content="
-						<table style='width:300px;margin:1%;'>
+						<div class="research{$ID} tooltip" data-tooltip-content="{capture name=gameTooltip16}
+						<table class='research-tooltip-table'>
 							<tr>
-								<th colspan='3'>{$LNG.tech.{$ID}} {if $Element.level != 0} {$LNG.bd_lvl} {$Element.level}{if $Element.maxLevel != 255}/{$Element.maxLevel}{/if}{/if}</th>
+								<th colspan='1'>{$LNG.tech.{$ID}} {if $Element.level != 0} {$LNG.bd_lvl} {$Element.level}{if $Element.maxLevel != 255}/{$Element.maxLevel}{/if}{/if}</th>
 							</tr>
 							<tr>
 								<td>	
@@ -40,16 +72,16 @@
 							</tr>
 
 							<tr>
-								<th colspan='3'>{if $Element.level == 0}{$LNG.bd_tech}{else}{$LNG.bd_tech_next_level}{$Element.levelToBuild + 1}{/if}</th>
+								<th colspan='1'>{if $Element.level == 0}{$LNG.bd_tech}{else}{$LNG.bd_tech_next_level}{$Element.levelToBuild + 1}{/if}</th>
 							</tr>
 							<tr>
 								<td style='font-weight:Bold;color:Green;'>
 									{$LNG.fgf_time} {$Element.elementTime|time}
 								</td>
 							</tr>
-						</table>">
+						</table>{/capture}{$smarty.capture.gameTooltip16|escape:'html'}">
 							<div class="researchimg">
-								<a ref="{$ID}" id="details" href="#" class="detail_button js_hideTipOnMobile" onclick="return Dialog.info({$ID})">
+								<a ref="{$ID}" id="details" href="#" class="detail_button js_hideTipOnMobile" onclick="return ResearchPanel.open({$ID}, this)" aria-controls="research-details-panel" aria-expanded="false">
 									<span class="ecke">
 										<span class="level">
 											<span class="textlabel">
@@ -75,64 +107,46 @@
 				<div class="content">
 					<table class="construction active" cellspacing="0" cellpadding="0">
 						<tbody>
-							<tr>
-								<td class="idle" colspan="2">
-									{if !empty($Queue)}
-									{foreach $Queue as $List}
-									{$ID = $List.element}
-									<tr>
-										<td style="width:100%;vertical-align:top;" class="left">
-											{if isset($CQueue) && $CQueue.maxLevel != $CQueue.level && !$IsFullQueue && $CQueue.buyable}
-											<form class="build_form" action="game.php?page=research" method="post">
-												<input type="hidden" name="cmd" value="insert">
-												<input type="hidden" name="tech" value="{$ID}">
-													<button type="submit" class="build_submit onlist"></button>
-											</form>
-											{else}
-											{if !empty($List.planet)} @ {$List.planet}{/if}
-											{/if}
-											{if $List@first}
-											<img src="{$dpath}buildings/{$ID}.png" width="50" height="50" id="blinkIN" class="tooltip" title="{$LNG.tech.{$ID}} {$List.level}" alt="">
-											<div id="progressbar" data-time="{$List.resttime}"></div>
-										</td>
-									</tr>
-
-									<tr>
-										<td>
-											<div id="time" data-time="{$List.time}"><br></div>
-												<form action="game.php?page=research" method="post" class="build_form">
-													<input type="hidden" name="cmd" value="cancel">
-														<button type="submit" class="RCancel onlist tooltip" title="{$LNG.bd_cancel} · {$LNG.tech.{$ID}} {$List.level}"></button>
-												</form>
-											{else}
-										</td>
-									</tr>
-
-									<tr>
-										<td>
-											<img src="{$dpath}buildings/{$ID}.png" width="25" height="25" id="blinkIN" class="tooltip" title="{$LNG.tech.{$ID}} {$List.level}" alt="">
-												<form action="game.php?page=research" method="post" class="build_form">
-													<input type="hidden" name="cmd" value="remove">
-													<input type="hidden" name="listid" value="{$List@iteration}">
-													<button type="submit" class="RCancell build_submit onlist tooltip" title="{$LNG.bd_cancel} · {$LNG.tech.{$ID}} {$List.level}"></button>
-												</form>
-											{/if}
-										</td>
-									</tr>
-									{/foreach}
-									{else}
-									<a class="js_hideTipOnMobile tooltip" title="{$LNG.ov_research_tip}" href="game.php?page=research">{$LNG.ov_research}</a>
-									{/if}
-								</td>
-							</tr>
-						</tbody>
+{if !empty($Queue)}
+{foreach $Queue as $List}
+{$ID = $List.element}
+<tr><td class="research-queue-entry">
+{if isset($CQueue) && $CQueue.maxLevel != $CQueue.level && !$IsFullQueue && $CQueue.buyable}
+<form class="build_form" action="game.php?page=research" method="post">
+<input type="hidden" name="cmd" value="insert"><input type="hidden" name="tech" value="{$ID}">
+<button type="submit" class="build_submit onlist"></button>
+</form>
+{else}
+{if !empty($List.planet)} @ {$List.planet}{/if}
+{/if}
+<div class="research-queue-row">
+<div class="research-construction-image {if !$List@first}queued{/if}">
+<img src="{$dpath}buildings/{$ID}.png" width="{if $List@first}50{else}35{/if}" height="{if $List@first}50{else}35{/if}" class="tooltip" title="{$LNG.tech.{$ID}} {$List.level}" alt="">
+{if $List@first}
+<div id="progressbar" data-time="{$List.resttime}"></div>
+<div id="time" data-time="{$List.time}"></div>
+{/if}
+<form action="game.php?page=research" method="post" class="build_form research-queue-cancel">
+<input type="hidden" name="cmd" value="{if $List@first}cancel{else}remove{/if}">
+{if !$List@first}<input type="hidden" name="listid" value="{$List@iteration}">{/if}
+<button type="submit" class="{if $List@first}RCancel{else}RCancell{/if} onlist tooltip" title="{$LNG.bd_cancel} · {$LNG.tech.{$ID}} {$List.level}"></button>
+</form>
+</div>
+<span class="research-construction-name" title="{$List.level} · {$LNG.tech.{$ID}|escape:'html'}">{$List.level} · {$LNG.tech.{$ID}|escape:'html'}</span>
+</div>
+</td></tr>
+{/foreach}
+{else}
+<tr><td class="idle" colspan="2"><a class="js_hideTipOnMobile tooltip" title="{$LNG.ov_research_tip}" href="game.php?page=research">{$LNG.ov_research}</a></td></tr>
+{/if}
+</tbody>
 					</table>
 				</div>
 					<div class="footer"></div>
 			</div>
 <style type="text/css">
 .RResearch{
-    background: transparent url(//i.imgur.com/qvplA7d.png) -170px -96px no-repeat;
+    background: transparent url(styles/resource/images/game/external/qvplA7d.png) -170px -96px no-repeat;
     cursor: pointer;
     display: inline;
     height: 14px;
@@ -145,20 +159,20 @@
 }
 
 .RResearch:hover{
-	background: transparent url(//i.imgur.com/qvplA7d.png) -170px -110px no-repeat;
+	background: transparent url(styles/resource/images/game/external/qvplA7d.png) -170px -110px no-repeat;
 }
 
 a.fastResearch:hover{
-	background: transparent url(//i.imgur.com/qvplA7d.png) -170px -110px no-repeat;
+	background: transparent url(styles/resource/images/game/external/qvplA7d.png) -170px -110px no-repeat;
 }
 
 .RCancel{
-    background: transparent url(//i.imgur.com/qvplA7d.png) -208px -71px no-repeat;
+    background: transparent url(styles/resource/images/game/external/qvplA7d.png) -208px -71px no-repeat;
     z-index: 4;
 }
 
 .RCancel:hover {
-    background: transparent url(//i.imgur.com/qvplA7d.png) -208px -88px no-repeat;
+    background: transparent url(styles/resource/images/game/external/qvplA7d.png) -208px -88px no-repeat;
 }
 
 .RCancel{
@@ -172,7 +186,7 @@ a.fastResearch:hover{
 }
 
 .RCancell{
-    background: transparent url(//i.imgur.com/qvplA7d.png) -208px -71px no-repeat;
+    background: transparent url(styles/resource/images/game/external/qvplA7d.png) -208px -71px no-repeat;
     cursor: pointer;
     display: inline;
     height: 17px;
@@ -184,10 +198,10 @@ a.fastResearch:hover{
     z-index: 4;
 }
 .RCancell:hover {
-    background: transparent url(//i.imgur.com/qvplA7d.png) -208px -88px no-repeat;
+    background: transparent url(styles/resource/images/game/external/qvplA7d.png) -208px -88px no-repeat;
 }
 .contentR {
-    background: url(//i.imgur.com/DqCtELw.gif) repeat-y;
+    background: url(styles/resource/images/game/external/DqCtELw.gif) repeat-y;
     margin: 0 0 20px 0;
     min-height: 115px;
     padding: 1px 0 0;
@@ -198,7 +212,7 @@ a.fastResearch:hover{
 {/block}
 
 {block name="script" append}
-    {if !empty($Queue)}
-        <script src="scripts/game/research.js"></script>
-    {/if}
+<link rel="stylesheet" href="styles/resource/css/ingame/research-panel.css?v=5">
+<script src="scripts/game/research-panel.js?v=4"></script>
+<script src="scripts/game/construction-ajax.js?v=2"></script>
 {/block}

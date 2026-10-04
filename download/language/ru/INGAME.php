@@ -361,6 +361,10 @@ $LNG['bd_interrupt']                      = 'Отменить';
 $LNG['bd_cancel']                         = 'отменить';
 $LNG['bd_working']                        = 'В процессе';
 $LNG['bd_build']                          = 'Строить';
+$LNG['bd_improve'] = 'Улучшить';
+$LNG['bd_panel_number'] = 'Количество';
+$LNG['bd_defense_cancel_warning'] = 'Вы получите 60% ресурсов обратно.';
+$LNG['bd_panel_unit_cost'] = 'Стоимость единицы';
 $LNG['bd_build_next_level']               = 'Улучшить до уровня ';
 $LNG['bd_tech']                           = 'Исследовать';
 $LNG['bd_tech_next_level']                = 'Исследовать до уровня ';
@@ -416,7 +420,12 @@ $LNG['rs_weekly']                         = 'Всего в неделю';
 $LNG['rs_ress_bonus']                     = 'Офицеры + Инновационные разработки';
 
 // Офицеры
+$LNG['of_view'] = 'Вид офицеров';
+$LNG['of_view_compact'] = 'Компактный';
+$LNG['of_view_detailed'] = 'Подробный';
+$LNG['of_details'] = 'Подробности';
 $LNG['of_recruit']                        = 'Нанять';
+$LNG['of_maximum_level'] = 'Максимальный уровень';
 $LNG['of_max_lvl']                        = 'Максимальный уровень';
 $LNG['of_offi']                           = 'Офицеры';
 $LNG['of_lvl']                            = 'Уровень';

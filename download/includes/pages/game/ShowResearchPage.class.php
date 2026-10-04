@@ -364,8 +364,7 @@ class ShowResearchPage extends AbstractGamePage
 
 		foreach($reslist['tech'] as $elementId)
 		{
-			if (!BuildFunctions::isTechnologieAccessible($USER, $PLANET, $elementId))
-				continue;
+			$accessible = BuildFunctions::isTechnologieAccessible($USER, $PLANET, $elementId);
 				
 			if(isset($queueData['quickinfo'][$elementId]))
 			{
@@ -379,10 +378,11 @@ class ShowResearchPage extends AbstractGamePage
 			$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $elementId, false, $levelToBuild+1);
 			$costOverflow		= BuildFunctions::getRestPrice($USER, $PLANET, $elementId, $costResources);
 			$elementTime    	= BuildFunctions::getBuildingTime($USER, $PLANET, $elementId, $costResources);
-			$buyable			= $QueueCount != 0 || BuildFunctions::isElementBuyable($USER, $PLANET, $elementId, $costResources);
+			$buyable			= $accessible && ($QueueCount != 0 || BuildFunctions::isElementBuyable($USER, $PLANET, $elementId, $costResources));
 
 			$ResearchList[$elementId]	= array(
 				'id'				=> $elementId,
+                'accessible' => $accessible,
 				'level'				=> $USER[$resource[$elementId]],
 				'maxLevel'			=> $pricelist[$elementId]['max'],
 				'costResources'		=> $costResources,

@@ -11,14 +11,22 @@ $(document).ready(function()
 		})
 	}, 1000);
 	
-	window.setInterval(function() {
+	function updateOverviewTimers() {
 		$('.timer').each(function() {
 			var s		= $(this).data('time') - (serverTime.getTime() - startTime) / 1000;
-			if(s == 0) {
+			var image = $(this).closest('.overview-construction-image');
+			var duration = Number(image.data('duration'));
+			if (duration > 0) {
+				var progress = Math.min(100, Math.max(0, 100 - Math.max(s, 0) / duration * 100));
+				image.find('.overview-construction-fill').css('height', progress + '%');
+			}
+			if(s == 0 || (image.length && s < 0)) {
 				window.location.href = "game.php?page=overview";
 			} else {
 				$(this).text(GetRestTimeFormat(s));
 			}
 		});
-	}, 1000);
+	}
+	updateOverviewTimers();
+	window.setInterval(updateOverviewTimers, 1000);
 });

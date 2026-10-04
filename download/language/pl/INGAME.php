@@ -384,6 +384,10 @@ $LNG['bd_interrupt']						= 'Przerwij';
 $LNG['bd_cancel']							= 'Anuluj';
 $LNG['bd_working']							= 'Pracuje';
 $LNG['bd_build']							= 'Zbuduj';
+$LNG['bd_improve'] = 'Ulepsz';
+$LNG['bd_panel_number'] = 'Liczba';
+$LNG['bd_defense_cancel_warning'] = 'Odzyskasz 60% zasobow.';
+$LNG['bd_panel_unit_cost'] = 'Koszt jednostkowy';
 $LNG['bd_build_next_level']					= 'Rozbuduj na level ';
 $LNG['bd_tech']                             = 'Zbadaj';
 $LNG['bd_tech_next_level']                  = 'Zbadaj na level ';
@@ -442,7 +446,12 @@ $LNG['rs_ress_bonus']						= 'Bonus(Officer/DM-Bonus):';
 
 //----------------------------------------------------------------------------//
 //OFFICIERS
+$LNG['of_view'] = 'Widok oficerów';
+$LNG['of_view_compact'] = 'Kompaktowy';
+$LNG['of_view_detailed'] = 'Szczegółowy';
+$LNG['of_details'] = 'Szczegóły';
 $LNG['of_recruit']							= 'Zatrudnij';
+$LNG['of_maximum_level'] = 'Maksymalny poziom';
 $LNG['of_max_lvl']							= 'Max. Level';
 $LNG['of_offi']								= 'Oficerowie';
 $LNG['of_lvl']								= 'Level';

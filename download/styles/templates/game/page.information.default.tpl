@@ -1,5 +1,6 @@
 {block name="title" prepend}{$LNG.lm_info}{/block}
 {block name="content"}
+<div class="information-content{if $elementID >= 400 && $elementID < 600} defense-information{/if}">
 <table>
 	<tbody>
 	<tr>
@@ -10,9 +11,9 @@
 			<table>
 				<tr>
 					<td class="transparent" style="width:100px;height:100px;"><img src="{$dpath}buildings/{$elementID}.{if $elementID >=600 && $elementID <= 699}jpg{else if $elementID >=700 && $elementID <= 799}jpg{else}png{/if}" alt=""></td>
-					<td class="transparent left"><p>{$LNG.longDescription.$elementID}</p>
+					<td class="transparent left"{if $OfficerLevel !== null} style="padding-left:16px"{/if}><p>{$LNG.longDescription.$elementID}</p>
 					{if !empty($Bonus)}<p>
-					<b>{$LNG.in_bonus}</b><br>
+					<b>{if $OfficerLevel !== null}{$LNG.of_lvl} {$OfficerLevel} · {/if}{$LNG.in_bonus}</b><br>
 					{foreach $Bonus as $BonusName => $elementBouns}{if $elementBouns[0] < 0}-{else}+{/if}{if $elementBouns[1] == 0}{abs($elementBouns[0] * 100)}%{else}{floatval($elementBouns[0])}{/if} {$LNG.bonus.$BonusName}<br>{/foreach}
 					</p>{/if}	
 					{if !empty($FleetInfo)}
@@ -49,4 +50,8 @@
 {if !empty($MissileList)}
 {include file="shared.information.missiles.tpl"}
 {/if}
+{if !empty($buildDestination)}
+<div class="information-navigation"><a class="information-build-link" href="{$buildDestination.url|escape}" target="_top" onclick="window.top.location.href=this.href; return false;">{$LNG[$buildDestination.label]} · {$LNG.tech.$elementID|escape}</a></div>
+{/if}
+</div>
 {/block}

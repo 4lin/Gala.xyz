@@ -43,7 +43,7 @@ $LNG['page_doesnt_exist']					= 'This page does not exist';
 $LNG['bad_forum_url']				    	= 'The Forum link is incorrect!';
 $LNG['admin_access_1']				    	= 'Players have access temporarily s administrative functions!';
 $LNG['admin_access_link']				    = 'Disable this access';
-$LNG['admin_access_2']				    	= ', If you don't need any longer.';
+$LNG['admin_access_2']				    	= ', If you don\'t need any longer.';
 
 // Topnav
 $LNG['tn_vacation_mode']					= 'Vacation mode active ';
@@ -213,7 +213,7 @@ $LNG['gl_points'] 							= 'Points';
 $LNG['gl_player']							= 'Player';
 $LNG['gl_to']								= 'to';
 // Phalanx
-$LNG['px_no_deuterium']						= 'Don't have enough deuterium!';
+$LNG['px_no_deuterium']						= 'Don\'t have enough deuterium!';
 $LNG['px_scan_position']					= 'Investigate position';
 $LNG['px_fleet_movement']					= 'Fleet in movement';
 $LNG['px_no_fleet']							= 'There is no moving fleets.';
@@ -356,6 +356,10 @@ $LNG['bd_interrupt']						= 'Cancel';
 $LNG['bd_cancel']							= 'Cancel';
 $LNG['bd_working']							= 'Busy';
 $LNG['bd_build']							= 'Build';
+$LNG['bd_improve'] = 'Improve';
+$LNG['bd_panel_number'] = 'Number';
+$LNG['bd_defense_cancel_warning'] = 'You will receive 60% of the resources back.';
+$LNG['bd_panel_unit_cost'] = 'Costs per piece';
 $LNG['bd_build_next_level']					= 'Build to the next level ';
 $LNG['bd_research']							= 'Research';
 $LNG['bd_tech']								= 'Research';
@@ -394,7 +398,7 @@ $LNG['bd_destroy_time'] 					= 'Duration';
 $LNG['bd_max_ships']                        = 'max';
 $LNG['bd_max_ships_long']					= 'Maximum possible units to build';
 $LNG['sys_notenough_money'] 				= 'You dont have enough resources on %s <a href="./game.php?page=buildings&amp;cp=%d&amp;re=0">[%d:%d:%d]</a> to build %s. <br>Your ressources are: %s %s , %s %s and %s %s. <br>The cost of construction is %s %s , %s %s and %s %s.';
-$LNG['sys_nomore_level'] 					= 'You're trying to destroy a building that no longer have ( %s ).';
+$LNG['sys_nomore_level'] 					= 'You\'re trying to destroy a building that no longer have ( %s ).';
 $LNG['sys_buildlist'] 						= 'List of construction';
 $LNG['sys_techlist'] 						= 'Research list';
 $LNG['sys_buildlist_fail'] 				    = 'Impossible to build';
@@ -410,7 +414,12 @@ $LNG['rs_daily']					        = 'Daily Production:';
 $LNG['rs_weekly']							= 'Weekly Production:';
 $LNG['rs_ress_bonus']                       = 'Bonus (Officers/Bonus):';
 // Officiers
+$LNG['of_view'] = 'Officer view';
+$LNG['of_view_compact'] = 'Compact';
+$LNG['of_view_detailed'] = 'Detailed';
+$LNG['of_details'] = 'Details';
 $LNG['of_recruit']							= 'Recruit';
+$LNG['of_maximum_level'] = 'Maximum Level';
 $LNG['of_max_lvl']							= 'Max Level';
 $LNG['of_offi']								= 'Official';
 $LNG['of_lvl']								= 'Level';
@@ -420,7 +429,7 @@ $LNG['of_active']							= 'active';
 
 // Trader
 $LNG['tr_cost_dm_trader']					= 'The value of the merchant is %s %s!';
-$LNG['tr_not_enought']						= 'Don't own enough %s.';
+$LNG['tr_not_enought']						= 'Don\'t own enough %s.';
 $LNG['tr_exchange_done']					= 'Trade made with success';
 $LNG['tr_exchange_error']					= 'The amount of resources is wrong or are insufficient';
 $LNG['tr_call_trader']						= 'Call a merchant';

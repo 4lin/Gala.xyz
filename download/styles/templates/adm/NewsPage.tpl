@@ -7,11 +7,10 @@
 	<th colspan="2">{$nws_head}</th>
 </tr>
 <tr>
-<tr>
-	<td width="25%">{$nws_title}</td><td><input type="text" name="title" value="{$news_title}"></td>
+	<td width="25%">{$nws_title}</td><td><input type="text" name="title" value="{$news_title|escape}"></td>
 </tr>
 <tr>
-	<td>{$nws_content}</td><td><textarea cols="70" rows="10" name="text">{$news_text}</textarea></td>
+	<td>{$nws_content}</td><td><textarea cols="70" rows="10" name="text">{$news_text|escape}</textarea></td>
 </tr>
 <tr>
 	<td colspan="2"><input type="submit" name="Submit" value="{$button_submit}"></td>
@@ -21,7 +20,7 @@
 {/if}{/nocache}
 <table width="450">
 <tr>
-	<th colspan="5">{$nws_news}</thd>
+	<th colspan="5">{$nws_news}</th>
 </tr>
 <tr>
 	<td>{$nws_id}</td>

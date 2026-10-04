@@ -18,9 +18,9 @@ class AJAXChatTemplate {
 	var $_parsedContent;
 
 	// Constructor:
-	function AJAXChatTemplate(&$ajaxChat, $templateFile, $contentType=null) {
+	function __construct(&$ajaxChat, $templateFile, $contentType=null) {
 		$this->ajaxChat = $ajaxChat;
-		$this->_regExpTemplateTags = '/\[(\w+?)(?:(?:\/)|(?:\](.+?)\[\/\1))\]/se';		
+		$this->_regExpTemplateTags = '/\[(\w+?)(?:(?:\/)|(?:\](.+?)\[\/\1))\]/s';		
 		$this->_templateFile = $templateFile;
 		$this->_contentType = $contentType;
 	}
@@ -52,7 +52,7 @@ class AJAXChatTemplate {
 		}
 
 		// Replace template tags ([TAG/] and [TAG]content[/TAG]) and return parsed template content:
-		$this->_parsedContent = preg_replace($this->_regExpTemplateTags, '$this->replaceTemplateTags(\'$1\', \'$2\')', $this->_parsedContent);
+		$this->_parsedContent = preg_replace_callback($this->_regExpTemplateTags, function ($matches) { return $this->replaceTemplateTags($matches[1], isset($matches[2]) ? $matches[2] : ''); }, $this->_parsedContent);
 	}
 
 	function replaceTemplateTags($tag, $tagContent) {

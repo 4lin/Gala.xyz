@@ -1,6 +1,6 @@
 {include file="overall_header.tpl"}
 <table width="40%">
-<th colspan="9">{$LNG.ad_editor_title}</th>
+<th colspan="2">{$LNG.ad_editor_title}</th>
 <tr>
    	<td width="50%"><a href="?page=accounteditor&amp;edit=buildings"><img src="./styles/resource/images/admin/arrowright.png" width="16" height="10"> {$LNG.ad_editor_buildings}</a></td>
    	<td width="50%"><a href="?page=accounteditor&amp;edit=ships"><img src="./styles/resource/images/admin/arrowright.png" width="16" height="10"> {$LNG.ad_editor_ships}</a></td>
