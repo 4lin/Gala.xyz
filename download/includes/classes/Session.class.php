@@ -51,7 +51,7 @@ class Session
 		
 		$HTTP_ROOT = MODE === 'INSTALL' ? dirname(HTTP_ROOT) : HTTP_ROOT;
 		
-		session_set_cookie_params(SESSION_LIFETIME, $HTTP_ROOT, NULL, HTTPS, true);
+		session_set_cookie_params(SESSION_LIFETIME, $HTTP_ROOT, '', HTTPS, true);
 		session_cache_limiter('nocache');
 		session_name('2Moons');
 
@@ -208,6 +208,7 @@ class Session
 	    // sessions require an valid user.
 	    if(empty($this->data['userId'])) {
 	        $this->delete();
+	        return;
 	    }
 
         $userIpAddress = self::getClientIp();
@@ -263,6 +264,11 @@ class Session
 
 	public function isValidSession()
 	{
+		if(empty($this->data['userId']) || empty($this->data['userIpAddress']) || empty($this->data['lastActivity']))
+		{
+			return false;
+		}
+
 		if($this->compareIpAddress($this->data['userIpAddress'], self::getClientIp(), COMPARE_IP_BLOCKS) === false)
 		{
 			return false;

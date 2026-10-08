@@ -1,4 +1,14 @@
 /* Preserve sprite dimensions and the hooks used by game updates. */
+#messages-page { width: 654px; max-width: 100%; margin: 0 auto; }
+#messages-page table { width: 100%; box-sizing: border-box; margin-bottom: 12px; }
+#messages-page td { overflow-wrap: anywhere; padding: 8px; }
+#message-categories a { display: block; padding: 6px 2px; min-height: 24px; }
+#message-categories a[aria-current="true"] { background: rgba(100, 160, 200, .18); border-radius: 3px; }
+#messages-page select { max-width: 75%; min-height: 30px; }
+#messages-page input[type="submit"] { min-height: 30px; padding: 5px 12px; }
+#messagestable .message_head td { background: rgba(35, 60, 80, .7); }
+#messagestable .messages_body td { padding: 12px; line-height: 1.5; }
+#messagestable .messages_body img { max-width: 100%; height: auto; }
 body.full #box::after { content: ""; display: block; clear: both; }
 body.full #box > #content { display: flow-root; }
 #buttonz ul#building,
@@ -488,7 +498,7 @@ body#battleSimulator #tabs button.reset { min-height: 28px; padding: 4px 8px; cu
 
 /* Native Galaxy/System icons from the supplied local OGame sprite. */
 #galaxy-view .galaxy-coordinate-group { display: flex; align-items: center; gap: 5px; }
-#galaxy-view .galaxy-coordinate-group .galaxy-coordinate-icon { flex: 0 0 18px; width: 18px; height: 17px; margin: 0; background-image: url(/addon/top/cdn/cdnee/e81e8e6d5e6a45e1ad45505ef3dc52.png); background-repeat: no-repeat; }
+#galaxy-view .galaxy-coordinate-group .galaxy-coordinate-icon { flex: 0 0 18px; width: 18px; height: 17px; margin: 0; background-image: url(../../images/game/e81e8e6d5e6a45e1ad45505ef3dc52.png); background-repeat: no-repeat; }
 #galaxy-view .galaxy-coordinate-icon.galaxy-icon { background-position: 0 -65px; }
 #galaxy-view .galaxy-coordinate-icon.system-icon { background-position: 0 -82px; }
 #galaxy-view .galaxy-accessible-label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
@@ -562,19 +572,95 @@ body.full { background: #000 url(../../images/game/galaxy-background.jpg) fixed 
 #buildingsOv .buildingimg a.detail_button .ecke { left: auto; right: 8px; top: auto; bottom: 1px; width: auto; height: 16px; text-align: right; white-space: nowrap; }
 /* Keep resource slots aligned with the existing header artwork as values change. */
 #resourceTable {
-    width: 505px;
+    width: 511.25px;
     table-layout: fixed;
 }
 #resourceTable > tbody > tr > td {
     box-sizing: border-box;
-    width: 101px !important;
-    min-width: 101px;
-    max-width: 101px;
+    width: 102.25px !important;
+    min-width: 102.25px;
+    max-width: 102.25px;
     padding-left: 0;
     padding-right: 0;
     white-space: nowrap;
 }
 
 /* Keep thumbnail summaries plain and on one line. */
+#ovBlock #headerTable { position: absolute; left: 213px; top: 6px; width: 511.25px; margin: 0; }
+#playerName .player-avatar { width: 20px; height: 20px; vertical-align: middle; margin-right: 3px; border-radius: 3px; }
+.shipyard-visible-queue { list-style: none; margin: 8px 0; padding: 0; }
+.shipyard-visible-queue li { display: flex; align-items: center; gap: 8px; margin: 4px 0; text-align: left; }
+.shipyard-visible-queue img { width: 32px; height: 32px; border-radius: 3px; }
+#resourceTable .resource-energy span { display: block; font-size: 10px; line-height: 11px; }
+#resourceTable > tbody > tr > td.res_current { overflow: hidden; text-overflow: ellipsis; }
+#resourceTable > tbody > tr:nth-child(3) { display: none; }
 .thumbnail-tooltip .tooltipster-box { background: #18212a; border: 1px solid #546879; border-radius: 3px; }
 .thumbnail-tooltip .tooltipster-content { color: #fff; padding: 6px 9px; white-space: nowrap; overflow-wrap: normal; }
+
+/* Records categories follow the game's existing content width. */
+#records-page { width: 654px; max-width: 100%; margin: 0 auto; box-sizing: border-box; }
+#records-page .records-updated { margin: 0 0 10px; padding: 10px; text-align: center; background: #122638; color: #c5d8e7; }
+#records-page .records-category { margin-bottom: 8px; border: 1px solid #35536b; border-radius: 4px; overflow: hidden; background: #0d141c; }
+#records-page summary { cursor: pointer; padding: 11px 12px; color: #c5d8e7; background: #122638; font-weight: bold; }
+#records-page summary:hover, #records-page .records-category[open] > summary { background: #2b4e68; color: #fff; }
+#records-page summary:focus-visible { outline: 2px solid #78a7c7; outline-offset: -2px; }
+#records-page table { width: 100%; margin: 0; table-layout: fixed; border: 0; }
+#records-page th, #records-page td { padding: 8px; overflow-wrap: anywhere; }
+#records-page th:last-child, #records-page td:last-child { width: 20%; text-align: right; }
+#records-page tbody tr:nth-child(even) td { background: rgba(53,83,107,.16); }
+#records-page td a { display: inline-block; padding: 3px 0; }
+
+/* Referral link uses the same compact action area as the planet rename control. */
+#header_text .referral-toggle { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; margin-left: 4px; color: #d5e9f7; font-size: 14px; line-height: 18px; cursor: pointer; vertical-align: middle; }
+#header_text .referral-toggle:hover { color: #fff; }
+#overviewReferralPanel { margin: 6px auto 0; }
+#overviewReferralPanel[hidden] { display: none; }
+
+/* Keep all planet rows, including news, within the bottom-aligned overlay. */
+#overviewOv #planetDetails { max-height: none; overflow: hidden; }
+#overviewOv #planetDetails table { margin: 0; }
+#overviewOv #header_text { position: relative; }
+#overviewOv #header_text .edit { position: absolute; top: 9px; right: 28px; left: auto; width: 18px; height: 18px; }
+#overviewOv #header_text .referral-toggle { position: absolute; top: 9px; right: 5px; left: auto; margin: 0; width: 20px; height: 18px; padding: 0; }
+#overviewOv #overviewReferralPanel { position: absolute; top: 34px; right: 5px; z-index: 20; width: 310px; max-width: 95%; margin: 0; padding: 10px; box-sizing: border-box; border: 1px solid #46647b; border-radius: 4px; background: #141e26; color: #d5e9f7; }
+#overviewReferralPanel label { display: block; margin-bottom: 6px; }
+#overviewReferralPanel input { width: 100%; box-sizing: border-box; }
+
+#overviewOv .overview-parent-planet { display: inline-block; width: 80px; height: 80px; border-radius: 50%; overflow: hidden; box-shadow: 0 0 8px rgba(93,163,197,.4); }
+#overviewOv .overview-parent-planet img { display: block; width: 80px; height: 80px; object-fit: cover; border-radius: 50%; }
+/* Write text in normal order; right-aligned values grow toward the left. */
+#overviewOv #planetDetails table { table-layout: fixed; }
+#overviewOv #planetDetails td.desc { width: 30%; }
+#overviewOv #planetDetails td > span.overview-typing { animation: none; clip-path: none; min-height: 1.2em; }
+#overviewOv #planetDetails .overview-typing::after { content: ''; }
+#overviewOv #planetDetails .overview-typing-active::after { content: '_'; color: inherit; }
+/* Distinct, stable typography for planet labels and values. */
+#overviewOv #planetDetails td:first-child > span { font-family: Verdana, Geneva, sans-serif; font-size: 11px; font-weight: normal; color: #82aac3; }
+#overviewOv #planetDetails td:nth-child(2) > span { font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: #f0f4f7; }
+
+/* Original CDN43 communication sprite and counter styling, served locally. */
+#planet-message-bar { position: absolute; left: 183px; top: 96px; width: 128px; height: 40px; display: flex; z-index: 5; }
+#planet-message-bar .header-message-icon { background-image: url(../../images/game/9d2a040a90c8eae17d3cd2ee3b54df.png); background-repeat: no-repeat; display: block; position: relative; width: 60px; height: 40px; }
+#planet-message-bar .messages { background-position: 15px 1px; }
+#planet-message-bar .messages:hover, #planet-message-bar .messages:focus-visible { background-position: 15px -78px; }
+#planet-message-bar .messages:active { background-position: 15px -39px; }
+#planet-message-bar .chat { background-position: 8px -117px; }
+#planet-message-bar .chat:hover, #planet-message-bar .chat:focus-visible { background-position: 8px -204px; }
+#planet-message-bar .chat:active { background-position: 8px -161px; }
+#planet-message-bar .message-count { display: block; min-width: 12px; height: 16px; border-radius: 8px; background-color: #242d37; border: 1px solid #40c4c1; box-shadow: 0 2px 4px rgba(0,0,0,.75); text-align: center; color: #fff; padding: 0 2px; z-index: 3; position: absolute; top: 3px; line-height: 16px !important; font-size: 10px; }
+#planet-message-bar .messages .message-count { right: -6px; }
+#planet-message-bar .chat .message-count { right: 0; }
+#planet-message-bar .message-count.noMessage { visibility: hidden; }
+/* Compatible original-game typography and palette from CDN C5. */
+body.full { --game-font: Verdana, Arial, SunSans-Regular, sans-serif; --game-text: #f1f1f1; --game-label: #6f9fc8; --game-panel: #141e26; font-family: var(--game-font); font-size: 12px; color: var(--game-text); }
+body.full :is(input, button, select, textarea, td, th) { font-family: var(--game-font); }
+body.full #content :is(td, th) { font-size: 11px; }
+body.full #content h3 { font-family: var(--game-font); font-size: 12px; font-weight: 400; color: var(--game-label); }
+#overviewOv #planetDetails { font-family: var(--game-font); font-size: 11px; }
+#overviewOv #planetDetails td { padding: 2px 5px; font-family: var(--game-font); font-size: 11px; }
+#overviewOv #planetDetails td:first-child > span { font-family: var(--game-font); font-size: 11px; font-weight: 700; color: var(--game-label); }
+#overviewOv #planetDetails td:nth-child(2) > span { font-family: var(--game-font); font-size: 11px; font-weight: 400; color: #f1f1f1; }
+#overviewOv #planetDetails td.data { text-align: right; }
+#overviewOv #planetDetails td.data a { color: #fff; cursor: pointer; text-decoration: none; }
+#overviewOv #planetDetails td.data a:hover { text-decoration: underline; }
+#overviewOv #planetdata .overlay { background-color: var(--game-panel); }

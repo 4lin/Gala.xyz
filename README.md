@@ -1,7 +1,13 @@
-# [![Gala.xyz #v0.2](https://github.com/4lin/Gala.xyz/releases)] Pre-release is out!
-# Please try it out not complete but feel free to test.
-# Let me know about any suggestion.
+# Gala.xyz
 
-## Current game source
+The current PHP game source and runtime assets are in `download/`.
 
-The updated PHP game and local assets are in `download/`. See [installation steps](download/INSTALARE.md) and [changes and verification](download/MODIFICARI.md). Local database configuration, sessions, logs and generated screenshots are excluded.
+## Local installation
+
+Configure Apache/PHP and MySQL, copy the game to the web root, and provide a local `includes/config.php` using the installer. Enable the installer with an empty `includes/ENABLE_INSTALL_TOOL` file only while installing; remove it after installation. Existing installations must retain their private database configuration and database contents.
+
+Generated notes, audit reports, screenshots, sessions, caches, backups and database credentials are excluded from the published source. Archived reference exports are excluded; runtime images are served from the game's local asset directories.
+
+## Verification
+
+Run `php tests/smarty-templates.php`, `php tests/shipyard-queue.php`, `php tests/fleet-colonization.php`, `php tests/short-numbers.php` and `node tests/short-numbers.js` from the game directory. Browser verification of the latest visual adjustments remains pending.

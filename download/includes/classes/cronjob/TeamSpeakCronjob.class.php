@@ -21,7 +21,7 @@ class TeamSpeakCronjob implements CronjobTask
 {
 	function run()
 	{
-		Cache::get()->add('teamspeak', 'TeamspeakBuildCache');
-		Cache::get()->flush('teamspeak');
+		// TeamSpeak integration is intentionally disabled for the PHP 8 migration.
+		return true;
 	}
 }

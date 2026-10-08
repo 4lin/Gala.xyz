@@ -26,6 +26,7 @@ class ShowOverviewPage extends AbstractGamePage
 	
 	private function GetTeamspeakData()
 	{
+		return false;
 		global $USER, $LNG;
 
 		$config = Config::get();
@@ -133,6 +134,7 @@ class ShowOverviewPage extends AbstractGamePage
 		$chatOnline 	= array();
 		$AllPlanets		= array();
 		$Moon 			= array();
+		$ParentPlanet = array();
 		$RefLinks		= array();
 
         $db = Database::get();
@@ -164,6 +166,12 @@ class ShowOverviewPage extends AbstractGamePage
 			$sql = "SELECT id, name FROM %%PLANETS%% WHERE id = :lunaID;";
             $Moon = $db->selectSingle($sql, array(
                 ':lunaID'   => $PLANET['id_luna']
+            ));
+        }
+
+        if ($PLANET['planet_type'] == 3) {
+            $ParentPlanet = $db->selectSingle('SELECT id, name, image FROM %%PLANETS%% WHERE id_luna = :moonID AND id_owner = :ownerID AND planet_type = 1;', array(
+                ':moonID' => $PLANET['id'], ':ownerID' => $USER['id']
             ));
         }
 			
@@ -264,7 +272,7 @@ class ShowOverviewPage extends AbstractGamePage
 		if($statData['total_rank'] == 0) {
 			$rankInfo	= "-";
 		} else {
-			$rankInfo	= sprintf($LNG['ov_userrank_info'], pretty_number($statData['total_points']), $LNG['ov_place'],
+			$rankInfo	= sprintf($LNG['ov_userrank_info'], '<span class="tooltip" title="'.pretty_number($statData['total_points']).'">'.shortly_number($statData['total_points']).'</span>', $LNG['ov_place'],
 				$statData['total_rank'], $statData['total_rank'], $LNG['ov_of'], $config->users_amount);
 		}
 		
@@ -284,6 +292,7 @@ class ShowOverviewPage extends AbstractGamePage
 			'userid'					=> $USER['id'],
 			'buildInfo'					=> $buildInfo,
 			'Moon'						=> $Moon,
+			'ParentPlanet' => $ParentPlanet,
 			'fleets'					=> $this->GetFleets(),
 			'AllPlanets'				=> $AllPlanets,
 			'AdminsOnline'				=> $AdminsOnline,

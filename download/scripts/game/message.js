@@ -34,15 +34,38 @@ Message	= {
 			page = 1;
 		}
 		Message.MessID	= MessID;
-		Message.MessageCount(MessID);
 		
 		$('#loading').show();
 		
-		$.get('game.php?page=messages&mode=view&messcat='+MessID+'&site='+page+'&ajax=1', function(data) {
-			$('#loading').hide();
-			$('#messagestable').remove();
-			$('#content table:eq(0)').after(data);
-		});
+		if (Message.request) Message.request.abort();
+		Message.request = $.get('game.php?page=messages&mode=view&messcat='+MessID+'&site='+page+'&ajax=1', function(data) {
+			var parsed = $('<div>').append($.parseHTML(data, document, false));
+			var table = parsed.find('#messagestable');
+			if (!table.length) {
+				location.assign('game.php?page=messages&category='+MessID+'&side='+page);
+				return;
+			}
+			$('#messages-list').empty().append(table.closest('form'));
+			$('#message-categories a').attr('aria-current', 'false');
+			$('#unread_'+MessID).closest('td').find('a').attr('aria-current', 'true');
+			if (MessID !== 999) {
+				var read = table.find('.mes_unread').length;
+				if (MessID === 100) {
+					$.get('game.php?page=messages', function(html) {
+						var fresh = $('<div>').append($.parseHTML(html, document, false));
+						$('#message-categories span[id^="unread_"]').each(function() {
+							$(this).text(fresh.find('#'+this.id).text());
+						});
+					});
+				} else {
+					$('#unread_'+MessID).text(Math.max(0, Number($('#unread_'+MessID).text())-read));
+					$('#unread_100').text(Math.max(0, Number($('#unread_100').text())-read));
+				}
+				$('#newmesnum').text(Math.max(0, Number($('#newmesnum').text())-read));
+			}
+		}).fail(function(_, status) {
+			if (status !== 'abort') location.assign('game.php?page=messages&category='+MessID+'&side='+page);
+		}).always(function() { $('#loading').hide(); });
 	},
 
 	stripHTML: function (string) { 

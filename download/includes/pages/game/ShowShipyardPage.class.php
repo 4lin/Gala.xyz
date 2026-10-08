@@ -239,6 +239,7 @@ class ShowShipyardPage extends AbstractGamePage
 			$elementTime    	= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, $costResources);
 			$buyable			= BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources);
 			$maxBuildable		= BuildFunctions::getMaxConstructibleElements($USER, $PLANET, $Element, $costResources);
+			$maxBuildable       = min($maxBuildable, Config::get()->max_fleet_per_build);
 
 
 			if(isset($MaxMissiles[$Element])) {

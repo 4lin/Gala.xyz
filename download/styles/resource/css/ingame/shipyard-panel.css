@@ -1,4 +1,19 @@
 /* Shipyard and Defense details slide over the existing banner. */
+/* Fleet and Defense thumbnails: six items per row inside the existing content width. */
+#shipyardOv[data-mode="fleet"] ul#shipyard,
+#shipyardOv[data-mode="defense"] ul#shipyard {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 12px;
+}
+#shipyardOv[data-mode="fleet"] ul#shipyard > li,
+#shipyardOv[data-mode="defense"] ul#shipyard > li {
+    width: 80px;
+    height: 80px;
+    min-width: 0;
+    margin: 0;
+    justify-self: center;
+}
 #shipyardOv { position: relative; }
 .shipyard-panel-viewport { position: absolute; top: 0; left: 8px; width: 654px; height: 300px; overflow: hidden; pointer-events: none; z-index: 10; }
 #shipyard-details-panel { position: absolute; top: 0; left: 0; pointer-events: auto; transform: translateY(100%); transition: transform .35s ease-in-out; z-index: 10; height: 300px; overflow-y: auto; box-sizing: border-box; width: 654px; max-width: 100%; padding: 1px 0 0 3px; border: 0; background: #0d141c url(../../images/game/buildings-panel-background.gif) no-repeat 0 0; }

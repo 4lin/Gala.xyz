@@ -37,19 +37,12 @@ function shortly_number(number)
 	var key		= 0;
 	number		= Math.abs(number);
 	
-	if(number >= 1000000) {
-		++key;
-		while(number >= 1000000)
-		{
-			++key;
-			number = number / 1000000;
-		}
-	} else if(number >= 1000) {
+	while(number >= 1000 && key < unit.length - 1) {
 		++key;
 		number = number / 1000;
 	}
 	
-	decial	= key != 0 && number != 0 && number < 100;
+	var decial	= key != 0 && number % 1 !== 0 && number < 100;
 	return NumberGetHumanReadable(negate * number, decial)+(key !== 0 ? '&nbsp;'+unit[key] : '');
 }
 
@@ -221,6 +214,7 @@ function NotifyBox(text) {
 
 
 function UhrzeitAnzeigen() {
+   if (!window.serverTime) return;
    $(".servertime").text(getFormatedDate(serverTime.getTime(), tdformat));
 }
 

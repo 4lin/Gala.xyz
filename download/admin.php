@@ -71,8 +71,7 @@ switch($page)
 		ShowChatConfigPage();
 	break;
 	case 'teamspeak':
-		include_once('includes/pages/adm/ShowTeamspeakPage.php');
-		ShowTeamspeakPage();
+		HTTP::redirectTo('admin.php?page=config');
 	break;
 	case 'facebook':
 		include_once('includes/pages/adm/ShowFacebookPage.php');

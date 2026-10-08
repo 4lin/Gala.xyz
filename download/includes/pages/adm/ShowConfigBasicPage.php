@@ -57,7 +57,7 @@ function ShowConfigBasicPage()
 		$mail_active 			= isset($_POST['mail_active']) && $_POST['mail_active'] == 'on' ? 1 : 0;
 		
 		$ttf_file				= HTTP::_GP('ttf_file', '');
-		$close_reason			= HTTP::_GP('close_reason', '', true);
+		$close_reason			= HTTP::_GP('close_reason', $config->close_reason, true);
 		$game_name				= HTTP::_GP('game_name', '', true);
 		$capprivate				= HTTP::_GP('capprivate', '');
 		$cappublic				= HTTP::_GP('cappublic', '');
@@ -75,7 +75,7 @@ function ShowConfigBasicPage()
 		$del_user_automatic		= HTTP::_GP('del_user_automatic', 0);
 		$del_user_sendmail		= HTTP::_GP('del_user_sendmail', 0);
 		$timezone				= HTTP::_GP('timezone', '');
-		$dst					= HTTP::_GP('dst', 0);
+		$dst					= HTTP::_GP('dst', (int) $config->dst);
 		
 		$config_after = array(
 			'ttf_file'				=> $ttf_file,

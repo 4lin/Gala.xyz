@@ -1111,3 +1111,7 @@ $LNG['lo_notify']							= 'Will be redirected in <span id="seconds">5</span> sec
 $LNG['lo_continue']							= 'Click here not to wait';
 
 // Last revision by alindom (20.04.2018)
+
+// Header message counters.
+$LNG['mg_header_total'] = 'Received messages';
+$LNG['mg_header_unread'] = 'Unread messages';

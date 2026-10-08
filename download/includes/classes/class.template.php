@@ -31,7 +31,15 @@ class template extends Smarty
 
 	private function smartySettings()
 	{
-		$this->php_handling = Smarty::PHP_REMOVE;
+		$this->addPluginsDir('includes/libs/smarty-plugins/');
+		foreach (array('range', 'date', 'htmlspecialchars', 'allowedTo',
+			'isModuleAvailable', 'abs', 'array_filter', 'shortly_number',
+			'floor', 'array_sum', 'pretty_fly_time', 'is_numeric', 'sprintf',
+			'floatval') as $modifier) {
+			if (function_exists($modifier)) {
+				$this->registerPlugin('modifier', $modifier, $modifier);
+			}
+		}
 
 		$this->setForceCompile(false);
 		$this->setMergeCompiledIncludes(true);
@@ -125,7 +133,7 @@ class template extends Smarty
 			'LNG'			=> $LNG,
 		), false);
 		
-		$this->compile_id	= $LNG->getLanguage();
+		$this->compile_id	= Smarty::SMARTY_VERSION.'-'.$LNG->getLanguage();
 		
 		parent::display($file);
 	}
@@ -133,7 +141,7 @@ class template extends Smarty
 	public function display($file = NULL, $cache_id = NULL, $compile_id = NULL, $parent = NULL)
 	{
 		global $LNG;
-		$this->compile_id	= $LNG->getLanguage();
+		$this->compile_id	= Smarty::SMARTY_VERSION.'-'.$LNG->getLanguage();
 		parent::display($file);
 	}
 	
@@ -187,7 +195,7 @@ class template extends Smarty
         if (isset($allowed[$name])) {
             return $this->{$allowed[$name]}();
         } else {
-            return $this->{$name};
+            return parent::__get($name);
         }
     }
 	
@@ -204,7 +212,7 @@ class template extends Smarty
         if (isset($allowed[$name])) {
             $this->{$allowed[$name]}($value);
         } else {
-            $this->{$name} = $value;
+            parent::__set($name, $value);
         }
     }
 }

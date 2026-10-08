@@ -31,10 +31,11 @@ class ShowRecordsPage extends AbstractGamePage
 
 		$db = Database::get();
 
-		$sql = "SELECT elementID, level, userID, username
-		FROM %%USERS%%
-		INNER JOIN %%RECORDS%% ON userID = id
-		WHERE universe = :universe;";
+		$sql = "SELECT DISTINCT r.elementID, r.level, r.userID, u.username
+		FROM %%USERS%% AS u
+		INNER JOIN %%RECORDS%% AS r ON r.userID = u.id
+		WHERE u.universe = :universe
+		ORDER BY r.elementID ASC, r.level DESC, u.username ASC, r.userID ASC;";
 
 		$recordResult = $db->select($sql, array(
 			':universe'	=> Universe::current()
@@ -60,6 +61,12 @@ class ShowRecordsPage extends AbstractGamePage
 		require_once 'includes/classes/Cronjob.class.php';
 		
 		$this->assign(array(
+			'recordCategories' => array(
+				'buildings' => array('title' => $LNG['tech'][0], 'label' => $LNG['rec_level'], 'items' => $buildList),
+				'research' => array('title' => $LNG['tech'][100], 'label' => $LNG['rec_level'], 'items' => $researchList),
+				'ships' => array('title' => $LNG['tech'][200], 'label' => $LNG['rec_count'], 'items' => $fleetList),
+				'defense' => array('title' => $LNG['tech'][400], 'label' => $LNG['rec_count'], 'items' => $defenseList),
+			),
 			'defenseList'	=> $defenseList,
 			'fleetList'		=> $fleetList,
 			'researchList'	=> $researchList,

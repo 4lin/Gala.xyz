@@ -15,15 +15,15 @@
 	<td><a href="game.php?page=battleHall&order=units&sort={if $sort == "ASC"}DESC{else}ASC{/if}"{if $order == "units"} style="font-weight:bold;"{/if}>{$LNG.tkb_units}</a></td>
 </tr>
 {foreach $TopKBList as $row}
-    <tr class="day{floor($row.date / 86400)} week{floor($row.date / 604800)}">
+    <tr class="day{floor($row.time / 86400)} week{floor($row.time / 604800)}">
         <td>{$row@iteration}</td>
         <td><a href="game.php?page=raport&amp;mode=battlehall&amp;raport={$row.rid}" target="_blank">
         {if $row.result == "a"}
-        <span style="color:#00FF00">{$row.attacker}</span> VS <span style="color:#FF0000">{$row.defender}</span>
+        <span style="color:#00FF00">{$row.attacker|escape:'html'}</span> VS <span style="color:#FF0000">{$row.defender|escape:'html'}</span>
         {elseif $row.result == "r"}
-        <span style="color:#FF0000">{$row.attacker}</span> VS <span style="color:#00FF00">{$row.defender}</span>
+        <span style="color:#FF0000">{$row.attacker|escape:'html'}</span> VS <span style="color:#00FF00">{$row.defender|escape:'html'}</span>
         {else}
-        {$row.attacker} VS {$row.defender}
+        {$row.attacker|escape:'html'} VS {$row.defender|escape:'html'}
         {/if}
         </a></td>
         <td>{$row.date}</td>

@@ -154,7 +154,7 @@ class Language implements ArrayAccess {
 	
 	/** ArrayAccess Functions **/
 	
-    public function offsetSet($offset, $value) {
+    public function offsetSet($offset, $value): void {
         if (is_null($offset)) {
             $this->container[] = $value;
         } else {
@@ -162,14 +162,16 @@ class Language implements ArrayAccess {
         }
     }
 	
-    public function offsetExists($offset) {
+    public function offsetExists($offset): bool {
         return isset($this->container[$offset]);
     }
 	
-    public function offsetUnset($offset) {
+    public function offsetUnset($offset): void {
         unset($this->container[$offset]);
     }
 	
+    // Keep PHP 7.2 support until the runtime migration is complete.
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset) {
         return isset($this->container[$offset]) ? $this->container[$offset] : $offset;
     }

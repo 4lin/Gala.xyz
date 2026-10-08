@@ -97,6 +97,11 @@
                                     </div>
                                     <div id="bx" class="z" hidden></div>
                                     <select id="auftr" hidden aria-hidden="true"><option></option></select>
+                                    <ul class="shipyard-visible-queue">
+                                    {foreach $BuildList.Queue as $entry}{if !$entry@first}
+                                        <li><img src="{$dpath}buildings/{$entry[3]}.png" alt="{$entry[0]|escape:'html'}"><span><strong>{$entry[1]|number}</strong> {$entry[0]|escape:'html'}</span></li>
+                                    {/if}{/foreach}
+                                    </ul>
                                     <span id="timeleft" hidden></span>
 										{else}
 										{if $mode == "fleet"}{$LNG.ov_hangar}{else}{$LNG.ov_defenses}{/if}

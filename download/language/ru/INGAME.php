@@ -1127,3 +1127,8 @@ $LNG['lo_logout']                         = 'Сессия завершена.';
 $LNG['lo_redirect']                       = 'Перенаправление';
 $LNG['lo_notify']                         = 'Вы будете перенаправлены через <span id="seconds">5</span> секунд';
 $LNG['lo_continue']                       = 'Нажмите здесь, если не хотите ждать';
+
+// Header message counters.
+$LNG['mg_header_total'] = 'Полученные сообщения';
+$LNG['mg_header_unread'] = 'Непрочитанные сообщения';
+

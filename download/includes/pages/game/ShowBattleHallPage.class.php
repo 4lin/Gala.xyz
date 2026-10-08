@@ -46,15 +46,15 @@ class ShowBattleHallPage extends AbstractGamePage
 		$db = Database::get();
 		$sql = "SELECT *, (
 			SELECT DISTINCT
-			IF(%%TOPKB_USERS%%.username = '', GROUP_CONCAT(%%USERS%%.username SEPARATOR ' & '), GROUP_CONCAT(%%TOPKB_USERS%%.username SEPARATOR ' & '))
+			GROUP_CONCAT(COALESCE(NULLIF(%%TOPKB_USERS%%.username, ''), %%USERS%%.username) SEPARATOR ' & ')
 			FROM %%TOPKB_USERS%%
 			LEFT JOIN %%USERS%% ON uid = %%USERS%%.id
 			WHERE %%TOPKB_USERS%%.rid = %%TOPKB%%.rid AND role = 1
 		) as attacker,
 		(
 			SELECT DISTINCT
-			IF(%%TOPKB_USERS%%.username = '', GROUP_CONCAT(%%USERS%%.username SEPARATOR ' & '), GROUP_CONCAT(%%TOPKB_USERS%%.username SEPARATOR ' & '))
-			FROM %%TOPKB_USERS%% INNER JOIN %%USERS%% ON uid = id
+			GROUP_CONCAT(COALESCE(NULLIF(%%TOPKB_USERS%%.username, ''), %%USERS%%.username) SEPARATOR ' & ')
+			FROM %%TOPKB_USERS%% LEFT JOIN %%USERS%% ON uid = id
 			WHERE %%TOPKB_USERS%%.rid = %%TOPKB%%.`rid` AND `role` = 2
 		) as defender
 		FROM %%TOPKB%% WHERE universe = :universe ORDER BY ".$key." LIMIT 100;";

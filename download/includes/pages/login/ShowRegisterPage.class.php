@@ -46,6 +46,10 @@ class ShowRegisterPage extends AbstractLoginPage
 		else
 		{
 			$externalAuth['method']		= strtolower(str_replace(array('_', '\\', '/', '.', "\0"), '', $externalAuth['method']));
+			if($externalAuth['method'] === 'openid') {
+				$externalAuth['method'] = '';
+				$externalAuth['account'] = 0;
+			}
 		}
 		
 		if(!empty($externalAuth['account']) && file_exists('includes/extauth/'.$externalAuth['method'].'.class.php'))
@@ -131,6 +135,10 @@ class ShowRegisterPage extends AbstractLoginPage
 		{
 			$externalAuthUID	= $externalAuth['account'];
 			$externalAuthMethod	= strtolower(str_replace(array('_', '\\', '/', '.', "\0"), '', $externalAuth['method']));
+			if($externalAuthMethod === 'openid') {
+				$externalAuthMethod = '';
+				$externalAuthUID = 0;
+			}
 		}
 		
 		$errors 	= array();

@@ -1127,3 +1127,8 @@ $LNG['lo_notify']                      		= 'Seras redireccionado en <span id="se
 $LNG['lo_continue']							= 'Pulsa aquí si no redirecciona tu navegador.';
 // Translated into Spanish by Angelus_ira . All rights reversed (C) 2011
 // Last revision by alindom (20.04.2018)
+
+// Header message counters.
+$LNG['mg_header_total'] = 'Mensajes recibidos';
+$LNG['mg_header_unread'] = 'Mensajes no leídos';
+

@@ -11,7 +11,7 @@ function check(){
 	$("#wait:hidden").removeAttr('style').hide().fadeIn();
 	$.post('game.php?page=battleSimulator&mode=send', $('#form').serialize(), function(data){
 		try{ 
-			data	= $.parseJSON(data);
+			data	= JSON.parse(data);
 			kb.focus();
 			kb.location.href = 'CombatReport.php?raport='+data;
 		} catch(e) {

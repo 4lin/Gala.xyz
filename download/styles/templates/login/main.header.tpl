@@ -32,9 +32,9 @@
 	<script src="scripts/base/html5.js"></script>
 	<![endif]-->
 	<script src="scripts/login/modernizr.custom.86080.js"></script>
-	<script src="scripts/base/jquery.js?v=3.7.1"></script>
-	<script src="scripts/base/jquery.cookie.js?v={$REV}"></script>
-	<script src="scripts/base/jquery.fancybox.js?v={$REV}"></script>
+	<script src="scripts/base/jquery.js?v=4.0.0"></script>
+	<script src="scripts/base/jquery.cookie.js?v={$REV}-jq4"></script>
+	<script src="scripts/base/jquery.fancybox.js?v={$REV}-jq4"></script>
 	<script src="scripts/login/main.js"></script>
 
 	<script>
@@ -52,7 +52,7 @@
 
 	{block name="script"}{/block}	
 </head>
-<body id="{$smarty.get.page|htmlspecialchars|default:'overview'}" class="{$bodyclass}">
+<body id="{$smarty.get.page|default:'overview'|htmlspecialchars}" class="{$bodyclass}">
 	<div id="loadingImg">Loading page please wait...</div>
 		<div id="page">
 			<div class="container">

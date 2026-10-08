@@ -193,9 +193,9 @@ function pretty_time($seconds)
 	global $LNG;
 	
 	$day	= floor($seconds / 86400);
-	$hour	= floor($seconds / 3600 % 24);
-	$minute	= floor($seconds / 60 % 60);
-	$second	= floor($seconds % 60);
+	$hour	= (int) ($seconds / 3600) % 24;
+	$minute	= (int) ($seconds / 60) % 60;
+	$second	= (int) $seconds % 60;
 
 	$time  = '';
 
@@ -213,8 +213,8 @@ function pretty_time($seconds)
 function pretty_fly_time($seconds)
 {
 	$hour	= floor($seconds / 3600);
-	$minute	= floor($seconds / 60 % 60);
-	$second	= floor($seconds % 60);
+	$minute	= (int) ($seconds / 60) % 60;
+	$second	= (int) $seconds % 60;
 
 	return sprintf('%02d:%02d:%02d', $hour, $minute, $second);
 }
@@ -310,14 +310,7 @@ function shortly_number($number, $decial = NULL)
     $unit	= array("", "K", "M", "B", "T", "Q", "Q+", "S", "S+", "O", "N");
 	$key	= 0;
 	
-	if($number >= 1000000) {
-		++$key;
-		while($number >= 1000000)
-		{
-			++$key;
-			$number = $number / 1000000;
-		}
-	} elseif($number >= 1000) {
+	while($number >= 1000 && $key < count($unit) - 1) {
 		++$key;
 		$number = $number / 1000;
 	}
@@ -468,9 +461,11 @@ function exceptionHandler($exception)
 		E_USER_ERROR		=> 'USER ERROR',
 		E_USER_WARNING		=> 'USER WARNING',
 		E_USER_NOTICE		=> 'USER NOTICE',
-		E_STRICT			=> 'STRICT NOTICE',
 		E_RECOVERABLE_ERROR	=> 'RECOVERABLE ERROR'
 	);
+	if (PHP_VERSION_ID < 80400) {
+		$errorType[E_STRICT] = 'STRICT NOTICE';
+	}
 	
 	if(!isset($errorType[$errno])){
 		$errorType[$errno] = $errno;
@@ -486,14 +481,14 @@ function exceptionHandler($exception)
 	}
 	$gameName	= '-';
 	
-	if(MODE !== 'INSTALL')
+	if(MODE !== 'INSTALL' && class_exists('Config', false))
 	{
 		try
 		{
 			$config		= Config::get();
 			$gameName	= $config->game_name;
 			$VERSION	= $config->VERSION;
-		} catch(ErrorException $e) {
+		} catch(Throwable $e) {
 		}
 	}
 	

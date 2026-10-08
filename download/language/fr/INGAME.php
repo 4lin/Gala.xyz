@@ -1163,3 +1163,8 @@ $LNG['lo_redirect']						= 'avant';
 $LNG['lo_notify']						= 'Vous serez redirigé dans <span id="seconds"> 5 </ span> secondes';
 $LNG['lo_continue']						= 'Cliquez ici pour être redirigé immédiatement.';
 ?>
+
+// Header message counters.
+$LNG['mg_header_total'] = 'Messages reçus';
+$LNG['mg_header_unread'] = 'Messages non lus';
+

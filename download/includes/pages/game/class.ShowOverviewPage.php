@@ -37,6 +37,7 @@ class ShowOverviewPage extends AbstractPage
 	
 	private function GetTeamspeakData()
 	{
+		return false;
 		global $CONF, $USER, $LNG;
 		if (Config::get('ts_modon') == 0)
 		{

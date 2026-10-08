@@ -4,7 +4,7 @@ $(function() {
 
 function checkrename()
 {
-	if($.trim($('#name').val()) == '') {
+	if(String(($('#name').val()) ?? '').trim() == '') {
 		return false;
 	} else {
 		$.getJSON('game.php?page=overview&mode=rename&name='+$('#name').val(), function(response){
@@ -29,4 +29,18 @@ function checkcancel()
 			}
 		}, "json");
 	}
+}
+
+function toggleReferralPanel(event)
+{
+    if (event) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+    }
+    var panel = document.getElementById('overviewReferralPanel');
+    var toggle = document.querySelector('.referral-toggle');
+    if (!panel) return false;
+    panel.hidden = !panel.hidden;
+    if (toggle) toggle.setAttribute('aria-expanded', panel.hidden ? 'false' : 'true');
+    return false;
 }

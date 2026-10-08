@@ -56,6 +56,17 @@ function BuildlistShipyard() {
 }
 
 function ShipyardList() {
+    var queue = $('.shipyard-visible-queue').empty();
+    var imageRoot = $('#defense-current-build').attr('data-image-root');
+    for (var index = 1; index < Shipyard.length; index++) {
+        var entry = Shipyard[index];
+        var row = $('<li>');
+        $('<img>').attr({src: imageRoot + entry[3] + '.png', alt: entry[0]}).appendTo(row);
+        var label = $('<span>').appendTo(row);
+        $('<strong>').text(NumberGetHumanReadable(entry[1])).appendTo(label);
+        label.append(document.createTextNode(' ' + entry[0]));
+        row.appendTo(queue);
+    }
 	while (document.getElementById('auftr').length > 0)
 		document.getElementById('auftr').options[document.getElementById('auftr').length - 1] = null;
 

@@ -228,7 +228,7 @@
             }
 
             function trimAndGetNodeText(config, node) {
-                return $.trim(getElementText(config, node));
+                return String(getElementText(config, node) ?? '').trim();
             }
 
             function getParserById(name) {
@@ -855,7 +855,7 @@
             };
             this.isDigit = function (s, config) {
                 // replace all an wanted chars and match.
-                return /^[-+]?\d*$/.test($.trim(s.replace(/[,.']/g, '')));
+                return /^[-+]?\d*$/.test(s.replace(/[,.']/g, '').trim());
             };
             this.clearTableBody = function (table) {
                 if (!!document.documentMode) {
@@ -885,7 +885,7 @@
         is: function (s) {
             return true;
         }, format: function (s) {
-            return $.trim(s.toLocaleLowerCase());
+            return s.toLocaleLowerCase().trim();
         }, type: "text"
     });
 
@@ -933,7 +933,7 @@
         is: function (s) {
             return /^(https?|ftp|file):\/\/$/.test(s);
         }, format: function (s) {
-            return jQuery.trim(s.replace(new RegExp(/(https?|ftp|file):\/\//), ''));
+            return s.replace(new RegExp(/(https?|ftp|file):\/\//), '').trim();
         }, type: "text"
     });
 
@@ -950,7 +950,7 @@
     ts.addParser({
         id: "percent",
         is: function (s) {
-            return /\%$/.test($.trim(s));
+            return /\%$/.test(s.trim());
         }, format: function (s) {
             return $.tablesorter.formatFloat(s.replace(new RegExp(/%/g), ""));
         }, type: "numeric"

@@ -262,9 +262,18 @@ class ShowFleetStep1Page extends AbstractGamePage
                 ':targetType' => (($targetPlanetType == 2) ? 1 : $targetPlanetType),
             ));
 
-            if ($targetPlanetType == 3 && !isset($planetData))
+            if (empty($planetData))
 			{
-				$this->sendJSON($LNG['fl_error_no_moon']);
+				if ($targetPlanetType == 3) {
+					$this->sendJSON($LNG['fl_error_no_moon']);
+				} elseif ($targetPlanetType == 2) {
+					$this->sendJSON($LNG['fl_error_empty_derbis']);
+				} else {
+					// An empty planet position can be selected for colonization.
+					// FleetStep2 and FleetStep3 validate the ships and mission.
+					$this->sendJSON('OK');
+				}
+				return;
 			}
 
 			if ($targetPlanetType != 2 && $planetData['urlaubs_modus'])

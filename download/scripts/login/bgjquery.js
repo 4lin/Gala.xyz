@@ -1,1 +1,1 @@
-/* Legacy duplicate removed. Login loads scripts/base/jquery.js (3.7.1). */
+/* Legacy duplicate removed. Login loads scripts/base/jquery.js (4.0.0). */

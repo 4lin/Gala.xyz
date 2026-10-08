@@ -1180,3 +1180,8 @@ $LNG['lo_continue']							= 'Klicken Sie hier, um nicht zu warten';
 
 // Translated into German by Jan . All rights reversed (C) 2011
 
+
+// Header message counters.
+$LNG['mg_header_total'] = 'Empfangene Nachrichten';
+$LNG['mg_header_unread'] = 'Ungelesene Nachrichten';
+

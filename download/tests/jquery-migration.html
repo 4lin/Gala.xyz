@@ -3,12 +3,17 @@
 <meta charset="utf-8">
 <title>jQuery migration regression</title>
 <link rel="stylesheet" href="../styles/resource/css/base/jquery.fancybox.css">
-<script src="../scripts/base/jquery.js?v=3.7.1"></script>
-<script src="../scripts/base/jquery.ui.js?v=1.13.3"></script>
+<script>var ogame={};var migrationErrors=[];window.addEventListener("error",function(e){migrationErrors.push(e.message);});</script>
+<script src="../scripts/base/jquery.js?v=4.0.0"></script>
+<script src="../scripts/base/jquery.ui.js?v=1.14.2"></script>
 <script src="../scripts/base/jquery.fancybox.js"></script>
 <script src="../scripts/base/jquery.tablesorter.js"></script>
 <script src="../scripts/base/jquery.validationEngine.js"></script>
 <script src="../scripts/l18n/validationEngine/jquery.validationEngine-en.js"></script>
+<script src="../scripts/base/jquery.cookie.js"></script>
+<script src="../scripts/base/jquery.autosize-min.js"></script>
+<script src="../styles/resource/js/tooltipster.bundle.min.js"></script>
+<script src="../scripts/game/navigation.js"></script>
 <button id="run" type="button">Run isolated validation tests</button>
 <pre id="results">Not run</pre>
 <div id="fixture"></div>
@@ -21,7 +26,29 @@ $(function () {
             results.push('PASS ' + name);
         }
         try {
-            check($.fn.jquery === '3.7.1', 'jQuery 3.7.1 loaded');
+            check($.fn.jquery === '4.0.0', 'jQuery 4.0.0 loaded');
+            check($.ui.version === '1.14.2', 'jQuery UI 1.14.2 loaded');
+            check(migrationErrors.length===0,'plugin scripts load without errors: '+migrationErrors.join('; '));
+            check(typeof initEmpireEquipment==='function','legacy navigation definitions loaded');
+            check(typeof $.trim === 'undefined' && typeof $.isFunction === 'undefined', 'no removed API shims');
+            $.cookie('gala-migration-fixture', 'round-trip', {path:'/tests'});
+            check($.cookie('gala-migration-fixture') === 'round-trip', 'cookie round trip');
+            $.cookie('gala-migration-fixture', null, {path:'/tests'});
+            var textarea=$('<textarea>Line one</textarea>').appendTo('#fixture').autosize();
+            check(textarea.data('mirror') && textarea.height()>0, 'autosize initializes');
+            textarea.val('One\nTwo\nThree').trigger('autosize');
+            check(textarea.height()>0, 'autosize updates');
+            textarea.data('mirror').remove();textarea.remove();
+            var tip=$('<span title="Fixture tooltip">Fixture</span>').appendTo('#fixture');
+            tip.tooltipster({animationDuration:0});tip.tooltipster('open');
+            check($('.tooltipster-content').text().includes('Fixture tooltip'), 'Tooltipster opens');
+            tip.tooltipster('close').tooltipster('destroy');tip.remove();
+            var slider=$('<div></div>').appendTo('#fixture').slider({value:35});
+            check(slider.slider('value')===35,'jQuery UI slider');slider.slider('destroy').remove();
+            var dialog=$('<div>Fixture dialog</div>').appendTo('#fixture').dialog({autoOpen:false});
+            dialog.dialog('open');check(dialog.dialog('isOpen'),'jQuery UI dialog');dialog.dialog('destroy').remove();
+            var response=await $.ajax({url:'jquery-migration.html',dataType:'html'});
+            check(response.includes('jQuery migration regression'),'AJAX HTML GET');
             var source = JSON.parse('{"__proto__":{"migrationPolluted":true}}');
             $.extend(true, {}, source);
             check(({}).migrationPolluted === undefined, 'prototype pollution blocked');

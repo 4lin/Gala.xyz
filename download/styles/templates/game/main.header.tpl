@@ -10,9 +10,15 @@
 <head>
 	<title>{block name="title"} - {$uni_name} - {$game_name}{/block}</title>
 
-		<script type='text/javascript' src='/scripts/game/inventory.js'></script>
+		<script src="/scripts/base/jquery.js?v=4.0.0"></script>
+        <script src="/scripts/base/jquery.ui.js?v=1.14.2"></script>
 			<script type="text/javascript">
 				var inventoryObj;
+                // The legacy navigation plugin registers modules on this namespace.
+                window.ogame = window.ogame || {};
+                if (typeof window.isMobile === "undefined") {
+                    window.isMobile = window.matchMedia("(pointer: coarse)").matches;
+                }
 			</script>
 			
 			<script type="text/javascript">
@@ -25,7 +31,7 @@
 					}
 				}, 1);
 			</script>
-				<script type='text/javascript' src='/scripts/game/navigation.js?v={$REV}'></script>
+				<script type='text/javascript' src='/scripts/game/navigation.js?v={$REV}-jq4-auth1'></script>
 
 	<meta name="generator" content="Gala.xyz {$VERSION}">
 
@@ -40,8 +46,8 @@
 	<link rel="stylesheet" type="text/css" href="/styles/resource/css/ingame/tooltipster.bundle.min.css" />
 	<link rel="stylesheet" type="text/css" href="/styles/resource/css/ingame/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-punk.min.css" />
 	<link rel="stylesheet" type="text/css" href="/styles/resource/css/base/validationEngine.jquery.css?v={$REV}">
-	<link rel="stylesheet" type="text/css" href="{$dpath}formate.css?v={$REV}">
-	<link rel="stylesheet" type="text/css" href="styles/resource/css/ingame/layout-fixes.css?v={$REV}-thumbnail-tips1">
+	<link rel="stylesheet" type="text/css" href="{$dpath}formate.css?v={$REV}-custom-ships2">
+	<link rel="stylesheet" type="text/css" href="styles/resource/css/ingame/layout-fixes.css?v={$REV}-original-c5-style12">
 	<link rel="stylesheet" type="text/css" href="styles/resource/css/ingame/technology-atlas.css?v={$REV}">
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 	<script src="scripts/game/clock.js?v=2"></script>
@@ -68,13 +74,11 @@
 		serverTime.setTime(startTime + GalaClock.elapsed());
 	}, 1000);
 	</script>
-	<script type="text/javascript" src="/scripts/base/jquery.js?v=3.7.1"></script>
-	<script type="text/javascript" src="/scripts/base/jquery.ui.js?v=1.13.3"></script>
-	<script type="text/javascript" src="/scripts/base/jquery.cookie.js?v={$REV}"></script>
-	<script type="text/javascript" src="/scripts/base/jquery.fancybox.js?v={$REV}"></script>
+	<script type="text/javascript" src="/scripts/base/jquery.cookie.js?v={$REV}-jq4"></script>
+	<script type="text/javascript" src="/scripts/base/jquery.fancybox.js?v={$REV}-jq4"></script>
 	<script type="text/javascript" src="/scripts/base/jquery.validationEngine.js?v={$REV}"></script>
 	<script type="text/javascript" src="/scripts/l18n/validationEngine/jquery.validationEngine-{$lang}.js?v={$REV}"></script>
-	<script type="text/javascript" src="/scripts/game/base.js?v={$REV}-clock1"></script>
+	<script type="text/javascript" src="/scripts/game/base.js?v={$REV}-short-number3"></script>
 	<script type="text/javascript" src="/scripts/game/test.js?v={$REV}"></script>
 	<script type="text/javascript" src="/styles/resource/js/tooltipster.bundle.min.js"></script>
 
@@ -132,7 +136,7 @@
     </script>
 
 	{foreach item=scriptname from=$scripts}
-	<script type="text/javascript" src="./scripts/game/{$scriptname}.js?v={$REV}-clock1"></script>
+	<script type="text/javascript" src="./scripts/game/{$scriptname}.js?v={$REV}-overview-typing4"></script>
 	{/foreach}
     {if in_array($smarty.get.page|default:'overview', array('buildings', 'research', 'shipyard'))}
     <link rel="stylesheet" href="styles/resource/css/ingame/research-panel.css?v=5">
@@ -150,5 +154,5 @@
 	});
 	</script>
 </head>
-<body id="{$smarty.get.page|htmlspecialchars|default:'overview'}" class="{$bodyclass}">
+<body id="{$smarty.get.page|default:'overview'|htmlspecialchars}" class="{$bodyclass}">
 	

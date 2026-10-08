@@ -17,6 +17,8 @@
 
 class ResourceUpdate
 {
+	public $Build;
+	public $Tech;
 
 	/**
 	 * reference of the config object

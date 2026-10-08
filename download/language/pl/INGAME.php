@@ -1194,3 +1194,8 @@ $LNG['lo_continue']						= 'Kliknij tutaj, jeśli nie chcesz zostać przniesiony
 
 
 // Translated into Polish by Sirgomo . All rights reversed (C) 2012
+
+// Header message counters.
+$LNG['mg_header_total'] = 'Otrzymane wiadomości';
+$LNG['mg_header_unread'] = 'Nieprzeczytane wiadomości';
+

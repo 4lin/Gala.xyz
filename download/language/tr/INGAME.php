@@ -1193,3 +1193,8 @@ $LNG['lo_continue']							= 'Beklemek istemiyorsaniz tiklayiniz';
 
 //----------------------------------------------------------------------------//
 
+
+// Header message counters.
+$LNG['mg_header_total'] = 'Alınan mesajlar';
+$LNG['mg_header_unread'] = 'Okunmamış mesajlar';
+

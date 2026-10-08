@@ -28,6 +28,9 @@ class ShowExternalAuthPage extends AbstractLoginPage
 	{
 		$method			= HTTP::_GP('method', '');
 		$method			= strtolower(str_replace(array('_', '\\', '/', '.', "\0"), '', $method));
+		if($method === 'openid') {
+			$this->redirectTo('index.php?code=5');
+		}
 		$path			= 'includes/classes/extauth/'.$method.'.class.php';
 		
 		if(!file_exists($path)) {

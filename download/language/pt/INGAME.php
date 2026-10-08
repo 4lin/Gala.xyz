@@ -1184,3 +1184,8 @@ $LNG['lo_continue']							= 'Clica aqui para não esperar';
 
 
 // Translated into Portuguese by QwataKayean . All rights reversed (C) 2012
+
+// Header message counters.
+$LNG['mg_header_total'] = 'Mensagens recebidas';
+$LNG['mg_header_unread'] = 'Mensagens não lidas';
+

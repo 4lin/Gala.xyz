@@ -25,10 +25,16 @@
 	<div id="box">
 		<div id="info" class="header normal">
 			<div id="ovBlock">
+{if isModuleAvailable($smarty.const.MODULE_MESSAGES)}
+                        <div id="planet-message-bar" class="header-message-icons">
+                            <a class="header-message-icon messages tooltip" href="game.php?page=messages" title="{$LNG.mg_header_total|escape:'html'}" aria-label="{$LNG.mg_header_total|escape:'html'}">{nocache}<span class="message-count{if $total_messages == 0} noMessage{/if}" id="totalmesnum">{$total_messages}</span>{/nocache}</a>
+                            <a class="header-message-icon chat tooltip" href="game.php?page=messages" title="{$LNG.mg_header_unread|escape:'html'}" aria-label="{$LNG.mg_header_unread|escape:'html'}">{nocache}<span id="newmes"><span class="message-count{if $new_message == 0} noMessage{/if}" id="newmesnum">{$new_message}</span></span>{/nocache}</a>
+                        </div>
+                        {/if}
 				<div id="bar">
 					<ul>
-						<li id="playerName">admin</li>
-						{if isModuleAvailable($smarty.const.MODULE_MESSAGES)}<li><a href="game.php?page=messages">{$LNG.lm_messages}{nocache}{if $new_message > 0}<span id="newmes"> (<span id="newmesnum">{$new_message}</span>)</span>{/if}{/nocache}</a></li>{/if}
+						<li id="playerName">{if $isPlayerCardActive}<a href="game.php?page=playerCard&amp;id={$userID}" onclick="return Dialog.Playercard({$userID});"><img class="player-avatar" src="styles/resource/images/game/player-avatar.svg" width="20" height="20" alt=""> {$username|escape:'html'}</a>{else}<img class="player-avatar" src="styles/resource/images/game/player-avatar.svg" width="20" height="20" alt=""> {$username|escape:'html'}{/if}</li>
+						
 						{if isModuleAvailable($smarty.const.MODULE_STATISTICS)}<li><a href="game.php?page=statistics">{$LNG.lm_statistics}</a></li>{/if}
 						{if isModuleAvailable($smarty.const.MODULE_BUDDYLIST)}<li><a href="game.php?page=buddyList">{$LNG.lm_buddylist}</a></li>{/if}
 						{if isModuleAvailable($smarty.const.MODULE_SEARCH)}<li><a href="game.php?page=search">{$LNG.lm_search}</a></li>{/if}
@@ -89,7 +95,14 @@
 											<tr>
 												{foreach $resourceTable as $resourceID => $resourceData}
 												<td style="width:48px;height:32px;">
-													<img src="{$dpath}images/{$resourceData.name}.gif" class="tooltip" data-tooltip-content="{capture name=gameTooltip1}
+													<img src="{$dpath}images/{$resourceData.name}.gif" class="tooltip" data-resource-icon="{$resourceData.name|escape:'html'}" data-tooltip-content="{capture name=gameTooltip1}
+													{if isset($resourceData.production)}
+                                                <table>
+                                                    <tr><th colspan='2'>{$LNG.tech.$resourceID}</th></tr>
+                                                    <tr><td>{$LNG.bd_available}</td><td data-resource-current>{$resourceData.current|number}</td></tr>
+                                                    <tr><td>{$LNG.rs_storage_capacity}</td><td>{$resourceData.max|number}</td></tr>
+                                                </table>
+                                            {else}
 													<table>
 													<tr><th>{$LNG.tech.$resourceID}</th></tr>
 													<tr>
@@ -108,7 +121,7 @@
 													{/if}
 													</tr>
 													</table>
-													{/capture}{$smarty.capture.gameTooltip1|escape:'html'}" alt="">
+													{/if}{/capture}{$smarty.capture.gameTooltip1|escape:'html'}" alt="">
 												</td>
 												{/foreach}
 											</tr>
@@ -118,9 +131,9 @@
 												{foreach $resourceTable as $resourceID => $resourceData}
 												{if !isset($resourceData.current)}
 												{$resourceData.current = $resourceData.max + $resourceData.used}
-												<td class="res_current tooltip" data-tooltip-content="{capture name=gameTooltip2}{$resourceData.current|number}&nbsp;/&nbsp;{$resourceData.max|number}{/capture}{$smarty.capture.gameTooltip2|escape:'html'}"><span{if $resourceData.current < 0} style="color:red"{/if}>{shortly_number($resourceData.current)}&nbsp;/&nbsp;{shortly_number($resourceData.max)}</span></td>
+												<td class="res_current tooltip" data-tooltip-content="{capture name=gameTooltip2}<span>{$resourceData.current|number}&nbsp;/&nbsp;{$resourceData.max|number}</span>{/capture}{$smarty.capture.gameTooltip2|escape:'html'}"><span{if $resourceData.current < 0} style="color:red"{/if}>{shortly_number($resourceData.current)}&nbsp;/&nbsp;{shortly_number($resourceData.max)}</span></td>
 												{else}
-												<td class="res_current tooltip" id="current_{$resourceData.name}" data-real="{$resourceData.current}" data-tooltip-content="{capture name=gameTooltip3}{$resourceData.current|number}{/capture}{$smarty.capture.gameTooltip3|escape:'html'}">{shortly_number($resourceData.current)}</td>
+												<td class="res_current tooltip" id="current_{$resourceData.name}" data-real="{$resourceData.current}" data-tooltip-content="{capture name=gameTooltip3}<span>{$resourceData.current|number}</span>{/capture}{$smarty.capture.gameTooltip3|escape:'html'}">{shortly_number($resourceData.current)}</td>
 												{/if}
 												{/foreach}
 											</tr>
@@ -130,7 +143,7 @@
 												{if !isset($resourceData.current) || !isset($resourceData.max)}
 												<td>&nbsp;</td>
 												{else}
-												<td class="res_max tooltip" id="max_{$resourceData.name}" data-real="{$resourceData.max}" data-tooltip-content="{capture name=gameTooltip4}{$resourceData.max|number}{/capture}{$smarty.capture.gameTooltip4|escape:'html'}">{shortly_number($resourceData.max)}</td>
+												<td class="res_max tooltip" id="max_{$resourceData.name}" data-real="{$resourceData.max}" data-tooltip-content="{capture name=gameTooltip4}<span>{$resourceData.max|number}</span>{/capture}{$smarty.capture.gameTooltip4|escape:'html'}">{shortly_number($resourceData.max)}</td>
 												{/if}
 												{/foreach}
 											</tr>
@@ -140,7 +153,7 @@
 												{if !isset($resourceData.current)}
 												{$resourceData.current = $resourceData.max + $resourceData.used}
 									
-												<td class="res_current"><span{if $resourceData.current < 0} style="color:red"{/if}>{$resourceData.current|number}&nbsp;/&nbsp;{$resourceData.max|number}</span> </td>
+													<td class="res_current resource-energy"><span{if $resourceData.current < 0} style="color:red"{/if}>{$resourceData.current|number}</span><span>/ {$resourceData.max|number}</span></td>
 												{else}
 												<td class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.current|number}</td>
 												{/if}
@@ -174,7 +187,7 @@
         						});
 							</script>
         
-        					<script src="scripts/game/topnav.js?v=2"></script>
+        					<script src="scripts/game/topnav.js?v=5"></script>
         						{if $hasGate}<script src="scripts/game/gate.js"></script>{/if}
 						{/if}
 					</div><!-- header-->

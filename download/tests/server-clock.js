@@ -25,5 +25,7 @@ vm.runInContext(base.match(/function UhrzeitAnzeigen\(\)\s*\{[\s\S]*?\n\}/)[0],c
 c.serverTime.setTime(c.startTime+c.GalaClock.elapsed());c.UhrzeitAnzeigen();const first=shown;
 mono+=1000;c.serverTime.setTime(c.startTime+c.GalaClock.elapsed());c.UhrzeitAnzeigen();
 assert.equal(Number(shown)-Number(first),1000);
+delete c.serverTime;
+assert.doesNotThrow(()=>c.UhrzeitAnzeigen(), 'Non-game pages have no server clock');
 assert.ok(fs.readFileSync('styles/templates/game/main.topnav.tpl','utf8').includes('class="servertime"'));
 console.log('PASS: symmetric/asymmetric latency, processing removal, fractional epoch, initial navigation, delayed callback, visible clock');

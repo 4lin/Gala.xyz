@@ -92,7 +92,7 @@
 	<td>&nbsp;</td>
 </tr><tr>
 	<td>{$LNG.se_smtp_pass}</td>
-	<td><input name="smtp_pass" size="20" value="{$smtp_pass}" type="password" autocomplete="off"></td>
+	<td><input name="smtp_pass" size="20" value="{$smtp_pass}" type="password" autocomplete="new-password"></td>
 	<td>&nbsp;</td>
 </tr><tr>
 	<th colspan="2">{$LNG.se_google}</th><th>&nbsp;</th>

@@ -7,9 +7,9 @@
 		</tr>
 		<tr>
 			<td>
-				<label for="who">{$LNG.st_show}</label> <select name="who" id="who" onchange="$('#stats').submit();">{html_options options=$Selectors.who selected=$who}</select>
-				<label for="type">{$LNG.st_per}</label> <select name="type" id="type" onchange="$('#stats').submit();">{html_options options=$Selectors.type selected=$type}</select>
-				<label for="range">{$LNG.st_in_the_positions}</label> <select name="range" id="range" onchange="$('#stats').submit();">{html_options options=$Selectors.range selected=$range}</select>
+				<label for="who">{$LNG.st_show}</label> <select name="who" id="who" onchange="this.form.submit();">{html_options options=$Selectors.who selected=$who}</select>
+				<label for="type">{$LNG.st_per}</label> <select name="type" id="type" onchange="this.form.submit();">{html_options options=$Selectors.type selected=$type}</select>
+				<label for="range">{$LNG.st_in_the_positions}</label> <select name="range" id="range" onchange="this.form.submit();">{html_options options=$Selectors.range selected=$range}</select>
 			</td>
 		</tr>
 	</table>

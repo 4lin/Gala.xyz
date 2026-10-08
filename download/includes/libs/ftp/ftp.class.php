@@ -830,23 +830,23 @@ class FTP
 	{
 		$oct = 0;
 		// Owner
-		if ($cm{1}      == 'r') $oct += 0400;
-		if ($cm{2}      == 'w') $oct += 0200;
-		if ($cm{3}      == 'x') $oct += 0100;
-		else if ($cm{3} == 's') $oct += 04100;
-		else if ($cm{3} == 'S') $oct += 04000;
+		if ($cm[1]      == 'r') $oct += 0400;
+		if ($cm[2]      == 'w') $oct += 0200;
+		if ($cm[3]      == 'x') $oct += 0100;
+		else if ($cm[3] == 's') $oct += 04100;
+		else if ($cm[3] == 'S') $oct += 04000;
 		// Group
-		if ($cm{4}      == 'r') $oct += 040;
-		if ($cm{5}      == 'w') $oct += 020;
-		if ($cm{6}      == 'x') $oct += 010;
-		else if ($cm{6} == 's') $oct += 02010;
-		else if ($cm{6} == 'S') $oct += 02000;
+		if ($cm[4]      == 'r') $oct += 040;
+		if ($cm[5]      == 'w') $oct += 020;
+		if ($cm[6]      == 'x') $oct += 010;
+		else if ($cm[6] == 's') $oct += 02010;
+		else if ($cm[6] == 'S') $oct += 02000;
 		// Other
-		if ($cm{7}      == 'r') $oct += 04;
-		if ($cm{8}      == 'w') $oct += 02;
-		if ($cm{9}      == 'x') $oct += 01;
-		else if ($cm{9} == 't') $oct += 01001;
-		else if ($cm{9} == 'T') $oct += 01000;
+		if ($cm[7]      == 'r') $oct += 04;
+		if ($cm[8]      == 'w') $oct += 02;
+		if ($cm[9]      == 'x') $oct += 01;
+		else if ($cm[9] == 't') $oct += 01001;
+		else if ($cm[9] == 'T') $oct += 01000;
 		
 		return sprintf( '%04o', $oct );
 	}
@@ -871,7 +871,7 @@ class FTP
 				if ($fileinfo[8] != '.' &&
 					$fileinfo[8] != '..')
 				{
-					switch ($fileinfo[0]{0})
+					switch ($fileinfo[0][0])
 					{
 						case '-': $file['type'] = 'File'; break;
 						case 'd': $file['type'] = 'Dir'; break;

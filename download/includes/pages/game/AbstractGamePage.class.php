@@ -138,20 +138,26 @@ abstract class AbstractGamePage
 
 		$themeSettings	= $THEME->getStyleSettings();
 
+        $messageCounts = array('total' => 0, 'unread' => 0);
+        if (isModuleAvailable(MODULE_MESSAGES)) {
+            $messageCounts = Database::get()->selectSingle('SELECT COUNT(*) AS total, COALESCE(SUM(message_unread = 1), 0) AS unread FROM %%MESSAGES%% WHERE message_owner = :owner;', array(':owner' => $USER['id']));
+        }
+
 		$this->assign(array(
 			'username'			=> $USER['username'],
 			'Element'			=> $Element,
 			'PlanetSelect'		=> $PlanetSelect,
-			'new_message' 		=> $USER['messages'],
+			'new_message' 		=> $messageCounts['unread'],
+            'total_messages' => $messageCounts['total'],
 			'vacation'			=> $USER['urlaubs_modus'] ? _date($LNG['php_tdformat'], $USER['urlaubs_until'], $USER['timezone']) : false,
 			'delete'			=> $USER['db_deaktjava'] ? sprintf($LNG['tn_delete_mode'], _date($LNG['php_tdformat'], $USER['db_deaktjava'] + ($config->del_user_manually * 86400)), $USER['timezone']) : false,
 			'darkmatter'		=> $USER['darkmatter'],
 			'current_pid'		=> $PLANET['id'],
 			'image'				=> $PLANET['image'],
 			'resourceTable'		=> $resourceTable,
-			'shortlyNumber'		=> $themeSettings['TOPNAV_SHORTLY_NUMBER'],
+			'shortlyNumber'		=> true,
 			'closed'			=> !$config->game_disable,
-			'hasBoard'			=> filter_var($config->forum_url, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED),
+			'hasBoard'			=> filter_var($config->forum_url, FILTER_VALIDATE_URL),
 			'hasAdminAccess'	=> !empty(Session::load()->adminAccess),
 			'hasGate'			=> $PLANET[$resource[43]] > 0
 		));
@@ -246,10 +252,14 @@ abstract class AbstractGamePage
 			'basepath'		=> PROTOCOL.HTTP_HOST.HTTP_BASE,
 		));
 
+        // Clock samples must bypass Smarty output caching on every response.
+        $this->assign(array(
+            'serverRequestTimestamp' => defined('REQUEST_TIMESTAMP') ? REQUEST_TIMESTAMP : TIMESTAMP,
+            'serverRenderTimestamp' => microtime(true),
+        ));
+
 		$this->assign(array(
 			'LNG'			=> $LNG,
-			'serverRequestTimestamp' => defined('REQUEST_TIMESTAMP') ? REQUEST_TIMESTAMP : TIMESTAMP,
-            'serverRenderTimestamp' => microtime(true),
 			'servertime'	=> _date("M D d H:i:s", TIMESTAMP, $USER['timezone']),
 			'username'		=> $USER['username'],
 		), false);

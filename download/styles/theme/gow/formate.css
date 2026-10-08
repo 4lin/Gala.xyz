@@ -1300,17 +1300,17 @@ ul#shipyard div.shipyardimg {
 #shipyard .on > .tech215 > .shipyardimg {background-position: -1040px 0px}
 #shipyard .off > .tech215 > .shipyardimg {background-position: -1040px -80px}
 
-#shipyard .on > .tech216 > .shipyardimg {background-position: -1120px 0px}
-#shipyard .off > .tech216 > .shipyardimg {background-position: -1120px -80px}
+#shipyard .tech216 > .shipyardimg {background-image: url(buildings/216.png); background-position: center; background-size: cover}
+#shipyard .off > .tech216 > .shipyardimg {filter: grayscale(1) brightness(.6)}
 
-#shipyard .on > .tech217 > .shipyardimg {background-position: -1200px 0px}
-#shipyard .off > .tech217 > .shipyardimg {background-position: -1200px -80px}
+#shipyard .tech217 > .shipyardimg {background-image: url(buildings/217.png); background-position: center; background-size: cover}
+#shipyard .off > .tech217 > .shipyardimg {filter: grayscale(1) brightness(.6)}
 
-#shipyard .on > .tech218 > .shipyardimg {background-position: -1280px 0px}
-#shipyard .off > .tech218 > .shipyardimg {background-position: -1280px -80px}
+#shipyard .tech218 > .shipyardimg {background-image: url(buildings/218.png); background-position: center; background-size: cover}
+#shipyard .off > .tech218 > .shipyardimg {filter: grayscale(1) brightness(.6)}
 
-#shipyard .on > .tech219 > .shipyardimg {background-position: -1360px 0px}
-#shipyard .off > .tech219 > .shipyardimg {background-position: -1360px -80px}
+#shipyard .tech219 > .shipyardimg {background-image: url(buildings/219.png); background-position: center; background-size: cover}
+#shipyard .off > .tech219 > .shipyardimg {filter: grayscale(1) brightness(.6)}
 
 #shipyard .on > .tech220 > .shipyardimg {background-position: -1120px 0px}
 #shipyard .off > .tech220 > .shipyardimg {background-position: -1120px -160px}

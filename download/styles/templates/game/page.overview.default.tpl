@@ -14,13 +14,27 @@
                                             {$planetname}
                                         </span>
                                             <span class="edit tooltip" title="{$LNG.ov_planetmenu}"></span>
+
                                 </a>
+                                {if $ref_active}
+                                <a href="#" class="ref_info referral-toggle tooltip" title="{$LNG.ov_reflink|escape:'html'}" data-tooltip-content="{capture name=referralHint}<table>{foreach $RefLinks as $RefID => $RefLink}<tr><td>{$RefLink.username|escape:'html'}</td><td>{$RefLink.points|number} / {$ref_minpoints|number}</td></tr>{foreachelse}<tr><td>{$LNG.ov_noreflink}</td></tr>{/foreach}</table>{/capture}{$smarty.capture.referralHint|escape:'html'}" onclick="return toggleReferralPanel(event)" aria-controls="overviewReferralPanel" aria-expanded="false" aria-label="{$LNG.ov_reflink|escape:'html'}"></a>
+                                {/if}
                             </h2>
+                            {if $ref_active}
+                            <div id="overviewReferralPanel" role="dialog" aria-label="{$LNG.ov_reflink|escape:'html'}" hidden>
+                                <label for="referral">{$LNG.ov_reflink}</label>
+                                <input id="referral" type="text" value="{$path|escape:'html'}index.php?ref={$userid}" readonly onclick="this.select()">
+                            </div>
+                            {/if}
                             
                             <div id="moon" style="position: absolute;left: 30px;">
                                 {if $Moon}
                                     <a href="game.php?page=overview&amp;cp={$Moon.id}&amp;re=0" class="tooltip" title="{$Moon.name}">
                                         <img class="fade" src="styles/resource/images/game/external/lMgUNke.png" height="80" width="80" alt="{$Moon.name} ({$LNG.fcm_moon})">
+                                    </a><br />
+                                    {elseif $ParentPlanet}
+                                    <a href="game.php?page=overview&amp;cp={$ParentPlanet.id}&amp;re=0" class="tooltip overview-parent-planet" title="{$ParentPlanet.name|escape:'html'}">
+                                        <img class="fade" src="{$dpath}planets/small/s_{$ParentPlanet.image}.gif" height="80" width="80" alt="{$ParentPlanet.name|escape:'html'}">
                                     </a><br />
                                     {else}&nbsp;
                                 {/if}
@@ -77,57 +91,6 @@
                                         </tr>
                                         {/if}
 
-                                        {if !empty($chatOnline)}
-                                        <tr>
-                                            <td style="desc">
-                                                <span id="chatContentField">
-                                                    {$LNG.ov_chat_online}
-                                                </span>
-                                            </td>
-                                            
-                                            <td class="data">
-                                                <span id="chatContentField">
-                                                    {foreach $chatOnline as $Name}{if !$Name@first}|&nbsp;{/if}<a href="?page=chat">{$Name}</a>{/foreach}
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        {/if}
-
-                                        <tr>
-                                            <td style="desc">
-                                                <span id="adminField">
-                                                    Admins:
-                                                    {$LNG.ov_admins_online}
-                                                </span>
-                                            </td>
-                                            
-                                            <td class="data">
-                                                <span id="adminContentField">
-                                                    {foreach $AdminsOnline as $ID => $Name}{if !$Name@first}&nbsp;&bull;&nbsp;{/if}
-                                                    <a href="#" class="tooltip" data-tooltip-content="{capture name=gameTooltip14}{$LNG.mg_send_new}{/capture}{$smarty.capture.gameTooltip14|escape:'html'}" onclick="return Dialog.PM({$ID})">{$Name}</a>
-                                                    {foreachelse}None{$LNG.ov_no_admins_online}
-                                                    {/foreach}
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    
-                                        {if $teamspeakData !== false}
-                                        <tr>
-                                            <td style="desc">
-                                                <span id ="tSpeak">
-                                                    {$LNG.ov_teamspeak}
-                                                </span>
-                                            </td>
-                                            
-                                            <td class="data">
-                                                <span id="tSpeakContentField">
-                                                    {if $teamspeakData.error}{$teamspeakData.error}{else}
-                                                    <a href="{$teamspeakData.url}">{$LNG.ov_teamspeak_connect}</a> &bull; {$LNG.ov_teamspeak_online}: {$teamspeakData.current}/{$teamspeakData.max}
-                                                    {/if}
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        {/if}
                                         {if $is_news && !empty($news)}
                                         <tr class="overview-news-row"><td colspan="2">
                                             <div class="overview-news-ticker"><div class="overview-news-line">
@@ -148,36 +111,7 @@
                 <div id="overviewBottom">
 
 
-    {if $ref_active}
-    <table style="width:645px;">
-        <tr>
-            <th colspan="3">
-                <label for="referral">{$LNG.ov_reflink} <a href="#" class="ref_info tooltip" 
-data-tooltip-content="{capture name=gameTooltip15}<table>
-        {foreach $RefLinks as $RefID => $RefLink}
-        <tr>
-            <td colspan='2'>
-                <a href='#' onclick='return Dialog.Playercard({$RefID}, '{$RefLink.username}');'>{$RefLink.username}</a>
-            </td>
-            <td>{{$RefLink.points|number}} / {$ref_minpoints|number}
 
-        {foreachelse}
-        <tr>
-            <td>
-                {$LNG.ov_noreflink}
-            </td>
-        </tr>
-        {/foreach}
-                </table>{/capture}{$smarty.capture.gameTooltip15|escape:'html'}"></a></label>
-            </th>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input id="referral" type="text" value="{$path}index.php?ref={$userid}" readonly="readonly" style="width:645px;" />
-            </td>
-        </tr>
-    </table>
-    {/if}
 
                     <div class="content-box-s">
                         <div class="header">

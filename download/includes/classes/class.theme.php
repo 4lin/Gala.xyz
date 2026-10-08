@@ -18,11 +18,14 @@
 class Theme
 {
 	static public $Themes;
+	private $skininfo = array();
+	private $skin;
+	private $template;
+	private $customtpls = array();
 	private $THEMESETTINGS;
 	
 	function __construct()
 	{	
-		$this->skininfo = array();
 		$this->skin		= isset($_SESSION['dpath']) ? $_SESSION['dpath'] : DEFAULT_THEME;
 		$this->setUserTheme($this->skin);
 	}
@@ -67,6 +70,7 @@ class Theme
 	}
 	
 	function setStyleSettings() {
+		$THEMESETTINGS = array();
 		if(file_exists(ROOT_PATH.'styles/theme/'.$this->skin.'/settings.cfg')) {
 			require(ROOT_PATH.'styles/theme/'.$this->skin.'/settings.cfg');
 		}

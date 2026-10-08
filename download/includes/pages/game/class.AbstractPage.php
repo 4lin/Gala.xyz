@@ -313,7 +313,7 @@ abstract class AbstractPage
 
 			'closed'			=> !Config::get('game_disable'),
 
-			'hasBoard'			=> filter_var(Config::get('forum_url'), FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED),
+			'hasBoard'			=> filter_var(Config::get('forum_url'), FILTER_VALIDATE_URL),
 
 			'hasAdminAccess'	=> isset($_SESSION['admin_login']),
 

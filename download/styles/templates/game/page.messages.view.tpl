@@ -1,10 +1,9 @@
 {block name="content"}
 <form action="game.php?page=messages" method="post">
 <input type="hidden" name="mode" value="action">
-<input type="hidden" name="ajax" value="1">
 <input type="hidden" name="messcat" value="{$MessID}">
 <input type="hidden" name="side" value="{$page}">
-<table id="messagestable" style="width:760px;">
+<table id="messagestable" style="width:100%;table-layout:fixed;" data-category="{$MessID}">
 	<tr>
 		<th colspan="4">{$LNG.mg_message_title}</th>
 	</tr>
@@ -42,7 +41,7 @@
 		<td>{$Message.from}</td>
 		<td>{$Message.subject}
 		{if $Message.type == 1 && $MessID != 999}
-		<a href="#" onclick="return Dialog.PM({$Message.sender}, Message.CreateAnswer('{$Message.subject}'));" title="{$LNG.mg_answer_to} {strip_tags($Message.from)}"><img src="{$dpath}img/m.gif" border="0"></a>
+		<a href="#" data-subject="{$Message.subject|escape:'html'}" onclick="return Dialog.PM({$Message.sender}, Message.CreateAnswer(this.getAttribute('data-subject')));" title="{$LNG.mg_answer_to} {$Message.from|strip_tags|escape:'html'}"><img src="{$dpath}img/m.gif" border="0"></a>
 		{/if}
 		</td>
 	</tr>

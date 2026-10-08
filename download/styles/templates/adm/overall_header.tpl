@@ -47,10 +47,10 @@
 		editlist.focus();
 	}
 	</script> 
-	<script type="text/javascript" src="./scripts/base/jquery.js?v=3.7.1"></script>
-	<script type="text/javascript" src="./scripts/base/jquery.ui.js?v=1.13.3"></script>
-	<script type="text/javascript" src="./scripts/base/jquery.cookie.js?v={$REV}"></script>
-	<script type="text/javascript" src="./scripts/base/jquery.fancybox.js?v={$REV}"></script>
+	<script type="text/javascript" src="./scripts/base/jquery.js?v=4.0.0"></script>
+	<script type="text/javascript" src="./scripts/base/jquery.ui.js?v=1.14.2"></script>
+	<script type="text/javascript" src="./scripts/base/jquery.cookie.js?v={$REV}-jq4"></script>
+	<script type="text/javascript" src="./scripts/base/jquery.fancybox.js?v={$REV}-jq4"></script>
 	<script type="text/javascript" src="./scripts/base/jquery.validationEngine.js?v={$REV}"></script>
 	<script type="text/javascript" src="./scripts/l18n/validationEngine/jquery.validationEngine-{$lang}.js?v={$REV}"></script>
 	<script type="text/javascript" src="./scripts/base/tooltip.js?v={$REV}"></script>
@@ -60,7 +60,7 @@
     <script src="./scripts/admin/ui-fixes.js?v={$REV}"></script>
 	<script type="text/javascript" src="./scripts/game/base.js?v={$REV}"></script>
 	{foreach item=scriptname from=$scripts}
-	<script type="text/javascript" src="./scripts/game/{$scriptname}.js?v={$REV}"></script>
+	<script type="text/javascript" src="./scripts/game/{$scriptname}.js?v={$REV}-jq4"></script>
 	{/foreach}
 	<script type="text/javascript">
 	$(function() {
@@ -68,5 +68,5 @@
 	});
 	</script>
 </head>
-<body id="{$smarty.get.page|htmlspecialchars|default:'overview'}" class="{$bodyclass}">
+<body id="{$smarty.get.page|default:'overview'|htmlspecialchars}" class="{$bodyclass}">
 	<div id="tooltip" class="tip"></div>

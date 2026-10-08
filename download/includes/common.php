@@ -43,7 +43,7 @@ if (function_exists('mb_internal_encoding')) {
 }
 
 ignore_user_abort(true);
-error_reporting(E_ALL & ~E_STRICT);
+error_reporting(PHP_VERSION_ID >= 80400 ? E_ALL : E_ALL & ~E_STRICT);
 
 // If date.timezone is invalid
 date_default_timezone_set(@date_default_timezone_get());

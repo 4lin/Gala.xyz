@@ -56,8 +56,9 @@ class Database_BC extends mysqli
 	 *
 	 * @param string
 	 *
-	 * @return resource	Results of the query
+	 * @return mysqli_result|bool Results for reads, true for successful writes.
 	 */
+	#[\ReturnTypeWillChange]
 	public function query($resource, $resultmode = MYSQLI_STORE_RESULT)
 	{
 		if($result = parent::query($resource, $resultmode))
@@ -241,6 +242,7 @@ class Database_BC extends mysqli
         return;
 	}
 	
+	#[\ReturnTypeWillChange]
 	public function multi_query($resource)
 	{
 		if(parent::multi_query($resource))
@@ -260,6 +262,8 @@ class Database_BC extends mysqli
 		{
 			throw new Exception("SQL Error: ".$this->error."<br><br>Query Code: ".$resource);
 		}
+
+		return true;
 	}
 	
 	public function get_sql()
