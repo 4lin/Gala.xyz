@@ -56,7 +56,7 @@ $LNG['questions'][1][3]['body']		= <<<BODY
 BODY;
 
 $LNG['questions'][2]['category']	= 'Informação Avançada';
-$LNG['questions'][2][1]['title']	= 'Raid';
+$LNG['questions'][2][1]['title'] = 'Ataque';
 $LNG['questions'][2][1]['body']		= <<<BODY
 <h3>Raid:</h3>
 <p>É o ataque contra outros jogadores para tomares posse dos recursos deles. Existe varios tipos de ataques como:</p>
@@ -80,7 +80,7 @@ Com o desenvolvimento de destroços aos "derrotados", e como ninguem pode manter
 
 BODY;
 
-$LNG['questions'][2][2]['title']	= 'Fleetsave';
+$LNG['questions'][2][2]['title'] = 'Proteção da frota';
 $LNG['questions'][2][2]['body']		= <<<BODY
 <h3>Como posso proteger-me</h3>
 <p>Um grande número de armas de defesa assusta alguns jogadores já infelizmente, e são atraídos por outros. Como resultado, tu perdes um monte de recursos, uma vez que as defesas, nada vai para o campo de destroços, quando são destruídos. A única exceção é a chamada Destroços de Defesas, em que o atacante quando te ataca, cria destroços de defesas no campo de destroços (A perda de 7% da defesa não conta nos destroços, conta é a perda total da defesa no combate).

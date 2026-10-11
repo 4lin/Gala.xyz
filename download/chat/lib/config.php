@@ -20,13 +20,13 @@ $config = array();
 // Database connection values:
 $config['dbConnection'] = array();
 // Database hostname:
-$config['dbConnection']['host'] = null;
+$config['dbConnection']['host'] = $GLOBALS['database']['host'];
 // Database username:
-$config['dbConnection']['user'] = null;
+$config['dbConnection']['user'] = $GLOBALS['database']['user'];
 // Database password:
-$config['dbConnection']['pass'] = null;
+$config['dbConnection']['pass'] = $GLOBALS['database']['userpw'];
 // Database name:
-$config['dbConnection']['name'] = null;
+$config['dbConnection']['name'] = $GLOBALS['database']['databasename'];
 // Database type:
 $config['dbConnection']['type'] = null;
 // Database link:

@@ -22,7 +22,7 @@
                         <div>{$LNG.bd_cost} {$LNG.bd_next_level} {$Element.levelToBuild + 1}</div>
                         <div class="building-panel-costs">
                         {foreach $Element.costResources as $RessID => $RessAmount}
-                            <span title="{$LNG.tech.{$RessID}|escape:'html'}"><img src="{$dpath}images/{if $RessID == 901}metal{elseif $RessID == 902}crystal{elseif $RessID == 903}deuterium{else}darkmatter{/if}.gif" alt="{$LNG.tech.{$RessID}|escape:'html'}"><strong class="{if $Element.costOverflow[$RessID] == 0}affordable{else}unaffordable{/if}">{$RessAmount|number}</strong></span>
+                            <span title="{$LNG.tech.{$RessID}|escape:'html'}"><img src="{$dpath}images/{if $RessID == 901}metal{elseif $RessID == 902}crystal{elseif $RessID == 903}deuterium{else}darkmatter{/if}.gif" alt="{$LNG.tech.{$RessID}|escape:'html'}"><strong class="{if $Element.costOverflow[$RessID] == 0}affordable{else}unaffordable{/if}">{$RessAmount|compact}</strong></span>
                         {/foreach}
                         </div>
                     </div>

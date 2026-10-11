@@ -145,6 +145,11 @@ class Language implements ArrayAccess {
 			}
 		}
 
+        // English is a fallback for missing custom keys in other installed locales.
+        $localizedData = $LNG;
+        $LNG = array();
+        require 'language/en/CUSTOM.php';
+        $LNG = array_replace_recursive($LNG, $localizedData);
 		$filePath	= $path.'CUSTOM.php';
 		require $filePath;
 		ob_end_clean();

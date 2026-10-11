@@ -1,20 +1,20 @@
 {block name="title" prepend}{$LNG.lm_playercard}{/block}
 {block name="content"}
-<table style="width:95%">
+<section class="player-profile"><header class="profile-banner"><img src="{$dpath}planets/normaltempplanet01.jpg" alt="" width="76" height="76"><div><h1>{$name|escape:'html'}</h1><p>{$LNG.pl_total}: {$total_points} · {$LNG.pl_range}: {$total_rank}</p></div></header><table class="profile-details">
 	<tr>
 		<th colspan="3">{$LNG.pl_overview}</th>
 		</tr>
 	<tr>
 		<td style="width:40%">{$LNG.pl_name}</td>
-		<td colspan="2">{$name}</td>
+		<td colspan="2">{$name|escape:'html'}</td>
 	</tr>
 	<tr>
 		<td>{$LNG.pl_homeplanet}</td>
-		<td colspan="2">{$homeplanet} <a href="#" onclick="parent.location = 'game.php?page=galaxy&amp;galaxy={$galaxy}&amp;system={$system}';return false;">[{$galaxy}:{$system}:{$planet}]</a></td>
+		<td colspan="2">{$homeplanet|escape:'html'} <a href="game.php?page=galaxy&amp;galaxy={$galaxy}&amp;system={$system}">[{$galaxy}:{$system}:{$planet}]</a></td>
 	</tr>
 	<tr>
 		<td>{$LNG.pl_ally}</td>
-		<td colspan="2">{if $allyname}<a href="#" onclick="parent.location = 'game.php?page=alliance&amp;mode=info&amp;id={$allyid}';return false;">{$allyname}</a>{else}-{/if}</td>
+		<td colspan="2">{if $allyname}<a href="game.php?page=alliance&amp;mode=info&amp;id={$allyid}">{$allyname|escape:'html'}</a>{else}-{/if}</td>
 	</tr>
 	<tr>
 		<th>&nbsp;</th>
@@ -101,5 +101,5 @@
 		<td><a href="#" onclick="return Dialog.Buddy({$id})">{$LNG.pl_buddy}</a></td><td colspan="2"><a href="#" onclick="return Dialog.PM({$id});" title="{$LNG.pl_message}">{$LNG.pl_message}</a></td>
 	</tr>
 {/if}
-</table>
+</table></section>
 {/block}

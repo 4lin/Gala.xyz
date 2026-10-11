@@ -165,13 +165,13 @@ $LNG['sys_tran_mess_user'] 		 			= 'Pokojowo nastawiona flota z  %s %s osiągnę
 $LNG['sys_mess_fleetback'] 					= 'Powrót floty';
 $LNG['sys_tran_mess_back'] 					= 'Jedna z twoich flot wróciła z planety %s %s.';
 $LNG['sys_recy_gotten'] 					= 'Po osiągnięciu celu twoje recyklery zebrały %s %s i %s %s';
-$LNG['sys_gain'] 				  			= 'Profit';
+$LNG['sys_gain'] = 'Zysk';
 $LNG['sys_irak_subject'] 				  	= 'Rocket element';
 $LNG['sys_irak_no_def'] 				  	= 'Ta planeta nie posiada żadnej obrony';
 $LNG['sys_irak_no_att'] 				  	= 'Wszystkie twoje rakiety zostały zestrzelone.';
 $LNG['sys_irak_def'] 					  	= '%d twoich rakiet zostało zestrzelonych.';
 $LNG['sys_irak_mess']						= 'Międzyplanetarne rakiety  (%d) z %s na planetę %s <br><br>';
-$LNG['sys_gain'] 				  			= 'Profit';
+$LNG['sys_gain'] = 'Zysk';
 $LNG['sys_fleet_won'] 						= 'Jedna z twoich flot wraca z ataku na %s %s. Zdobyłeś %s %s, %s %s i %s %s ';
 $LNG['sys_lost']							= 'Straty';
 $LNG['sys_debris'] 							= 'Wielkośc pola zniszczeń';
@@ -201,7 +201,7 @@ $LNG['type_mission_6']  					= 'Szpieguj';
 $LNG['type_mission_7']  					= 'Kolonizuj';
 $LNG['type_mission_8']  					= 'Recykling';
 $LNG['type_mission_9']  					= 'Zniszcz';
-$LNG['type_mission_11']  					= 'DM Investigation';
+$LNG['type_mission_11'] = 'Badanie ciemnej materii';
 $LNG['type_mission_15'] 					= 'Ekspedycja';
 
 $LNG['type_planet_short_1']  				= 'P';
@@ -215,3 +215,6 @@ $LNG['type_planet_3']  					= 'Księżyc';
 
 
 // Translated into Polish by Sirgomo . All rights reversed (C) 2012
+$LNG['sys_destruc_mess'] = 'Flota z planety [%d:%d:%d] dotarła do księżyca na [%d:%d:%d].';
+$LNG['sys_perte_attaquant'] = 'Straty atakującego';
+$LNG['sys_perte_defenseur'] = 'Straty obrońcy';

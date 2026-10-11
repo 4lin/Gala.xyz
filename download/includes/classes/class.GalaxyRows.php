@@ -21,7 +21,7 @@ class GalaxyRows
 {
 	private $Galaxy;
 	private $System;
-	private $galaxyData;
+	private $galaxyData = array();
 	private $galaxyRow;
 	
 	const PLANET_DESTROYED = false;
@@ -43,6 +43,8 @@ class GalaxyRows
 	public function getGalaxyData()
 	{
 		global $USER;
+        // Empty systems return an array; reset only when loading a new system.
+        $this->galaxyData = array();
 
         $sql	= 'SELECT SQL_BIG_RESULT DISTINCT
 		p.galaxy, p.system, p.planet, p.id, p.id_owner, p.name, p.image, p.last_update, p.diameter, p.temp_min, p.destruyed, p.der_metal, p.der_crystal, p.id_luna, 

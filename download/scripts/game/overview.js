@@ -22,7 +22,20 @@ $(document).ready(function()
     if (details && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         var fields = [];
         details.querySelectorAll('td > span').forEach(function (field) {
-            var walker = document.createTreeWalker(field, NodeFilter.SHOW_TEXT);
+            // Keep the original content in normal flow; only animate a copy.
+            var layout = document.createElement('span');
+            layout.className = 'overview-typing-layout';
+            var typed = document.createElement('span');
+            typed.className = 'overview-typing-text';
+            while (field.firstChild) layout.appendChild(field.firstChild);
+            Array.from(layout.childNodes).forEach(function (child) {
+                typed.appendChild(child.cloneNode(true));
+            });
+            typed.querySelectorAll('[id]').forEach(function (child) { child.removeAttribute('id'); });
+            layout.setAttribute('aria-hidden', 'true');
+            field.appendChild(layout);
+            field.appendChild(typed);
+            var walker = document.createTreeWalker(typed, NodeFilter.SHOW_TEXT);
             var nodes = [], node;
             while ((node = walker.nextNode())) {
                 var characters = Array.from(node.nodeValue.replace(/\s+/g, ' '));
@@ -30,7 +43,7 @@ $(document).ready(function()
                 node.nodeValue = '';
             }
             field.classList.add('overview-typing');
-            fields.push({field: field, nodes: nodes});
+            fields.push({field: field, layout: layout, typed: typed, nodes: nodes});
         });
         function writeField(index) {
             if (index >= fields.length || !details.isConnected) return;
@@ -43,6 +56,12 @@ $(document).ready(function()
                 }
                 if (nodeIndex >= entry.nodes.length) {
                     entry.field.classList.remove('overview-typing-active');
+                    // Restore the original links and text after the reveal.
+                    entry.typed.remove();
+                    while (entry.layout.firstChild) entry.field.insertBefore(entry.layout.firstChild, entry.layout);
+                    entry.layout.remove();
+                    entry.field.classList.remove('overview-typing');
+                    entry.field.classList.add('overview-typing-complete');
                     window.setTimeout(function () { writeField(index + 1); }, 40);
                     return;
                 }

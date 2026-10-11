@@ -70,10 +70,13 @@ class CleanerCronjob implements CronjobTask
 			':timeInactive'	=> $del_inactive
 		));
 
+        require_once 'includes/classes/NpcBotManager.class.php';
+        $npcIds = (new NpcBotManager())->ids();
 		if(!empty($deleteUserIds))
 		{
 			foreach($deleteUserIds as $dataRow)
 			{
+                if (in_array((int)$dataRow['id'], $npcIds, true)) continue;
 				PlayerUtil::deletePlayer($dataRow['id']);
 			}	
 		}

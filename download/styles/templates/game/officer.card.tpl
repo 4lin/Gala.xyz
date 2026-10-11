@@ -1,6 +1,6 @@
 <article class="officer-card{if !$timed} officer-with-level{/if}">
  <div class="officer-portrait-column">
-  <div class="officer-portrait tooltip" data-tooltip-content="{capture name=officerTooltip}<table class='research-tooltip-table'><tr><th>{$LNG.tech[$ID]|escape:'html'}{if !$timed} · {$LNG.of_lvl} {$Element.level}/{$Element.maxLevel}{/if}</th></tr><tr><td>{$LNG.shortDescription[$ID]|escape:'html'}</td></tr><tr><td>{foreach $Element.elementBonus as $BonusName => $Bonus}<div>{if $Bonus[0] < 0}-{else}+{/if}{if $Bonus[1] == 0}{abs($Bonus[0] * 100)}%{else}{floatval($Bonus[0])}{/if} {$LNG.bonus[$BonusName]|escape:'html'}</div>{/foreach}</td></tr><tr><td>{foreach $Element.costResources as $RessID => $RessAmount}<div>{$LNG.tech[$RessID]|escape:'html'}: {if $RessID == 921}<span style='color:{if $Element.costOverflow[$RessID] == 0}lime{else}red{/if}'>{$RessAmount|number}</span>{else}{$RessAmount|number}{/if}</div>{/foreach}</td></tr>{if $timed}<tr><td>{$LNG.in_dest_durati|escape:'html'}: {$Element.time|time}</td></tr>{/if}</table>{/capture}{$smarty.capture.officerTooltip|escape:'html'}">
+  <div class="officer-portrait tooltip" data-tooltip-content="{capture name=officerTooltip}<table class='research-tooltip-table'><tr><th>{$LNG.tech[$ID]|escape:'html'}{if !$timed} · {$LNG.of_lvl} {$Element.level}/{$Element.maxLevel}{/if}</th></tr><tr><td>{$LNG.shortDescription[$ID]|escape:'html'}</td></tr><tr><td>{foreach $Element.elementBonus as $BonusName => $Bonus}<div>{if $Bonus[0] < 0}-{else}+{/if}{if $Bonus[1] == 0}{abs($Bonus[0] * 100)}%{else}{floatval($Bonus[0])}{/if} {$LNG.bonus[$BonusName]|escape:'html'}</div>{/foreach}</td></tr><tr><td>{foreach $Element.costResources as $RessID => $RessAmount}<div>{$LNG.tech[$RessID]|escape:'html'}: {if $RessID == 921}<span style='color:{if $Element.costOverflow[$RessID] == 0}lime{else}red{/if}'>{$RessAmount|compact}</span>{else}{$RessAmount|number}{/if}</div>{/foreach}</td></tr>{if $timed}<tr><td>{$LNG.in_dest_durati|escape:'html'}: {$Element.time|time}</td></tr>{/if}</table>{/capture}{$smarty.capture.officerTooltip|escape:'html'}">
    <a class="officer-portrait-link" href="#" onclick="return Dialog.info({$ID});"><img src="{$dpath}buildings/{$ID}.jpg" alt="{$LNG.tech[$ID]|escape:'html'}" width="{if $timed}72{else}100{/if}" height="{if $timed}72{else}100{/if}">{if !$timed}<span class="officer-level-overlay" title="{$LNG.of_lvl|escape:'html'} {$Element.level}"><span class="officer-level-number{if $Element.level >= $Element.maxLevel} officer-level-max{/if}">{$Element.level}/{$Element.maxLevel}</span></span>{/if}</a>
    {if $timed && $Element.timeLeft > 0}
    <span class="officer-image-time" title="{$LNG.of_active|escape:'html'}" id="time_{$ID}">{$Element.timeLeft|time}</span>
@@ -28,7 +28,7 @@
   </div>
   <div class="officer-cost">
    {foreach $Element.costResources as $RessID => $RessAmount}
-   <div>{$LNG.tech[$RessID]}: <b class="{if $Element.costOverflow[$RessID] == 0}officer-affordable{else}officer-unavailable{/if}">{$RessAmount|number}</b></div>
+   <div>{$LNG.tech[$RessID]}: <b class="{if $Element.costOverflow[$RessID] == 0}officer-affordable{else}officer-unavailable{/if}">{$RessAmount|compact}</b></div>
    {/foreach}
   </div>
   {if $timed}<div class="officer-duration">{$LNG.in_dest_durati}: {$Element.time|time}</div>{/if}

@@ -1,8 +1,2 @@
 {block name="title" prepend}{$LNG.fcm_info}{/block}
-{block name="content"}
-<table class="table519">
-	<tr>
-		<td><p>{$message}</p>{if !empty($redirectButtons)}<p>{foreach $redirectButtons as $button}<a href="{$button.url}"><button>{$button.label}</button></a>{/foreach}</p>{/if}</td>
-	</tr>
-</table>
-{/block}
+{block name="content"}<section class="gala-message-card" role="alert" aria-labelledby="gala-message-heading"><h2 id="gala-message-heading">{$LNG.fcm_info}</h2><div class="gala-message-text">{$message}</div>{if !empty($redirectButtons)}<div class="gala-message-actions">{foreach $redirectButtons as $button}<a class="gala-notice-button" href="{$button.url|escape:'html'}">{$button.label|escape:'html'}</a>{/foreach}</div>{/if}</section>{/block}

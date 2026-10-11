@@ -93,6 +93,7 @@ abstract class AbstractLoginPage
 			'recaptchaEnable'		=> $config->capaktiv,
 			'recaptchaPublicKey'	=> $config->cappublic,
 			'gameName' 				=> $config->game_name,
+            'copyrightYear'          => date('Y'),
 			'facebookEnable'		=> $config->fb_on,
 			'fb_key' 				=> $config->fb_apikey,
 			'mailEnable'			=> $config->mail_active,

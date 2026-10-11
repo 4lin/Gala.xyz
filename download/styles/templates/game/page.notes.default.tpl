@@ -27,7 +27,7 @@
 			<span style="color:yellow">{$notesRow.title}</span>
 			{/if}
 			</a></td>
-			<td style="width:40px;">{$notesRow.size|number}</td>
+			<td style="width:40px;">{$notesRow.size|compact}</td>
 		</tr>
 		{if $notesRow@last}
 		<tr>

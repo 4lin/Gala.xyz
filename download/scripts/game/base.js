@@ -46,6 +46,14 @@ function shortly_number(number)
 	return NumberGetHumanReadable(negate * number, decial)+(key !== 0 ? '&nbsp;'+unit[key] : '');
 }
 
+// HTML for read-only numeric labels. Never use this for form values.
+function display_number_js(value) {
+    value = Number(value);
+    if (!isFinite(value)) value = 0;
+    var exact = NumberGetHumanReadable(value);
+    if (Math.abs(value) < 10000) return exact;
+    return '<span class="compact-number" tabindex="0" title="' + exact + '" aria-label="' + exact + '">' + shortly_number(value) + '</span>';
+}
 function removeE(Number) {
 	Number = String(Number);
 	if (Number.search(/e\+/) == -1) 
@@ -133,7 +141,7 @@ function handleErr(errMessage, url, line)
 	error += "URL: " + url + "\n";
 	error += "Line: " + line + "\n\n";
 	error += "Click OK to continue viewing this page,\n";
-	alert(error);
+    GalaNotice.alert(error);
 	if(typeof console == "object")
 		console.log(error);
  
@@ -146,10 +154,7 @@ var Dialog	= {
 	},
 	
 	alert: function(msg, callback){
-		alert(msg);
-		if(typeof callback === "function") {
-			callback();
-		}
+        GalaNotice.alert(msg, callback);
 	},
 	
 	PM: function(ID, Subject, Message) {
@@ -160,7 +165,8 @@ var Dialog	= {
 	},
 	
 	Playercard: function(ID) {
-		return isPlayerCardActive && Dialog.open('game.php?page=playerCard&id='+ID, 650, 600);
+		if (isPlayerCardActive) window.top.location.href = 'game.php?page=playerCard&id=' + encodeURIComponent(ID);
+        return false;
 	},
 	
 	Buddy: function(ID) {
@@ -205,13 +211,8 @@ var Dialog	= {
 }
 
 function NotifyBox(text) {
-	tip = $('#tooltip')
-	tip.html(text).addClass('notify').css({
-		left : (($(window).width() - $('#leftmenu').width()) / 2 - tip.outerWidth() / 2) + $('#leftmenu').width(),
-	}).show();
-	window.setTimeout(function(){tip.fadeOut(1000, function() {tip.removeClass('notify')})}, 500);
+    GalaNotice.notify(text);
 }
-
 
 function UhrzeitAnzeigen() {
    if (!window.serverTime) return;

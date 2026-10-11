@@ -97,7 +97,7 @@
 		<th colspan="2">{$LNG.pl_fightstats}</th>
 	</tr>
 	<tr>
-		<td>{$LNG.pl_totalfight}</td><td>{$totalfight|number}</td>
+		<td>{$LNG.pl_totalfight}</td><td>{$totalfight|compact}</td>
 	</tr>
 	<tr>
 		<td>{$LNG.pl_fightwon}</td><td>{$fightwon|number} {if $totalfight}({round($fightwon / $totalfight * 100, 2)}%){/if}</td>

@@ -42,18 +42,18 @@
 	<td><input name="del_user_sendmail" maxlength="3" size="2" value="{$del_user_sendmail}" type="text"> {$LNG.se_days}</td>
 	<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$LNG.se_del_user_sendmail_info}"></td>
 </tr><tr>
-	<th colspan="2">{$LNG.se_recaptcha_head}</th><th>&nbsp;</th>
+	<th colspan="2">{$LNG.ui_registration_security}</th><th>&nbsp;</th>
 </tr><tr>
-	<td>{$LNG.se_recaptcha_active}<br></td>
-    <td><input name="capaktiv"{if $capaktiv} checked="checked"{/if}  type="checkbox"></td>
-	<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$LNG.se_recaptcha_desc}"></td>
+	<td>{$LNG.ui_captcha_provider}<br></td>
+    <td><select name="capaktiv"><option value="0"{if $capaktiv == 0} selected{/if}>{$LNG.ui_captcha_local}</option><option value="2"{if $capaktiv == 2} selected{/if}>Cloudflare Turnstile</option><option value="1"{if $capaktiv == 1} selected{/if}>Google reCAPTCHA</option></select></td>
+	<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$LNG.ui_captcha_settings_help|escape:'html'}"></td>
 </tr><tr>
 	<td>{$LNG.se_recaptcha_public}</td>
-	<td><input name="cappublic" maxlength="40" size="60" value="{$cappublic}" type="text"></td>
+	<td><input name="cappublic" maxlength="128" size="60" value="{$cappublic|escape:'html'}" type="text"></td>
 	<td>&nbsp;</td>
 </tr><tr>
 	<td>{$LNG.se_recaptcha_private}</td>
-	<td><input name="capprivate" maxlength="40" size="60" value="{$capprivate}" type="text"></td>
+	<td><input name="capprivate" maxlength="128" size="60" value="{$capprivate|escape:'html'}" type="password" autocomplete="off"></td>
 	<td>&nbsp;</td>
 </tr><tr>
 	<th colspan="2">{$LNG.se_smtp}</th>

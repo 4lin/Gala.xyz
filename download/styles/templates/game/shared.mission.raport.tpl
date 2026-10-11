@@ -34,25 +34,25 @@
 							<tr>
 								<td class="transparent">{$LNG.sys_ship_count}</td>
 								{foreach $Player.ships as $ShipID => $ShipData}
-								<td class="transparent">{$ShipData[0]|number}</td>
+								<td class="transparent">{$ShipData[0]|compact}</td>
 								{/foreach}
 							</tr>
 							<tr>
 								<td class="transparent">{$LNG.sys_ship_weapon}</td>
 								{foreach $Player.ships as $ShipID => $ShipData}
-								<td class="transparent">{$ShipData[1]|number}</td>
+								<td class="transparent">{$ShipData[1]|compact}</td>
 								{/foreach}
 							</tr>
 							<tr>
 								<td class="transparent">{$LNG.sys_ship_shield}</td>
 								{foreach $Player.ships as $ShipID => $ShipData}
-								<td class="transparent">{$ShipData[2]|number}</td>
+								<td class="transparent">{$ShipData[2]|compact}</td>
 								{/foreach}
 							</tr>
 							<tr>
 								<td class="transparent">{$LNG.sys_ship_armour}</td>
 								{foreach $Player.ships as $ShipID => $ShipData}
-								<td class="transparent">{$ShipData[3]|number}</td>
+								<td class="transparent">{$ShipData[3]|compact}</td>
 								{/foreach}
 							</tr>
 						{else}
@@ -92,25 +92,25 @@
 							<tr>
 								<td class="transparent">{$LNG.sys_ship_count}</td>
 								{foreach $Player.ships as $ShipID => $ShipData}
-								<td class="transparent">{$ShipData[0]|number}</td>
+								<td class="transparent">{$ShipData[0]|compact}</td>
 								{/foreach}
 							</tr>
 							<tr>
 								<td class="transparent">{$LNG.sys_ship_weapon}</td>
 								{foreach $Player.ships as $ShipID => $ShipData}
-								<td class="transparent">{$ShipData[1]|number}</td>
+								<td class="transparent">{$ShipData[1]|compact}</td>
 								{/foreach}
 							</tr>
 							<tr>
 								<td class="transparent">{$LNG.sys_ship_shield}</td>
 								{foreach $Player.ships as $ShipID => $ShipData}
-								<td class="transparent">{$ShipData[2]|number}</td>
+								<td class="transparent">{$ShipData[2]|compact}</td>
 								{/foreach}
 							</tr>
 							<tr>
 								<td class="transparent">{$LNG.sys_ship_armour}</td>
 								{foreach $Player.ships as $ShipID => $ShipData}
-								<td class="transparent">{$ShipData[3]|number}</td>
+								<td class="transparent">{$ShipData[3]|compact}</td>
 								{/foreach}
 							</tr>
 						{else}

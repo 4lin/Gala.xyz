@@ -132,7 +132,7 @@ class ShowStatisticsPage extends AbstractGamePage
                     $RangeList[]	= array(
                         'id'		=> $StatRow['id'],
                         'name'		=> $StatRow['username'],
-                        'points'	=> pretty_number($StatRow[$Points]),
+                        'points'	=> display_number($StatRow[$Points]),
                         'allyid'	=> $StatRow['ally_id'],
                         'rank'		=> $StatRow[$Rank],
                         'allyname'	=> $StatRow['ally_name'],
@@ -178,8 +178,8 @@ class ShowStatisticsPage extends AbstractGamePage
                         'name'		=> $StatRow['ally_name'],
                         'members'	=> $StatRow['ally_members'],
                         'rank'		=> $StatRow[$Rank],
-                        'mppoints'	=> pretty_number($StatRow['ally_members'] > 0 ? floor($StatRow[$Points] / $StatRow['ally_members']) : 0),
-                        'points'	=> pretty_number($StatRow[$Points]),
+                        'mppoints'	=> display_number($StatRow['ally_members'] > 0 ? floor($StatRow[$Points] / $StatRow['ally_members']) : 0),
+                        'points'	=> display_number($StatRow[$Points]),
                         'ranking'	=> $StatRow[$OldRank] - $StatRow[$Rank],
                     );
                 }

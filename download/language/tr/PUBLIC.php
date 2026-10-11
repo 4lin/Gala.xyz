@@ -21,53 +21,56 @@
 
 // Site Title
 $LNG['siteTitleIndex']				= 'Ana Sayfa';
-$LNG['siteTitleRegister']			= 'Kayit Ol';
-$LNG['siteTitleScreens']			= 'Ekran Goruntuleri';
-$LNG['siteTitleBanList']			= 'Banlananlar';
-$LNG['siteTitleBattleHall']			= 'En Buyuk Savaslar';
+$LNG['siteTitleRegister'] = 'Kayıt ol';
+$LNG['siteTitleScreens'] = 'Ekran görüntüleri';
+$LNG['siteTitleBanList'] = 'Engellenen oyuncular';
+$LNG['siteTitleBattleHall'] = 'En büyük savaşlar';
 $LNG['siteTitleRules']				= 'Kurallar';
 $LNG['siteTitleNews']				= 'Haberler';
-$LNG['siteTitleDisclamer']			= 'Iletisim';
-$LNG['siteTitleLostPassword']		= 'Sifremi Unuttum?';
+$LNG['siteTitleDisclamer'] = 'İletişim';
+$LNG['siteTitleLostPassword'] = 'Parolamı unuttum';
 
 // Menu
 $LNG['forum']						= 'Forum';
-$LNG['menu_index']					= 'Anasayfa';
+$LNG['menu_index'] = 'Ana sayfa';
 $LNG['menu_news']					= 'Haberler';
 $LNG['menu_rules']					= 'Kurallar';
-$LNG['menu_banlist']				= 'Banlananlar';
-$LNG['menu_battlehall']				= 'En Buyuk Savaslar';
-$LNG['menu_disclamer']				= 'Iletisim';
-$LNG['menu_register']				= 'Kayit';
+$LNG['menu_banlist'] = 'Engellenen oyuncular';
+$LNG['menu_battlehall'] = 'En büyük savaşlar';
+$LNG['menu_disclamer'] = 'İletişim';
+$LNG['menu_register'] = 'Kayıt';
 
 // Universe select
-$LNG['chose_a_uni']					= 'Evreni Seciniz';
+$LNG['chose_a_uni'] = 'Evren seçin';
 $LNG['universe']					= 'Evren';
-$LNG['uni_closed']					= ' (Offline)';
+$LNG['uni_closed'] = ' (Çevrimdışı)';
 
 // Button
-$LNG['buttonRegister']				= 'Kayit Ol!';
-$LNG['buttonScreenshot']			= 'Ekran Goruntuleri';
-$LNG['buttonLostPassword']			= 'Sifremi Unuttum?';
+$LNG['buttonRegister'] = 'Kayıt ol!';
+$LNG['buttonScreenshot'] = 'Ekran görüntüleri';
+$LNG['buttonLostPassword'] = 'Parolamı unuttum';
 
 // Start
-$LNG['gameInformations']			= "Gercek zamanli uzay strateji oyunu.\nBuyuk bir rekabet seni bekliyor.\nTek ihtiyacin internet.Herhan gibi bir browser ile oynayabilirsin. Internet Explorer, Mozilla, Chrome\nUcretsiz Kayit";
+$LNG['gameInformations'] = 'Gerçek zamanlı uzay strateji oyunu.
+Büyük bir rekabet seni bekliyor.
+İndirme gerekmez; internet bağlantısı ve bir tarayıcı yeterlidir.
+Ücretsiz kayıt';
 
 // Login
-$LNG['loginHeader']					= 'Giris';
-$LNG['loginUsername']				= 'Kullanici Adi';
-$LNG['loginPassword']				= 'Sifre';
-$LNG['loginButton']					= 'Giris';
-$LNG['loginInfo']					= 'Giris yaparak tum %si kabul etmis oluyorsunuz.';
-$LNG['loginWelcome']				= ' %s hosgeldiniz ';
-$LNG['loginServerDesc']				= '%s tam zamanli bir uzay strateji oyunu. Yuzlerce oyuncunun <strong>ayni anda beraber oynayabildigi</strong> ve ellerinden geleni yaptigi bir oyun. Tek ihtiyacin olan herhangi bir web tarayicisi.';
+$LNG['loginHeader'] = 'Giriş';
+$LNG['loginUsername'] = 'Kullanıcı adı';
+$LNG['loginPassword'] = 'Parola';
+$LNG['loginButton'] = 'Giriş';
+$LNG['loginInfo'] = 'Giriş yaparak şu kuralları kabul etmiş olursunuz: %s.';
+$LNG['loginWelcome'] = '%s oyununa hoş geldiniz';
+$LNG['loginServerDesc'] = '%s, yüzlerce oyuncunun <strong>aynı anda birlikte oynayabildiği</strong> bir uzay strateji oyunudur. En iyi olmak için mücadele edin. Oynamak için yalnızca bir web tarayıcısı gerekir.';
 
 // Register
 $LNG['registerFacebookAccount']		= 'Facebook Hesabi';
 $LNG['registerUsername']			= 'Kullanici Adi';
-$LNG['registerUsernameDesc']		= 'Kullanici adi 3 ila 25 karakter arasinda olmalidir ayrica sadece rakam, harf,tire (-) ve altcizgi (_) kullanilabilir. ';
+$LNG['registerUsernameDesc'] = '3–32 harf, rakam, boşluk, alt çizgi, kısa çizgi veya nokta kullanın.';
 $LNG['registerPassword']			= 'Sifre';
-$LNG['registerPasswordDesc']		= 'Sifre en az 8 karakterden olusmalidir.';
+$LNG['registerPasswordDesc'] = '8–128 karakter uzunluğunda bir parola kullanın.';
 $LNG['registerPasswordReplay']		= 'Tekrar sifre';
 $LNG['registerPasswordReplayDesc']	= 'Lurfen sifrenizi tekrar giriniz';
 $LNG['registerEmail']				= 'E-Mail';
@@ -89,7 +92,7 @@ $LNG['registerErrorUniClosed']		= 'Bu evren icin kayitlar kapandi.!';
 $LNG['registerErrorUsernameEmpty']	= 'Kullanici adi girmediniz!';
 $LNG['registerErrorUsernameChar']	= 'Kullanici adi sadece rakam, harf,tire (-) ve altcizgi (_) den olusur!';
 $LNG['registerErrorUsernameExist']	= 'Bu kullanici ismi zaten mevcut!';
-$LNG['registerErrorPasswordLength']	= 'Sifre en az 6 karakter olmak zorunda';
+$LNG['registerErrorPasswordLength'] = '8–128 karakter uzunluğunda bir parola kullanın.';
 $LNG['registerErrorPasswordSame']	= 'Sifreler birbirini tutmuyor!';
 $LNG['registerErrorMailEmpty']		= 'Lutfen e-mail adresini giriniz!';
 $LNG['registerErrorMailInvalid']	= 'E-mail adresini yanlis girdiniz!';
@@ -98,12 +101,12 @@ $LNG['registerErrorMailExist']		= 'Bu email zaten kayitli!';
 $LNG['registerErrorRules']			= 'Oyuna baslamadan once kurallari kabul etmelisiniz!';
 $LNG['registerErrorCaptcha']		= 'Guvenlik kodu dogru degil!';
 
-$LNG['registerMailVertifyTitle']	= 'Activation of registration on the game: %s';
+$LNG['registerMailVertifyTitle'] = 'Oyuna kayıt etkinleştirmesi: %s';
 $LNG['registerMailVertifyError']	= 'Email gondermede basarisiz oldu: %s';
 
 $LNG['registerMailCompleteTitle']	= ' %s dunyasina hosgeldiniz!';
 
-$LNG['registerSendComplete']		= 'Thank you for the registration. You must check your email (Attention with the SPAM) with further information.';
+$LNG['registerSendComplete'] = 'Kayıt olduğunuz için teşekkürler. Daha fazla bilgi için spam klasörü dahil e-postanızı kontrol edin.';
 
 $LNG['registerWelcomePMSenderName']	= 'Admin';
 $LNG['registerWelcomePMSubject']	= 'Hosgeldiniz';
@@ -160,3 +163,10 @@ $LNG['disclamerLabelNotice']		= 'Ayrintili bilgi';
 
  //Giris Sayfasi
  $LNG['Browser']				= 'Onerilen browser.';
+$LNG['rand1'] = 'KEŞFET';
+$LNG['rand2'] = 'STRATEJİ';
+$LNG['rand3'] = 'SAVAŞ';
+$LNG['rand4'] = 'SAVUN';
+$LNG['rand5'] = 'KOLONİ KUR';
+$LNG['rand6'] = 'İMPARATORLUĞUN';
+$LNG['passwordUsernameEmpty'] = 'Kullanıcı adını girin.';

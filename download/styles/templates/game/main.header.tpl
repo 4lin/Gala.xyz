@@ -47,7 +47,7 @@
 	<link rel="stylesheet" type="text/css" href="/styles/resource/css/ingame/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-punk.min.css" />
 	<link rel="stylesheet" type="text/css" href="/styles/resource/css/base/validationEngine.jquery.css?v={$REV}">
 	<link rel="stylesheet" type="text/css" href="{$dpath}formate.css?v={$REV}-custom-ships2">
-	<link rel="stylesheet" type="text/css" href="styles/resource/css/ingame/layout-fixes.css?v={$REV}-original-c5-style12">
+	<link rel="stylesheet" type="text/css" href="styles/resource/css/ingame/layout-fixes.css?v={$REV}-typing-layer14">
 	<link rel="stylesheet" type="text/css" href="styles/resource/css/ingame/technology-atlas.css?v={$REV}">
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 	<script src="scripts/game/clock.js?v=2"></script>
@@ -78,7 +78,7 @@
 	<script type="text/javascript" src="/scripts/base/jquery.fancybox.js?v={$REV}-jq4"></script>
 	<script type="text/javascript" src="/scripts/base/jquery.validationEngine.js?v={$REV}"></script>
 	<script type="text/javascript" src="/scripts/l18n/validationEngine/jquery.validationEngine-{$lang}.js?v={$REV}"></script>
-	<script type="text/javascript" src="/scripts/game/base.js?v={$REV}-short-number3"></script>
+	<script type="text/javascript" src="/scripts/game/base.js?v={$REV}-profile2"></script>
 	<script type="text/javascript" src="/scripts/game/test.js?v={$REV}"></script>
 	<script type="text/javascript" src="/styles/resource/js/tooltipster.bundle.min.js"></script>
 
@@ -136,7 +136,7 @@
     </script>
 
 	{foreach item=scriptname from=$scripts}
-	<script type="text/javascript" src="./scripts/game/{$scriptname}.js?v={$REV}-overview-typing4"></script>
+	<script type="text/javascript" src="./scripts/game/{$scriptname}.js?v={$REV}-overview-typing6-number2"></script>
 	{/foreach}
     {if in_array($smarty.get.page|default:'overview', array('buildings', 'research', 'shipyard'))}
     <link rel="stylesheet" href="styles/resource/css/ingame/research-panel.css?v=5">
@@ -153,6 +153,10 @@
 		{$execscript}
 	});
 	</script>
+<link rel="stylesheet" href="/styles/resource/css/base/notifications.css?v={$REV}-notice1">
+<script>window.GalaNoticeLabels={ title:{$LNG.ui_notice_title|json},close:{$LNG.ui_notice_close|json},ok:{$LNG.ui_notice_ok|json},login:{$LNG.ui_notice_login|json} };</script>
+<script src="/scripts/base/notifications.js?v={$REV}-notice2"></script>
+<link rel="stylesheet" href="styles/resource/css/ingame/tables-profile.css?v={$REV}-1">
 </head>
 <body id="{$smarty.get.page|default:'overview'|htmlspecialchars}" class="{$bodyclass}">
 	

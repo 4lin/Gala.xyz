@@ -21,6 +21,7 @@ function ShowMenuPage()
 	$template	= new template();
 	
 	$template->assign_vars(array(	
+        'npcAdmin' => (int)$USER['authlevel'] === AUTH_ADM,
 		'supportticks'	=> $GLOBALS['DATABASE']->getFirstCell("SELECT COUNT(*) FROM ".TICKETS." WHERE universe = ".Universe::getEmulated()." AND status = 0;"),
 	));
 	

@@ -8,10 +8,9 @@ function checkrename()
 		return false;
 	} else {
 		$.getJSON('game.php?page=overview&mode=rename&name='+$('#name').val(), function(response){
-			alert(response.message);
-			if(!response.error) {
-				parent.location.reload();
-			}
+            Dialog.alert(response.message, function() {
+                if (!response.error) parent.location.reload();
+            });
 		});
 	}
 }
@@ -23,10 +22,9 @@ function checkcancel()
 		return false;
 	} else {
 		$.post('game.php?page=overview', {'mode' : 'delete', 'password': password}, function(response) {
-			alert(response.message);
-			if(response.ok){
-				parent.location.reload();
-			}
+            Dialog.alert(response.message, function() {
+                if (response.ok) parent.location.reload();
+            });
 		}, "json");
 	}
 }

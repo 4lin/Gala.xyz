@@ -89,6 +89,10 @@ switch($page)
 		include_once('includes/pages/adm/ShowDisclamerPage.php');
 		ShowDisclamerPage();
 	break;
+    case 'editbots':
+        include_once('includes/pages/adm/ShowEditBotsPage.php');
+        ShowEditBotsPage();
+    break;
 	case 'create':
 		include_once('includes/pages/adm/ShowCreatorPage.php');
 		ShowCreatorPage();

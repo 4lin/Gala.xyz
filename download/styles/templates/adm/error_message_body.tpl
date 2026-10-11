@@ -1,12 +1,1 @@
-{include file="overall_header.tpl"}
-<div id="content">
-    <table style="width:519px;">
-		<tr>
-            <th>{$fcm_info}</th>
-        </tr>
-		<tr>
-            <td>{$mes}</td>
-        </tr>
-    </table>
-</div>
-{include file="overall_footer.tpl"}
+{include file="overall_header.tpl"}<div id="content"><section class="gala-message-card" role="alert"><h2>{$fcm_info}</h2><div class="gala-message-text">{$mes}</div>{if !empty($goto)}<div class="gala-message-actions"><a class="gala-notice-button" href="{$goto|escape:'html'}">{$LNG.ui_notice_ok}</a></div>{/if}</section></div>{include file="overall_footer.tpl"}

@@ -53,7 +53,7 @@ class ShowIndexPage extends AbstractLoginPage
 			'universeSelect'		=> $universeSelect,
 			'code'					=> $loginCode,
 			'descHeader'			=> sprintf($LNG['loginWelcome'], $config->game_name),
-			'descText'				=> sprintf($LNG['loginServerDesc'], $config->game_name),
+			'descText'				=> sprintf($LNG['loginServerDesc'], htmlspecialchars($config->game_name, ENT_QUOTES, 'UTF-8')),
             'gameInformations'      => explode("\n", $LNG['gameInformations']),
 			'loginInfo'				=> sprintf($LNG['loginInfo'], '<a href="index.php?page=rules">'.$LNG['menu_rules'].'</a>')
 		));

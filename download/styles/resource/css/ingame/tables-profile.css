@@ -1,0 +1,21 @@
+/* Shared game tables, inspired by the existing local space theme. */
+#content table:not(.transparent){border-collapse:separate;border-spacing:0;border:1px solid #30475e;border-radius:6px;overflow:hidden;box-shadow:0 3px 12px #0003}
+#content table th{background:linear-gradient(#244158,#152a3e);color:#cfe7fa;padding:9px 8px;border-bottom:1px solid #39566f;font-weight:600}
+#content table td{padding:7px 8px;border-bottom:1px solid #263b50;background-color:rgba(12,24,38,.82);vertical-align:middle}
+#content table tr:nth-child(even)>td{background-color:rgba(20,36,53,.85)}
+#content table tr:hover>td{background-color:rgba(32,55,76,.92)}
+#content table tr:last-child>td{border-bottom:0}
+.compact-number{white-space:nowrap;font-variant-numeric:tabular-nums;cursor:help;border-bottom:1px dotted #7191ab}
+.compact-number:focus-visible{outline:2px solid #a5d8ff;outline-offset:2px}
+#statistics #content table{width:100%;min-width:0}
+#statistics #content td:last-child{font-weight:600;color:#d5edff}
+#statistics #stats label{display:inline-block;margin:5px 4px}
+#playerCard .player-profile{max-width:760px;margin:auto;background:#0e1e30;border:1px solid #38526c;border-radius:8px;overflow:hidden;box-shadow:0 8px 26px #0005}
+#playerCard .profile-banner{display:flex;gap:18px;align-items:center;padding:24px;background:linear-gradient(120deg,#274962,#142c43 65%,#0a1828);border-bottom:1px solid #446781}
+#playerCard .profile-banner img{object-fit:cover;border-radius:50%;border:2px solid #80a6c3;box-shadow:0 0 20px #8bcaff22}
+#playerCard .profile-banner h1{font-size:23px;color:#e2f3ff;margin:0 0 8px}
+#playerCard .profile-banner p{margin:0;color:#9fc1dc;font-size:13px;line-height:1.6}
+#playerCard #content .profile-details{width:100%;min-width:0;margin:0;border:0;border-radius:0}
+#playerCard .profile-details td:first-child{color:#a9c8df}
+#playerCard .profile-details td:nth-child(n+2){text-align:center}
+@media(max-width:540px){#playerCard .profile-banner{padding:15px;gap:12px}#playerCard .profile-banner img{width:56px;height:56px}#playerCard .profile-banner h1{font-size:19px}}

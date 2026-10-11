@@ -104,4 +104,20 @@ $LNG['questions'][2][4]['body'] = <<< BODY
 <h3>Gestion de l'Alliance</h3>
 <p>Dans ce menu, vous pouvez modifier la description de l'Alliance, la supprimer, modifier les rangs ou grades, les pactes ou encore éditer les membres.<br> Le texte externe est une brève description de votre Alliance pour tous les membres qui visitent la page de l'Alliance, alors que le texte interne est un contenu exclusif pour les membres de l'Alliance, comme ennemis.<br>Dans les paramètres, vous pouvez également modifier l'image qui est affichée pour l'Alliance et vous pouvez aussi spécifier l'état du recrutement. Vous pouvez modifier le nom du rang de l'administrateur, qui est typiquement «leader» ou «fondateur»<br>"Dissoudre l'Alliance" est la fonction qui permet de supprimer l'Alliance définitivement.</p>
 BODY;
-
+$LNG['questions'][2][3]['title'] = 'Lunes';
+$LNG['questions'][2][3]['body'] = '<p>Une lune peut se former après un combat qui crée un champ de débris. La probabilité dépend des débris et des paramètres de l\'univers.</p>
+<h3>Généralités</h3>
+<p>Une lune peut être renommée comme une planète. Vous pouvez posséder plusieurs lunes, mais chaque planète ne peut en avoir qu\'une. Les lunes sont utiles pour protéger une flotte en vol, car une phalange de capteur ne peut pas les scanner.</p>
+<h3>Taille de la lune</h3>
+<p>La probabilité indiquée dans le rapport de combat intervient dans la formation d\'une lune. Une tentative de création de lune consiste généralement à détruire une flotte pour produire suffisamment de débris. Les paramètres de l\'univers déterminent si les défenses détruites produisent aussi des débris.</p>
+<p>Le diamètre d\'une lune est exprimé en kilomètres. Sa taille influence la difficulté de sa destruction.</p>
+<h3>Construction</h3>
+<p>Les bâtiments disponibles comprennent les entrepôts, l\'usine de robots, le chantier spatial, la base lunaire, la phalange de capteur et la porte de saut. Consultez l\'arbre technologique pour connaître leurs prérequis.</p>
+<ul><li><p><b>Base lunaire</b><br>Fournit des cases de construction supplémentaires.</p></li>
+<li><p><b>Phalange de capteur</b><br>Observe les mouvements de flotte sur les planètes à portée. Elle ne peut pas scanner les lunes. Sa portée augmente avec son niveau.</p></li>
+<li><p><b>Porte de saut</b><br>Transfère les vaisseaux entre vos lunes équipées d\'une porte de saut. Elle ne transporte pas de ressources et doit se recharger après utilisation.</p></li></ul>
+<p>Voici un exemple d\'ordre de développement à adapter à vos besoins et aux cases disponibles.<br>
+<b>Légende :</b><br>MB – Base lunaire<br>SP – Phalange de capteur<br>ST – Porte de saut<br>RB – Usine de robots</p>
+<p>MB1 – RB1 – RB2 – MB2 – SP1 – RB3 – MB3 – SP2 – RB4 – MB4 – SP3 – RB5 – MB5 – SP4 – RB6 – MB6 – SP5 – SP6 – MB7 – SP7 – SP8 – MB8 – ST1</p>
+<h3>Destruction d\'une lune</h3>
+<p>Seuls les vaisseaux adaptés peuvent effectuer cette mission. Sélectionnez-les dans le menu Flotte, ciblez la lune et choisissez Détruire. La tentative peut échouer et les vaisseaux attaquants peuvent être perdus. Vérifiez les prérequis et les risques avant l\'envoi.</p>';

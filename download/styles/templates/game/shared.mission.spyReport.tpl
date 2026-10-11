@@ -8,7 +8,7 @@
 	{foreach $elementIDs as $elementID => $amount}
 	{if ($amount@iteration % 2) === 1}<div class="spyRaportContainerRow clearfix">{/if}
 		<div class="spyRaportContainerCell">{$LNG.tech.$elementID}</div>
-		<div class="spyRaportContainerCell">{$amount|number}</div>
+		<div class="spyRaportContainerCell">{$amount|compact}</div>
 	{if ($amount@iteration % 2) === 0}</div>{/if}
 	{/foreach}
 	</div>

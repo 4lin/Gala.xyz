@@ -1,0 +1,18 @@
+.gala-dialog,.gala-message-card { box-sizing:border-box; color:#e8f2fa; background:linear-gradient(145deg,#182b3b,#0b1621); border:1px solid #47677e; border-radius:16px; padding:28px; box-shadow:0 20px 70px #0009; font:15px/1.6 Arial,sans-serif; text-align:left; }
+dialog.gala-dialog { width:min(520px,calc(100vw - 32px)); max-height:calc(100dvh - 32px); overflow:auto; }
+dialog.gala-dialog:not([open]) { display:none; }
+.gala-dialog::backdrop { background:rgba(2,8,14,.72); backdrop-filter:blur(3px); }
+.gala-dialog-fallback { position:fixed; inset:50% auto auto 50%; transform:translate(-50%,-50%); margin:0; z-index:2147483647; box-shadow:0 0 0 100vmax #02080eb8; }
+.gala-dialog-title,.gala-message-card h2 { color:#8edcff; font-size:21px; line-height:1.3; margin:0 40px 16px 0; text-transform:none; }
+.gala-dialog-message,.gala-message-text { overflow-wrap:anywhere; white-space:pre-line; }
+.gala-dialog-close,.gala-toast-close { position:absolute; right:8px; top:8px; width:44px; height:44px; padding:0; border:0; border-radius:8px; background:transparent; color:#d8eaf7; font-size:28px; cursor:pointer; }
+.gala-dialog-close:hover,.gala-toast-close:hover { background:#ffffff18; }
+.gala-message-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; }
+.gala-message-actions .gala-notice-button { display:inline-flex; align-items:center; justify-content:center; min-height:44px; min-width:100px; padding:9px 18px; box-sizing:border-box; border:1px solid #617b8f; border-radius:8px; background:#203c50; color:#fff; font:600 14px/1.4 Arial,sans-serif; text-decoration:none; cursor:pointer; }
+.gala-message-actions .gala-notice-primary { background:#17648a; border-color:#499abc; }
+.gala-notice-button:hover { filter:brightness(1.2); }
+.gala-dialog button:focus-visible,.gala-dialog a:focus-visible,.gala-toast button:focus-visible,.gala-message-card a:focus-visible { outline:3px solid #8edcff; outline-offset:3px; }
+.gala-message-card { max-width:640px; margin:24px auto; width:calc(100% - 24px); }
+.gala-notification-stack { position:fixed; bottom:20px; right:20px; z-index:100000; display:flex; flex-direction:column; gap:12px; max-height:70vh; overflow:auto; width:min(380px,calc(100vw - 32px)); pointer-events:none; }
+.gala-toast { position:relative; border:1px solid #53788e; border-left:4px solid #7ed9ff; border-radius:10px; background:#112536; color:#edf7ff; padding:18px 56px 18px 18px; font:14px/1.5 Arial,sans-serif; box-shadow:0 8px 30px #0008; pointer-events:auto; overflow-wrap:anywhere; }
+@media(max-width:480px) { .gala-dialog,.gala-message-card { padding:22px 18px; } .gala-message-actions .gala-notice-button { flex:1; } .gala-notification-stack { right:16px; bottom:16px; } }

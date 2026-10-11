@@ -30,7 +30,7 @@
                         <div>{$LNG.bd_panel_unit_cost}:</div>
                         <div class="building-panel-costs">
                         {foreach $Element.costResources as $RessID => $RessAmount}
-                            <span title="{$LNG.tech.{$RessID}|escape:'html'}"><img src="{$dpath}images/{if $RessID == 901}metal{elseif $RessID == 902}crystal{elseif $RessID == 903}deuterium{else}darkmatter{/if}.gif" alt="{$LNG.tech.{$RessID}|escape:'html'}"><strong class="{if $Element.costOverflow[$RessID] == 0}affordable{else}unaffordable{/if}">{$RessAmount|number}</strong></span>
+                            <span title="{$LNG.tech.{$RessID}|escape:'html'}"><img src="{$dpath}images/{if $RessID == 901}metal{elseif $RessID == 902}crystal{elseif $RessID == 903}deuterium{else}darkmatter{/if}.gif" alt="{$LNG.tech.{$RessID}|escape:'html'}"><strong class="{if $Element.costOverflow[$RessID] == 0}affordable{else}unaffordable{/if}">{$RessAmount|compact}</strong></span>
                         {/foreach}
                         </div>
                     </div>
@@ -60,7 +60,7 @@
 							<a ref="{$ID}" id="details" class="detail_button js_hideTipOnMobile {if $mode == 'defense'}defense-detail{/if}" href="#" onclick="return ShipyardPanel.open({$ID}, this)" aria-controls="shipyard-details-panel" aria-expanded="false">
 									<span class="ecke">
 										<span class="level">
-											{$Element.available|number}
+											{$Element.available|compact}
 											<span class="textlabel">
 											</span>
 										</span>
@@ -92,14 +92,14 @@
 <input type="hidden" name="action" value="delete"><input type="hidden" name="auftr[]" value="0">
 <button type="button" aria-label="{$LNG.bd_cancel}" title="{$LNG.bd_cancel}" onclick="document.getElementById('fleet-cancel-confirm').showModal()"></button>
 </form></div>
-                                        <strong class="defense-current-name" title="{$BuildList.Queue[0][0]|escape:'html'}">{if $mode == 'fleet'}<span>{$BuildList.Queue[0][1]|number}</span> {/if}{$BuildList.Queue[0][0]|escape:'html'}</strong>
+                                        <strong class="defense-current-name" title="{$BuildList.Queue[0][0]|escape:'html'}">{if $mode == 'fleet'}<span>{$BuildList.Queue[0][1]|compact}</span> {/if}{$BuildList.Queue[0][0]|escape:'html'}</strong>
 
                                     </div>
                                     <div id="bx" class="z" hidden></div>
                                     <select id="auftr" hidden aria-hidden="true"><option></option></select>
                                     <ul class="shipyard-visible-queue">
                                     {foreach $BuildList.Queue as $entry}{if !$entry@first}
-                                        <li><img src="{$dpath}buildings/{$entry[3]}.png" alt="{$entry[0]|escape:'html'}"><span><strong>{$entry[1]|number}</strong> {$entry[0]|escape:'html'}</span></li>
+                                        <li><img src="{$dpath}buildings/{$entry[3]}.png" alt="{$entry[0]|escape:'html'}"><span><strong>{$entry[1]|compact}</strong> {$entry[0]|escape:'html'}</span></li>
                                     {/if}{/foreach}
                                     </ul>
                                     <span id="timeleft" hidden></span>

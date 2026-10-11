@@ -41,16 +41,16 @@
 				<tr class="alt">
 					<td colspan="1" class="label">{$LNG.rs_basic_income}</td>
 					<td class="textRight">
-						<span class="tooltip" title="{$basicProduction.901|number}">{$basicProduction.901|number}</span>
+						<span class="tooltip" title="{$basicProduction.901|number}">{$basicProduction.901|compact}</span>
 					</td>
 					<td class="textRight">
-						<span class="tooltip" title="{$basicProduction.902|number}">{$basicProduction.902|number}</span>
+						<span class="tooltip" title="{$basicProduction.902|number}">{$basicProduction.902|compact}</span>
 					</td>
 					<td class="textRight">
-						<span class="tooltip" title="{$basicProduction.903|number}">{$basicProduction.903|number}</span>
+						<span class="tooltip" title="{$basicProduction.903|number}">{$basicProduction.903|compact}</span>
 					</td>
 					<td class="textRight">
-						<span class="tooltip" title="{$basicProduction.911|number}">{$basicProduction.911|number}</span>
+						<span class="tooltip" title="{$basicProduction.911|number}">{$basicProduction.911|compact}</span>
 					</td>
 				</tr>
 				
@@ -59,22 +59,22 @@
 					<td class="label">{$LNG.tech.$productionID } ({if $productionID  > 200}{$LNG.rs_amount}{else}{$LNG.rs_lvl}{/if} {$productionRow.elementLevel})</td>
 					<td>
 						<span style="color:{if $productionRow.production.901 > 0}lime{elseif $productionRow.production.901 < 0}red{else}white{/if}">
-							{$productionRow.production.901|number}
+							{$productionRow.production.901|compact}
 						</span>
 					</td>
 					<td>
 						<span style="color:{if $productionRow.production.902 > 0}lime{elseif $productionRow.production.902 < 0}red{else}white{/if}">
-							{$productionRow.production.902|number}
+							{$productionRow.production.902|compact}
 						</span>
 					</td>
 					<td>
 						<span style="color:{if $productionRow.production.903 > 0}lime{elseif $productionRow.production.903 < 0}red{else}white{/if}">
-							{$productionRow.production.903|number}
+							{$productionRow.production.903|compact}
 						</span>
 					</td>
 					<td>
 						<span style="color:{if $productionRow.production.911 > 0}lime{elseif $productionRow.production.911 < 0}red{else}white{/if}">
-							{$productionRow.production.911|number}
+							{$productionRow.production.911|compact}
 						</span>
 					</td>
 					<td>
@@ -89,22 +89,22 @@
 					<td class="label">{$LNG.rs_ress_bonus}</td>
 					<td>
 						<span style="color:{if $bonusProduction.901 > 0}lime{elseif $bonusProduction.901 < 0}red{else}white{/if}">
-							{$bonusProduction.901|number}
+							{$bonusProduction.901|compact}
 						</span>
 					</td>
 					<td>
 						<span style="color:{if $bonusProduction.902 > 0}lime{elseif $bonusProduction.902 < 0}red{else}white{/if}">
-							{$bonusProduction.902|number}
+							{$bonusProduction.902|compact}
 						</span>
 					</td>
 					<td>
 						<span style="color:{if $bonusProduction.903 > 0}lime{elseif $bonusProduction.903 < 0}red{else}white{/if}">
-							{$bonusProduction.903|number}
+							{$bonusProduction.903|compact}
 						</span>
 					</td>
 					<td>
 						<span style="color:{if $bonusProduction.911 > 0}lime{elseif $bonusProduction.911 < 0}red{else}white{/if}">
-							{$bonusProduction.911|number}
+							{$bonusProduction.911|compact}
 						</span>
 					</td>
 				</tr>
@@ -121,22 +121,22 @@
 						<td class="label">{$LNG.rs_sum}</td>
 						<td>
 							<span style="color:{if $totalProduction.901 > 0}lime{elseif $totalProduction.901 < 0}red{else}white{/if}">
-								{$totalProduction.901|number}
+								{$totalProduction.901|compact}
 							</span>
 						</td>
 						<td>
 							<span style="color:{if $totalProduction.902 > 0}lime{elseif $totalProduction.902 < 0}red{else}white{/if}">
-								{$totalProduction.902|number}
+								{$totalProduction.902|compact}
 							</span>
 						</td>
 						<td>
 							<span style="color:{if $totalProduction.903 > 0}lime{elseif $totalProduction.903 < 0}red{else}white{/if}">
-								{$totalProduction.903|number}
+								{$totalProduction.903|compact}
 							</span>
 						</td>
 						<td>
 							<span style="color:{if $totalProduction.911 > 0}lime{elseif $totalProduction.911 < 0}red{else}white{/if}">
-								{$totalProduction.911|number}
+								{$totalProduction.911|compact}
 							</span>
 						</td>
 					</tr>
@@ -145,22 +145,22 @@
 						<td class="label">{$LNG.rs_daily}</td>
 						<td>
 							<span style="color:{if $dailyProduction.901 > 0}lime{elseif $dailyProduction.901 < 0}red{else}white{/if}">
-								{$dailyProduction.901|number}
+								{$dailyProduction.901|compact}
 							</span>
 						</td>
 						<td>
 							<span style="color:{if $dailyProduction.902 > 0}lime{elseif $dailyProduction.902 < 0}red{else}white{/if}">
-								{$dailyProduction.902|number}
+								{$dailyProduction.902|compact}
 							</span>
 						</td>
 						<td>
 							<span style="color:{if $dailyProduction.903 > 0}lime{elseif $dailyProduction.903 < 0}red{else}white{/if}">
-								{$dailyProduction.903|number}
+								{$dailyProduction.903|compact}
 							</span>
 						</td>
 						<td>
 							<span style="color:{if $dailyProduction.911 > 0}lime{elseif $dailyProduction.911 < 0}red{else}white{/if}">
-								{$dailyProduction.911|number}
+								{$dailyProduction.911|compact}
 							</span>
 						</td>
 					</tr>
@@ -169,22 +169,22 @@
 						<td class="label">{$LNG.rs_weekly}</td>
 						<td>
 							<span style="color:{if $weeklyProduction.901 > 0}lime{elseif $weeklyProduction.901 < 0}red{else}white{/if}">
-								{$weeklyProduction.901|number}
+								{$weeklyProduction.901|compact}
 							</span>
 						</td>
 						<td>
 							<span style="color:{if $weeklyProduction.902 > 0}lime{elseif $weeklyProduction.902 < 0}red{else}white{/if}">
-								{$weeklyProduction.902|number}
+								{$weeklyProduction.902|compact}
 							</span>
 						</td>
 						<td>
 							<span style="color:{if $weeklyProduction.903 > 0}lime{elseif $weeklyProduction.903 < 0}red{else}white{/if}">
-								{$weeklyProduction.903|number}
+								{$weeklyProduction.903|compact}
 							</span>
 						</td>
 						<td>
 							<span style="color:{if $weeklyProduction.911 > 0}lime{elseif $weeklyProduction.911 < 0}red{else}white{/if}">
-								{$weeklyProduction.911|number}
+								{$weeklyProduction.911|compact}
 							</span>
 						</td>
 					</tr>

@@ -1,0 +1,41 @@
+name: Source checks
+
+on:
+  push:
+    paths:
+      - 'download/**'
+      - '.github/workflows/checks.yml'
+  pull_request:
+    paths:
+      - 'download/**'
+      - '.github/workflows/checks.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  standalone-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Set up the verified legacy test runtime
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # v2
+        with:
+          php-version: '7.2'
+          extensions: gd, pdo_mysql, mbstring
+          coverage: none
+      - name: Run standalone source checks
+        working-directory: download
+        run: |
+          php tests/localization.php
+          php tests/smarty-templates.php
+          php tests/registration-security.php
+          php tests/npc-bots.php
+          php tests/short-numbers.php
+          php tests/php-runtime-compatibility.php
+          php tests/moon-resources.php
+          php tests/compact-display.php
+      - name: Check browser number formatting
+        working-directory: download
+        run: node tests/compact-display.js

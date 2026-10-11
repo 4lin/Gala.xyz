@@ -2,10 +2,10 @@ function updateVars()
 {	
 	var shipID 	= $('#shipID').val();
 	$('#img').attr('src', $('#img').data('src')+shipID+'.png');
-	$('#metal').text(NumberGetHumanReadable(CostInfo[shipID][2][901] * (1 - Charge / 100)));
-	$('#crystal').text(NumberGetHumanReadable(CostInfo[shipID][2][902] * (1 - Charge / 100)));
-	$('#deuterium').text(NumberGetHumanReadable(CostInfo[shipID][2][903] * (1 - Charge / 100)));
-	$('#darkmatter').text(NumberGetHumanReadable(CostInfo[shipID][2][921] * (1 - Charge / 100)));
+	$('#metal').html(display_number_js(CostInfo[shipID][2][901] * (1 - Charge / 100)));
+	$('#crystal').html(display_number_js(CostInfo[shipID][2][902] * (1 - Charge / 100)));
+	$('#deuterium').html(display_number_js(CostInfo[shipID][2][903] * (1 - Charge / 100)));
+	$('#darkmatter').html(display_number_js(CostInfo[shipID][2][921] * (1 - Charge / 100)));
 	$('#traderHead').text(CostInfo[shipID][1]);
 	Reset();
 }
@@ -27,10 +27,10 @@ function Total()
 	}
 	
 	var shipID 	= $('#shipID').val();
-	$('#total_metal').text(NumberGetHumanReadable(CostInfo[shipID][2][901] * Count * (1 - Charge / 100)));
-	$('#total_crystal').text(NumberGetHumanReadable(CostInfo[shipID][2][902] * Count * (1 - Charge / 100)));
-	$('#total_deuterium').text(NumberGetHumanReadable(CostInfo[shipID][2][903] * Count * (1 - Charge / 100)));
-	$('#total_darkmatter').text(NumberGetHumanReadable(CostInfo[shipID][2][921] * Count * (1 - Charge / 100)));
+	$('#total_metal').html(display_number_js(CostInfo[shipID][2][901] * Count * (1 - Charge / 100)));
+	$('#total_crystal').html(display_number_js(CostInfo[shipID][2][902] * Count * (1 - Charge / 100)));
+	$('#total_deuterium').html(display_number_js(CostInfo[shipID][2][903] * Count * (1 - Charge / 100)));
+	$('#total_darkmatter').html(display_number_js(CostInfo[shipID][2][921] * Count * (1 - Charge / 100)));
 }
 
 function Reset()

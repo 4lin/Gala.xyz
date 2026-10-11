@@ -124,6 +124,17 @@ $LNG['sql_welcome']				= '2Moons\'a hosgeldiniz';
 $LNG['reg_pdo_active']			= 'PDO Aktif';
 $LNG['reg_pdo_desc']			= 'PHP Veri Nesneleri (PDO) eklentisi, PHP\'deki veritabanlarina erismek için hafif ve tutarli bir arayuz tanimlar. PDO arayuzu tanimi bulunan her veritabani surucuusu, veritabanina ozgu ozellikleri siradan eklenti islevleri olarak ifade edebilir.';
 $LNG['step8_need_fields']		= 'Zorunlu alanlari doldurmadiniz. Lutfen geri giderek butnu alanlari doldurunuz!';
-
-
-
+$LNG['reg_bcmath_need'] = 'BCMath uzantısı kullanılabilir mi?';
+$LNG['req_ftp_pass_info'] = 'FTP hesabının parolası.';
+$LNG['step2_db_create_ok'] = 'Veritabanı başarıyla oluşturuldu.';
+$LNG['sql_universe'] = 'Evren';
+$LNG['intro_instal'] = 'Kurulumu başlat';
+$LNG['req_ftp'] = 'FTP bağlantı bilgileri';
+$LNG['req_ftp_info'] = 'Dosya izinlerini düzeltmek için FTP bilgilerini girin veya yazma izinlerini elle ayarlayın.';
+$LNG['step2_db_error'] = 'Veritabanına bağlanılamadı. Ayrıntılar:';
+$LNG['step2_db_connet_ok'] = 'Veritabanı bağlantısı başarılı!';
+$LNG['step3_create_admin'] = 'Yönetici hesabı';
+$LNG['step3_admin_name'] = 'Yönetici adı:';
+$LNG['step3_admin_pass'] = 'Yönetici parolası:';
+$LNG['step3_admin_mail'] = 'İletişim e-postası:';
+$LNG['step4_need_fields'] = 'Tüm alanları doldurun.';

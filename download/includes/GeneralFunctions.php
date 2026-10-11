@@ -641,3 +641,13 @@ if (!function_exists('array_replace_recursive'))
         return $array;
     }
 }
+
+// Display only: calculation, form values and pretty_number remain exact.
+function display_number($value)
+{
+    $number = (float)$value;
+    if (!is_finite($number)) return pretty_number(0);
+    $exact = pretty_number($number);
+    if (abs($number) < 10000) return $exact;
+    return '<span class="compact-number" tabindex="0" title="'.$exact.'" aria-label="'.$exact.'">'.shortly_number($number).'</span>';
+}

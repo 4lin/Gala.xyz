@@ -32,7 +32,7 @@ $LNG['universe']					= 'Univers';
 $LNG['uni_closed']					= ' (fermée)';
 
 // Button
-$LNG['buttonRegister']				= 'S\'enregistrer maintenant!';
+$LNG['buttonRegister'] = 'Inscrivez-vous !';
 $LNG['buttonScreenshot']			= 'Capture d\'écran';
 $LNG['buttonLostPassword']			= 'Mot de passe perdu ?';
 
@@ -51,9 +51,9 @@ $LNG['loginServerDesc']				= '%s est un jeu de stratégie spatial regroupant des
 // Register
 $LNG['registerFacebookAccount']		= 'Se connecter avec son compte Facebook';
 $LNG['registerUsername']			= 'Login';
-$LNG['registerUsernameDesc']		= 'Le login doit contenir au moins 3 et au maximum 25 caractères et points, et peut se composer de chiffres, lettres, underscores et espace';
+$LNG['registerUsernameDesc'] = 'Utilisez 3 à 32 lettres, chiffres, espaces, tirets bas, tirets ou points.';
 $LNG['registerPassword']			= 'Mot de passe';
-$LNG['registerPasswordDesc']		= 'Le mot de passe doit comporter au moins 8 caractéres.';
+$LNG['registerPasswordDesc'] = 'Utilisez un mot de passe de 8 à 128 caractères.';
 $LNG['registerPasswordReplay']		= 'Répéter le mot de passe';
 $LNG['registerPasswordReplayDesc']	= 'S\'il vous plaît entrez une seconde fois le mot de passe.';
 $LNG['registerEmail']				= 'E-Mail';
@@ -75,7 +75,7 @@ $LNG['registerErrorUniClosed']		= 'Les enregistrements sont fermèes sur cet uni
 $LNG['registerErrorUsernameEmpty']	= 'Vous devez renseignez un login!';
 $LNG['registerErrorUsernameChar']	= 'Votre login peut seulement contenir des nombres, lettres, espaces, _, -, . Seulement!';
 $LNG['registerErrorUsernameExist']	= 'Le login est dèjà pris!';
-$LNG['registerErrorPasswordLength']	= 'Le mot de passe doit comporter au moins 6 caractères!';
+$LNG['registerErrorPasswordLength'] = 'Utilisez un mot de passe de 8 à 128 caractères.';
 $LNG['registerErrorPasswordSame']	= 'Les deux mots de passe entrès ne sont pas les mêmes!';
 $LNG['registerErrorMailEmpty']		= 'Vous devez spècifier une adresse e-mail!';
 $LNG['registerErrorMailInvalid']	= 'Adresse e-Mail invalide!';
@@ -141,5 +141,10 @@ $LNG['disclamerLabelAddress']		= 'Adresse du jeu:';
 $LNG['disclamerLabelPhone']			= 'Num. de téléphone:';
 $LNG['disclamerLabelMail']			= 'Email support:';
 $LNG['disclamerLabelNotice']		= 'Plus d\'informations';
-
-?>
+$LNG['rand1'] = 'EXPLOREZ';
+$LNG['rand2'] = 'STRATÉGIE';
+$LNG['rand3'] = 'BATAILLE';
+$LNG['rand4'] = 'DÉFENDEZ';
+$LNG['rand5'] = 'COLONISEZ';
+$LNG['rand6'] = 'VOTRE EMPIRE';
+$LNG['passwordUsernameEmpty'] = 'Saisissez votre nom d\'utilisateur.';
