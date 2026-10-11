@@ -8,15 +8,15 @@
 		<table class="req">
 			<tr>
 				<td class="transparent left"><p>{$LNG.step1_mysql_server}</p></td>
-				<td class="transparent"><input type="text" name="host" value="{$smarty.get.host|escape:'htmlall'|default:'localhost'}" size="30"></td>
+				<td class="transparent"><input type="text" name="host" value="{$smarty.get.host|default:'localhost'|escape:'htmlall'}" size="30"></td>
 			</tr>
 			<tr>
 				<td class="transparent left"><p>{$LNG.step1_mysql_port}</p></td>
-				<td class="transparent"><input type="text" name="port" value="{$smarty.get.port|escape:'htmlall'|default:'3306'}" size="30"></td>
+				<td class="transparent"><input type="text" name="port" value="{$smarty.get.port|default:'3306'|escape:'htmlall'}" size="30"></td>
 			</tr>
 			<tr>
 				<td class="transparent left"><p>{$LNG.step1_mysql_dbuser}</p></td>
-				<td class="transparent"><input type="text" name="user" value="{$smarty.get.user|escape:'htmlall'|default:''}" size="30"></td>
+				<td class="transparent"><input type="text" name="user" value="{$smarty.get.user|default:''|escape:'htmlall'}" size="30"></td>
 			</tr>
 			<tr>
 				<td class="transparent left"><p>{$LNG.step1_mysql_dbpass}</p></td>
@@ -24,11 +24,11 @@
 			</tr>
 			<tr>
 				<td class="transparent left"><p>{$LNG.step1_mysql_dbname}</p></td>
-				<td class="transparent"><input type="text" name="dbname" value="{$smarty.get.dbname|escape:'htmlall'|default:''}" size="30"></td>
+				<td class="transparent"><input type="text" name="dbname" value="{$smarty.get.dbname|default:''|escape:'htmlall'}" size="30"></td>
 			</tr>
 			<tr>
 				<td class="transparent left"><p>{$LNG.step1_mysql_prefix}</p></td>
-				<td class="transparent"><input type="text" name="prefix" value="{$smarty.get.prefix|escape:'htmlall'|default:'uni1_'}" size="30"></td>
+				<td class="transparent"><input type="text" name="prefix" value="{$smarty.get.prefix|default:'uni1_'|escape:'htmlall'}" size="30"></td>
 			</tr>
 			<tr class="noborder">
 				<td colspan="2" class="transparent"><input type="submit" name="next" value="{$LNG.continue}"></td>

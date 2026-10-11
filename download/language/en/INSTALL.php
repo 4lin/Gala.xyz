@@ -115,7 +115,7 @@ $LNG['step4_admin_mail'] = 'Contact email:';
 $LNG['step6_head'] = 'Installation completed!';
 $LNG['step6_desc'] = '2Moons was installed successfully.';
 $LNG['step6_info_head'] = 'Start using 2Moons';
-$LNG['step6_info_additional'] = 'The button below opens the administration panel.<br><br><strong>Delete or rename includes/ENABLE_INSTALL_TOOL to prevent the installer from being used again.</strong>';
+$LNG['step6_info_additional'] = 'Sign in with the administrator account you just created, then select Administration in the game menu.<br><br>The installer locks automatically. Confirm that includes/ENABLE_INSTALL_TOOL is absent.';
 
 $LNG['step8_need_fields'] = 'Fill in all fields.';
 
