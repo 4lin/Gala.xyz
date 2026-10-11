@@ -19,7 +19,7 @@ Gala.xyz includes the PHP game server, administration panel, templates, client s
 
 ## Distribution and artwork
 
-This public distribution uses **original neutral placeholder graphics**. Unverified third-party game artwork, audio, Flash files, and fonts without clear redistribution terms are excluded. Placeholder paths preserve the template and stylesheet structure; they do not reproduce OGame artwork. See [asset provenance](docs/ASSET-PROVENANCE.md).
+This distribution includes **the original game images**, copied unchanged from the project owner's local installation, including image resources under download/addon/. Each image remains the property of its respective author or copyright holder. Inclusion does not establish redistribution permission or place images under the source-code license. Audio, Flash files, and previously excluded fonts remain excluded. See [asset provenance](docs/ASSET-PROVENANCE.md).
 
 Credentials, database backups, logs, local development notes, and populated caches are excluded. A release is source code for a fresh installation, not a copy of an existing game database.
 
@@ -55,7 +55,7 @@ Additional tests in `download/tests/` cover queue handling, server clocks, navig
 
 Maintained by [4lin](https://github.com/4lin). Built on [2Moons](https://github.com/jkroepke/2Moons) by Jan-Otto Kröpke and earlier contributors. NPC growth is adapted from [mimikri/2moons-bots](https://github.com/mimikri/2moons-bots).
 
-The repository retains its existing GPL-3.0 license. The 2Moons core and other components retain their individual licenses and copyright notices; see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md). Original neutral distribution graphics are supplied under GPL-3.0. OGame is a Gameforge game; this independent project is not affiliated with or endorsed by Gameforge. No rights to Gameforge artwork or trademarks are granted by this repository.
+The repository retains its existing GPL-3.0 license. The 2Moons core and other components retain their individual licenses and copyright notices; see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md). Included third-party images retain their own rights and are not relicensed under GPL-3.0. OGame is a Gameforge game; this independent project is not affiliated with or endorsed by Gameforge. No rights to Gameforge artwork or trademarks are granted by this repository.
 
 ## Contributing and reporting issues
 

@@ -1,21 +1,19 @@
-# Asset provenance
+# Image provenance and rights
 
-## Included
+## Included images
 
-- Original procedural neutral graphics generated specifically for the public Gala.xyz distribution. They use simple geometric planets, rings, solid colors, and the Gala.xyz name. They reuse file paths and dimensions where practical, but contain no pixels from the private installation's images.
-- `DroidSansMono.ttf`, accompanied by the bundled Android Open Source Project Apache-2.0 notice.
-- Source code, templates, and stylesheets with their existing component copyright and license notices.
+Starting with v0.6.2, this distribution includes the original game images copied unchanged from the project owner's local Gala.xyz installation. This replaces the neutral placeholder graphics used in v0.6.0 and v0.6.1. Sprite sheets, backgrounds, icons, planet images, chat images, favicons, and additional image resources under download/addon/ preserve their original bytes and relative paths.
 
-## Not included
+The [asset inventory](../asset-inventory.json) records each included image's path, byte count, and SHA-256 hash. It documents the copied files rather than certifying their licensing status.
 
-Original OGame-style game images and other images with unverified redistribution permission are replaced with neutral originals. Background music, other audio, video, legacy Flash files, and fonts without clear redistribution terms are excluded. The personal-use Space Age font is not distributed.
+## Copyright and attribution
 
-The private game installation is unchanged. This policy applies to the new public source tree and release archive. Earlier repository history and older release artifacts are not rewritten by this update.
+Each image remains the property of its respective author or copyright holder. OGame and Gameforge artwork and trademarks remain the property of their respective rights holders. Existing component attribution and license notices are retained. Gala.xyz claims no ownership of third-party images and does not imply affiliation with or endorsement by Gameforge.
 
-The machine-readable [asset inventory](../asset-inventory.json) lists generated replacement paths and excluded media. Neutral graphics are GPL-3.0, consistent with the repository's existing project license. The procedural generator is included as `tools/generate-public-assets.php`.
+Individual authors and redistribution permissions have not been verified for every image. Attribution and inclusion do not grant permission to use or redistribute third-party artwork. The source-code GPL-3.0 license does not relicense these images. Obtain any required permission from the relevant rights holder for your intended use.
 
-## Replacing placeholders
+## Other media and private data
 
-Supply your own original artwork or assets whose licenses allow the intended use and redistribution. Preserve all required attribution and license notices. Existing template paths can be kept, or changed explicitly in the templates and stylesheets. Do not infer permission from a filename, a CDN URL, visual similarity, or the source-code license.
+Background music, audio, video, Flash files, and previously excluded fonts remain excluded. The bundled Droid Sans Mono font retains its Apache-2.0 notice. Private configuration, account data, sessions, logs, and database backups are not part of the release.
 
-OGame and Gameforge names identify the source of visual inspiration. This repository does not claim ownership of their artwork or imply affiliation.
+The live installation is unchanged. Older releases retain their original contents. The neutral graphics generator under tools/ is an optional historical utility; running it replaces original images with generated artwork and is not required for installation.
