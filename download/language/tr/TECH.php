@@ -195,7 +195,7 @@ $LNG['tech'] = array(
 610 => 'Casusluk Uzmani',
 611 => 'Kumandan',
 612 => 'Yokedici',
-613 => 'General',
+613 => 'Genel',
 614 => 'Fetihci',
 615 => 'Imparator',
 
@@ -211,7 +211,7 @@ $LNG['tech'] = array(
 	900 => 'Hammaddeler',
 	901 => 'Metal',
 	902 => 'Kristal',
-	903 => 'Deuterium',
+	903 => 'Döteryum',
 	911 => 'Enerji',
 	921 => 'Karanlik Madde',
 );

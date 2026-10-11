@@ -115,7 +115,7 @@ abstract class AbstractGamePage
 			$resourceTable[$resourceID]['max']			= $PLANET[$resource[$resourceID].'_max'];
 			if($USER['urlaubs_modus'] == 1 || $PLANET['planet_type'] != 1)
 			{
-				$resourceTable[$resourceID]['production']	= $PLANET[$resource[$resourceID].'_perhour'];
+				$resourceTable[$resourceID]['production']	= $PLANET['planet_type'] != 1 ? 0 : $PLANET[$resource[$resourceID].'_perhour'];
 			}
 			else
 			{
@@ -186,7 +186,7 @@ abstract class AbstractGamePage
 		$config	= Config::get();
 
 		$this->assign(array(
-			'servertime'		=> _date("M D d H:i:s", TIMESTAMP, $USER['timezone']),
+			'servertime'		=> _date($LNG['php_tdformat'], TIMESTAMP, $USER['timezone']),
 			'username'			=> $USER['username'],
 			'vmode'				=> $USER['urlaubs_modus'],
 			'authlevel'			=> $USER['authlevel'],
@@ -260,7 +260,7 @@ abstract class AbstractGamePage
 
 		$this->assign(array(
 			'LNG'			=> $LNG,
-			'servertime'	=> _date("M D d H:i:s", TIMESTAMP, $USER['timezone']),
+			'servertime'	=> _date($LNG['php_tdformat'], TIMESTAMP, $USER['timezone']),
 			'username'		=> $USER['username'],
 		), false);
 

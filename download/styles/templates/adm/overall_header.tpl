@@ -58,7 +58,7 @@
     <link rel="stylesheet" href="./styles/resource/css/admin/ui-fixes.css?v={$REV}">
     <script src="./styles/resource/js/tooltipster.bundle.min.js"></script>
     <script src="./scripts/admin/ui-fixes.js?v={$REV}"></script>
-	<script type="text/javascript" src="./scripts/game/base.js?v={$REV}"></script>
+	<script type="text/javascript" src="./scripts/game/base.js?v={$REV}-notice1"></script>
 	{foreach item=scriptname from=$scripts}
 	<script type="text/javascript" src="./scripts/game/{$scriptname}.js?v={$REV}-jq4"></script>
 	{/foreach}
@@ -67,6 +67,9 @@
 		{$execscript}
 	});
 	</script>
+<link rel="stylesheet" href="/styles/resource/css/base/notifications.css?v={$REV}-notice1">
+<script>window.GalaNoticeLabels={ title:{$LNG.ui_notice_title|json},close:{$LNG.ui_notice_close|json},ok:{$LNG.ui_notice_ok|json},login:{$LNG.ui_notice_login|json} };</script>
+<script src="/scripts/base/notifications.js?v={$REV}-notice2"></script>
 </head>
 <body id="{$smarty.get.page|default:'overview'|htmlspecialchars}" class="{$bodyclass}">
 	<div id="tooltip" class="tip"></div>

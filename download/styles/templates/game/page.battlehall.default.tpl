@@ -19,15 +19,15 @@
         <td>{$row@iteration}</td>
         <td><a href="game.php?page=raport&amp;mode=battlehall&amp;raport={$row.rid}" target="_blank">
         {if $row.result == "a"}
-        <span style="color:#00FF00">{$row.attacker|escape:'html'}</span> VS <span style="color:#FF0000">{$row.defender|escape:'html'}</span>
+        <span style="color:#00FF00">{$row.attacker|escape:'html'}</span> {$LNG.ui_versus|escape:'html'} <span style="color:#FF0000">{$row.defender|escape:'html'}</span>
         {elseif $row.result == "r"}
-        <span style="color:#FF0000">{$row.attacker|escape:'html'}</span> VS <span style="color:#00FF00">{$row.defender|escape:'html'}</span>
+        <span style="color:#FF0000">{$row.attacker|escape:'html'}</span> {$LNG.ui_versus|escape:'html'} <span style="color:#00FF00">{$row.defender|escape:'html'}</span>
         {else}
-        {$row.attacker|escape:'html'} VS {$row.defender|escape:'html'}
+        {$row.attacker|escape:'html'} {$LNG.ui_versus|escape:'html'} {$row.defender|escape:'html'}
         {/if}
         </a></td>
         <td>{$row.date}</td>
-        <td>{$row.units|number}</td>
+        <td>{$row.units|compact}</td>
     </tr>
 {/foreach}
 <tr>

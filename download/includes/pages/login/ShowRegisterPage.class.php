@@ -20,8 +20,32 @@ class ShowRegisterPage extends AbstractLoginPage
 	function __construct() 
 	{
 		parent::__construct();
+        require_once 'includes/classes/RegistrationSecurity.class.php';
+        Session::load();
 	}
 	
+    public function captcha()
+    {
+        $id = HTTP::_GP('form', '');
+        $answer = RegistrationSecurity::challenge($id);
+        if ($answer === null || !function_exists('imagecreatetruecolor')) {
+            http_response_code(400);
+            exit;
+        }
+        header('Content-Type: image/png');
+        header('Cache-Control: no-store, private');
+        header('X-Content-Type-Options: nosniff');
+        $image = imagecreatetruecolor(200, 64);
+        $background = imagecolorallocate($image, 232, 239, 243);
+        $ink = imagecolorallocate($image, 27, 46, 59);
+        $noise = imagecolorallocate($image, 125, 151, 162);
+        imagefill($image, 0, 0, $background);
+        for ($i=0; $i<7; $i++) imageline($image, random_int(0,199), random_int(0,63), random_int(0,199), random_int(0,63), $noise);
+        for ($i=0; $i<6; $i++) imagestring($image, 5, 20+$i*28, random_int(18,30), $answer[$i], $ink);
+        imagepng($image); imagedestroy($image);
+        exit;
+    }
+
 	function show()
 	{
 		global $LNG;
@@ -92,7 +116,10 @@ class ShowRegisterPage extends AbstractLoginPage
 		}
 		
 		$this->assign(array(
-			'referralData'		=> $referralData,
+			'registrationForm'    => RegistrationSecurity::issue(),
+            'captchaProvider'     => RegistrationSecurity::provider($config),
+            'captchaSiteKey'      => $config->cappublic,
+            'referralData'		=> $referralData,
 			'accountName'		=> $accountName,
 			'externalAuth'		=> $externalAuth,
 			'universeSelect'	=> $universeSelect,
@@ -111,9 +138,28 @@ class ShowRegisterPage extends AbstractLoginPage
 		{
 			$this->printMessage($LNG['registerErrorUniClosed'], array(array(
 				'label'	=> $LNG['registerBack'],
-				'url'	=> 'javascript:window.history.back()',
+				'url'	=> 'index.php?page=register',
 			)));
 		}
+
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            http_response_code(405);
+            header('Allow: POST');
+            $this->printMessage($LNG['registerErrorCaptcha']);
+        }
+        $formId = HTTP::_GP('registrationForm', '');
+        $formToken = HTTP::_GP('registrationToken', '');
+        $honeypot = HTTP::_GP('website', '');
+        $clientAddress = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
+        if (!RegistrationSecurity::allowAttempt(CACHE_PATH.'sessions', $clientAddress, Universe::current())) {
+            http_response_code(429);
+            header('Retry-After: 900');
+            $this->printMessage($LNG['ui_register_rate_limit'], array(array('label'=>$LNG['registerBack'],'url'=>'index.php?page=register')));
+        }
+        if (!RegistrationSecurity::validForm($formId, $formToken, $honeypot)) {
+            http_response_code(400);
+            $this->printMessage($LNG['ui_register_expired'], array(array('label'=>$LNG['registerBack'],'url'=>'index.php?page=register')));
+        }
 
 		$userName 		= HTTP::_GP('username', '', UTF8_SUPPORT);
 		$password 		= HTTP::_GP('password', '', true);
@@ -147,11 +193,11 @@ class ShowRegisterPage extends AbstractLoginPage
 			$errors[]	= $LNG['registerErrorUsernameEmpty'];
 		}
 		
-		if(!PlayerUtil::isNameValid($userName)) {
+		if(!PlayerUtil::isNameValid($userName) || (function_exists('mb_strlen') ? mb_strlen($userName, 'UTF-8') : strlen($userName)) < 3 || (function_exists('mb_strlen') ? mb_strlen($userName, 'UTF-8') : strlen($userName)) > 32) {
 			$errors[]	= $LNG['registerErrorUsernameChar'];
 		}
 		
-		if(strlen($password) < 6) {
+		if(strlen($password) < 8 || strlen($password) > 128) {
 			$errors[]	= $LNG['registerErrorPasswordLength'];
 		}
 			
@@ -222,7 +268,7 @@ class ShowRegisterPage extends AbstractLoginPage
 			$errors[]	= $LNG['registerErrorMailExist'];
 		}
 		
-		if ($config->capaktiv === '1')
+		if (RegistrationSecurity::provider($config) === 'recaptcha')
 		{
             require('includes/libs/reCAPTCHA/autoload.php');
 
@@ -234,10 +280,18 @@ class ShowRegisterPage extends AbstractLoginPage
             }
 		}
 						
+        $provider = RegistrationSecurity::provider($config);
+        if ($provider === 'local' && !RegistrationSecurity::verifyLocal($formId, HTTP::_GP('captchaAnswer', ''))) {
+            $errors[] = $LNG['registerErrorCaptcha'];
+        } elseif ($provider === 'turnstile') {
+            $hostname = parse_url('http://'.HTTP_HOST, PHP_URL_HOST);
+            if (!RegistrationSecurity::verifyTurnstile(HTTP::_GP('cf-turnstile-response',''), $config->capprivate, $hostname)) $errors[] = $LNG['registerErrorCaptcha'];
+        }
+
 		if (!empty($errors)) {
 			$this->printMessage(implode("<br>\r\n", $errors), array(array(
 				'label'	=> $LNG['registerBack'],
-				'url'	=> 'javascript:window.history.back()',
+				'url'	=> 'index.php?page=register',
 			)));
 		}
 
@@ -274,7 +328,8 @@ class ShowRegisterPage extends AbstractLoginPage
 			$referralID	= 0;
 		}
 		
-		$validationKey	= md5(uniqid('2m'));
+        RegistrationSecurity::consume($formId);
+		$validationKey	= bin2hex(random_bytes(16));
 
 		$sql = "INSERT INTO %%USERS_VALID%% SET
 				`userName` = :userName,

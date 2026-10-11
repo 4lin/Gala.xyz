@@ -86,3 +86,21 @@
 .captchaButtons{
 	font-size:11px;
 }
+#registerFormWrapper { max-width: 880px; margin: 30px auto; padding-bottom: 60px; }
+#registerForm { padding: 16px 0; background: rgba(8,17,25,.85); border: 1px solid #44535e; border-radius: 8px; }
+.rowForm::after { content: ''; display: block; clear: both; }
+#captchaRow label { margin-bottom: 7px; }
+.local-captcha { margin-left: 140px; }
+.local-captcha img { display: block; border-radius: 4px; }
+.local-captcha button { margin: 6px 0; display: block; }
+.local-captcha input { display: block; letter-spacing: 3px; text-transform: uppercase; }
+.registration-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+@media (max-width: 760px) {
+ #registerFormWrapper { margin: 20px 8px; }
+ .rowForm { padding: 8px 16px; }
+ .rowForm label { float: none; width: auto; }
+ .rowForm input.input, .rowForm select { width: 100%; box-sizing: border-box; }
+ .rowForm .inputDesc { margin-top: 5px; }
+ .local-captcha { margin-left: 0; }
+ #captchaRow { padding: 8px; }
+}

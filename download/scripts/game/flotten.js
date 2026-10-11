@@ -58,14 +58,14 @@ function refreshFormData() {
 	var minutes = Math.floor(seconds / 60);
 	seconds -= minutes * 60;
 	$("#duration").text(hours + (":" + dezInt(minutes, 2) + ":" + dezInt(seconds,2) + " h"));
-	$("#distance").text(NumberGetHumanReadable(dataFlyDistance));
-	$("#maxspeed").text(NumberGetHumanReadable(data.maxspeed));
+	$("#distance").html(display_number_js(dataFlyDistance));
+	$("#maxspeed").html(display_number_js(data.maxspeed));
 	if (dataFlyCargoSpace >= 0) {
-		$("#consumption").html("<font color=\"lime\">" + NumberGetHumanReadable(dataFlyConsumption) + "</font>");
-		$("#storage").html("<font color=\"lime\">" + NumberGetHumanReadable(dataFlyCargoSpace) + "</font>");
+		$("#consumption").html("<font color=\"lime\">" + display_number_js(dataFlyConsumption) + "</font>");
+		$("#storage").html("<font color=\"lime\">" + display_number_js(dataFlyCargoSpace) + "</font>");
 	} else {
-		$("#consumption").html("<font color=\"red\">" + NumberGetHumanReadable(dataFlyConsumption) + "</font>");
-		$("#storage").html("<font color=\"red\">" + NumberGetHumanReadable(dataFlyCargoSpace) + "</font>");
+		$("#consumption").html("<font color=\"red\">" + display_number_js(dataFlyConsumption) + "</font>");
+		$("#storage").html("<font color=\"red\">" + display_number_js(dataFlyCargoSpace) + "</font>");
 	}
 }
 
@@ -141,9 +141,9 @@ function calculateTransportCapacity() {
 	var deuterium = Math.abs(document.getElementsByName("deuterium")[0].value);
 	transportCapacity = data.fleetroom - data.consumption - metal - crystal - deuterium;
 	if (transportCapacity < 0) {
-		document.getElementById("remainingresources").innerHTML = "<font color=red>" + NumberGetHumanReadable(transportCapacity) + "</font>";
+		document.getElementById("remainingresources").innerHTML = "<font color=red>" + display_number_js(transportCapacity) + "</font>";
 	} else {
-		document.getElementById("remainingresources").innerHTML = "<font color=lime>" + NumberGetHumanReadable(transportCapacity) + "</font>";
+		document.getElementById("remainingresources").innerHTML = "<font color=lime>" + display_number_js(transportCapacity) + "</font>";
 	}
 	return transportCapacity;
 }

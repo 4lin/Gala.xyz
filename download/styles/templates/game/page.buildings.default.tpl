@@ -19,7 +19,7 @@
                     <h3>{$LNG.tech.{$ID}|escape:'html'} <small>{$LNG.bd_lvl} {$Element.level}</small></h3>
                     <div class="building-panel-production">
                         <div>{$LNG.fgf_time} <strong>{$Element.elementTime|time}</strong></div>
-                        {if $Element.currentEnergy !== null}<div>{$LNG.tech.911}: <strong>{$Element.currentEnergy|number}</strong> <strong class="{if $Element.energyDifference >= 0}affordable{else}unaffordable{/if}">({if $Element.energyDifference >= 0}+{/if}{$Element.energyDifference|number})</strong></div>{/if}
+                        {if $Element.currentEnergy !== null}<div>{$LNG.tech.911}: <strong>{$Element.currentEnergy|compact}</strong> <strong class="{if $Element.energyDifference >= 0}affordable{else}unaffordable{/if}">({if $Element.energyDifference >= 0}+{/if}{$Element.energyDifference|number})</strong></div>{/if}
                     </div>
                     {if $Element.level > 0 && $CanBuildElement}
                     <form class="building-panel-demolish" action="game.php?page=buildings" method="post">
@@ -31,7 +31,7 @@
                         <div>{$LNG.bd_cost} {$LNG.bd_next_level} {$Element.levelToBuild + 1}</div>
                         <div class="building-panel-costs">
                         {foreach $Element.costResources as $RessID => $RessAmount}
-                            <span title="{$LNG.tech.{$RessID}|escape:'html'}"><img src="{$dpath}images/{if $RessID == 901}metal{elseif $RessID == 902}crystal{elseif $RessID == 903}deuterium{else}darkmatter{/if}.gif" alt="{$LNG.tech.{$RessID}|escape:'html'}"><strong class="{if $Element.costOverflow[$RessID] == 0}affordable{else}unaffordable{/if}">{$RessAmount|number}</strong></span>
+                            <span title="{$LNG.tech.{$RessID}|escape:'html'}: {$RessAmount|number}"><img src="{$dpath}images/{if $RessID == 901}metal{elseif $RessID == 902}crystal{elseif $RessID == 903}deuterium{else}darkmatter{/if}.gif" alt="{$LNG.tech.{$RessID}|escape:'html'}"><strong class="{if $Element.costOverflow[$RessID] == 0}affordable{else}unaffordable{/if}">{shortly_number($RessAmount)}</strong></span>
                         {/foreach}
                         </div>
                     </div>

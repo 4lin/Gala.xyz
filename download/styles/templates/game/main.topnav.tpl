@@ -7,13 +7,13 @@
                 <div id="messagecenter">
                     <div id="javamessagebox">
                         <span class="overmark">
-                            <strong>Por favor, activa el JavaScript para poder continuar con el juego.</strong>
+                            <strong>{$LNG.ui_enable_javascript}</strong>
                         </span>
                     </div>
                 </div>
             </noscript>
             <div id="ie_message">
-                <p><img src="styles/resource/images/game/external/YRenhXr.gif" height="16" width="16" />El navegador usado actualmente es antiguo y puede causar errores en la pantalla de esta página web. Por favor, actualiza tu navegador a la versión más nueva: <a href="http://www.microsoft.com/upgrade/">Internet Explorer</a> o <a href="http://www.mozilla-europe.org/de/firefox/">Mozilla Firefox</a></p>
+                <p><img src="styles/resource/images/game/external/YRenhXr.gif" height="16" width="16" />{$LNG.ui_outdated_browser} <a href="http://www.microsoft.com/upgrade/">Internet Explorer</a> {$LNG.ui_or} <a href="http://www.mozilla-europe.org/de/firefox/">Mozilla Firefox</a></p>
             </div>
             <script type="text/javascript">isIE = false;</script>
             <!--[IF IE]>
@@ -39,7 +39,7 @@
 						{if isModuleAvailable($smarty.const.MODULE_BUDDYLIST)}<li><a href="game.php?page=buddyList">{$LNG.lm_buddylist}</a></li>{/if}
 						{if isModuleAvailable($smarty.const.MODULE_SEARCH)}<li><a href="game.php?page=search">{$LNG.lm_search}</a></li>{/if}
 						{if isModuleAvailable($smarty.const.MODULE_RECORDS)}<li><a href="game.php?page=records">{$LNG.lm_records}</a></li>{/if}
-						{if isModuleAvailable($smarty.const.MODULE_BATTLEHALL)}<li><a href="game.php?page=battleHall">TOP</a></li>{/if}
+						{if isModuleAvailable($smarty.const.MODULE_BATTLEHALL)}<li><a href="game.php?page=battleHall">{$LNG.lm_topkb}</a></li>{/if}
 						
 						<li><a href="game.php?page=settings">{$LNG.lm_options}</a></li>
 						{if isModuleAvailable($smarty.const.MODULE_SUPPORT)}<li><a href="game.php?page=ticket">{$LNG.lm_support}</a></li>{/if}
@@ -51,23 +51,23 @@
 				</div>
       	
       			<div id="officers">
-      	        	<a href="game.php?page=officier" class="{if isModuleAvailable(MODULE_OFFICIER)}img_commander{else}img_commander_inactive{/if} js_hideTipOnMobile tooltip" title="commander">
+      	        	<a href="game.php?page=officier" class="{if isModuleAvailable(MODULE_OFFICIER)}img_commander{else}img_commander_inactive{/if} js_hideTipOnMobile tooltip" title="{$LNG.ui_commander|escape:'html'}">
                   		<img src="styles/resource/images/game/external/pLBcsdw.png" width="30" height="30">
                 	</a>
       				 
-					<a href="game.php?page=officier" class="{if isModuleAvailable(MODULE_OFFICIER)}img_admiral{else}img_admiral_inactive{/if} js_hideTipOnMobile tooltip" title="admiral">
+					<a href="game.php?page=officier" class="{if isModuleAvailable(MODULE_OFFICIER)}img_admiral{else}img_admiral_inactive{/if} js_hideTipOnMobile tooltip" title="{$LNG.tech[602]|escape:'html'}">
 						<img src="styles/resource/images/game/external/pLBcsdw.png" width="30" height="30">
                 	</a>
 
-					<a href="game.php?page=officier" class="{if isModuleAvailable(MODULE_OFFICIER)}img_engineer{else}img_engineer_inactive{/if} js_hideTipOnMobile tooltip" title="engineer">
+					<a href="game.php?page=officier" class="{if isModuleAvailable(MODULE_OFFICIER)}img_engineer{else}img_engineer_inactive{/if} js_hideTipOnMobile tooltip" title="{$LNG.tech[603]|escape:'html'}">
 						<img src="styles/resource/images/game/external/pLBcsdw.png" width="30" height="30">
                		</a>
 
-					<a href="game.php?page=officier" class="{if isModuleAvailable(MODULE_OFFICIER)}img_geologist{else}img_geologist_inactive{/if} js_hideTipOnMobile tooltip" title="geologist">
+					<a href="game.php?page=officier" class="{if isModuleAvailable(MODULE_OFFICIER)}img_geologist{else}img_geologist_inactive{/if} js_hideTipOnMobile tooltip" title="{$LNG.tech[601]|escape:'html'}">
 						<img src="styles/resource/images/game/external/pLBcsdw.png" width="30" height="30">
 					</a>
 
-					<a href="game.php?page=officier" class="{if isModuleAvailable(MODULE_OFFICIER)}img_technocrat{else}img_technocrat_inactive{/if} js_hideTipOnMobile tooltip" title="technocrat">
+					<a href="game.php?page=officier" class="{if isModuleAvailable(MODULE_OFFICIER)}img_technocrat{else}img_technocrat_inactive{/if} js_hideTipOnMobile tooltip" title="{$LNG.tech[604]|escape:'html'}">
 						<img src="styles/resource/images/game/external/pLBcsdw.png" width="30" height="30">
 					</a>
 
@@ -153,9 +153,9 @@
 												{if !isset($resourceData.current)}
 												{$resourceData.current = $resourceData.max + $resourceData.used}
 									
-													<td class="res_current resource-energy"><span{if $resourceData.current < 0} style="color:red"{/if}>{$resourceData.current|number}</span><span>/ {$resourceData.max|number}</span></td>
+													<td class="res_current resource-energy"><span{if $resourceData.current < 0} style="color:red"{/if}>{$resourceData.current|compact}</span><span>/ {$resourceData.max|compact}</span></td>
 												{else}
-												<td class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.current|number}</td>
+												<td class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.current|compact}</td>
 												{/if}
 												{/foreach}
 											</tr>
@@ -187,7 +187,7 @@
         						});
 							</script>
         
-        					<script src="scripts/game/topnav.js?v=5"></script>
+        					<script src="scripts/game/topnav.js?v=6-moon"></script>
         						{if $hasGate}<script src="scripts/game/gate.js"></script>{/if}
 						{/if}
 					</div><!-- header-->

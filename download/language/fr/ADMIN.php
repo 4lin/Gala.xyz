@@ -20,7 +20,7 @@ $LNG['adm_cp_logout']					= 'Quitter';
 
 //	MISCELaNEO - MISCELLANEOUS
 $LNG['ad_number'] 						= 'ID';
-$LNG['ad_max']  						= '(max. % d)';
+$LNG['ad_max'] = '(max. %d)';
 $LNG['only_numbers']					= 'Vous pouvez seulement entrer des nombres !';
 $LNG['select_option']	 				= 'Sélectionnez ...';
 
@@ -37,7 +37,7 @@ $LNG['time_minutes']					= 'Minutes';
 $LNG['time_seconds']					= 'Secondes';
 //###########################################################//
 
-$LNG['info_information']	= 'Soumettre les bugs à : <a href="%s" target="tracker">2Moons Board</a><br>Ou bien Il n\'y a aucun support !';
+$LNG['info_information'] = 'Signalez les erreurs sur le <a href="%s" target="_blank">suivi des problèmes de 2Moons</a>.';
 
 //---------------	�SI O NO? - YES OR NO? - JA ODER NEIN?	------------------------//
 $LNG['one_is_yes_1']					= 'Oui';
@@ -329,7 +329,7 @@ $LNG['ow_developers']				= 'Developpeur';
 
 //---------------	GAME CONFIG	    ------------------------//
 $LNG['se_server_parameters']               		= 'Paramètres serveur';
-$LNG['se_game_name']					        = 'Nom (Jeu)';
+$LNG['se_game_name'] = 'Nom du jeu';
 $LNG['se_uni_name']						        = 'Nom (Univers)';
 $LNG['se_lang']                            		= 'Langage';
 $LNG['se_general_speed']                    	= 'Vitesse globale du jeu';
@@ -381,13 +381,13 @@ $LNG['se_min_build_time']				= 'Construction minimum';
 $LNG['se_trader_head']					= 'Réglages Flotte Marchand';
 $LNG['se_trader_ships']				= 'Navires autorisés:';
 $LNG['se_trader_charge']				= 'Frais du Marchand';
-$LNG['se_player_settings']				= 'Réglages joueurs';
+$LNG['se_player_settings'] = 'Paramètres des joueurs';
 $LNG['se_days']							= 'Jours';
 $LNG['se_del_oldstuff']					= 'Supprimer message après ';
 $LNG['se_del_oldstuff_info']			= 'Supprimer les messages / rapports de bataille après X jours.';
-$LNG['se_del_user_manually']			= 'Suppression utilisateur après';
+$LNG['se_del_user_manually'] = 'Supprimer les comptes marqués pour suppression après';
 $LNG['se_del_user_manually_info']		= 'Supprime les utilisateurs qui ont leur compte supprimé actif après X jours.';
-$LNG['se_del_user_automatic']			= 'Supprimer les inactifs';
+$LNG['se_del_user_automatic'] = 'Supprimer les comptes inactifs après';
 $LNG['se_del_user_automatic_info']		= 'Supprime les utilisateurs qui se s\'ont pas connecté après X jours.';
 $LNG['se_del_user_sendmail']			= 'Envoyer un rappel';
 $LNG['se_del_user_sendmail_info']		= 'Envoyer un rappel aux utilisateurs, après un nombre X de jours non connecté';
@@ -453,8 +453,8 @@ $LNG['se_google_info']					= 'Google Analytics est une solution qui vous permet 
 $LNG['se_google_active']				= 'Activer Google Analytics ?';
 $LNG['se_google_key']					= 'Clé Google Analytics';
 $LNG['se_google_key_info']				= 'Une fois inscrit, Google vous fournira une clé pour identifier votre site web, pour son logiciel Google Analytics. Par exemple, Cela commence toujours avec UC : UC -13185300-3 ';
-$LNG['se_ttf_file']						= 'Chemin vers le fichier FFT';
-$LNG['se_ttf_file_info']				= 'Le FTT est nécessaire afin d\'afficher les caractères cyrilliques bannière des statistiques ou des caractères chinois';
+$LNG['se_ttf_file'] = 'Chemin du fichier TTF';
+$LNG['se_ttf_file_info'] = 'Chemin de la police TTF utilisée pour générer les bannières des joueurs.';
 $LNG['se_deuterium_cost_galaxy']		= 'Frais de galaxie';
 $LNG['se_deuterium_cost_galaxy_info']	= 'Coûts par clic du deutérium  dans la galaxie';
 $LNG['se_max_galaxy']					= 'Max galaxie';
@@ -477,7 +477,7 @@ $LNG['se_max_elements_ships']			= 'Commandes Max (chantier naval)';
 $LNG['se_max_elements_ships_info']		= 'Nombre maximum d\'emplois dans le chantier naval';
 $LNG['se_max_fleet_per_build']			= 'Flottes Max / Mission';
 $LNG['se_max_fleet_per_build_info']		= 'Nombre maximum d\'unités par ordre dans le chantier naval';
-$LNG['se_max_overflow']					= 'Débordement de mémoire';
+$LNG['se_max_overflow'] = 'Facteur de dépassement du stockage des ressources';
 $LNG['se_max_overflow_info']			= 'Combien de ressources peuvent être produites dans le facteur de roulements complète';
 $LNG['se_moon_factor']					= 'Facteur chance de lune';
 $LNG['se_moon_factor_info']				= 'Le facteur augmente les chances d\'une nouvelle lune';
@@ -503,14 +503,14 @@ $LNG['se_darkmatter_start']				= 'Démarrer en Matière noire';
 $LNG['se_darkmatter_start_info']		= 'Indique combien de matière noire gagner le nouveaux utilisateurs.';
 $LNG['se_debris_moon']					= 'Supprimer TF par la lune';
 $LNG['se_debris_moon_info']	 			= 'Efface le TF, après qu\'une lune était originaire.';
-$LNG['se_buildlist']					= 'Liste des paramètres de construction';
+$LNG['se_buildlist'] = 'Files de construction';
 $LNG['se_timzone']						= 'Fuseau Horaire';
 $LNG['se_max_dm_missions']				= 'Nombre maximum de mission DM en paralélle';
 $LNG['se_alliance_create_min_points']   = 'Nombre minimum de points pour rejoindre une alliance.';
-$LNG['se_disclaimerAddress']				= 'Addresse';
-$LNG['se_disclaimerPhone']				= 'Numéros de téléphone';
-$LNG['se_disclaimerMail']				= 'Adresse E-mail';
-$LNG['se_disclaimerNotice']				= 'Plus d\'informations';
+$LNG['se_disclaimerAddress'] = 'Adresse';
+$LNG['se_disclaimerPhone'] = 'Téléphone';
+$LNG['se_disclaimerMail'] = 'E-mail';
+$LNG['se_disclaimerNotice'] = 'Mentions légales';
 
 //###########################################################//
 
@@ -581,7 +581,7 @@ $LNG['ff_goback_succes']        			= 'La Flotte retourne maintenant à son point
 $LNG['sb_top_memory']					= 'Crête Mémoire: %p KB / max. %m KB <br>';
 $LNG['sb_final_memory']					= 'Mémoire utilisée à la fin : %e KB / max. %m KB<br>';
 $LNG['sb_start_memory']					= 'Mémoire utilisée au début : %i KB / max. %m KB<br>';
-$LNG['sb_stats_update']					= 'Stats mises à jour : %t secondes<<br>';
+$LNG['sb_stats_update'] = 'Statistiques mises à jour en %s secondes.<br>';
 $LNG['sb_stats_updated']				= 'Statistiques mises à jour! <br>Détails :<br>';
 $LNG['sb_sql_counts']					= 'Requêtes SQL : %d';
 
@@ -594,7 +594,7 @@ $LNG['ul_sure_you_want_dlte']				= 'Etes-vous sûr de vouloir supprimer ?';
 
 
 //---------------	MENU	------------------------//
-$LNG['mu_general']                   			= 'Général';
+$LNG['mu_general'] = 'Général';
 $LNG['mu_connected']                			= 'En ligne';
 $LNG['mu_settings']                			= 'Configuration';
 $LNG['mu_unisettings']				= 'Configuration univers';
@@ -613,7 +613,7 @@ $LNG['mu_mess_list']                			= 'Liste des messages';
 $LNG['mu_planet_list']                			= 'Liste des Planètes';
 $LNG['mu_error_list']                			= 'Erreurs Base de Données';
 $LNG['mu_active_planets']            			= 'Planètes Actives';
-$LNG['mu_tools']                    			= 'Utilitaires';
+$LNG['mu_tools'] = 'Outils';
 $LNG['mu_md5_encripter']            			= 'Encrypteur MD5';
 $LNG['mu_optimize_db']                			= 'Base de Données';
 $LNG['mu_manual_points_update']    			= 'Mettre à jour les Points manuellement';
@@ -622,23 +622,23 @@ $LNG['mu_search_page']                			= 'Recherche avancée';
 $LNG['mu_info_account_page']        			= 'Information sur le compte';
 $LNG['mu_planets_options']         	= 'Options Planètes';
 $LNG['mu_user_logs']               	= 'Log';
-$LNG['mu_support']                 	= 'Support Tickets';
+$LNG['mu_support'] = 'Demandes d’assistance';
 $LNG['mu_chat']                   	= 'Administration Chat';
 $LNG['mu_module']                 	= 'Module';
 $LNG['mu_mod_update']              	= 'Contrôle Mod Version';
 $LNG['mu_fb_options'] 				= 'Connexion Facebook';
 $LNG['mu_ts_options'] 				= 'Options Teamspeak';
-$LNG['mu_game_info'] 				= 'Information';
+$LNG['mu_game_info'] = 'Informations du jeu';
 $LNG['mu_vaild_users']				= 'Activité Utilisateur';
-$LNG['mu_news']						= 'Actualités';
+$LNG['mu_news'] = 'Actualités';
 $LNG['mu_multiip_page']				= 'MultiIP'; 
 $LNG['mu_clear_cache']				= 'Vider le Cache';
 $LNG['mu_vertify']					= 'Vérifiez le contenu du jeu'; 
-$LNG['mu_cronjob']					= 'Cronjobs'; 
+$LNG['mu_cronjob'] = 'Tâches planifiées'; 
 $LNG['mu_logs']						= 'Admin-Log';
-$LNG['mu_giveaway']					= 'Giveaways';
-$LNG['mu_disclaimer']				= 'Paramétres de contact';
-$LNG['mu_dump']						= 'Database Backup';
+$LNG['mu_giveaway'] = 'Cadeaux';
+$LNG['mu_disclaimer'] = 'Paramètres de contact';
+$LNG['mu_dump'] = 'Sauvegarde de la base de données';
 
 $LNG['vt_error']					= 'Le Hash du fichier n\'est pas disponible ! Effectuer une mise à jour';
 $LNG['vt_fail']						= 'Fichiers modifiès';
@@ -780,14 +780,14 @@ $LNG['ac_suspended_time']				= 'Bannis';
 $LNG['ac_suspended_longer']				= 'Jusqu\'à';
 $LNG['ac_suspended_reason']				= 'Raison';
 $LNG['ac_suspended_autor']				= 'Bannis pour';
-$LNG['ac_note_k']					.= '<table><tr><th width=10%><font color=lime>T+</font></th><th>Dépasse les Milliards</th></tr>';
+$LNG['ac_note_k']					= '<table><tr><th width=10%><font color=lime>T+</font></th><th>Dépasse les Milliards</th></tr>';
 $LNG['ac_leyend']					= '[ Légende ]';
 $LNG['ac_no_rank_level']				= 'Vous n\'avez pas l\' autorisation suffisante pour voir les informations sur ce joueur !';
 /*
-$LNG['ac_note_k']					.= '<tr><th width=10%><font color=lime>T</font></th><th>Mille Milliards et Plus</th></tr>';
-$LNG['ac_note_k']					.= '<tr><th width=10%><font color=lime>B</font></th><th>Milliards et Plus</th></tr>';
-$LNG['ac_note_k']					.= '<tr><th width=10%><font color=lime>M</font></th><th>Millions et Plus</th></tr>';
-$LNG['ac_note_k']					.= '<tr><th width=10%><font color=lime>K</font></th><th>Mille et Plus</th></tr></table>';
+$LNG['ac_note_k']					= '<tr><th width=10%><font color=lime>T</font></th><th>Mille Milliards et Plus</th></tr>';
+$LNG['ac_note_k']					= '<tr><th width=10%><font color=lime>B</font></th><th>Milliards et Plus</th></tr>';
+$LNG['ac_note_k']					= '<tr><th width=10%><font color=lime>M</font></th><th>Millions et Plus</th></tr>';
+$LNG['ac_note_k']					= '<tr><th width=10%><font color=lime>K</font></th><th>Mille et Plus</th></tr></table>';
 */
 //###########################################################//
 
@@ -856,7 +856,7 @@ $LNG['se_input_allyy']					=	' Alliances';
 $LNG['se_input_planett']				=	' Planètes';
 $LNG['se_input_moonn']					=	' Lunes';
 $LNG['se_input_userss']					=	' Utilisateurs';
-$LNG['se_input_vacatii']				=	' Utilisateurs en vacances';
+$LNG['se_input_vacatii'] = 'Joueurs en mode vacances';
 $LNG['se_input_connect']				=	' Utilisateurs en ligne';
 $LNG['se_input_act_pla']				=	' Planètes actives';
 $LNG['se_filter_title']					=	'Filtrer';
@@ -870,7 +870,7 @@ $LNG['se_contrac']					=	'Réduire';
 $LNG['se__next']					=	'Suivant';
 $LNG['se__before']					=	'Précédent';
 $LNG['se_search_info']					=	'Chercher';
-$LNG['se_asc_desc']					=	'Croissant/Décroissant';
+$LNG['se_asc_desc'] = 'Croissant / décroissant';
 $LNG['se_search_order']					=	'Ordre';
 $LNG['se_search_edit']					=	'Editer';
 $LNG['se_delete_succes_p']				=	'Supprimé avec succès';
@@ -960,7 +960,7 @@ $LNG['po_colony']					=	'Colonie';
 $LNG['po_fields_max']					=	'Cases';
 $LNG['po_coor_1']					=	'Coordonnées';
 $LNG['po_add_planet']					=	'Ajouter Planète';
-$LNG['po_delete_planet']				=	'Supprimer Planète';
+$LNG['po_delete_planet'] = 'Supprimer la planète';
 $LNG['po_name_planet']					=	'Nom de la Planète';
 $LNG['po_complete_all']					=	'Données invalides ou coordonnées déjà utilisées !';
 $LNG['po_complete_all2']				=	'Erreur dans les coordonnées !';
@@ -1000,7 +1000,7 @@ $LNG['sp_admin_open']					= '%s (Admin) a ouvert le ticket le %s !';
 
 
 // QuickEditor
-$LNG['qe_name']						= 'Nom';
+$LNG['qe_name'] = 'Nom';
 $LNG['qe_send']						= 'Soumettre';
 $LNG['qe_reset']					= 'Reset';
 $LNG['qe_build']					= 'Construction';
@@ -1062,43 +1062,43 @@ $LNG['modul_2']                        		= 'Construction - Bâtiments';
 $LNG['modul_3']                        		= 'Elaboration - Rerecherches';
 $LNG['modul_4']                        		= 'Construction - Flottes';
 $LNG['modul_5']                        		= 'Construction - Défense';
-$LNG['modul_6']                        		= 'Liste d\'amis';
+$LNG['modul_6'] = 'Liste d’amis';
 $LNG['modul_7']                        		= 'Chat';
 $LNG['modul_8']                        		= 'Banque Matière Noire';
 $LNG['modul_9']                        		= 'Flottes';
 $LNG['modul_10']                       		= 'Flottes - Gestionnaire';
-$LNG['modul_40']						        = 'Fleets Shourtcuts';
+$LNG['modul_40'] = 'Raccourcis de flotte';
 $LNG['modul_11']                       		= 'Galaxie';
-$LNG['modul_12']                       		= 'Hall of Fame';
+$LNG['modul_12'] = 'Tableau d’honneur';
 $LNG['modul_13']                       		= 'Marchand';
 $LNG['modul_14']                       		= 'Info';
 $LNG['modul_15']                       		= 'Empire';
 $LNG['modul_32']                       		= 'Mission - Recycler';
 $LNG['modul_1']                        		= 'Mission - Attaquer';
 $LNG['modul_31']                       		= 'Mission - Rechercher de la Matière Noire';
-$LNG['modul_30']                       		= 'Mission - Expédition';
+$LNG['modul_30'] = 'Mission - Expédition';
 $LNG['modul_33']                       		= 'Mission - Stationner';
 $LNG['modul_35']                       		= 'Mission - Coloniser';
 $LNG['modul_24']                       		= 'Mission - Espionner';
 $LNG['modul_36']                       		= 'Mission - Attaque groupée';
-$LNG['modul_34']                       		= 'Mission - Transporter';
+$LNG['modul_34'] = 'Mission - Transport';
 $LNG['modul_29']                       		= 'Mission - Détruire';
-$LNG['modul_42']								= 'Mission - ACS';
+$LNG['modul_42'] = 'Mission - AG';
 $LNG['modul_16']                       		= 'Actualités';
 $LNG['modul_17']                       		= 'Notes';
 $LNG['modul_18']                       		= 'Officiers';
 $LNG['modul_19']                       		= 'Phalange';
 $LNG['modul_20']                       		= 'Profil';
 $LNG['modul_21']                       		= 'Piloris';
-$LNG['modul_22']                       		= 'Records';
+$LNG['modul_22'] = 'Records';
 $LNG['modul_23']                       		= 'Ressources';
 $LNG['modul_38']						        = 'Flotte - Marchand';
 $LNG['modul_25']                       		= 'Statistiques';
 $LNG['modul_37']                       		= 'Bannière Statistiques';
 $LNG['modul_26']                       		= 'Rechercher';
-$LNG['modul_27']                       		= 'Tickets Support';
-$LNG['modul_28']                       		= 'Technologies';
-$LNG['modul_41']                           = 'Facebook Application';
+$LNG['modul_27'] = 'Demandes d’assistance';
+$LNG['modul_28'] = 'Arbre technologique';
+$LNG['modul_41'] = 'Application Facebook';
 $LNG['mod_module']					= 'Modules';
 $LNG['mod_info']					= 'Modules dans le Jeu';
 $LNG['mod_active']					= 'Actif';
@@ -1175,7 +1175,7 @@ $LNG['up_edit']							= 'Editer :';
 $LNG['up_del']							= 'Supprimer :';
 $LNG['up_submit']						= 'Envoyer';
 $LNG['up_version']						= 'Version';
-$LNG['up_chmod_error']					= 'Aucune permission d\'écriture pour le dossier:\n\n%s';
+$LNG['up_chmod_error'] = 'Aucune permission d\'écriture pour les dossiers suivants :';
 $LNG['up_need_curl']					= 'Erreur: cURL n\'est pas disponible.<br />2Moons système de mise à jour nécessite cURL, pour charger les données réelles téléchargées.';
 $LNG['up_no_xml_ext']					= 'Erreur: XML Parser n\'est pas présent.<br>Le maintien de 2Moons exige Parser XML pour traiter les fichiers présents.';
 $LNG['up_offline']						= 'Mise a jour serveur non disponible.';
@@ -1324,7 +1324,7 @@ $LNG['message_t'] 							= 'Status du Ticket:';
 $LNG['supp_send'] 							= 'Envoi';
 $LNG['sendit_t'] 							= 'Le ticket a été envoyé.';
 $LNG['close_t'] 							= 'Le ticket a été fermé.';
-$LNG['sendit_error'] 						= 'Erreur:';
+$LNG['sendit_error'] = 'Le message n\'a pas pu être envoyé.';
 $LNG['sendit_error_msg'] 					= 'Veuillez insérer quelque chose!';
 $LNG['supp_admin_system'] 					= 'Support de panneau d\'administration';
 $LNG['close_ticket'] 						= 'Ticket fermé';
@@ -1344,5 +1344,28 @@ $LNG['du_select_all_tables']		= 'Toutes les tables';
 $LNG['du_choose_tables']			= 'Sélectionner les tables';
 $LNG['du_success']					= 'Backup creer avec succes! Fichier: %s';
 $LNG['du_not_tables_selected']		= 'Vous n\'avez pas séléctioner de tables pour le backup!';
-
-?>
+$LNG['ch_allowdelmes'] = 'Autoriser la suppression des messages du chat';
+$LNG['cronjob_no_data'] = 'Aucune tâche planifiée trouvée.';
+$LNG['different_mails'] = 'Les adresses e-mail ne correspondent pas.';
+$LNG['different_passwords'] = 'Les mots de passe ne correspondent pas.';
+$LNG['empty_user_field'] = 'Saisissez un nom d\'utilisateur.';
+$LNG['invalid_mail_adress'] = 'Adresse e-mail invalide.';
+$LNG['log_nomoree'] = 'Aucun';
+$LNG['mail_already_exists'] = 'Cette adresse e-mail est déjà utilisée.';
+$LNG['ml_from'] = 'Depuis';
+$LNG['mo_temperature'] = 'Température';
+$LNG['moon_build'] = 'Bâtiments lunaires';
+$LNG['password_lenght_error'] = 'La longueur du mot de passe est invalide.';
+$LNG['planet_already_exists'] = 'Une planète existe déjà à ces coordonnées.';
+$LNG['user_already_exists'] = 'Ce nom d\'utilisateur est déjà utilisé.';
+$LNG['user_field_specialchar'] = 'Le nom d\'utilisateur contient des caractères invalides.';
+$LNG['mu_disclamer'] = 'Paramètres de contact';
+$LNG['se_disclamerAddress'] = 'Adresse';
+$LNG['se_disclamerPhone'] = 'Téléphone';
+$LNG['se_disclamerMail'] = 'E-mail';
+$LNG['se_disclamerNotice'] = 'Mentions légales';
+$LNG['se_mail_sel'] = array (
+  0 => 'PHP mail() Fonction',
+  1 => 'Envoyer un mail / Qmail',
+  2 => 'SMTP Auth',
+);

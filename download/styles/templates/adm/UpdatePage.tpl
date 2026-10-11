@@ -8,7 +8,7 @@
 <td><label for="version">{$up_version}</label>: <input type="text" name="version" size="8" value="{$version}" id="version"> <input type="submit" value="{$up_submit}"></td>
 </tr>
 <tr>
-<td><a href="?page=update&amp;history">History</a></td>
+<td><a href="?page=update&amp;history">{$LNG.ui_history}</a></td>
 </tr>
 </table>
 </form>

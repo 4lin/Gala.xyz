@@ -54,9 +54,9 @@
 		{foreach $planetList.resource as $elementID => $resourceArray name=trloop}
 		<tr>
 			<td>{$LNG.tech.$elementID}</td>
-			<td>{array_sum($resourceArray)|number}</td>
+			<td>{array_sum($resourceArray)|compact}</td>
 			{foreach $resourceArray as $planetID => $resource}
-				<td>{$resource|number}</td>
+				<td>{$resource|compact}</td>
 			{/foreach}
 		</tr>
 		{/foreach}
@@ -71,9 +71,9 @@
 		{foreach $planetList.build as $elementID => $buildArray}
 		<tr>
 			<td>{$LNG.tech.$elementID}</td>
-			<td>{array_sum($buildArray)|number}</td>
+			<td>{array_sum($buildArray)|compact}</td>
 			{foreach $buildArray as $planetID => $build}
-				<td>{$build|number}</td>
+				<td>{$build|compact}</td>
 			{/foreach}
 		</tr>
 		{/foreach}
@@ -87,9 +87,9 @@
 		{foreach $planetList.tech as $elementID => $tech}
 		<tr>
 			<td>{$LNG.tech.$elementID}</td>
-			<td>{$tech|number}</td>
+			<td>{$tech|compact}</td>
 			{foreach $planetList.name as $name}
-				<td>{$tech|number}</td>
+				<td>{$tech|compact}</td>
 			{/foreach}
 		</tr>
 		{/foreach}
@@ -103,9 +103,9 @@
 		{foreach $planetList.fleet as $elementID => $fleetArray}
 		<tr>
 			<td>{$LNG.tech.$elementID}</td>
-			<td>{array_sum($fleetArray)|number}</td>
+			<td>{array_sum($fleetArray)|compact}</td>
 			{foreach $fleetArray as $planetID => $fleet}
-				<td>{$fleet|number}</td>
+				<td>{$fleet|compact}</td>
 			{/foreach}
 		</tr>
 		{/foreach}
@@ -119,9 +119,9 @@
 		{foreach $planetList.defense as $elementID => $fleetArray}
 		<tr>
 			<td>{$LNG.tech.$elementID}</td>
-			<td>{array_sum($fleetArray)|number}</td>
+			<td>{array_sum($fleetArray)|compact}</td>
 			{foreach $fleetArray as $planetID => $fleet}
-				<td>{$fleet|number}</td>
+				<td>{$fleet|compact}</td>
 			{/foreach}
 		</tr>
 		{/foreach}

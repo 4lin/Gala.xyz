@@ -17,7 +17,7 @@
     <td>{$LNG.tech.{$elementID}|escape:'html'}</td>
     {if !empty($elementRow)}
     <td>{foreach $elementRow as $user}<a href="#" onclick="return Dialog.Playercard({$user.userID});">{$user.username|escape:'html'}</a>{if !$user@last}<br>{/if}{/foreach}</td>
-    <td>{$elementRow[0].level|number}</td>
+    <td>{$elementRow[0].level|compact}</td>
     {else}
     <td>-</td><td>-</td>
     {/if}

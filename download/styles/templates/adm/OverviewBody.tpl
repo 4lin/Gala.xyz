@@ -26,7 +26,7 @@
 			<th colspan="2">{$LNG.ow_support}</th>
 		</tr>
 		<tr>
-			<td colspan="2"><a href="https://github.com/jkroepke/2Moons/" target="_blank">Project Homepage</a>
+			<td colspan="2"><a href="https://github.com/jkroepke/2Moons/" target="_blank">{$LNG.ui_project_homepage}</a>
 				<!--<br><a target="_blank" href="http://2moons.cc/" target="_blank">2moons.cc - {$LNG.ow_forum}</a>--></td>
 		</tr>
 		<!--

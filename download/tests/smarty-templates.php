@@ -43,7 +43,7 @@ try {
         strpos($post, 'value="&lt;&quot;&amp;"') === false || strpos($post, 'method="post"') === false) {
         throw new Exception('POST redirect fields were not rendered and escaped correctly');
     }
-    $hallLabels = array();
+    $hallLabels = array('ui_versus'=>'vs.');
     foreach (array('lm_topkb','tkb_top','tkb_gratz','tkb_platz','tkb_owners','tkb_datum','tkb_units','tkb_legende','tkb_gewinner','tkb_verlierer') as $key) $hallLabels[$key] = $key;
     $smarty->assign_vars(array('LNG'=>$hallLabels, 'sort'=>'DESC', 'order'=>'units', 'TopKBList'=>array(array(
         'time'=>3600, 'date'=>'07.10.2026 12:00:00', 'rid'=>'fixture', 'result'=>'a',
@@ -52,6 +52,19 @@ try {
     if (strpos($hall, 'day0 week0') === false || strpos($hall, '&lt;script&gt;fixture&lt;/script&gt;') === false) {
         throw new Exception('Hall of Fame dates or participant escaping failed');
     }
+    // Render battle participants using the real dictionaries in each supported locale.
+    foreach (array('en','es','fr','de','pl','pt','ru','tr') as $language) {
+        $LNG = array();
+        require 'language/'.$language.'/INGAME.php';
+        require 'language/'.$language.'/CUSTOM.php';
+        $smarty->assign_vars(array('LNG'=>$LNG));
+        $localizedHall = $smarty->fetch('game/page.battleHall.default.tpl');
+        if (strpos($localizedHall, htmlspecialchars($LNG['ui_versus'], ENT_QUOTES, 'UTF-8')) === false ||
+            strpos($localizedHall, '&lt;script&gt;fixture&lt;/script&gt;') === false) {
+            throw new Exception('Hall of Fame translation or participant escaping failed for '.$language);
+        }
+    }
+    $LNG = array('short_day'=>'d', 'short_hour'=>'h', 'short_minute'=>'m', 'short_second'=>'s');
     preg_match_all('/\$LNG\.([A-Za-z_0-9]+)/', file_get_contents('styles/templates/game/page.shipyard.default.tpl'), $shipyardKeys);
     $shipyardLabels = array();
     foreach ($shipyardKeys[1] as $key) $shipyardLabels[$key] = $key;

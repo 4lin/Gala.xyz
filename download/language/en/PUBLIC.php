@@ -44,7 +44,7 @@ $LNG['universe']					= 'Universe';
 $LNG['uni_closed']					= ' (closed)';
 
 // Button
-$LNG['buttonRegister']				= 'Regist Now!';
+$LNG['buttonRegister'] = 'Register now!';
 $LNG['buttonScreenshot']			= 'Screenshots';
 $LNG['buttonLostPassword']			= 'Lost Password?';
 
@@ -52,12 +52,12 @@ $LNG['buttonLostPassword']			= 'Lost Password?';
 $LNG['gameInformations']    		= "A space strategy game in real time.\nGame with hundreds of users.\nNo download, it only requires a standard browser.\nFree registration";
 
 // Overview
-$LNG['rand1']	= "Explore";
-$LNG['rand2']	= "Strategy";
-$LNG['rand3']	= "Battle";
-$LNG['rand4']	= "Defend";
-$LNG['rand5']	= "Colonize";
-$LNG['rand6']	= "Your Empire";
+$LNG['rand1'] = 'EXPLORE';
+$LNG['rand2'] = 'STRATEGY';
+$LNG['rand3'] = 'BATTLE';
+$LNG['rand4'] = 'DEFEND';
+$LNG['rand5'] = 'COLONIZE';
+$LNG['rand6'] = 'YOUR EMPIRE';
 
 // Login
 $LNG['loginHeader']					= 'Login';
@@ -66,20 +66,20 @@ $LNG['loginPassword']				= 'Password';
 $LNG['loginButton']					= 'Login';
 $LNG['loginInfo']					= 'With the login I accept the %s.';
 $LNG['loginWelcome']				= 'Welcome to %s';
-$LNG['loginServerDesc']				= '%s is a space strategy game with hundreds of players playing together <strong>at the same time</strong> trying to be the best. Everything what you need to the play is a Standard Browser.';
+$LNG['loginServerDesc'] = '%s is a space strategy game where hundreds of players compete <strong>at the same time</strong> to become the best. All you need to play is a standard web browser.';
 
 // Register
 $LNG['registerFacebookAccount']		= 'Facebook Account';
 $LNG['registerUsername']			= 'Username';
-$LNG['registerUsernameDesc']		= 'The Username must be at least 3 and maximum of 25 characters and points, and may consist of numbers, letters, underscores and spaces';
+$LNG['registerUsernameDesc'] = 'Use 3–32 letters, numbers, spaces, underscores, hyphens or dots.';
 $LNG['registerPassword']			= 'Password';
-$LNG['registerPasswordDesc']		= 'The password must be at least 8 characters long.';
+$LNG['registerPasswordDesc'] = 'Use a password of 8–128 characters.';
 $LNG['registerPasswordReplay']		= 'Repeat Password';
 $LNG['registerPasswordReplayDesc']	= 'Please enter the same password.';
 $LNG['registerEmail']				= 'E-Mail';
 $LNG['registerEmailDesc']			= 'Please enter your E-Mail address!';
 $LNG['registerEmailReplay']			= 'Repeat E-Mail';
-$LNG['registerEmailReplayDesc']		= 'Please input of your email address once again to the security!';
+$LNG['registerEmailReplayDesc'] = 'Please enter the same email address again.';
 $LNG['registerLanguage']			= 'Language';
 $LNG['registerReferral']			= 'Advertised by:';
 $LNG['registerCaptcha']				= 'Security code';
@@ -95,11 +95,11 @@ $LNG['registerErrorUniClosed']		= 'The registration is closed in this universe.!
 $LNG['registerErrorUsernameEmpty']	= 'You must enter a username!';
 $LNG['registerErrorUsernameChar']	= 'Your username must consist in numbers, Letters, Spaces, _, -, . only!';
 $LNG['registerErrorUsernameExist']	= 'The username is already taken!';
-$LNG['registerErrorPasswordLength']	= 'The password must be at least 6 characters long!';
-$LNG['registerErrorPasswordSame']	= 'Entering 2 different Passwords!';
+$LNG['registerErrorPasswordLength'] = 'Use a password of 8–128 characters.';
+$LNG['registerErrorPasswordSame'] = 'The passwords do not match.';
 $LNG['registerErrorMailEmpty']		= 'You must specify an E-Mail address!';
 $LNG['registerErrorMailInvalid']	= 'Invalid E-Mail address!';
-$LNG['registerErrorMailSame']		= 'You have specified 2 different email addresses!';
+$LNG['registerErrorMailSame'] = 'The email addresses do not match.';
 $LNG['registerErrorMailExist']		= 'The E-Mail address is already registered!';
 $LNG['registerErrorRules']			= 'You have to accept the rules!';
 $LNG['registerErrorCaptcha']		= 'The security code is incorrect!';
@@ -162,3 +162,4 @@ $LNG['disclamerLabelAddress']		= 'Game Address:';
 $LNG['disclamerLabelPhone']			= 'Telephone Nr.:';
 $LNG['disclamerLabelMail']			= 'Support Email:';
 $LNG['disclamerLabelNotice']		= 'More information';
+$LNG['passwordUsernameEmpty'] = 'Enter your username.';

@@ -51,7 +51,7 @@ function ShowConfigBasicPage()
 			'close_reason'			=> $config->close_reason,
 		);
 		
-		$capaktiv 				= isset($_POST['capaktiv']) && $_POST['capaktiv'] == 'on' ? 1 : 0;
+		$capaktiv 				= in_array(HTTP::_GP('capaktiv', '0'), array('0','1','2'), true) ? (int) HTTP::_GP('capaktiv', '0') : 0;
 		$ga_active 				= isset($_POST['ga_active']) && $_POST['ga_active'] == 'on' ? 1 : 0;
 		$sendmail_inactive 		= isset($_POST['sendmail_inactive']) && $_POST['sendmail_inactive'] == 'on' ? 1 : 0;
 		$mail_active 			= isset($_POST['mail_active']) && $_POST['mail_active'] == 'on' ? 1 : 0;

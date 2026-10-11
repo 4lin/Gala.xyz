@@ -1,17 +1,18 @@
 {block name="title" prepend}{$LNG.siteTitleIndex}{/block}
 {block name="content"}
+{if !empty($code)}<section class="gala-message-card" data-gala-login-notice role="alert"><h2>{$LNG.ui_notice_title}</h2><div class="gala-message-text">{$code|escape:'html'}</div><div class="gala-message-actions"><a class="gala-notice-button" href="index.php" target="_top">{$LNG.ui_notice_login}</a></div></section>{/if}
 		<ul class="cb-slideshow">
-            <li><span>Image 01</span><div><h3>{$LNG.rand1} </h3></div></li>
-            <li><span>Image 02</span><div><h3>{$LNG.rand2} </h3></div></li>
-            <li><span>Image 03</span><div><h3>{$LNG.rand3} </h3></div></li>
-            <li><span>Image 04</span><div><h3>{$LNG.rand4} </h3></div></li>
-            <li><span>Image 05</span><div><h3>{$LNG.rand5} </h3></div></li>
-            <li><span>Image 06</span><div><h3>{$LNG.rand6} </h3></div></li>
+            <li><span>{$LNG.ui_image} 01</span><div><h3>{$LNG.rand1} </h3></div></li>
+            <li><span>{$LNG.ui_image} 02</span><div><h3>{$LNG.rand2} </h3></div></li>
+            <li><span>{$LNG.ui_image} 03</span><div><h3>{$LNG.rand3} </h3></div></li>
+            <li><span>{$LNG.ui_image} 04</span><div><h3>{$LNG.rand4} </h3></div></li>
+            <li><span>{$LNG.ui_image} 05</span><div><h3>{$LNG.rand5} </h3></div></li>
+            <li><span>{$LNG.ui_image} 06</span><div><h3>{$LNG.rand6} </h3></div></li>
 		</ul>
 <section>
-	<h1>{$descHeader}</h1>
+	<h1>{$descHeader|escape:'html'}</h1>
 	<p class="desc">{$descText}</p>
-	<p class="desc"><ul id="desc_list">{foreach $gameInformations as $info}<li>{$info}</li>{/foreach}</ul></p>
+	<ul id="desc_list">{foreach $gameInformations as $info}<li>{$info|escape:'html'}</li>{/foreach}</ul>
 </section>
 <section>
 	<table class="contentbox">
@@ -28,11 +29,11 @@
 					</div>
 					<div class="row">
 						<label for="username">{$LNG.loginUsername}</label>
-						<input name="username" id="username" type="text">
+						<input name="username" id="username" type="text" autocomplete="username">
 					</div>
 					<div class="row">
 						<label for="password">{$LNG.loginPassword}</label>
-						<input name="password" id="password" type="password">
+						<input name="password" id="password" type="password" autocomplete="current-password">
 					</div>
 					<div class="row">
 						<input type="submit" value="{$LNG.loginButton}">
@@ -84,5 +85,5 @@
 </section>
 {/block}
 {block name="script" append}
-<script>{if $code}alert({$code|json});{/if}</script>
+
 {/block}

@@ -1,5 +1,6 @@
 {block name="title" prepend}{$LNG.lm_fleet}{/block}
 {block name="content"}
+<link rel="stylesheet" href="styles/resource/css/game/fleetTable.css?v={$REV}-fleet1">
 <table style="width:760px;">
 	<tr>
 		<th colspan="9">
@@ -81,41 +82,34 @@
 <input type="hidden" name="planet" value="{$targetPlanet}">
 <input type="hidden" name="type" value="{$targetType}">
 <input type="hidden" name="target_mission" value="{$targetMission}">
-<table class="table519">
-	<tr>
-		<th colspan="4">{$LNG.fl_new_mission_title}</th>
-	</tr>
-	<tr style="height:20px;">
-		<td>{$LNG.fl_ship_type}</td>
-		<td>{$LNG.fl_ship_available}</td>
-		<td>-</td>
-		<td>-</td>
-	</tr>
-	{foreach $FleetsOnPlanet as $FleetRow}
-	<tr style="height:20px;">
-		<td>{if $FleetRow.speed != 0} <a title="{$LNG.fl_speed_title} {$FleetRow.speed}">{$LNG.tech.{$FleetRow.id}}</a>{else}{$LNG.tech.{$FleetRow.id}}{/if}</td>
-		<td id="ship{$FleetRow.id}_value">{$FleetRow.count|number}</td>
-		{if $FleetRow.speed != 0}
-		<td><a href="javascript:maxShip('ship{$FleetRow.id}');">{$LNG.fl_max}</a></td>
-		<td><input name="ship{$FleetRow.id}" id="ship{$FleetRow.id}_input" size="10" value="0"></td>
-		{else}
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		{/if}
-	</tr>
-	{/foreach}
-	<tr style="height:20px;">
-	{if count($FleetsOnPlanet) == 0}
-	<td colspan="4">{$LNG.fl_no_ships}</td>
-	{else}
-	<td colspan="2"><a href="javascript:noShips();">{$LNG.fl_remove_all_ships}</a></td>
-	<td colspan="2"><a href="javascript:maxShips();">{$LNG.fl_select_all_ships}</a></td>
-	{/if}
-	</tr>
-	{if $maxFleetSlots != $activeFleetSlots}
-	<tr style="height:20px;"><td colspan="4"><input type="submit" value="{$LNG.fl_continue}"></td>
-	{/if}
-</table>	
+<section class="fleet-selector" aria-labelledby="fleet-selection-title">
+ <h2 id="fleet-selection-title">{$LNG.fl_new_mission_title}</h2>
+ <div class="fleet-ship-grid">
+ {foreach $FleetsOnPlanet as $FleetRow}
+ <div class="fleet-ship{if $FleetRow.speed == 0} fleet-ship-stationary{/if}">
+  <span class="fleet-ship-icon tooltip" tabindex="0" title="{$LNG.tech.{$FleetRow.id}|escape:'html'}{if $FleetRow.speed != 0} — {$LNG.fl_speed_title|escape:'html'} {$FleetRow.speed}{/if}">
+   <img src="{$dpath}buildings/buildlist/{$FleetRow.id}.png" width="40" height="40" alt="{$LNG.tech.{$FleetRow.id}|escape:'html'}">
+  </span>
+  <span class="fleet-ship-stock" title="{$LNG.fl_ship_available|escape:'html'}"><span class="fleet-sr-only">{$LNG.fl_ship_available}: </span><span id="ship{$FleetRow.id}_value">{$FleetRow.count|number}</span></span>
+  {if $FleetRow.speed != 0}
+  <input class="fleet-ship-count" name="ship{$FleetRow.id}" id="ship{$FleetRow.id}_input" value="0" inputmode="numeric" autocomplete="off" aria-label="{$LNG.tech.{$FleetRow.id}|escape:'html'} — {$LNG.fl_ammount|escape:'html'}">
+  <button class="fleet-max" type="button" onclick="maxShip('ship{$FleetRow.id}');" aria-label="{$LNG.fl_max|escape:'html'} — {$LNG.tech.{$FleetRow.id}|escape:'html'}">{$LNG.fl_max}</button>
+  {/if}
+ </div>
+ {foreachelse}
+ <p class="fleet-empty">{$LNG.fl_no_ships}</p>
+ {/foreach}
+ </div>
+ <div class="fleet-selection-actions">
+ {if count($FleetsOnPlanet) != 0}
+  <button type="button" onclick="noShips();">{$LNG.fl_remove_all_ships}</button>
+  <button type="button" onclick="maxShips();">{$LNG.fl_select_all_ships}</button>
+ {/if}
+ {if $maxFleetSlots != $activeFleetSlots}
+  <button class="fleet-continue" type="submit">{$LNG.fl_continue} <span aria-hidden="true">→</span></button>
+ {/if}
+ </div>
+</section>	
 </form>
 <br>
 <table style="min-width:519px;width:519px;">

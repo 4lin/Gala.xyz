@@ -664,3 +664,16 @@ body.full #content h3 { font-family: var(--game-font); font-size: 12px; font-wei
 #overviewOv #planetDetails td.data a { color: #fff; cursor: pointer; text-decoration: none; }
 #overviewOv #planetDetails td.data a:hover { text-decoration: underline; }
 #overviewOv #planetdata .overlay { background-color: var(--game-panel); }
+
+/* Keep the animated text on its reserved line without cursor-induced wrapping. */
+#overviewOv #planetDetails .overview-typing { box-sizing: border-box; white-space: nowrap; }
+#overviewOv #planetDetails td.data .overview-typing { text-align: right; }
+
+/* Animate a separate layer; full original content keeps the table geometry. */
+#overviewOv #planetDetails td > span.overview-typing,
+#overviewOv #planetDetails td > span.overview-typing-complete { position: relative; animation: none; clip-path: none; white-space: normal; }
+#overviewOv #planetDetails .overview-typing-layout { visibility: hidden; font: inherit; color: inherit; }
+#overviewOv #planetDetails .overview-typing-text { position: absolute; top: 0; left: 0; max-width: 100%; font: inherit; color: inherit; white-space: nowrap; }
+#overviewOv #planetDetails td.data .overview-typing-text { left: auto; right: 0; text-align: right; }
+#overviewOv #planetDetails .overview-typing-active::after { content: ''; }
+#overviewOv #planetDetails .overview-typing-active > .overview-typing-text::after { content: '_'; color: inherit; }

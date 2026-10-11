@@ -19,12 +19,12 @@
 					{if !empty($FleetInfo)}
 					{if !empty($FleetInfo.rapidfire.to)}<p>
 					{foreach $FleetInfo.rapidfire.to as $rapidfireID => $shoots}
-					{$LNG.in_rf_again} {$LNG.tech.$rapidfireID}: <span>{$shoots|number}</span><br>
+					{$LNG.in_rf_again} {$LNG.tech.$rapidfireID}: <span>{$shoots|compact}</span><br>
 					{/foreach}
 					</p>{/if}
 					{if !empty($FleetInfo.rapidfire.from)}<p>
 					{foreach $FleetInfo.rapidfire.from as $rapidfireID => $shoots}
-					{$LNG.in_rf_from} {$LNG.tech.$rapidfireID}: <span>{$shoots|number}</span><br>
+					{$LNG.in_rf_from} {$LNG.tech.$rapidfireID}: <span>{$shoots|compact}</span><br>
 					{/foreach}
 					</p>{/if}
 					{/if}				

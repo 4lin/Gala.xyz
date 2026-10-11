@@ -96,6 +96,12 @@ class ResourceUpdate
 		$this->PLANET		= $this->isGlobalMode ? $GLOBALS['PLANET'] : $PLANET;
 		$this->TIME			= is_null($TIME) ? TIMESTAMP : $TIME;
 		$this->config		= Config::get($this->USER['universe']);
+        // Moons store transported resources; they never produce them.
+        if ($this->PLANET['planet_type'] == 3) {
+            $this->PLANET['metal_perhour'] = 0;
+            $this->PLANET['crystal_perhour'] = 0;
+            $this->PLANET['deuterium_perhour'] = 0;
+        }
 		
 		if($this->USER['urlaubs_modus'] == 1)
 			return $this->ReturnVars();
@@ -215,13 +221,6 @@ class ResourceUpdate
 	{
 		global $ProdGrid, $resource, $reslist;
 		
-		if ($this->PLANET['planet_type'] == 3)
-		{
-			$this->config->metal_basic_income     	= 0;
-			$this->config->crystal_basic_income   	= 0;
-			$this->config->deuterium_basic_income 	= 0;
-		}
-		
 		$temp	= array(
 			901	=> array(
 				'max'	=> 0,
@@ -291,7 +290,7 @@ class ResourceUpdate
 
 		$this->PLANET['energy']				= round($temp[911]['plus'] * $this->config->energySpeed * (1 + $this->USER['factor']['Energy']));
 		$this->PLANET['energy_used']		= $temp[911]['minus'] * $this->config->energySpeed;
-		if($this->PLANET['energy_used'] == 0) {
+		if($this->PLANET['planet_type'] == 3 || $this->PLANET['energy_used'] == 0) {
 			$this->PLANET['metal_perhour']		= 0;
 			$this->PLANET['crystal_perhour']	= 0;
 			$this->PLANET['deuterium_perhour']	= 0;

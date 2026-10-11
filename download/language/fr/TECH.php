@@ -65,7 +65,7 @@ $LNG['tech'] = array(
 1 => 'Mine de Métal',
 2 => 'Mine de Cristal',
 3 => 'Synthétiseur de Deutérium',
-4 => 'Centrale éléctrique Solaire',
+4 => 'Centrale électrique solaire',
 6 => 'Université',
 12 => 'Centrale de fusion',
 14 => 'Usine de Robots',
@@ -171,8 +171,8 @@ $LNG['tech'] = array(
 
 900 => 'Ressources',
 901 => 'Métal',
-902 => 'Crystal',
-903 => 'Deuterium',
+902 => 'Cristal',
+903 => 'Deutérium',
 911 => 'Énergie',
 921 => 'Matiére Noir',
 );
@@ -184,7 +184,7 @@ $LNG['shortDescription'] = array(
 4 => 'Les centrales électriques solaires transforment les rayons des étoiles en énergie. Presque tous les bâtiments ont besoin d\'énergie pour fonctionner.',
 6 => 'Chaque niveau réduit le temps de recherche de 8%.',
 12 => 'La centrale de fusion produit de l\'énergie à partir de barres de combustible en deutérium.',
-14 => 'L\usine de robots produit des travailleurs automatisés qualifiés, qui sont utilisés dans la construction de l\'infrastructure planétaire. Chaque niveau augmente la vitesse de l\'expansion des bâtiments.',
+14 => 'L\'usine de robots produit des travailleurs automatisés qualifiés, qui sont utilisés dans la construction de l\'infrastructure planétaire. Chaque niveau augmente la vitesse de l\'expansion des bâtiments.',
 15 => 'La taille microscopique des nanomachines se traduit par une vitesse de fonctionnement plus élevée. Cette usine produit des nanomachines qui sont l\'ultime évolution de la technologie robotique. Une fois construit, chaque niveau diminue de manière significative le temps de production pour les bâtiments, des vaisseaux et des structures défensives.',
 21 => 'Le chantier spatial permet la construction de vaisseaux spatiaux et de défenses. Plus le niveau de cette structure augmente, plus elle peut produire une grande variété de vaisseaux et défenses à un rythme beaucoup plus élevé. Si une usine de nanites est présente sur la planète, la vitesse à laquelle les vaisseaux et défenses sont construits est décuplé.',
 22 => 'Immense hangar de stockage de minerais métalliques brutes avant traitement.',
@@ -269,13 +269,13 @@ $LNG['shortDescription'] = array(
 614 => 'Le Conqu&eacute;rant est un membre de l\'arm&eacute;e imp&eacute;riale, il a la capacit&eacute; de naviguer dans un type particulier de vaisseau que personne d\'autre ne pouvait le faire ou de d&eacute;coller.',
 615 => 'Le Raider plac&eacute; sous son commandement &agrave; la disposition de tous les officiers de l\'empire, en combinant leurs comp&eacute;tences pour dominer l\'univers et &agrave; devenir un adversaire presque invincible.',
 
-701 => 'Augmente la valeur d\'attaque des vaisseaux et des moyens de défense par %s%%. Le bonus n\'est que temporaire.',
-702 => 'Augmente la valeur des boucliers des vaisseaux et des moyens de défense par %s%%. Le bonus n\'est que temporaire.',
-703 => 'Réduire le temps de construction des bâtiments par %s%%. Le bonus n\'est que temporaire.',
-704 => 'Augmente la production des ressources par %s%%. Le bonus n\'est que temporaire.',
-705 => 'Augente la production d\'énergie par %s%%. Le bonus n\'est que temporaire.',
-706 => 'Réduit le temps de recherche par %s%%. Le bonus n\'est que temporaire.',
-707 => 'Réduit le temps de vol des flottes par %s%%. Le bonus n\'est que temporaire. N\'affecte pas les expéditions.'
+701 => 'Augmente l\'attaque des vaisseaux et des défenses. Le bonus est temporaire.',
+702 => 'Augmente les boucliers des vaisseaux et des défenses. Le bonus est temporaire.',
+703 => 'Réduit le temps de construction des bâtiments. Le bonus est temporaire.',
+704 => 'Réduit le temps de recherche. Le bonus est temporaire.',
+705 => 'Réduit le temps de construction des vaisseaux. Le bonus est temporaire.',
+706 => 'Réduit le temps de construction des défenses. Le bonus est temporaire.',
+707 => 'Augmente la production de ressources. Le bonus est temporaire.'
 );
 
 $LNG['longDescription'] = array(
@@ -380,4 +380,4 @@ $LNG['longDescription'] = array(
 707 => 'Les temps de vol sont plus courts. Ne porte pas atteinte aux expéditions.',
 );
 
-?>
+

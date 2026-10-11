@@ -18,18 +18,18 @@
 // Site Title
 $LNG['siteTitleIndex']				= 'Indeks';
 $LNG['siteTitleRegister']			= 'Rejestracja';
-$LNG['siteTitleScreens']			= 'Screenshots';
+$LNG['siteTitleScreens'] = 'Zrzuty ekranu';
 $LNG['siteTitleBanList']			= 'Pręgierz';
 $LNG['siteTitleBattleHall']			= 'Hala sław';
 $LNG['siteTitleRules']				= 'Regulamin';
-$LNG['siteTitleNews']				= 'News';
+$LNG['siteTitleNews'] = 'Wiadomości';
 $LNG['siteTitleDisclamer']			= 'Kontakt';
 $LNG['siteTitleLostPassword']		= 'Reset hasła';
 
 // Menu
 $LNG['forum']						= 'Forum';
 $LNG['menu_index']					= 'Indeks';
-$LNG['menu_news']					= 'News';
+$LNG['menu_news'] = 'Wiadomości';
 $LNG['menu_rules']					= 'Regulamin';
 $LNG['menu_banlist']				= 'Pręgierz';
 $LNG['menu_battlehall']				= 'Hala sław';
@@ -43,18 +43,21 @@ $LNG['uni_closed']					= ' (Zamknięte)';
 
 // Button
 $LNG['buttonRegister']				= 'Zarejestruj się!';
-$LNG['buttonScreenshot']			= 'Screenshots';
+$LNG['buttonScreenshot'] = 'Zrzuty ekranu';
 $LNG['buttonLostPassword']			= 'Reset hasła';
 $LNG['buttonCanel']					= 'Wyczyść';
 
 // Start
-$LNG['gameInformations']			= "Gra online strategiczno-ekonomiczna czasu rzeczywistego w kosmosie.\nGraj przeciwko innym graczom.\nNic nie musisz sciągać, grasz w przeglądarce !.\nDarmowa rejestracja";
+$LNG['gameInformations'] = 'Strategiczna gra kosmiczna czasu rzeczywistego.
+Graj przeciwko innym graczom.
+Nie musisz nic pobierać — wystarczy przeglądarka.
+Darmowa rejestracja';
 
 // Login
 $LNG['loginHeader']					= 'Zaloguj';
 $LNG['loginUsername']				= 'Nazwa użytkownika';
 $LNG['loginPassword']				= 'Hasło';
-$LNG['loginButton']					= 'Login';
+$LNG['loginButton'] = 'Zaloguj';
 $LNG['loginInfo']					= 'Logując się akceptujesz %s.';
 $LNG['loginWelcome']				= 'Witaj na %s';
 $LNG['loginServerDesc']				= '%s to gra online, gdzie stajesz naprzeciw innych graczy, <strong>jednocześnie</strong> próbując zostać najlepszym. Wszystko, czego potrzebujesz do gry, to zwykła przeglądarka.';
@@ -62,9 +65,9 @@ $LNG['loginServerDesc']				= '%s to gra online, gdzie stajesz naprzeciw innych g
 // Register
 $LNG['registerFacebookAccount']		= 'Konto na Facebooku';
 $LNG['registerUsername']			= 'Nazwa użytkownika';
-$LNG['registerUsernameDesc']		= 'Nazwa użytkownika musi składać się min. z 3 i max. z 25 znaków.';
+$LNG['registerUsernameDesc'] = 'Użyj 3–32 liter, cyfr, spacji, podkreśleń, myślników lub kropek.';
 $LNG['registerPassword']			= 'Hasło';
-$LNG['registerPasswordDesc']		= 'Hasło musi mieć min 8 znaków.';
+$LNG['registerPasswordDesc'] = 'Użyj hasła o długości 8–128 znaków.';
 $LNG['registerPasswordReplay']		= 'Ponowanie hasło';
 $LNG['registerPasswordReplayDesc']	= 'Powtórz hasło dla bezpieczeństwa!';
 $LNG['registerEmail']				= 'e-mail';
@@ -86,7 +89,7 @@ $LNG['registerErrorUniClosed']		= 'Rejestracja na tym universum zamknięta!';
 $LNG['registerErrorUsernameEmpty']	= 'Nie podałeś nazwy użytkownika!';
 $LNG['registerErrorUsernameChar']	= 'W nazwie użytkownika dozwolone są tylko litery, liczby, puste znaki i podkreślenia!';
 $LNG['registerErrorUsernameExist']	= 'Ta nazwa użytkownika jest już zajęta!';
-$LNG['registerErrorPasswordLength']	= 'Hasło musi mieć najmniej 6 znaków!';
+$LNG['registerErrorPasswordLength'] = 'Użyj hasła o długości 8–128 znaków.';
 $LNG['registerErrorPasswordSame']	= 'Podałeś dwa różne hasła!';
 $LNG['registerErrorMailEmpty']		= 'Musisz podać adres prawidłowy adres e-mail!';
 $LNG['registerErrorMailInvalid']	= 'Nie prawidłowy adres e-mail!';
@@ -144,7 +147,7 @@ $LNG['login_error_4']				= 'Wystąpił błąd, spróbuj potem!';
 $LNG['rulesHeader']					= 'Regulamin';
 
 //NEWS
-$LNG['news_overview']				= 'News';
+$LNG['news_overview'] = 'Wiadomości';
 $LNG['news_from']					= 'Od %s do %s';
 $LNG['news_does_not_exist']			= 'Brak postów!';
 
@@ -153,3 +156,10 @@ $LNG['disclamerLabelAddress']		= 'Dane właściela';
 $LNG['disclamerLabelPhone']			= 'Numer telefonu';
 $LNG['disclamerLabelMail']			= 'Adres e-mail';
 $LNG['disclamerLabelNotice']		= 'Więcej informacji';
+$LNG['rand1'] = 'ODKRYWAJ';
+$LNG['rand2'] = 'STRATEGIA';
+$LNG['rand3'] = 'WALCZ';
+$LNG['rand4'] = 'BROŃ';
+$LNG['rand5'] = 'KOLONIZUJ';
+$LNG['rand6'] = 'TWOJE IMPERIUM';
+$LNG['passwordUsernameEmpty'] = 'Wpisz nazwę użytkownika.';

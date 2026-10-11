@@ -1,4 +1,0 @@
-CREATE TABLE `%PREFIX%system` (
-  `dbVersion`  int NOT NULL DEFAULT 1
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
-INSERT INTO %PREFIX%system SET dbVersion = 1;

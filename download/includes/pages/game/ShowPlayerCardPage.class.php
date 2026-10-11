@@ -31,12 +31,12 @@ class ShowPlayerCardPage extends AbstractGamePage
 	{
 		global $USER, $LNG;
 		
-		$this->setWindow('popup');
+		$this->setWindow('full');
 		$this->initTemplate();
 
 		$db = Database::get();
 
-		$PlayerID 	= HTTP::_GP('id', 0);
+		$PlayerID 	= HTTP::_GP('id', (int)$USER['id']);
 
 		$sql = "SELECT 
 				u.username, u.galaxy, u.system, u.planet, u.wons, u.loos, u.draws, u.kbmetal, u.kbcrystal, u.lostunits, u.desunits, u.ally_id,
@@ -53,6 +53,7 @@ class ShowPlayerCardPage extends AbstractGamePage
 			':playerID'	=> $PlayerID
 		));
 
+		if (!$query) { $this->printMessage($LNG['pl_overview'], array(array('label'=>$LNG['lm_statistics'], 'url'=>'game.php?page=statistics'))); return; }
 		$totalfights = $query['wons'] + $query['loos'] + $query['draws'];
 		
 		if ($totalfights == 0) {
@@ -75,24 +76,24 @@ class ShowPlayerCardPage extends AbstractGamePage
 			'planet'		=> $query['planet'],
 			'allyid'		=> $query['ally_id'],
 			'tech_rank'     => pretty_number($query['tech_rank']),
-			'tech_points'   => pretty_number($query['tech_points']),
+			'tech_points'   => display_number($query['tech_points']),
 			'build_rank'    => pretty_number($query['build_rank']),
-			'build_points'  => pretty_number($query['build_points']),
+			'build_points'  => display_number($query['build_points']),
 			'defs_rank'     => pretty_number($query['defs_rank']),
-			'defs_points'   => pretty_number($query['defs_points']),
+			'defs_points'   => display_number($query['defs_points']),
 			'fleet_rank'    => pretty_number($query['fleet_rank']),
-			'fleet_points'  => pretty_number($query['fleet_points']),
+			'fleet_points'  => display_number($query['fleet_points']),
 			'total_rank'    => pretty_number($query['total_rank']),
-			'total_points'  => pretty_number($query['total_points']),
+			'total_points'  => display_number($query['total_points']),
 			'allyname'		=> $query['ally_name'],
-			'playerdestory' => sprintf($LNG['pl_destroy'], $query['username']),
+			'playerdestory' => sprintf($LNG['pl_destroy'], htmlspecialchars($query['username'], ENT_QUOTES, 'UTF-8')),
 			'wons'          => pretty_number($query['wons']),
 			'loos'          => pretty_number($query['loos']),
 			'draws'         => pretty_number($query['draws']),
-			'kbmetal'       => pretty_number($query['kbmetal']),
-			'kbcrystal'     => pretty_number($query['kbcrystal']),
-			'lostunits'     => pretty_number($query['lostunits']),
-			'desunits'      => pretty_number($query['desunits']),
+			'kbmetal'       => display_number($query['kbmetal']),
+			'kbcrystal'     => display_number($query['kbcrystal']),
+			'lostunits'     => display_number($query['lostunits']),
+			'desunits'      => display_number($query['desunits']),
 			'totalfights'   => pretty_number($totalfights),
 			'siegprozent'   => round($siegprozent, 2),
 			'loosprozent'   => round($loosprozent, 2),

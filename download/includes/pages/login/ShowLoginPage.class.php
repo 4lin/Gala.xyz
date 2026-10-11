@@ -44,6 +44,8 @@ class ShowLoginPage extends AbstractLoginPage
 
 		if (isset($loginData))
 		{
+            require_once 'includes/classes/NpcBotManager.class.php';
+            if (in_array((int)$loginData['id'], (new NpcBotManager())->ids(), true)) HTTP::redirectTo('index.php?code=1');
 			$hashedPassword = PlayerUtil::cryptPassword($password);
 			if($loginData['password'] != $hashedPassword)
 			{

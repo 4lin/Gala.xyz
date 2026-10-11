@@ -1,7 +1,40 @@
 $(function() {
+	var music = document.getElementById('background-music');
+	var soundToggle = document.getElementById('background-sound-toggle');
+	if (music && soundToggle) {
+		var muteKey = 'gala-login-sound-muted';
+		try { music.muted = localStorage.getItem(muteKey) === 'true'; } catch (error) {}
+		function syncSoundToggle() {
+			var audible = !music.muted && !music.paused;
+			var label = soundToggle.getAttribute(audible ? 'data-mute-label' : 'data-enable-label');
+			soundToggle.classList.toggle('is-silent', !audible);
+			soundToggle.setAttribute('aria-pressed', String(audible));
+			soundToggle.setAttribute('aria-label', label);
+			soundToggle.setAttribute('title', label);
+		}
+		function rememberMute() {
+			try { localStorage.setItem(muteKey, String(music.muted)); } catch (error) {}
+		}
+		soundToggle.addEventListener('click', function() {
+			if (!music.muted && !music.paused) {
+				music.muted = true;
+			} else {
+				music.muted = false;
+				var playback = music.play();
+				if (playback && playback.catch) playback.catch(syncSoundToggle);
+			}
+			rememberMute();
+			syncSoundToggle();
+		});
+		['playing', 'pause', 'volumechange', 'error'].forEach(function(event) {
+			music.addEventListener(event, syncSoundToggle);
+		});
+		soundToggle.hidden = false;
+		syncSoundToggle();
+	}
 	$('.flags').on('click', function(e) {
 		e.preventDefault();
-		var langKey = $(this).attr('class').replace(/flags(.*)/, "$1").trim();
+		var langKey = $(this).closest('a').attr('hreflang');
 		Login.setLanguage(langKey);
 		return false;
 	});
@@ -34,7 +67,7 @@ $(function() {
 });
 
 var updateUrls = function(that, universe) {
-	var universe = that.val();
+	if (typeof universe === 'undefined') universe = that.val();
 	if (LoginConfig.unisWildcast) {
 		var basePathWithSubdomain = LoginConfig.basePath.replace('://', '://uni' + universe + '.');
 		that.parents('form').attr('action', function(i, old) {
@@ -55,7 +88,7 @@ var updateUrls = function(that, universe) {
 
 var Login = {
 	setLanguage : function (LNG, Query) {
-		$.cookie('lang', LNG);
+		$.cookie('lang', LNG, {path: '/'});
 		if(typeof Query === "undefined")
 			document.location.href = document.location.href
 		else

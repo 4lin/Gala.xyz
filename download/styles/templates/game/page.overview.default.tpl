@@ -281,7 +281,7 @@
         </div><!-- END rechts -->
         
         <div id="banner_skyscraper">
-            <a class="tooltip" title="Oficial" href="game.php?page=officier" >
+            <a class="tooltip" title="{$LNG.lm_officiers|escape:'html'}" href="game.php?page=officier" >
                 <img src="styles/resource/images/game/external/sETgKTg.jpg" alt=""/>
             </a>
         </div><!-- END Banner -->
@@ -290,5 +290,5 @@
 
 {/block}
 {block name="script" append}
-    <script src="scripts/game/overview.js"></script>
+    <script src="scripts/game/overview.js?v=typing-layer7"></script>
 {/block}

@@ -6,27 +6,27 @@
     </tr>
     <tr>
 		<td>
-<pre class="left">-- Server Info --
-Server Infos: {$info}
-PHP-Version: {$vPHP} ({$vAPI})
-JSON Verfügbar: {$json}
-BCMath Verfügbar: {$bcmath}
-cURL Verfügbar: {$curl}
-SafeMode: {$safemode}
-MemoryLimit: {$memory}
-MySQL-Client-Version: {$vMySQLc}
-MySQL-Server-Version: {$vMySQLs}
-ErrorLog: {$errorlog} ({$errorloglines}, {$log_errors})
-Timezone(PHP/CONF/USER): {$php_tz} / {$conf_tz} / {$user_tz}
+<pre class="left">-- {$LNG.info_server_heading} --
+{$LNG.info_server_software}: {$info}
+{$LNG.info_php_version}: {$vPHP} ({$vAPI})
+{$LNG.info_json_available}: {$json}
+{$LNG.info_bcmath_available}: {$bcmath}
+{$LNG.info_curl_available}: {$curl}
+{$LNG.info_safe_mode}: {$safemode}
+{$LNG.info_memory_limit}: {$memory}
+{$LNG.info_mysql_client}: {$vMySQLc}
+{$LNG.info_mysql_server}: {$vMySQLs}
+{$LNG.info_error_log}: {$errorlog} ({$errorloglines}, {$log_errors})
+{$LNG.info_timezone}: {$php_tz} / {$conf_tz} / {$user_tz}
 Suhosin: {$suhosin}
-DB Version: {$dbVersion}
+{$LNG.info_db_version}: {$dbVersion}
 
--- Game --
-Game Version: 2Moons {$vGame}
-Game Addresse: http://{$root}/
-Game Pfad: http://{$gameroot}/index.php
+-- {$LNG.info_game_heading} --
+{$LNG.info_game_version}: 2Moons {$vGame}
+{$LNG.info_game_address}: http://{$root}/
+{$LNG.info_game_path}: http://{$gameroot}/index.php
 
-Browser: {$browser}</pre>
+{$LNG.info_browser}: {$browser}</pre>
 		</td>
     </tr>
 </table>

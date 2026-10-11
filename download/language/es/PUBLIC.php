@@ -44,7 +44,7 @@ $LNG['universe']					= 'Universo';
 $LNG['uni_closed']					= ' (cerrado)';
 
 // Button
-$LNG['buttonRegister']				= 'Registrate Ahora!';
+$LNG['buttonRegister'] = '¡Regístrate ahora!';
 $LNG['buttonScreenshot']			= 'Imagenes del Juego';
 $LNG['buttonLostPassword']			= 'Recuperar contraseña?';
 
@@ -52,12 +52,12 @@ $LNG['buttonLostPassword']			= 'Recuperar contraseña?';
 $LNG['gameInformations']			= "Un juego de estrategia espacial en tiempo real.\nJuega junto con cientos de jugadores.\nNada de descarga, s&oacute;lo se requiere un navegador est&aacute;ndar.\nRegistro Gratuito";
 
 // Overview
-$LNG['rand1']	= "Explorar";
-$LNG['rand2']	= "Estrategia";
-$LNG['rand3']	= "Batalla";
-$LNG['rand4']	= "Defensa";
-$LNG['rand5']	= "Colonizar";
-$LNG['rand6']	= "Tu imperio";
+$LNG['rand1'] = 'EXPLORA';
+$LNG['rand2'] = 'ESTRATEGIA';
+$LNG['rand3'] = 'BATALLA';
+$LNG['rand4'] = 'DEFIENDE';
+$LNG['rand5'] = 'COLONIZA';
+$LNG['rand6'] = 'TU IMPERIO';
 
 // Login
 $LNG['loginHeader']					= 'Iniciar Sesión';
@@ -71,9 +71,9 @@ $LNG['loginServerDesc']				= '%s es un juego de estrategia espacial con cientos 
 // Register
 $LNG['registerFacebookAccount']		= 'Cuenta Facebook';
 $LNG['registerUsername']			= 'Usuario';
-$LNG['registerUsernameDesc']		= 'El nombre de usuario debe tener por lo menos 3 y un máximo de 25 caracteres y puntos, y pueden consistir en números, letras, guiones y espacios';
+$LNG['registerUsernameDesc'] = 'Usa 3–32 letras, números, espacios, guiones bajos, guiones o puntos.';
 $LNG['registerPassword']			= 'Contraseña';
-$LNG['registerPasswordDesc']		= 'La Contraseña debe tener por lo menos 6 caracteres de longitud.';
+$LNG['registerPasswordDesc'] = 'Usa una contraseña de 8–128 caracteres.';
 $LNG['registerPasswordReplay']		= 'Repetir Contraseña';
 $LNG['registerPasswordReplayDesc']	= 'Por Favor ingrese la misma contraseña.';
 $LNG['registerEmail']				= 'E-Mail';
@@ -95,7 +95,7 @@ $LNG['registerErrorUniClosed']		= 'El registro está cerrado en este Universo.!'
 $LNG['registerErrorUsernameEmpty']	= 'Tienes que introducir un nombre de Usuario!';
 $LNG['registerErrorUsernameChar']	= 'Su nombre de usuario debe consistir sólo en números, letras, espacios, _, -, .!';
 $LNG['registerErrorUsernameExist']	= 'El nombre de usuario ya está en uso!';
-$LNG['registerErrorPasswordLength']	= 'La contraseña debe tener al menos 6 caracteres de longitud!';
+$LNG['registerErrorPasswordLength'] = 'Usa una contraseña de 8–128 caracteres.';
 $LNG['registerErrorPasswordSame']	= 'Introducidas 2 contraseñas diferentes!';
 $LNG['registerErrorMailEmpty']		= 'Tienes que especificar una dirección de E-Mail!';
 $LNG['registerErrorMailInvalid']	= 'Dirección de E-Mail invalida!';
@@ -162,3 +162,4 @@ $LNG['disclamerLabelAddress']		= 'Dirección:';
 $LNG['disclamerLabelPhone']			= 'Nr. de Teléfono:';
 $LNG['disclamerLabelMail']			= 'Dirección de E-Mail:';
 $LNG['disclamerLabelNotice']		= 'Información de Contacto';
+$LNG['passwordUsernameEmpty'] = 'Introduce tu nombre de usuario.';

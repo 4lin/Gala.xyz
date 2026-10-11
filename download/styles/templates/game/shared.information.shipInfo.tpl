@@ -8,20 +8,20 @@
 		{/if}
 		<tr>
 			<td style="width:50%">{$LNG.in_struct_pt}</td>
-			<td style="width:50%">{$FleetInfo.structure|number}</td>
+			<td style="width:50%">{$FleetInfo.structure|compact}</td>
 		</tr>
 		<tr>
 			<td style="width:50%">{$LNG.in_attack_pt}</td>
-			<td style="width:50%">{$FleetInfo.attack|number}</td>
+			<td style="width:50%">{$FleetInfo.attack|compact}</td>
 		</tr>
 		<tr>
 			<td style="width:50%">{$LNG.in_shield_pt}</td>
-			<td style="width:50%">{$FleetInfo.shield|number}</td>
+			<td style="width:50%">{$FleetInfo.shield|compact}</td>
 		</tr>
 		{if !empty($FleetInfo.capacity)}
 		<tr>
 			<td style="width:50%">{$LNG.in_capacity}</td>
-			<td style="width:50%">{$FleetInfo.capacity|number}</td>
+			<td style="width:50%">{$FleetInfo.capacity|compact}</td>
 		</tr>
 		{/if}
 		{if !empty($FleetInfo.speed1)}
