@@ -40,7 +40,7 @@ The local CAPTCHA works without external service keys when GD is installed. Regi
 
 ## Media
 
-This release includes original neutral placeholders rather than unverified game artwork. You may replace them with graphics you created or are licensed to redistribute. Keep the existing asset paths or update the relevant templates and CSS. Background music is omitted from the public package.
+From v0.6.2, the release includes the original game images, including sprite sheets and additional image resources. Each image retains its respective author's or copyright holder's rights; inclusion does not grant redistribution permission. Existing asset paths are preserved. Background music and previously excluded fonts remain omitted.
 
 ## Updating an existing game
 

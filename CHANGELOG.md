@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.6.2 — 2026-10-11 (prerelease)
+
+- Restore 1,687 original game images unchanged, including sprite sheets and additional image resources under download/addon/.
+- Record image SHA-256 hashes and preserve existing image paths.
+- Update English asset notices. Each image remains the property of its respective author or copyright holder; inclusion grants no image rights.
+- Keep private configuration, account data, audio, and previously excluded fonts outside the distribution.
+
+
+
 ## 0.6.1 — 2026-10-11 (prerelease)
 
 - Fix the fresh-install database form when URL parameters are absent, while preserving HTML escaping.

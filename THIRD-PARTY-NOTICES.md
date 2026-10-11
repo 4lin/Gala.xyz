@@ -14,6 +14,6 @@ The repository retains its existing GPL-3.0 project license. Component licenses 
 | Droid Sans Mono | Apache-2.0; `download/styles/resource/fonts/Google Android License.txt` |
 | Other bundled libraries | Original file headers and nearby license files |
 
-The package retains existing GPL/LGPL/MIT notices under `download/licenses/`. Original neutral distribution graphics are GPL-3.0. Audio and unverified original game graphics are not included in the new distribution. See [asset provenance](docs/ASSET-PROVENANCE.md).
+The package retains existing GPL/LGPL/MIT notices under `download/licenses/`. Original game images are included unchanged at the project owner's request. Each image remains the property of its respective author or copyright holder. Individual authors and redistribution terms have not been verified for every image. Inclusion does not grant a license or relicense third-party images under GPL-3.0. Audio remains excluded. See [asset provenance](docs/ASSET-PROVENANCE.md).
 
 Gala.xyz is an independent project. OGame and Gameforge trademarks and artwork belong to their respective rights holders; this source distribution grants no license to them.
