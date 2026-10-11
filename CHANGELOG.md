@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.1 — 2026-10-11 (prerelease)
+
+- Fix the fresh-install database form when URL parameters are absent, while preserving HTML escaping.
+- Open normal login after installation and clarify English administrator access instructions.
+- Add a regression check for empty installer parameters and document the isolated installation smoke test and remaining usability limitations.
+
 ## 0.6.0 — 2026-10-11 (prerelease)
 
 ### Distribution

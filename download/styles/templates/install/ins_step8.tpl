@@ -7,7 +7,7 @@
 			<h2>{$LNG.step6_info_head}</h2>
 			<p>{$LNG.step6_info_additional}</p>
 			<div style="text-align:center;"><p>
-				<a href="../admin.php"><button>{$LNG.login}</button></a>
+				<a href="../index.php"><button>{$LNG.login}</button></a>
 			</p></div>
 		</div>
 	</td>

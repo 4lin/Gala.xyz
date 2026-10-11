@@ -18,6 +18,21 @@ $count = 0;
 try {
     $smarty = new template();
     $smarty->setCaching(Smarty::CACHING_OFF);
+    $smarty->addTemplateDir('styles/templates/install');
+    // A first installation has no database parameters in the URL.
+    $installerLabels = array();
+    foreach (array('step1_head','step1_desc','step1_mysql_server','step1_mysql_port','step1_mysql_dbuser','step1_mysql_dbpass','step1_mysql_dbname','step1_mysql_prefix','continue') as $key) $installerLabels[$key] = $key;
+    $smarty->assign_vars(array('LNG'=>$installerLabels, 'lang'=>'en', 'title'=>'Installation', 'header'=>'Installation', 'scripts'=>array(), 'execscript'=>''));
+    foreach (array('host','port','user','dbname','prefix') as $key) unset($_GET[$key]);
+    $installerForm = $smarty->fetch('install/ins_form.tpl');
+    if (strpos($installerForm, 'value="localhost"') === false || strpos($installerForm, 'value="3306"') === false) {
+        throw new Exception('Fresh installer connection defaults failed');
+    }
+    $_GET['host'] = '<script>fixture</script>';
+    if (strpos($smarty->fetch('install/ins_form.tpl'), 'value="&lt;script&gt;fixture&lt;/script&gt;"') === false) {
+        throw new Exception('Installer connection parameters were not escaped');
+    }
+    unset($_GET['host']);
     $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator('styles/templates'));
     foreach ($iterator as $file) {
         if (!$file->isFile() || substr($file->getFilename(), -4) !== '.tpl') continue;

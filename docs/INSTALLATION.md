@@ -8,6 +8,8 @@ GitHub Pages cannot run the PHP game or database. Its role is the static project
 
 ## Fresh installation
 
+Use v0.6.1 or later: v0.6.0 has a first-installation database form error. See [fresh installation test findings](INSTALLATION-TEST.md).
+
 1. Extract the source package and use `download/` as the game document root. Use a separate directory and an empty database for a fresh installation.
 2. Create a database and a dedicated database user. Do not import a live game's database or reuse published example credentials.
 3. Confirm that `includes/config.php` does not exist. The distribution includes an empty `includes/FIRST_INSTALL` marker. The installer consumes this marker and temporarily creates `includes/ENABLE_INSTALL_TOOL`.
